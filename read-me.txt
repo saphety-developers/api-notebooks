@@ -40,6 +40,8 @@
 	This command will build our books, creating a new folder "_build" on your selected folder
 	
 #Commit to GitHub - command
+> D:
+> cd Git\api-notebooks
 > git push github master
 
 #Build
