@@ -1,107 +1,22 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # PdfAsyncRequest
-# ## Send invoices to integrated costumers
-# Use this service in the following case:
-# 
-# * Sign your PDF invoice and sent it via email to yours customers
-# 
-# ### Service steps
-# 1. Get a token from your SIN credentials by calling the service **_Account/getToken_**
-# 2. Send your invoice calling the **asynchronous** service **_PdfAsyncRequest/processDocument_**; the legal invoice format (CIUS-PT) is sent in the payload
-# 3. Check to success of your request using the received *request id* at **_PdfAsyncRequest/{RequestId}_**
-# 4. Once the request has finished successfully you get back a *document id*; check the invoice integration status on your customer at service **_OutboundFinancialDocument_/{DocumentId}**
-# 
-
-# ### Services considerations
-# All services can be consulted using the Open API Specification (OAS3):  
-# [API specification](https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html) at https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html
-
-# #### Asynchrounous
-# The service **_PdfAsyncRequest/processDocument_** is an asynchrounous service. An invoice can take a few seconds to process (sign, send to your costumer).  
-# Since this is an integration API thousands of requests can be requested at the same time. For each request you receive immediatly a request id. Use it to query the request status.
-
-# #### Response structure from server
-# When a request is well formed and the authentication data is correct the system responds with a message envelope as follows: 
-# 
-# ```Javascript
-# {
-# 	"CorrelationId": "<GUID>", /* for correlation purposes */
-# 	"IsValid": true,           /* false in case of erros */
-# 	"Errors": [],              /* if empty is a good signal */
-# 	"Data": "<Service Response Data>"   /* the data retuned ex: token, invoice status, dependent on the service called */
-# }
-# ```
-
-# ## Get a token (Account/getToken)
-# You have been given credentials when registering in SIN.  
-# Use those credentials to get a token at.
-# ```
-# https://<ServerBaseAddress>/api/Account/getToken
-# ```
-
-# In[1]:
-
-
-# Integration environment
-server_base_adress = "dcn-solution-int.saphety.com/Dcn.Business.WebApi"
-# Quality environment
-#server_base_adress = "dcn-solution-qa.saphety.com/Dcn.Business.WebApi"
-# Production environemnt
-#server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi"
-
-
-# In[2]:
-
-
-import requests
-import json
-
-# SIN account service url
-service_url = "https://" + server_base_adress + "/api/Account/getToken"
-
-# the username and password you registerd in SIN
-username = 'sin_api_documentation_user@saphety.com'
-password = 'request_password'
-
-# auhtentication data goes in payload as json
-payload = {
-      'Username': username,
-      'Password': password
-}
-# payload goes in json, serialize the payloal object to json
-request_data=json.dumps(payload)
-# indicate in header that payload is json
-headers = {
-    'content-type': 'application/json'
-    }
-# POST request to get a token
-response = requests.request("POST", service_url, data=request_data, headers=headers)
-
-
-# In[3]:
-
-
-# formating the response to json for visualization purposes only
-json_response = json.loads(response.text)
-print(json.dumps(json_response, indent=4))
-
-
-# In[4]:
-
-
-# your token is at:
-token = json_response["Data"];
-print (token)
-
-
-# ## Send invoice request (PdfAsyncRequest/processDocument)
-# No that you have token you can send an invoice
-
-# In[5]:
-
-
+Traceback (most recent call last):
+  File "c:\users\user01\anaconda3\envs\api-notebooks\lib\site-packages\jupyter_cache\executors\utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "c:\users\user01\anaconda3\envs\api-notebooks\lib\site-packages\nbclient\client.py", line 1087, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "c:\users\user01\anaconda3\envs\api-notebooks\lib\site-packages\nbclient\util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "c:\users\user01\anaconda3\envs\api-notebooks\lib\site-packages\nbclient\util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "c:\users\user01\anaconda3\envs\api-notebooks\lib\asyncio\base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "c:\users\user01\anaconda3\envs\api-notebooks\lib\site-packages\nbclient\client.py", line 541, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "c:\users\user01\anaconda3\envs\api-notebooks\lib\site-packages\nbclient\client.py", line 832, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "c:\users\user01\anaconda3\envs\api-notebooks\lib\site-packages\nbclient\client.py", line 740, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
 
 service_url = """{ServerBaseUrl}/api/PdfAsyncRequest/processDocument""".format(
     ServerBaseUrl=server_base_adress
@@ -141,12 +56,17 @@ request_data=json.dumps(payload, indent=4)
 response = requests.request("POST", service_url, data=request_data, headers=headers)
 print (response.text)
 
+------------------
 
-# In[55]:
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mTypeError[0m                                 Traceback (most recent call last)
+[1;32m<ipython-input-5-070566fa7c1d>[0m in [0;36m<module>[1;34m[0m
+[0;32m      8[0m headers = {
+[0;32m      9[0m     [1;34m'Content-Type'[0m[1;33m:[0m [1;34m'application/json'[0m[1;33m,[0m[1;33m[0m[1;33m[0m[0m
+[1;32m---> 10[1;33m     [1;34m'Authorization'[0m[1;33m:[0m [1;34m'bearer '[0m [1;33m+[0m [0mtoken[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m     11[0m     }
+[0;32m     12[0m [1;31m# payload as json[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
 
-
-# formating the response to json for visualization purposes only
-print(response)
-#json_response = json.loads(response.text)
-#print(json.dumps(json_response, indent=4))
+[1;31mTypeError[0m: can only concatenate str (not "NoneType") to str
+TypeError: can only concatenate str (not "NoneType") to str
 

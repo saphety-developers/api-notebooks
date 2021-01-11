@@ -64,8 +64,8 @@ import json
 service_url = "https://" + server_base_adress + "/api/Account/getToken"
 
 # the username and password you registerd in SIN
-username = 'jorge@saphety.com'
-password = 'saphety123.'
+username = 'sin_api_documentation_user@saphety.com'
+password = 'request_password'
 
 # auhtentication data goes in payload as json
 payload = {
@@ -146,7 +146,7 @@ body_cius_pt = """<?xml version="1.0" encoding="utf-8"?>
 <ubl:Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" 
 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
   <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:feap.gov.pt:CIUS-PT:2.0.0</cbc:CustomizationID>
-  <cbc:ID>INVOICE-06-01-002</cbc:ID>
+  <cbc:ID>INVOICE-API-DOC-001</cbc:ID>
   <cbc:IssueDate>2020-12-31</cbc:IssueDate>
   <cbc:DueDate>2019-01-28</cbc:DueDate>
   <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
@@ -156,7 +156,7 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
   </cac:OrderReference>
   <cac:AccountingSupplierParty>
     <cac:Party>
-      <cbc:EndpointID schemeID="EM">wolox67586@1heizi.com</cbc:EndpointID>
+      <cbc:EndpointID schemeID="EM">sin_api_documentation_user@saphety.com</cbc:EndpointID>
       <cac:PartyIdentification>
         <cbc:ID schemeID="0001">PT507957547</cbc:ID>
       </cac:PartyIdentification>
@@ -190,40 +190,37 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
   <cac:AccountingCustomerParty>
     <cac:Party>
       <cac:PartyIdentification>
-        <cbc:ID schemeID="0001">PT500960046</cbc:ID>
-      </cac:PartyIdentification>
-      <cac:PartyIdentification>
-        <cbc:ID schemeID="0088">9800000000083</cbc:ID>
+        <cbc:ID schemeID="0001">PT507641230</cbc:ID>
       </cac:PartyIdentification>
       <cac:PartyName>
-        <cbc:Name>CAIXA GERAL DE DEPOSITOS S.A.</cbc:Name>
+        <cbc:Name>FIREFLY - INFORMÁTICA E INTEGRAÇÃO</cbc:Name>
       </cac:PartyName>
       <cac:PostalAddress>
-        <cbc:StreetName>Avenida João XXI, 63</cbc:StreetName>
-        <cbc:PostalZone>1000-300</cbc:PostalZone>
+        <cbc:StreetName>Alam. Bonifácio Lázaro Lozano Nr. 13 Piso 0 B</cbc:StreetName>
+        <cbc:PostalZone>2780-125</cbc:PostalZone>
         <cbc:CountrySubentity>PT</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode listID="ISO3166-1">PT</cbc:IdentificationCode>
         </cac:Country>
       </cac:PostalAddress>
       <cac:PartyTaxScheme>
-        <cbc:CompanyID>PT500960046</cbc:CompanyID>
+        <cbc:CompanyID>PT507641230</cbc:CompanyID>
         <cac:TaxScheme>
           <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
       </cac:PartyTaxScheme>
       <cac:PartyLegalEntity>
-        <cbc:RegistrationName>CAIXA GERAL DE DEPOSITOS S.A.</cbc:RegistrationName>
+        <cbc:RegistrationName>FIREFLY - INFORMÁTICA E INTEGRAÇÃO</cbc:RegistrationName>
       </cac:PartyLegalEntity>
     </cac:Party>
   </cac:AccountingCustomerParty>
   <cac:Delivery>
     <cac:DeliveryLocation>
-      <cbc:ID schemeID="0088">9800000000083</cbc:ID>
+      <cbc:ID schemeID="0001">PT507641230</cbc:ID>
       <cac:Address>
-        <cbc:StreetName>Avenida João XXI, 63</cbc:StreetName>
-		<cbc:CityName>Lisboa</cbc:CityName>
-        <cbc:PostalZone>1000-300</cbc:PostalZone>
+        <cbc:StreetName>Alam. Bonifácio Lázaro Lozano Nr. 13 Piso 0 B</cbc:StreetName>
+        <cbc:CityName>Oeiras</cbc:CityName>
+        <cbc:PostalZone>2780-125</cbc:PostalZone>
         <cbc:CountrySubentity>PT</cbc:CountrySubentity>
         <cac:Country>
           <cbc:IdentificationCode listID="ISO3166-1">PT</cbc:IdentificationCode>
@@ -232,7 +229,7 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
     </cac:DeliveryLocation>
     <cac:DeliveryParty>
       <cac:PartyName>
-        <cbc:Name>CAIXA GERAL DE DEPOSITOS S.A.</cbc:Name>
+        <cbc:Name>FIREFLY - INFORMÁTICA E INTEGRAÇÃO</cbc:Name>
       </cac:PartyName>
     </cac:DeliveryParty>
   </cac:Delivery>
@@ -333,7 +330,7 @@ print (service_url)
 
 # ### Call service and get back the outbound document id
 
-# In[11]:
+# In[13]:
 
 
 # build the request
@@ -346,7 +343,7 @@ response = requests.request("GET", service_url, headers=headers)
 json_response = json.loads(response.text)
 
 
-# In[12]:
+# In[14]:
 
 
 # Your status:
