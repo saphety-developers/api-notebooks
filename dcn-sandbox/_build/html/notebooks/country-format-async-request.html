@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CountryFormatAsyncRequest &#8212; DCN - SandBox</title>
+    <title>CountryFormatAsyncRequest &#8212; API documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="PdfAsyncRequest" href="pdf-async-request.html" />
-    <link rel="prev" title="Introdução" href="../markdowns/introduction.html" />
+    <link rel="prev" title="API Basics" href="../markdowns/api-basics.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -74,10 +74,10 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="../_static/logo.png" class="logo" alt="logo">
+  <img src="../_static/saphety_invoice_network_1.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">DCN - SandBox</h1>
+  <h1 class="site-logo" id="site-title">API documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -87,12 +87,17 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../markdowns/introduction.html">
-   Introdução
+  <a class="reference internal" href="../markdowns/home.html">
+   Overview
   </a>
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdowns/api-basics.html">
+   API Basics
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    CountryFormatAsyncRequest
@@ -371,8 +376,8 @@ Use those credentials to get a token at.</p>
 <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Account/getToken&quot;</span>
 
 <span class="c1"># the username and password you registerd in SIN</span>
-<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;jorge@saphety.com&#39;</span>
-<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;saphety123.&#39;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;sin_api_documentation_user@saphety.com&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;request_password&#39;</span>
 
 <span class="c1"># auhtentication data goes in payload as json</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
@@ -401,10 +406,16 @@ Use those credentials to get a token at.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;776cc9ef-61d9-4e6a-ae68-098916770088&quot;,
-    &quot;IsValid&quot;: true,
-    &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb3JnZUBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiSm9yZ2UgVGVpeGVpcmEiLCJzeXN0ZW1fYWRtaW4iOiJUcnVlIiwic2Vzc2lvbl9pZCI6Ijk2NTg2Yzk4LTc4M2ItNGRmYS1hZGZjLTE0MWYyNjBhZDc3YyIsInJsIjoiQWRtaW5pc3RyYXRvciIsImNwIjoiUFQ1MDA5MDU0NzkiLCJuYmYiOjE2MTAxMjc1NDQsImV4cCI6MTYxNjEyNzQ4NCwiaWF0IjoxNjEwMTI3NDg0LCJpc3MiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS8iLCJhdWQiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS9EY25TZXJ2ZXIifQ.Fz8bXn8pEemsIQX4CAUuITmtxaQ_jnFvi31GYh554yM&quot;
+    &quot;CorrelationId&quot;: &quot;a61ac0bf-96e3-4651-83ba-18e2a2c54a21&quot;,
+    &quot;IsValid&quot;: false,
+    &quot;Errors&quot;: [
+        {
+            &quot;Code&quot;: &quot;INVALID_AUTHENTICATION_DATA&quot;,
+            &quot;Field&quot;: &quot;Username&quot;,
+            &quot;Values&quot;: []
+        }
+    ],
+    &quot;Data&quot;: null
 }
 </pre></div>
 </div>
@@ -419,7 +430,7 @@ Use those credentials to get a token at.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJqb3JnZUBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiSm9yZ2UgVGVpeGVpcmEiLCJzeXN0ZW1fYWRtaW4iOiJUcnVlIiwic2Vzc2lvbl9pZCI6Ijk2NTg2Yzk4LTc4M2ItNGRmYS1hZGZjLTE0MWYyNjBhZDc3YyIsInJsIjoiQWRtaW5pc3RyYXRvciIsImNwIjoiUFQ1MDA5MDU0NzkiLCJuYmYiOjE2MTAxMjc1NDQsImV4cCI6MTYxNjEyNzQ4NCwiaWF0IjoxNjEwMTI3NDg0LCJpc3MiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS8iLCJhdWQiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS9EY25TZXJ2ZXIifQ.Fz8bXn8pEemsIQX4CAUuITmtxaQ_jnFvi31GYh554yM
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
 </pre></div>
 </div>
 </div>
@@ -483,7 +494,7 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 <span class="s2">&lt;ubl:Invoice xmlns:cac=&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2&quot; </span>
 <span class="s2">xmlns:cbc=&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2&quot; xmlns:ubl=&quot;urn:oasis:names:specification:ubl:schema:xsd:Invoice-2&quot;&gt;</span>
 <span class="s2">  &lt;cbc:CustomizationID&gt;urn:cen.eu:en16931:2017#compliant#urn:feap.gov.pt:CIUS-PT:2.0.0&lt;/cbc:CustomizationID&gt;</span>
-<span class="s2">  &lt;cbc:ID&gt;INVOICE-06-01-002&lt;/cbc:ID&gt;</span>
+<span class="s2">  &lt;cbc:ID&gt;INVOICE-API-DOC-001&lt;/cbc:ID&gt;</span>
 <span class="s2">  &lt;cbc:IssueDate&gt;2020-12-31&lt;/cbc:IssueDate&gt;</span>
 <span class="s2">  &lt;cbc:DueDate&gt;2019-01-28&lt;/cbc:DueDate&gt;</span>
 <span class="s2">  &lt;cbc:InvoiceTypeCode&gt;380&lt;/cbc:InvoiceTypeCode&gt;</span>
@@ -493,7 +504,7 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 <span class="s2">  &lt;/cac:OrderReference&gt;</span>
 <span class="s2">  &lt;cac:AccountingSupplierParty&gt;</span>
 <span class="s2">    &lt;cac:Party&gt;</span>
-<span class="s2">      &lt;cbc:EndpointID schemeID=&quot;EM&quot;&gt;wolox67586@1heizi.com&lt;/cbc:EndpointID&gt;</span>
+<span class="s2">      &lt;cbc:EndpointID schemeID=&quot;EM&quot;&gt;sin_api_documentation_user@saphety.com&lt;/cbc:EndpointID&gt;</span>
 <span class="s2">      &lt;cac:PartyIdentification&gt;</span>
 <span class="s2">        &lt;cbc:ID schemeID=&quot;0001&quot;&gt;PT507957547&lt;/cbc:ID&gt;</span>
 <span class="s2">      &lt;/cac:PartyIdentification&gt;</span>
@@ -527,40 +538,37 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 <span class="s2">  &lt;cac:AccountingCustomerParty&gt;</span>
 <span class="s2">    &lt;cac:Party&gt;</span>
 <span class="s2">      &lt;cac:PartyIdentification&gt;</span>
-<span class="s2">        &lt;cbc:ID schemeID=&quot;0001&quot;&gt;PT500960046&lt;/cbc:ID&gt;</span>
-<span class="s2">      &lt;/cac:PartyIdentification&gt;</span>
-<span class="s2">      &lt;cac:PartyIdentification&gt;</span>
-<span class="s2">        &lt;cbc:ID schemeID=&quot;0088&quot;&gt;9800000000083&lt;/cbc:ID&gt;</span>
+<span class="s2">        &lt;cbc:ID schemeID=&quot;0001&quot;&gt;PT507641230&lt;/cbc:ID&gt;</span>
 <span class="s2">      &lt;/cac:PartyIdentification&gt;</span>
 <span class="s2">      &lt;cac:PartyName&gt;</span>
-<span class="s2">        &lt;cbc:Name&gt;CAIXA GERAL DE DEPOSITOS S.A.&lt;/cbc:Name&gt;</span>
+<span class="s2">        &lt;cbc:Name&gt;FIREFLY - INFORMÁTICA E INTEGRAÇÃO&lt;/cbc:Name&gt;</span>
 <span class="s2">      &lt;/cac:PartyName&gt;</span>
 <span class="s2">      &lt;cac:PostalAddress&gt;</span>
-<span class="s2">        &lt;cbc:StreetName&gt;Avenida João XXI, 63&lt;/cbc:StreetName&gt;</span>
-<span class="s2">        &lt;cbc:PostalZone&gt;1000-300&lt;/cbc:PostalZone&gt;</span>
+<span class="s2">        &lt;cbc:StreetName&gt;Alam. Bonifácio Lázaro Lozano Nr. 13 Piso 0 B&lt;/cbc:StreetName&gt;</span>
+<span class="s2">        &lt;cbc:PostalZone&gt;2780-125&lt;/cbc:PostalZone&gt;</span>
 <span class="s2">        &lt;cbc:CountrySubentity&gt;PT&lt;/cbc:CountrySubentity&gt;</span>
 <span class="s2">        &lt;cac:Country&gt;</span>
 <span class="s2">          &lt;cbc:IdentificationCode listID=&quot;ISO3166-1&quot;&gt;PT&lt;/cbc:IdentificationCode&gt;</span>
 <span class="s2">        &lt;/cac:Country&gt;</span>
 <span class="s2">      &lt;/cac:PostalAddress&gt;</span>
 <span class="s2">      &lt;cac:PartyTaxScheme&gt;</span>
-<span class="s2">        &lt;cbc:CompanyID&gt;PT500960046&lt;/cbc:CompanyID&gt;</span>
+<span class="s2">        &lt;cbc:CompanyID&gt;PT507641230&lt;/cbc:CompanyID&gt;</span>
 <span class="s2">        &lt;cac:TaxScheme&gt;</span>
 <span class="s2">          &lt;cbc:ID&gt;VAT&lt;/cbc:ID&gt;</span>
 <span class="s2">        &lt;/cac:TaxScheme&gt;</span>
 <span class="s2">      &lt;/cac:PartyTaxScheme&gt;</span>
 <span class="s2">      &lt;cac:PartyLegalEntity&gt;</span>
-<span class="s2">        &lt;cbc:RegistrationName&gt;CAIXA GERAL DE DEPOSITOS S.A.&lt;/cbc:RegistrationName&gt;</span>
+<span class="s2">        &lt;cbc:RegistrationName&gt;FIREFLY - INFORMÁTICA E INTEGRAÇÃO&lt;/cbc:RegistrationName&gt;</span>
 <span class="s2">      &lt;/cac:PartyLegalEntity&gt;</span>
 <span class="s2">    &lt;/cac:Party&gt;</span>
 <span class="s2">  &lt;/cac:AccountingCustomerParty&gt;</span>
 <span class="s2">  &lt;cac:Delivery&gt;</span>
 <span class="s2">    &lt;cac:DeliveryLocation&gt;</span>
-<span class="s2">      &lt;cbc:ID schemeID=&quot;0088&quot;&gt;9800000000083&lt;/cbc:ID&gt;</span>
+<span class="s2">      &lt;cbc:ID schemeID=&quot;0001&quot;&gt;PT507641230&lt;/cbc:ID&gt;</span>
 <span class="s2">      &lt;cac:Address&gt;</span>
-<span class="s2">        &lt;cbc:StreetName&gt;Avenida João XXI, 63&lt;/cbc:StreetName&gt;</span>
-<span class="s2">		&lt;cbc:CityName&gt;Lisboa&lt;/cbc:CityName&gt;</span>
-<span class="s2">        &lt;cbc:PostalZone&gt;1000-300&lt;/cbc:PostalZone&gt;</span>
+<span class="s2">        &lt;cbc:StreetName&gt;Alam. Bonifácio Lázaro Lozano Nr. 13 Piso 0 B&lt;/cbc:StreetName&gt;</span>
+<span class="s2">        &lt;cbc:CityName&gt;Oeiras&lt;/cbc:CityName&gt;</span>
+<span class="s2">        &lt;cbc:PostalZone&gt;2780-125&lt;/cbc:PostalZone&gt;</span>
 <span class="s2">        &lt;cbc:CountrySubentity&gt;PT&lt;/cbc:CountrySubentity&gt;</span>
 <span class="s2">        &lt;cac:Country&gt;</span>
 <span class="s2">          &lt;cbc:IdentificationCode listID=&quot;ISO3166-1&quot;&gt;PT&lt;/cbc:IdentificationCode&gt;</span>
@@ -569,7 +577,7 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 <span class="s2">    &lt;/cac:DeliveryLocation&gt;</span>
 <span class="s2">    &lt;cac:DeliveryParty&gt;</span>
 <span class="s2">      &lt;cac:PartyName&gt;</span>
-<span class="s2">        &lt;cbc:Name&gt;CAIXA GERAL DE DEPOSITOS S.A.&lt;/cbc:Name&gt;</span>
+<span class="s2">        &lt;cbc:Name&gt;FIREFLY - INFORMÁTICA E INTEGRAÇÃO&lt;/cbc:Name&gt;</span>
 <span class="s2">      &lt;/cac:PartyName&gt;</span>
 <span class="s2">    &lt;/cac:DeliveryParty&gt;</span>
 <span class="s2">  &lt;/cac:Delivery&gt;</span>
@@ -632,6 +640,20 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mf">37e25</span><span class="n">d55f3e4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/xml&#39;</span><span class="p">,</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="p">}</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># POST request to send the invoice</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;NoneType&quot;) to str
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -643,10 +665,10 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;934edae3-cb73-407b-99dd-154dc37fedbb&quot;,
+    &quot;CorrelationId&quot;: &quot;088c63f4-d953-46fb-bc62-d28fba629ea2&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;3472f913-f7a0-4fed-9392-1ec35d2f3d21&quot;
+    &quot;Data&quot;: &quot;d52b31c9-9e24-445c-81fc-041c0b779168&quot;
 }
 </pre></div>
 </div>
@@ -661,7 +683,7 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3472f913-f7a0-4fed-9392-1ec35d2f3d21
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d52b31c9-9e24-445c-81fc-041c0b779168
 </pre></div>
 </div>
 </div>
@@ -691,7 +713,7 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/CountryFormatAsyncRequest/3472f913-f7a0-4fed-9392-1ec35d2f3d21
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/CountryFormatAsyncRequest/d52b31c9-9e24-445c-81fc-041c0b779168
 </pre></div>
 </div>
 </div>
@@ -742,13 +764,14 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your request is runnig check the status again in a few seconds...
-Your request status: Running
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your request has finished with the following errors:
+[{&#39;Code&#39;: &#39;DOCUMENT_ALREADY_EXISTS&#39;, &#39;Field&#39;: &#39;CheckDocumentExistance&#39;, &#39;Values&#39;: [&#39;The document &lt;INVOICE-06-01-002&gt; already exists.&#39;, &#39;PT507957547&#39;, &#39;INVOICE-06-01-002&#39;, &#39;31/12/2020&#39;, &#39;INVOICE&#39;]}]
+Correct the errros and sublit the document again
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">10</span><span class="n">c48290fac8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">10</span><span class="n">c48290fac8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">21</span> 
 <span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1">#print(json_response[&quot;Data&quot;][&quot;ErrorList&quot;])</span>
 <span class="ne">---&gt; </span><span class="mi">23</span> <span class="nb">print</span><span class="p">(</span><span class="n">outbound_financial_document_id</span><span class="p">)</span>
@@ -861,7 +884,7 @@ Received: Your invoice has been received by your costummer.
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../markdowns/introduction.html" title="previous page">Introdução</a>
+    <a class='left-prev' id="prev-link" href="../markdowns/api-basics.html" title="previous page">API Basics</a>
     <a class='right-next' id="next-link" href="pdf-async-request.html" title="next page">PdfAsyncRequest</a>
 
     </div>

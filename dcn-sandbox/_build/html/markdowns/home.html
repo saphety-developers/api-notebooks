@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introdução &#8212; DCN - SandBox</title>
+    <title>Overview &#8212; API documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,7 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CountryFormatAsyncRequest" href="../notebooks/country-format-async-request.html" />
+    <link rel="next" title="API Basics" href="api-basics.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -73,10 +73,10 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="../_static/logo.png" class="logo" alt="logo">
+  <img src="../_static/saphety_invoice_network_1.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">DCN - SandBox</h1>
+  <h1 class="site-logo" id="site-title">API documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -87,11 +87,16 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="reference internal" href="#">
-   Introdução
+   Overview
   </a>
  </li>
 </ul>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api-basics.html">
+   API Basics
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../notebooks/country-format-async-request.html">
    CountryFormatAsyncRequest
@@ -142,7 +147,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/markdowns/introduction.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/markdowns/home.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -162,7 +167,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fmarkdowns/introduction.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fmarkdowns/home.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -183,6 +188,20 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#audience">
+   Audience
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -190,14 +209,16 @@
         
               <div>
                 
-  <div class="section" id="introducao">
-<h1>Introdução<a class="headerlink" href="#introducao" title="Permalink to this headline">¶</a></h1>
-<p>Primeiro notebook criado para a Saphety! <a class="reference internal" href="#saphety-place-figure"><span class="std std-numref">Fig. 1</span></a> é as instalações da empresa criada a 19 de dezembro de 2000.</p>
-<div class="figure align-default" id="saphety-place-figure">
-<a class="reference internal image-reference" href="https://media.glassdoor.com/l/eb/e1/9b/19/saphety.jpg"><img alt="https://media.glassdoor.com/l/eb/e1/9b/19/saphety.jpg" src="https://media.glassdoor.com/l/eb/e1/9b/19/saphety.jpg" style="height: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Instalações da Saphety.</span><a class="headerlink" href="#saphety-place-figure" title="Permalink to this image">¶</a></p>
-</div>
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>Issuing invoices according to all legal requirements and garanteing it’s delivery to costumers is something that should be done using each company’s billing system.<br />
+This document is a technical guide how to implement an integration between any software and <strong>Saphety Invoice Netork</strong> (<strong>SIN</strong>) <strong>API</strong>, thus bringing the power os SIN directly into your billing system.</p>
+<div class="section" id="audience">
+<h2>Audience<a class="headerlink" href="#audience" title="Permalink to this headline">¶</a></h2>
+<p>This document is intend for <strong>developers</strong> that want to automate issuing invoices from any system using SIN API.
+After reading this book you should be able to fully automate any system integration with SIN.</p>
 <div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
@@ -229,7 +250,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="../notebooks/country-format-async-request.html" title="next page">CountryFormatAsyncRequest</a>
+    <a class='right-next' id="next-link" href="api-basics.html" title="next page">API Basics</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
