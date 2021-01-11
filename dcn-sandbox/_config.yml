@@ -1,9 +1,9 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: DCN - SandBox
+title: API documentation
 author: Saphety
-logo: images/logo.png
+logo: images/saphety_invoice_network_1.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

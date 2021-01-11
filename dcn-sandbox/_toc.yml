@@ -1,4 +1,5 @@
-- file: markdowns/introduction
+- file: markdowns/home
+- file: markdowns/api-basics
 
 - file: notebooks/country-format-async-request
 - file: notebooks/pdf-async-request
