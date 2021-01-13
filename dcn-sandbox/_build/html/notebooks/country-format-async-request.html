@@ -278,8 +278,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#call-service-and-get-back-the-outbound-document-id">
-     Call service and get back the outbound document id
+    <a class="reference internal nav-link" href="#check-your-request-status">
+     Check your request status
     </a>
    </li>
   </ul>
@@ -341,7 +341,7 @@ This service should be used in the following cases:</p>
 <div class="section" id="asynchrounous">
 <h4>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">¶</a></h4>
 <p>The service <strong><em>CountryFormatAsyncRequest/processDocument</em></strong> is an asynchrounous service. An invoice can take a few seconds to process (validate, sign, send to your costumer).<br />
-Since this is an integration API thousands of requests can be requested at the same time. For each request you receive immediatly a request id. Use it to query the request status.</p>
+Since this is an integration API thousands of requests can be sent at the same time. For each request you receive immediatly a request id. Use it to query the request status.</p>
 </div>
 <div class="section" id="response-structure-from-server">
 <h4>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this headline">¶</a></h4>
@@ -415,10 +415,10 @@ Use those credentials to get a token at.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;daa05778-d78a-4c73-a405-7f94bfcc4779&quot;,
+    &quot;CorrelationId&quot;: &quot;12b75a7d-4bc2-4957-9eef-9e8222892909&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNWEzZjlhNzEtODBlMi00NTRhLWI2ZDAtYzU0YjY5NjBkYTBlIiwicmwiOlsiQ29tcGFueUFkbWluaXN0cmF0b3IiLCJDb21wYW55VXNlciJdLCJjcCI6IlBUNTA3OTU3NTQ3IiwibmJmIjoxNjEwNTMwMDE2LCJleHAiOjE2MTY1Mjk5NTYsImlhdCI6MTYxMDUyOTk1NiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2VydmVyIn0.UESA15AL6Iduflb3PyGtWtNFLQsqtKMWtipBkeD4JUM&quot;
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNWM5YmQwODYtZDM5MS00YWQ0LThhMzQtMjlhYmYxNGMyMjk1IiwicmwiOlsiQ29tcGFueUFkbWluaXN0cmF0b3IiLCJDb21wYW55VXNlciJdLCJjcCI6IlBUNTA3OTU3NTQ3IiwibmJmIjoxNjEwNTMwODA4LCJleHAiOjE2MTY1MzA3NDgsImlhdCI6MTYxMDUzMDc0OCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2VydmVyIn0.y4cb8b0SdM_FALsXdYV7vAmv9PjZ9RYDsI_sLR0BPBI&quot;
 }
 </pre></div>
 </div>
@@ -433,7 +433,7 @@ Use those credentials to get a token at.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNWEzZjlhNzEtODBlMi00NTRhLWI2ZDAtYzU0YjY5NjBkYTBlIiwicmwiOlsiQ29tcGFueUFkbWluaXN0cmF0b3IiLCJDb21wYW55VXNlciJdLCJjcCI6IlBUNTA3OTU3NTQ3IiwibmJmIjoxNjEwNTMwMDE2LCJleHAiOjE2MTY1Mjk5NTYsImlhdCI6MTYxMDUyOTk1NiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2VydmVyIn0.UESA15AL6Iduflb3PyGtWtNFLQsqtKMWtipBkeD4JUM
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNWM5YmQwODYtZDM5MS00YWQ0LThhMzQtMjlhYmYxNGMyMjk1IiwicmwiOlsiQ29tcGFueUFkbWluaXN0cmF0b3IiLCJDb21wYW55VXNlciJdLCJjcCI6IlBUNTA3OTU3NTQ3IiwibmJmIjoxNjEwNTMwODA4LCJleHAiOjE2MTY1MzA3NDgsImlhdCI6MTYxMDUzMDc0OCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2VydmVyIn0.y4cb8b0SdM_FALsXdYV7vAmv9PjZ9RYDsI_sLR0BPBI
 </pre></div>
 </div>
 </div>
@@ -654,10 +654,10 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;b0fc0d91-e5db-48cf-8beb-8b5da85a2799&quot;,
+    &quot;CorrelationId&quot;: &quot;8302d00d-fc55-4d3c-96a9-c779963afc3e&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;9dde334d-5a2c-4c1b-b7d1-49f35dbb57a2&quot;
+    &quot;Data&quot;: &quot;776483ba-691d-4b16-9591-d77e38a04920&quot;
 }
 </pre></div>
 </div>
@@ -667,12 +667,12 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your request id is at:</span>
 <span class="n">request_id</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">request_id</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;The request id to query on service status: &#39;</span> <span class="o">+</span> <span class="n">request_id</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9dde334d-5a2c-4c1b-b7d1-49f35dbb57a2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The request id to query on service status: 776483ba-691d-4b16-9591-d77e38a04920
 </pre></div>
 </div>
 </div>
@@ -702,14 +702,14 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/CountryFormatAsyncRequest/9dde334d-5a2c-4c1b-b7d1-49f35dbb57a2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/CountryFormatAsyncRequest/776483ba-691d-4b16-9591-d77e38a04920
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="call-service-and-get-back-the-outbound-document-id">
-<h3>Call service and get back the outbound document id<a class="headerlink" href="#call-service-and-get-back-the-outbound-document-id" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="check-your-request-status">
+<h3>Check your request status<a class="headerlink" href="#check-your-request-status" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -768,7 +768,7 @@ Your is not finished yet: Running
 </div>
 <div class="section" id="check-the-invoice-integration-status-outboundfinancialdocument-documentid">
 <h2>Check the invoice integration status (OutboundFinancialDocument/{DocumentId})<a class="headerlink" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid" title="Permalink to this headline">¶</a></h2>
-<p>With the received outbound finantial docuemnt id you can query at any time the system for docuemnt status and integration status</p>
+<p>With the received outbound finantial document id you can query the system for document integration status</p>
 <div class="section" id="id2">
 <h3>Bulild the service endpoint url<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>In the service url you need to supply the outbfinancialdocument received</p>
@@ -778,7 +778,7 @@ Your is not finished yet: Running
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">outbound_financial_document_id</span><span class="p">:</span>
-     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your do not have a valid docuemnt id. Make sure the service CountryFormatAsyncRequest finished successfully last known status: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">)</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your do not have a valid document id. Make sure the service CountryFormatAsyncRequest finished successfully last known status: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
     <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/OutboundFinancialDocument/</span><span class="si">{OutboundFinancialDocumentId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -791,7 +791,7 @@ Your is not finished yet: Running
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your do not have a valid docuemnt id. Make sure the service CountryFormatAsyncRequest finished successfully last known status: Running
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your do not have a valid document id. Make sure the service CountryFormatAsyncRequest finished successfully last known status: Running
 </pre></div>
 </div>
 </div>
@@ -814,14 +814,13 @@ Your is not finished yet: Running
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integration_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;IntegrationStatus&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">integration_status</span><span class="p">)</span>
 
 <span class="c1">#integration status (Sent, Received,...)</span>
 
 <span class="k">if</span> <span class="n">integration_status</span> <span class="o">==</span> <span class="s2">&quot;Sent&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Sent: Your invoice has been sucessfully processed ans set to your costummer.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Sent: Your invoice has been sucessfully processed ans sent to your customer.&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">integration_status</span> <span class="o">==</span> <span class="s2">&quot;Received&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Received: Your invoice has been received by your costummer.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Received: Your invoice has been received by your customer.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your invoice integration status: &quot;</span> <span class="o">+</span> <span class="n">integration_status</span><span class="p">);</span>
 
@@ -832,19 +831,19 @@ Your is not finished yet: Running
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="n">d6780398c77f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mi">38</span><span class="n">afb2ca1ffc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">integration_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;IntegrationStatus&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">integration_status</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#integration status (Sent, Received,...)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#integration status (Sent, Received,...)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">if</span> <span class="n">integration_status</span> <span class="o">==</span> <span class="s2">&quot;Sent&quot;</span><span class="p">:</span>
 
 <span class="ne">KeyError</span>: &#39;IntegrationStatus&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<p><strong>Use the OutboundFinancialDocumentId for any future checks on the invoice sent.</strong></p>
+<p><strong>Use the OutboundFinancialDocumentId for any future checks on the invoice.</strong></p>
 </div>
 </div>
 </div>

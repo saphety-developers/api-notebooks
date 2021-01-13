@@ -32,7 +32,7 @@
 
 # #### Asynchrounous
 # The service **_CountryFormatAsyncRequest/processDocument_** is an asynchrounous service. An invoice can take a few seconds to process (validate, sign, send to your costumer).  
-# Since this is an integration API thousands of requests can be requested at the same time. For each request you receive immediatly a request id. Use it to query the request status.
+# Since this is an integration API thousands of requests can be sent at the same time. For each request you receive immediatly a request id. Use it to query the request status.
 
 # #### Response structure from server
 # When a request is well formed and the authentication data is correct the system responds with a message envelope as follows: 
@@ -313,7 +313,7 @@ print(json.dumps(json_response, indent=4))
 
 # your request id is at:
 request_id = json_response["Data"];
-print (request_id)
+print ('The request id to query on service status: ' + request_id)
 
 
 # ## Check to success of your request (CountryFormatAsyncRequest/{RequestId})
@@ -339,7 +339,7 @@ service_url = "https://" + service_url
 print (service_url)
 
 
-# ### Call service and get back the outbound document id
+# ### Check your request status
 
 # In[11]:
 
@@ -387,7 +387,7 @@ if request_status != "Finished" and request_status != "Error":
 
 
 # ## Check the invoice integration status (OutboundFinancialDocument/{DocumentId})
-# With the received outbound finantial docuemnt id you can query at any time the system for docuemnt status and integration status
+# With the received outbound finantial document id you can query the system for document integration status
 # 
 
 # ### Bulild the service endpoint url
@@ -401,7 +401,7 @@ if request_status != "Finished" and request_status != "Error":
 
 
 if not outbound_financial_document_id:
-     print("Your do not have a valid docuemnt id. Make sure the service CountryFormatAsyncRequest finished successfully last known status: " + request_status)
+     print("Your do not have a valid document id. Make sure the service CountryFormatAsyncRequest finished successfully last known status: " + request_status)
 else:
     # SIN service url for retrieving inforfation on invoice previously sent
     service_url = """{ServerBaseUrl}/api/OutboundFinancialDocument/{OutboundFinancialDocumentId}""".format(
@@ -430,18 +430,17 @@ json_response = json.loads(response.text)
 
 
 integration_status = json_response["Data"]["IntegrationStatus"]
-print(integration_status)
 
 #integration status (Sent, Received,...)
 
 if integration_status == "Sent":
-    print ("Sent: Your invoice has been sucessfully processed ans set to your costummer.")
+    print ("Sent: Your invoice has been sucessfully processed ans sent to your customer.")
 if integration_status == "Received":
-    print ("Received: Your invoice has been received by your costummer.")
+    print ("Received: Your invoice has been received by your customer.")
 else:
     print("Your invoice integration status: " + integration_status);
 
 #print(json.dumps(json_response, indent=4))
 
 
-# **Use the OutboundFinancialDocumentId for any future checks on the invoice sent.**
+# **Use the OutboundFinancialDocumentId for any future checks on the invoice.**

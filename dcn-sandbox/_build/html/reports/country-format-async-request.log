@@ -18,14 +18,13 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 integration_status = json_response["Data"]["IntegrationStatus"]
-print(integration_status)
 
 #integration status (Sent, Received,...)
 
 if integration_status == "Sent":
-    print ("Sent: Your invoice has been sucessfully processed ans set to your costummer.")
+    print ("Sent: Your invoice has been sucessfully processed ans sent to your customer.")
 if integration_status == "Received":
-    print ("Received: Your invoice has been received by your costummer.")
+    print ("Received: Your invoice has been received by your customer.")
 else:
     print("Your invoice integration status: " + integration_status);
 
@@ -34,12 +33,12 @@ else:
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mKeyError[0m                                  Traceback (most recent call last)
-[1;32m<ipython-input-15-d6780398c77f>[0m in [0;36m<module>[1;34m[0m
+[1;32m<ipython-input-15-38afb2ca1ffc>[0m in [0;36m<module>[1;34m[0m
 [1;32m----> 1[1;33m [0mintegration_status[0m [1;33m=[0m [0mjson_response[0m[1;33m[[0m[1;34m"Data"[0m[1;33m][0m[1;33m[[0m[1;34m"IntegrationStatus"[0m[1;33m][0m[1;33m[0m[1;33m[0m[0m
-[0m[0;32m      2[0m [0mprint[0m[1;33m([0m[0mintegration_status[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
-[0;32m      3[0m [1;33m[0m[0m
-[0;32m      4[0m [1;31m#integration status (Sent, Received,...)[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
-[0;32m      5[0m [1;33m[0m[0m
+[0m[0;32m      2[0m [1;33m[0m[0m
+[0;32m      3[0m [1;31m#integration status (Sent, Received,...)[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
+[0;32m      4[0m [1;33m[0m[0m
+[0;32m      5[0m [1;32mif[0m [0mintegration_status[0m [1;33m==[0m [1;34m"Sent"[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
 
 [1;31mKeyError[0m: 'IntegrationStatus'
 KeyError: 'IntegrationStatus'
