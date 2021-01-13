@@ -134,7 +134,7 @@ payload = {
 
 # ### Call service and get back the request id
 
-# In[6]:
+# In[16]:
 
 
 # Send the request (POST). The service return a request id
@@ -145,7 +145,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[7]:
+# In[6]:
 
 
 # your request id is at:
@@ -163,7 +163,7 @@ print (request_id)
 # https://<ServerBaseUrl>/PdfAsyncRequest/<RequestId>
 # ```
 
-# In[8]:
+# In[7]:
 
 
 # SIN service url for retrieving the status of a process
@@ -178,7 +178,7 @@ print (service_url)
 
 # ### Call service and get back the outbound document id
 
-# In[9]:
+# In[8]:
 
 
 # build the request
@@ -191,7 +191,7 @@ response = requests.request("GET", service_url, headers=headers)
 json_response = json.loads(response.text)
 
 
-# In[10]:
+# In[9]:
 
 
 # Your status:
