@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # PdfAsyncRequest
-# ## Send invoices to integrated costumers
+# # Send PDF invoices via email
 # Use this service in the following case:
 # 
 # * Sign your PDF invoice and sent it via email to yours customers
@@ -119,9 +118,9 @@ payload = {
       'IntlVatCode': 'PT507957547',
       'DocumentType': 'Invoice',
       'DocumentDate': '2021-01-11',
-      'DocumentNumber': password,
-      'ReceiverIntlVatCode': password,
-      'ReceiverName': password,
+      'DocumentNumber': 'INVOICE-API-DOC-PDF-0001',
+      'ReceiverIntlVatCode': 'PT507641230',
+      'ReceiverName': 'FIREFLY - INFORMÁTICA E INTEGRAÇÃO',
       'DocumentTotal': 10,
       'CurrencyCode': 'EUR',
       'DestinationEmails': [{
@@ -139,14 +138,86 @@ request_data=json.dumps(payload, indent=4)
 
 # POST request to get a token
 response = requests.request("POST", service_url, data=request_data, headers=headers)
-print (response.text)
-
-
-# In[55]:
-
 
 # formating the response to json for visualization purposes only
-print(response)
-#json_response = json.loads(response.text)
+json_response = json.loads(response.text)
+print(json.dumps(json_response, indent=4))
+
+
+# In[6]:
+
+
+# your request id is at:
+request_id = json_response["Data"];
+print (request_id)
+
+
+# ## Check to success of your request (PdfAsyncRequest/{RequestId})
+# Query the system using this *request id* in order to get the status (success or error) of your request
+
+# ### Bulild the service endpoint url
+# In the service url you need to supply the request id received
+# 
+# ```
+# https://<ServerBaseUrl>/PdfAsyncRequest/<RequestId>
+# ```
+
+# In[7]:
+
+
+# SIN service url for retrieving the status of a process
+
+service_url = """{ServerBaseUrl}/api/PdfAsyncRequest/{RequestId}""".format(
+    ServerBaseUrl=server_base_adress,
+    RequestId=request_id
+)
+service_url = "https://" + service_url
+print (service_url)
+
+
+# ### Call service and get back the outbound document id
+
+# In[8]:
+
+
+# build the request
+headers = {
+    'Authorization': 'bearer ' + token
+    }
+# POST request to send the invoice
+response = requests.request("GET", service_url, headers=headers)
+# formating the response to json for visualization purposes only
+json_response = json.loads(response.text)
+
+
+# In[9]:
+
+
+# Your status:
+status = json_response["Data"]
+outbound_financial_document_id = None
 #print(json.dumps(json_response, indent=4))
+
+#request status (Queued, Running, Error, Finished)
+request_status = json_response["Data"]["AsyncStatus"]
+
+if request_status == "Queued":
+    print ("Your request in queue to be processed check the status again in a few seconds...")
+if request_status == "Running":
+    print ("Your request is runnig check the status again in a few seconds...")
+if request_status == "Error":
+    print ("Your request has finished with the following errors:")
+    error_list=json_response["Data"]["ErrorList"]
+    print(error_list)
+    print ("Correct the errros and sublit the document again")
+elif request_status == "Finished":
+    print ("Your request has finished.")
+    outbound_financial_document_id = json_response["Data"]["OutboundFinancialDocumentId"]
+    print("You have created the outbound document id: " + outbound_financial_document_id)
+else:
+    print("Your request status: " + request_status);
+
+# the final status Finished and Error
+if request_status != "Finished" and request_status != "Error":
+    print("Your is not finished yet: " + request_status)
 

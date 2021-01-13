@@ -17,24 +17,30 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# build the request
-headers = {
-    'Content-Type': 'application/xml',
-    'Authorization': 'bearer ' + token
-    }
-# POST request to send the invoice
-response = requests.request("POST", service_url, data=body_cius_pt, headers=headers)
+integration_status = json_response["Data"]["IntegrationStatus"]
+print(integration_status)
+
+#integration status (Sent, Received,...)
+
+if integration_status == "Sent":
+    print ("Sent: Your invoice has been sucessfully processed ans set to your costummer.")
+if integration_status == "Received":
+    print ("Received: Your invoice has been received by your costummer.")
+else:
+    print("Your invoice integration status: " + integration_status);
+
+#print(json.dumps(json_response, indent=4))
 ------------------
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mTypeError[0m                                 Traceback (most recent call last)
-[1;32m<ipython-input-7-37e25d55f3e4>[0m in [0;36m<module>[1;34m[0m
-[0;32m      2[0m headers = {
-[0;32m      3[0m     [1;34m'Content-Type'[0m[1;33m:[0m [1;34m'application/xml'[0m[1;33m,[0m[1;33m[0m[1;33m[0m[0m
-[1;32m----> 4[1;33m     [1;34m'Authorization'[0m[1;33m:[0m [1;34m'bearer '[0m [1;33m+[0m [0mtoken[0m[1;33m[0m[1;33m[0m[0m
-[0m[0;32m      5[0m     }
-[0;32m      6[0m [1;31m# POST request to send the invoice[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
+[1;31mKeyError[0m                                  Traceback (most recent call last)
+[1;32m<ipython-input-15-d6780398c77f>[0m in [0;36m<module>[1;34m[0m
+[1;32m----> 1[1;33m [0mintegration_status[0m [1;33m=[0m [0mjson_response[0m[1;33m[[0m[1;34m"Data"[0m[1;33m][0m[1;33m[[0m[1;34m"IntegrationStatus"[0m[1;33m][0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m      2[0m [0mprint[0m[1;33m([0m[0mintegration_status[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m      3[0m [1;33m[0m[0m
+[0;32m      4[0m [1;31m#integration status (Sent, Received,...)[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
+[0;32m      5[0m [1;33m[0m[0m
 
-[1;31mTypeError[0m: can only concatenate str (not "NoneType") to str
-TypeError: can only concatenate str (not "NoneType") to str
+[1;31mKeyError[0m: 'IntegrationStatus'
+KeyError: 'IntegrationStatus'
 

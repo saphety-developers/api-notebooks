@@ -1,12 +1,23 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # CountryFormatAsyncRequest
-# ## Send invoices to integrated costumers
-# Use this service in the following cases:
+# # Send invoices using legal format
+# The Portuguese governament defined the XML **UBL CIUS-PT** has the format to interchange electronic invoices with the public administration.  
+# The tecnhical specifications for the CIUS-PT are defined by eSPAP. [Legal format documnetion documentation here at eSPAP](https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx)  
+# [A CIUS-PT validator is available here](https://doc-server.saphety.com/Doc.Client/public/CIUSvalidation/PT?language=pt)
 # 
-# * The invoice receiver is a public administration entity that requires to receive the invoice in the Portuguese legal format (CIUS-PT)
-# * The invoice receiver is a company tha requires specific rules on invoice format and validations such as a retail company, banking institutions etc..
+# If your billing system is able to generate this format, you can use Saphety's Invoice Network (SIN) services to delivery your invoices and store them according to all legal requirements.  
+# Be sure that you use the [CIUS-PT validator](https://doc-server.saphety.com/Doc.Client/public/CIUSvalidation/PT?language=pt) to garantee that your invoices are in accordance to the tecnhical specifications defined by eSPAP.
+# 
+# ## CountryFormatAsyncRequest
+# This is the SIN web service for processing and delivering invoices in CIUS-PT format.
+# This service should be used in the following cases:
+# 
+# * Your customer is a public administration entity that requires to receive the invoice in the Portuguese legal format (**CIUS-PT**)
+# * Your customer is a company that requires receiving the invoice in a specific standard format (**non CIUS-PT**) such as a retail company, banking institutions etc..
+# * You want a full automation on sending invoices directly from your billing system
+# * You want to control the delivery status of the invoices to yous customer
+# * You want to garantee that your invoices are in accordance to all legal requirements such as digital signature, repository storage, delivery methos etc..
 # 
 # ### Service steps
 # 1. Get a token from your SIN credentials by calling the service **_Account/getToken_**
@@ -17,7 +28,7 @@
 
 # ### Services considerations
 # All services can be consulted using the Open API Specification (OAS3):  
-# [API specification](https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html) at https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html
+# [API specification](https://dcn-solution-qa.saphety.com/Dcn.Business.WebApi/api/index.html) at https://dcn-solution-qa.saphety.com/Dcn.Business.WebApi/api/index.html
 
 # #### Asynchrounous
 # The service **_CountryFormatAsyncRequest/processDocument_** is an asynchrounous service. An invoice can take a few seconds to process (validate, sign, send to your costumer).  
@@ -31,7 +42,7 @@
 # 	"CorrelationId": "<GUID>", /* for correlation purposes */
 # 	"IsValid": true,           /* false in case of erros */
 # 	"Errors": [],              /* if empty is a good signal */
-# 	"Data": "<Service Response Data>"   /* the data retuned ex: token, invoice status, dependent on the service called */
+# 	"Data": "<Service Response Data>"   /* the data retuned ex: token, invoice status .. dependent on the service called */
 # }
 # ```
 # 
@@ -146,7 +157,7 @@ body_cius_pt = """<?xml version="1.0" encoding="utf-8"?>
 <ubl:Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" 
 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
   <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:feap.gov.pt:CIUS-PT:2.0.0</cbc:CustomizationID>
-  <cbc:ID>INVOICE-API-DOC-001</cbc:ID>
+  <cbc:ID>INVOICE-API-DOC-0001</cbc:ID>
   <cbc:IssueDate>2020-12-31</cbc:IssueDate>
   <cbc:DueDate>2019-01-28</cbc:DueDate>
   <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
@@ -330,7 +341,7 @@ print (service_url)
 
 # ### Call service and get back the outbound document id
 
-# In[13]:
+# In[11]:
 
 
 # build the request
@@ -343,16 +354,19 @@ response = requests.request("GET", service_url, headers=headers)
 json_response = json.loads(response.text)
 
 
-# In[14]:
+# In[12]:
 
 
 # Your status:
 status = json_response["Data"]
+outbound_financial_document_id = None
 #print(json.dumps(json_response, indent=4))
 
-#request status (Running, Error, Finished)
+#request status (Queued, Running, Error, Finished)
 request_status = json_response["Data"]["AsyncStatus"]
 
+if request_status == "Queued":
+    print ("Your request in queue to be processed check the status again in a few seconds...")
 if request_status == "Running":
     print ("Your request is runnig check the status again in a few seconds...")
 if request_status == "Error":
@@ -367,8 +381,9 @@ elif request_status == "Finished":
 else:
     print("Your request status: " + request_status);
 
-#print(json_response["Data"]["ErrorList"])
-print(outbound_financial_document_id)
+# the final status Finished and Error
+if request_status != "Finished" and request_status != "Error":
+    print("Your is not finished yet: " + request_status)
 
 
 # ## Check the invoice integration status (OutboundFinancialDocument/{DocumentId})
@@ -382,20 +397,22 @@ print(outbound_financial_document_id)
 # https://<ServerBaseUrl>/OutboundFinancialDocument/<OutboundFinancialDocumentId>
 # ```
 
-# In[66]:
+# In[13]:
 
 
-# SIN service url for retrieving inforfation on invoice previously sent
+if not outbound_financial_document_id:
+     print("Your do not have a valid docuemnt id. Make sure the service CountryFormatAsyncRequest finished successfully last known status: " + request_status)
+else:
+    # SIN service url for retrieving inforfation on invoice previously sent
+    service_url = """{ServerBaseUrl}/api/OutboundFinancialDocument/{OutboundFinancialDocumentId}""".format(
+        ServerBaseUrl=server_base_adress,
+        OutboundFinancialDocumentId=outbound_financial_document_id
+    )
+    service_url = "https://" + service_url
+    print (service_url)
 
-service_url = """{ServerBaseUrl}/api/OutboundFinancialDocument/{OutboundFinancialDocumentId}""".format(
-    ServerBaseUrl=server_base_adress,
-    OutboundFinancialDocumentId=outbound_financial_document_id
-)
-service_url = "https://" + service_url
-print (service_url)
 
-
-# In[67]:
+# In[14]:
 
 
 # build the request
@@ -409,7 +426,7 @@ response = requests.request("GET", service_url, headers=headers)
 json_response = json.loads(response.text)
 
 
-# In[68]:
+# In[15]:
 
 
 integration_status = json_response["Data"]["IntegrationStatus"]

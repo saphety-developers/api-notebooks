@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PdfAsyncRequest &#8212; API documentation</title>
+    <title>Send PDF invoices via email &#8212; API documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,7 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="CountryFormatAsyncRequest" href="country-format-async-request.html" />
+    <link rel="prev" title="Send invoices using legal format" href="country-format-async-request.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -99,12 +99,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="country-format-async-request.html">
-   CountryFormatAsyncRequest
+   Send invoices using legal format
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   PdfAsyncRequest
+   Send PDF invoices via email
   </a>
  </li>
 </ul>
@@ -211,31 +211,24 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#send-invoices-to-integrated-costumers">
-   Send invoices to integrated costumers
+  <a class="reference internal nav-link" href="#service-steps">
+   Service steps
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#services-considerations">
+   Services considerations
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#service-steps">
-     Service steps
+    <a class="reference internal nav-link" href="#asynchrounous">
+     Asynchrounous
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#services-considerations">
-     Services considerations
+    <a class="reference internal nav-link" href="#response-structure-from-server">
+     Response structure from server
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#asynchrounous">
-       Asynchrounous
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#response-structure-from-server">
-       Response structure from server
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -249,6 +242,23 @@
    Send invoice request (PdfAsyncRequest/processDocument)
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#check-to-success-of-your-request-pdfasyncrequest-requestid">
+   Check to success of your request (PdfAsyncRequest/{RequestId})
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bulild-the-service-endpoint-url">
+     Bulild the service endpoint url
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#call-service-and-get-back-the-outbound-document-id">
+     Call service and get back the outbound document id
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
         </nav>
@@ -260,16 +270,14 @@
         
               <div>
                 
-  <div class="section" id="pdfasyncrequest">
-<h1>PdfAsyncRequest<a class="headerlink" href="#pdfasyncrequest" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="send-invoices-to-integrated-costumers">
-<h2>Send invoices to integrated costumers<a class="headerlink" href="#send-invoices-to-integrated-costumers" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="send-pdf-invoices-via-email">
+<h1>Send PDF invoices via email<a class="headerlink" href="#send-pdf-invoices-via-email" title="Permalink to this headline">¶</a></h1>
 <p>Use this service in the following case:</p>
 <ul class="simple">
 <li><p>Sign your PDF invoice and sent it via email to yours customers</p></li>
 </ul>
 <div class="section" id="service-steps">
-<h3>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h3>
+<h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Get a token from your SIN credentials by calling the service <strong><em>Account/getToken</em></strong></p></li>
 <li><p>Send your invoice calling the <strong>asynchronous</strong> service <strong><em>PdfAsyncRequest/processDocument</em></strong>; the legal invoice format (CIUS-PT) is sent in the payload</p></li>
@@ -278,16 +286,16 @@
 </ol>
 </div>
 <div class="section" id="services-considerations">
-<h3>Services considerations<a class="headerlink" href="#services-considerations" title="Permalink to this headline">¶</a></h3>
+<h2>Services considerations<a class="headerlink" href="#services-considerations" title="Permalink to this headline">¶</a></h2>
 <p>All services can be consulted using the Open API Specification (OAS3):<br />
 <a class="reference external" href="https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html">API specification</a> at https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html</p>
 <div class="section" id="asynchrounous">
-<h4>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">¶</a></h4>
+<h3>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">¶</a></h3>
 <p>The service <strong><em>PdfAsyncRequest/processDocument</em></strong> is an asynchrounous service. An invoice can take a few seconds to process (sign, send to your costumer).<br />
 Since this is an integration API thousands of requests can be requested at the same time. For each request you receive immediatly a request id. Use it to query the request status.</p>
 </div>
 <div class="section" id="response-structure-from-server">
-<h4>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this headline">¶</a></h4>
+<h3>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this headline">¶</a></h3>
 <p>When a request is well formed and the authentication data is correct the system responds with a message envelope as follows:</p>
 <div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 	<span class="s2">&quot;CorrelationId&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;GUID&gt;&quot;</span><span class="p">,</span> <span class="cm">/* for correlation purposes */</span>
@@ -296,7 +304,6 @@ Since this is an integration API thousands of requests can be requested at the s
 	<span class="s2">&quot;Data&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span>   <span class="cm">/* the data retuned ex: token, invoice status, dependent on the service called */</span>
 <span class="p">}</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -358,16 +365,10 @@ Use those credentials to get a token at.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;48a015a3-f40a-4e92-9073-5b2df37983ac&quot;,
-    &quot;IsValid&quot;: false,
-    &quot;Errors&quot;: [
-        {
-            &quot;Code&quot;: &quot;INVALID_AUTHENTICATION_DATA&quot;,
-            &quot;Field&quot;: &quot;Username&quot;,
-            &quot;Values&quot;: []
-        }
-    ],
-    &quot;Data&quot;: null
+    &quot;CorrelationId&quot;: &quot;5c5468e7-a1f3-4611-b522-6af23c78ab07&quot;,
+    &quot;IsValid&quot;: true,
+    &quot;Errors&quot;: [],
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiMGUwN2YzZmUtOTZkYS00ZWQ1LThjMjItZjJjZDQwODA3ODEzIiwicmwiOlsiQ29tcGFueUFkbWluaXN0cmF0b3IiLCJDb21wYW55VXNlciJdLCJjcCI6IlBUNTA3OTU3NTQ3IiwibmJmIjoxNjEwNTMwMDE4LCJleHAiOjE2MTY1Mjk5NTgsImlhdCI6MTYxMDUyOTk1OCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2VydmVyIn0.mc82qNJdlba-ncfNlv83WCxLjBZ5W3saE6cyY9BLMl8&quot;
 }
 </pre></div>
 </div>
@@ -382,7 +383,7 @@ Use those credentials to get a token at.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiMGUwN2YzZmUtOTZkYS00ZWQ1LThjMjItZjJjZDQwODA3ODEzIiwicmwiOlsiQ29tcGFueUFkbWluaXN0cmF0b3IiLCJDb21wYW55VXNlciJdLCJjcCI6IlBUNTA3OTU3NTQ3IiwibmJmIjoxNjEwNTMwMDE4LCJleHAiOjE2MTY1Mjk5NTgsImlhdCI6MTYxMDUyOTk1OCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2VydmVyIn0.mc82qNJdlba-ncfNlv83WCxLjBZ5W3saE6cyY9BLMl8
 </pre></div>
 </div>
 </div>
@@ -409,9 +410,9 @@ Use those credentials to get a token at.</p>
       <span class="s1">&#39;IntlVatCode&#39;</span><span class="p">:</span> <span class="s1">&#39;PT507957547&#39;</span><span class="p">,</span>
       <span class="s1">&#39;DocumentType&#39;</span><span class="p">:</span> <span class="s1">&#39;Invoice&#39;</span><span class="p">,</span>
       <span class="s1">&#39;DocumentDate&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-01-11&#39;</span><span class="p">,</span>
-      <span class="s1">&#39;DocumentNumber&#39;</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span>
-      <span class="s1">&#39;ReceiverIntlVatCode&#39;</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span>
-      <span class="s1">&#39;ReceiverName&#39;</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span>
+      <span class="s1">&#39;DocumentNumber&#39;</span><span class="p">:</span> <span class="s1">&#39;INVOICE-API-DOC-PDF-0001&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;ReceiverIntlVatCode&#39;</span><span class="p">:</span> <span class="s1">&#39;PT507641230&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;ReceiverName&#39;</span><span class="p">:</span> <span class="s1">&#39;FIREFLY - INFORMÁTICA E INTEGRAÇÃO&#39;</span><span class="p">,</span>
       <span class="s1">&#39;DocumentTotal&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
       <span class="s1">&#39;CurrencyCode&#39;</span><span class="p">:</span> <span class="s1">&#39;EUR&#39;</span><span class="p">,</span>
       <span class="s1">&#39;DestinationEmails&#39;</span><span class="p">:</span> <span class="p">[{</span>
@@ -429,7 +430,10 @@ Use those credentials to get a token at.</p>
 
 <span class="c1"># POST request to get a token</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># formating the response to json for visualization purposes only</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -437,32 +441,114 @@ Use those credentials to get a token at.</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/PdfAsyncRequest/processDocument
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">070566</span><span class="n">fa7c1d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
-<span class="ne">---&gt; </span><span class="mi">10</span>     <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="p">}</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># payload as json</span>
-
-<span class="ne">TypeError</span>: can only concatenate str (not &quot;NoneType&quot;) to str
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;CorrelationId&quot;: &quot;c27dae4f-aae4-4b63-8910-e8ac30e320be&quot;,
+    &quot;IsValid&quot;: true,
+    &quot;Errors&quot;: [],
+    &quot;Data&quot;: &quot;70618343-4163-4e33-859c-fab982ab817b&quot;
+}
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># formating the response to json for visualization purposes only</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-<span class="c1">#json_response = json.loads(response.text)</span>
-<span class="c1">#print(json.dumps(json_response, indent=4))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your request id is at:</span>
+<span class="n">request_id</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">request_id</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>70618343-4163-4e33-859c-fab982ab817b
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="check-to-success-of-your-request-pdfasyncrequest-requestid">
+<h2>Check to success of your request (PdfAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-pdfasyncrequest-requestid" title="Permalink to this headline">¶</a></h2>
+<p>Query the system using this <em>request id</em> in order to get the status (success or error) of your request</p>
+<div class="section" id="bulild-the-service-endpoint-url">
+<h3>Bulild the service endpoint url<a class="headerlink" href="#bulild-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
+<p>In the service url you need to supply the request id received</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">PdfAsyncRequest</span><span class="o">/&lt;</span><span class="n">RequestId</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving the status of a process</span>
+
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/PdfAsyncRequest/</span><span class="si">{RequestId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
+    <span class="n">RequestId</span><span class="o">=</span><span class="n">request_id</span>
+<span class="p">)</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/PdfAsyncRequest/70618343-4163-4e33-859c-fab982ab817b
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="call-service-and-get-back-the-outbound-document-id">
+<h3>Call service and get back the outbound document id<a class="headerlink" href="#call-service-and-get-back-the-outbound-document-id" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+    <span class="p">}</span>
+<span class="c1"># POST request to send the invoice</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="c1"># formating the response to json for visualization purposes only</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your status:</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">]</span>
+<span class="n">outbound_financial_document_id</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="c1">#print(json.dumps(json_response, indent=4))</span>
+
+<span class="c1">#request status (Queued, Running, Error, Finished)</span>
+<span class="n">request_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;AsyncStatus&quot;</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Queued&quot;</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request in queue to be processed check the status again in a few seconds...&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Running&quot;</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request is runnig check the status again in a few seconds...&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request has finished with the following errors:&quot;</span><span class="p">)</span>
+    <span class="n">error_list</span><span class="o">=</span><span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;ErrorList&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">error_list</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Correct the errros and sublit the document again&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Finished&quot;</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request has finished.&quot;</span><span class="p">)</span>
+    <span class="n">outbound_financial_document_id</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;OutboundFinancialDocumentId&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You have created the outbound document id: &quot;</span> <span class="o">+</span> <span class="n">outbound_financial_document_id</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your request status: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">);</span>
+
+<span class="c1"># the final status Finished and Error</span>
+<span class="k">if</span> <span class="n">request_status</span> <span class="o">!=</span> <span class="s2">&quot;Finished&quot;</span> <span class="ow">and</span> <span class="n">request_status</span> <span class="o">!=</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your is not finished yet: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your request has finished with the following errors:
+[{&#39;Code&#39;: &#39;OUTBOUND_FINANCIAL_DOCUMENT_ALREADY_SENT&#39;, &#39;Field&#39;: &#39;OutboundFinancialDocument&#39;, &#39;Values&#39;: [&#39;PT507957547&#39;, &#39;11/01/2021 00:00:00&#39;, &#39;INVOICE-API-DOC-PDF-0001&#39;, &#39;Invoice&#39;]}]
+Correct the errros and sublit the document again
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -497,7 +583,7 @@ Use those credentials to get a token at.</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="country-format-async-request.html" title="previous page">CountryFormatAsyncRequest</a>
+    <a class='left-prev' id="prev-link" href="country-format-async-request.html" title="previous page">Send invoices using legal format</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

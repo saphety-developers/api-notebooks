@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CountryFormatAsyncRequest &#8212; API documentation</title>
+    <title>Send invoices using legal format &#8212; API documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,7 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="PdfAsyncRequest" href="pdf-async-request.html" />
+    <link rel="next" title="Send PDF invoices via email" href="pdf-async-request.html" />
     <link rel="prev" title="API Basics" href="../markdowns/api-basics.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -100,12 +100,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   CountryFormatAsyncRequest
+   Send invoices using legal format
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="pdf-async-request.html">
-   PdfAsyncRequest
+   Send PDF invoices via email
   </a>
  </li>
 </ul>
@@ -212,8 +212,8 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#send-invoices-to-integrated-costumers">
-   Send invoices to integrated costumers
+  <a class="reference internal nav-link" href="#countryformatasyncrequest">
+   CountryFormatAsyncRequest
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -307,14 +307,23 @@
         
               <div>
                 
-  <div class="section" id="countryformatasyncrequest">
-<h1>CountryFormatAsyncRequest<a class="headerlink" href="#countryformatasyncrequest" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="send-invoices-to-integrated-costumers">
-<h2>Send invoices to integrated costumers<a class="headerlink" href="#send-invoices-to-integrated-costumers" title="Permalink to this headline">¶</a></h2>
-<p>Use this service in the following cases:</p>
+  <div class="section" id="send-invoices-using-legal-format">
+<h1>Send invoices using legal format<a class="headerlink" href="#send-invoices-using-legal-format" title="Permalink to this headline">¶</a></h1>
+<p>The Portuguese governament defined the XML <strong>UBL CIUS-PT</strong> has the format to interchange electronic invoices with the public administration.<br />
+The tecnhical specifications for the CIUS-PT are defined by eSPAP. <a class="reference external" href="https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx">Legal format documnetion documentation here at eSPAP</a><br />
+<a class="reference external" href="https://doc-server.saphety.com/Doc.Client/public/CIUSvalidation/PT?language=pt">A CIUS-PT validator is available here</a></p>
+<p>If your billing system is able to generate this format, you can use Saphety’s Invoice Network (SIN) services to delivery your invoices and store them according to all legal requirements.<br />
+Be sure that you use the <a class="reference external" href="https://doc-server.saphety.com/Doc.Client/public/CIUSvalidation/PT?language=pt">CIUS-PT validator</a> to garantee that your invoices are in accordance to the tecnhical specifications defined by eSPAP.</p>
+<div class="section" id="countryformatasyncrequest">
+<h2>CountryFormatAsyncRequest<a class="headerlink" href="#countryformatasyncrequest" title="Permalink to this headline">¶</a></h2>
+<p>This is the SIN web service for processing and delivering invoices in CIUS-PT format.
+This service should be used in the following cases:</p>
 <ul class="simple">
-<li><p>The invoice receiver is a public administration entity that requires to receive the invoice in the Portuguese legal format (CIUS-PT)</p></li>
-<li><p>The invoice receiver is a company tha requires specific rules on invoice format and validations such as a retail company, banking institutions etc..</p></li>
+<li><p>Your customer is a public administration entity that requires to receive the invoice in the Portuguese legal format (<strong>CIUS-PT</strong>)</p></li>
+<li><p>Your customer is a company that requires receiving the invoice in a specific standard format (<strong>non CIUS-PT</strong>) such as a retail company, banking institutions etc..</p></li>
+<li><p>You want a full automation on sending invoices directly from your billing system</p></li>
+<li><p>You want to control the delivery status of the invoices to yous customer</p></li>
+<li><p>You want to garantee that your invoices are in accordance to all legal requirements such as digital signature, repository storage, delivery methos etc..</p></li>
 </ul>
 <div class="section" id="service-steps">
 <h3>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h3>
@@ -328,7 +337,7 @@
 <div class="section" id="services-considerations">
 <h3>Services considerations<a class="headerlink" href="#services-considerations" title="Permalink to this headline">¶</a></h3>
 <p>All services can be consulted using the Open API Specification (OAS3):<br />
-<a class="reference external" href="https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html">API specification</a> at https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html</p>
+<a class="reference external" href="https://dcn-solution-qa.saphety.com/Dcn.Business.WebApi/api/index.html">API specification</a> at https://dcn-solution-qa.saphety.com/Dcn.Business.WebApi/api/index.html</p>
 <div class="section" id="asynchrounous">
 <h4>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">¶</a></h4>
 <p>The service <strong><em>CountryFormatAsyncRequest/processDocument</em></strong> is an asynchrounous service. An invoice can take a few seconds to process (validate, sign, send to your costumer).<br />
@@ -341,7 +350,7 @@ Since this is an integration API thousands of requests can be requested at the s
 	<span class="s2">&quot;CorrelationId&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;GUID&gt;&quot;</span><span class="p">,</span> <span class="cm">/* for correlation purposes */</span>
 	<span class="s2">&quot;IsValid&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>           <span class="cm">/* false in case of erros */</span>
 	<span class="s2">&quot;Errors&quot;</span><span class="o">:</span> <span class="p">[],</span>              <span class="cm">/* if empty is a good signal */</span>
-	<span class="s2">&quot;Data&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span>   <span class="cm">/* the data retuned ex: token, invoice status, dependent on the service called */</span>
+	<span class="s2">&quot;Data&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span>   <span class="cm">/* the data retuned ex: token, invoice status .. dependent on the service called */</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -406,16 +415,10 @@ Use those credentials to get a token at.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;a61ac0bf-96e3-4651-83ba-18e2a2c54a21&quot;,
-    &quot;IsValid&quot;: false,
-    &quot;Errors&quot;: [
-        {
-            &quot;Code&quot;: &quot;INVALID_AUTHENTICATION_DATA&quot;,
-            &quot;Field&quot;: &quot;Username&quot;,
-            &quot;Values&quot;: []
-        }
-    ],
-    &quot;Data&quot;: null
+    &quot;CorrelationId&quot;: &quot;daa05778-d78a-4c73-a405-7f94bfcc4779&quot;,
+    &quot;IsValid&quot;: true,
+    &quot;Errors&quot;: [],
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNWEzZjlhNzEtODBlMi00NTRhLWI2ZDAtYzU0YjY5NjBkYTBlIiwicmwiOlsiQ29tcGFueUFkbWluaXN0cmF0b3IiLCJDb21wYW55VXNlciJdLCJjcCI6IlBUNTA3OTU3NTQ3IiwibmJmIjoxNjEwNTMwMDE2LCJleHAiOjE2MTY1Mjk5NTYsImlhdCI6MTYxMDUyOTk1NiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2VydmVyIn0.UESA15AL6Iduflb3PyGtWtNFLQsqtKMWtipBkeD4JUM&quot;
 }
 </pre></div>
 </div>
@@ -430,7 +433,7 @@ Use those credentials to get a token at.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNWEzZjlhNzEtODBlMi00NTRhLWI2ZDAtYzU0YjY5NjBkYTBlIiwicmwiOlsiQ29tcGFueUFkbWluaXN0cmF0b3IiLCJDb21wYW55VXNlciJdLCJjcCI6IlBUNTA3OTU3NTQ3IiwibmJmIjoxNjEwNTMwMDE2LCJleHAiOjE2MTY1Mjk5NTYsImlhdCI6MTYxMDUyOTk1NiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2VydmVyIn0.UESA15AL6Iduflb3PyGtWtNFLQsqtKMWtipBkeD4JUM
 </pre></div>
 </div>
 </div>
@@ -494,7 +497,7 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 <span class="s2">&lt;ubl:Invoice xmlns:cac=&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2&quot; </span>
 <span class="s2">xmlns:cbc=&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2&quot; xmlns:ubl=&quot;urn:oasis:names:specification:ubl:schema:xsd:Invoice-2&quot;&gt;</span>
 <span class="s2">  &lt;cbc:CustomizationID&gt;urn:cen.eu:en16931:2017#compliant#urn:feap.gov.pt:CIUS-PT:2.0.0&lt;/cbc:CustomizationID&gt;</span>
-<span class="s2">  &lt;cbc:ID&gt;INVOICE-API-DOC-001&lt;/cbc:ID&gt;</span>
+<span class="s2">  &lt;cbc:ID&gt;INVOICE-API-DOC-0001&lt;/cbc:ID&gt;</span>
 <span class="s2">  &lt;cbc:IssueDate&gt;2020-12-31&lt;/cbc:IssueDate&gt;</span>
 <span class="s2">  &lt;cbc:DueDate&gt;2019-01-28&lt;/cbc:DueDate&gt;</span>
 <span class="s2">  &lt;cbc:InvoiceTypeCode&gt;380&lt;/cbc:InvoiceTypeCode&gt;</span>
@@ -640,20 +643,6 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mf">37e25</span><span class="n">d55f3e4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/xml&#39;</span><span class="p">,</span>
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="p">}</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># POST request to send the invoice</span>
-
-<span class="ne">TypeError</span>: can only concatenate str (not &quot;NoneType&quot;) to str
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -665,10 +654,10 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;088c63f4-d953-46fb-bc62-d28fba629ea2&quot;,
+    &quot;CorrelationId&quot;: &quot;b0fc0d91-e5db-48cf-8beb-8b5da85a2799&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;d52b31c9-9e24-445c-81fc-041c0b779168&quot;
+    &quot;Data&quot;: &quot;9dde334d-5a2c-4c1b-b7d1-49f35dbb57a2&quot;
 }
 </pre></div>
 </div>
@@ -683,7 +672,7 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d52b31c9-9e24-445c-81fc-041c0b779168
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9dde334d-5a2c-4c1b-b7d1-49f35dbb57a2
 </pre></div>
 </div>
 </div>
@@ -713,7 +702,7 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/CountryFormatAsyncRequest/d52b31c9-9e24-445c-81fc-041c0b779168
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/CountryFormatAsyncRequest/9dde334d-5a2c-4c1b-b7d1-49f35dbb57a2
 </pre></div>
 </div>
 </div>
@@ -739,11 +728,14 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your status:</span>
 <span class="n">status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">]</span>
+<span class="n">outbound_financial_document_id</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="c1">#print(json.dumps(json_response, indent=4))</span>
 
-<span class="c1">#request status (Running, Error, Finished)</span>
+<span class="c1">#request status (Queued, Running, Error, Finished)</span>
 <span class="n">request_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;AsyncStatus&quot;</span><span class="p">]</span>
 
+<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Queued&quot;</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request in queue to be processed check the status again in a few seconds...&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Running&quot;</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request is runnig check the status again in a few seconds...&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
@@ -758,25 +750,16 @@ Must be the NIF of the registered company in SIN (ex: PT507957547). This NIF wil
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your request status: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">);</span>
 
-<span class="c1">#print(json_response[&quot;Data&quot;][&quot;ErrorList&quot;])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">outbound_financial_document_id</span><span class="p">)</span>
+<span class="c1"># the final status Finished and Error</span>
+<span class="k">if</span> <span class="n">request_status</span> <span class="o">!=</span> <span class="s2">&quot;Finished&quot;</span> <span class="ow">and</span> <span class="n">request_status</span> <span class="o">!=</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your is not finished yet: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your request has finished with the following errors:
-[{&#39;Code&#39;: &#39;DOCUMENT_ALREADY_EXISTS&#39;, &#39;Field&#39;: &#39;CheckDocumentExistance&#39;, &#39;Values&#39;: [&#39;The document &lt;INVOICE-06-01-002&gt; already exists.&#39;, &#39;PT507957547&#39;, &#39;INVOICE-06-01-002&#39;, &#39;31/12/2020&#39;, &#39;INVOICE&#39;]}]
-Correct the errros and sublit the document again
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">10</span><span class="n">c48290fac8</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> 
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1">#print(json_response[&quot;Data&quot;][&quot;ErrorList&quot;])</span>
-<span class="ne">---&gt; </span><span class="mi">23</span> <span class="nb">print</span><span class="p">(</span><span class="n">outbound_financial_document_id</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;outbound_financial_document_id&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your request is runnig check the status again in a few seconds...
+Your request status: Running
+Your is not finished yet: Running
 </pre></div>
 </div>
 </div>
@@ -794,19 +777,21 @@ Correct the errros and sublit the document again
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
-
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/OutboundFinancialDocument/</span><span class="si">{OutboundFinancialDocumentId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
-    <span class="n">OutboundFinancialDocumentId</span><span class="o">=</span><span class="n">outbound_financial_document_id</span>
-<span class="p">)</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">outbound_financial_document_id</span><span class="p">:</span>
+     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your do not have a valid docuemnt id. Make sure the service CountryFormatAsyncRequest finished successfully last known status: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
+    <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/OutboundFinancialDocument/</span><span class="si">{OutboundFinancialDocumentId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
+        <span class="n">OutboundFinancialDocumentId</span><span class="o">=</span><span class="n">outbound_financial_document_id</span>
+    <span class="p">)</span>
+    <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/OutboundFinancialDocument/8523e892-2103-4088-8227-e7087b719a1c
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your do not have a valid docuemnt id. Make sure the service CountryFormatAsyncRequest finished successfully last known status: Running
 </pre></div>
 </div>
 </div>
@@ -845,8 +830,16 @@ Correct the errros and sublit the document again
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Received
-Received: Your invoice has been received by your costummer.
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="n">d6780398c77f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">integration_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;IntegrationStatus&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">integration_status</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#integration status (Sent, Received,...)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">KeyError</span>: &#39;IntegrationStatus&#39;
 </pre></div>
 </div>
 </div>
@@ -885,7 +878,7 @@ Received: Your invoice has been received by your costummer.
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="../markdowns/api-basics.html" title="previous page">API Basics</a>
-    <a class='right-next' id="next-link" href="pdf-async-request.html" title="next page">PdfAsyncRequest</a>
+    <a class='right-next' id="next-link" href="pdf-async-request.html" title="next page">Send PDF invoices via email</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
