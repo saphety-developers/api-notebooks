@@ -54,7 +54,7 @@
 # https://<ServerBaseAddress>/api/Account/getToken
 # ```
 
-# In[1]:
+# In[46]:
 
 
 # Integration environment
@@ -63,9 +63,11 @@ server_base_adress = "dcn-solution-int.saphety.com/Dcn.Business.WebApi"
 #server_base_adress = "dcn-solution-qa.saphety.com/Dcn.Business.WebApi"
 # Production environemnt
 #server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi"
+# SANDBOX - Integration environment
+#server_base_adress = "dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi"
 
 
-# In[2]:
+# In[47]:
 
 
 import requests
@@ -93,7 +95,7 @@ headers = {
 response = requests.request("POST", service_url, data=request_data, headers=headers)
 
 
-# In[3]:
+# In[48]:
 
 
 # formating the response to json for visualization purposes only
@@ -101,7 +103,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[4]:
+# In[49]:
 
 
 # your token is at:
@@ -128,7 +130,7 @@ print (token)
 # https://<ServerBaseUrl>/CountryFormatAsyncRequest/processDocument/PT507957547/INVOICE/PT
 # ```
 
-# In[5]:
+# In[50]:
 
 
 # SIN service url form sending invoices requires issuer NIF and country and the document type
@@ -149,7 +151,7 @@ print (service_url)
 # [Legal format documnetion documentation here at eSPAP](https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx)  
 # [A CIUS-PT validator is available here](https://doc-server.saphety.com/Doc.Client/public/CIUSvalidation/PT?language=pt)
 
-# In[6]:
+# In[51]:
 
 
 # request boby must be a valid CIUS-PT
@@ -157,7 +159,7 @@ body_cius_pt = """<?xml version="1.0" encoding="utf-8"?>
 <ubl:Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" 
 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
   <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:feap.gov.pt:CIUS-PT:2.0.0</cbc:CustomizationID>
-  <cbc:ID>INVOICE-API-DOC-0001</cbc:ID>
+  <cbc:ID>INVOICE-API-DOC-00001</cbc:ID>
   <cbc:IssueDate>2020-12-31</cbc:IssueDate>
   <cbc:DueDate>2019-01-28</cbc:DueDate>
   <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
@@ -288,7 +290,7 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
 
 # ### Call service and get back the request id
 
-# In[7]:
+# In[52]:
 
 
 # build the request
@@ -300,7 +302,7 @@ headers = {
 response = requests.request("POST", service_url, data=body_cius_pt, headers=headers)
 
 
-# In[8]:
+# In[53]:
 
 
 # formating the response to json for visualization purposes only
@@ -308,7 +310,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[9]:
+# In[54]:
 
 
 # your request id is at:
@@ -326,7 +328,7 @@ print ('The request id to query on service status: ' + request_id)
 # https://<ServerBaseUrl>/CountryFormatAsyncRequest/<RequestId>
 # ```
 
-# In[10]:
+# In[55]:
 
 
 # SIN service url for retrieving the status of a process
@@ -341,7 +343,7 @@ print (service_url)
 
 # ### Check your request status
 
-# In[11]:
+# In[63]:
 
 
 # build the request
@@ -354,7 +356,7 @@ response = requests.request("GET", service_url, headers=headers)
 json_response = json.loads(response.text)
 
 
-# In[12]:
+# In[64]:
 
 
 # Your status:
@@ -397,7 +399,7 @@ if request_status != "Finished" and request_status != "Error":
 # https://<ServerBaseUrl>/OutboundFinancialDocument/<OutboundFinancialDocumentId>
 # ```
 
-# In[13]:
+# In[65]:
 
 
 if not outbound_financial_document_id:
@@ -412,7 +414,7 @@ else:
     print (service_url)
 
 
-# In[14]:
+# In[66]:
 
 
 # build the request
@@ -426,7 +428,7 @@ response = requests.request("GET", service_url, headers=headers)
 json_response = json.loads(response.text)
 
 
-# In[15]:
+# In[67]:
 
 
 integration_status = json_response["Data"]["IntegrationStatus"]
