@@ -28,7 +28,7 @@
 
 # ### Services considerations
 # All services can be consulted using the Open API Specification (OAS3):  
-# [API specification](https://dcn-solution-qa.saphety.com/Dcn.Business.WebApi/api/index.html) at https://dcn-solution-qa.saphety.com/Dcn.Business.WebApi/api/index.html
+# [API specification](https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html) at https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html
 
 # #### Asynchrounous
 # The service **_CountryFormatAsyncRequest/processDocument_** is an asynchrounous service. An invoice can take a few seconds to process (validate, sign, send to your costumer).  
