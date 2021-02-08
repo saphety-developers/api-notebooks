@@ -5,3 +5,4 @@ This document is a technical guide how to implement an integration between any s
 ## Audience
 This document is intend for **developers** that want to automate issuing invoices from any system using SIN API.
 After reading this book you should be able to fully automate any system integration with SIN.
+If you a are a developer or if you want to became a SIN integration partner, you can register in SIN API portal (SandBox).

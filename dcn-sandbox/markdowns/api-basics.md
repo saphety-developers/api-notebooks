@@ -1,4 +1,4 @@
 # API Basics
-Some generall considerations on the SIN API
+This api is exposed under the OAS3 specification.
 ## REST API
-This is a rest API
+This is rest API that uses JWT tokens for authentication.
