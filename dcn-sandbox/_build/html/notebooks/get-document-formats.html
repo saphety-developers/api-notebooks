@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get invoice PDF or UBL format from archive &#8212; API documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Send PDF invoices with QRCode via email" href="pdf-async-request-embebed-data.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/saphety_invoice_network_1.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">API documentation</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdowns/home.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdowns/api-basics.html">
+   API Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="country-format-async-request.html">
+   Send invoices using legal format
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pdf-async-request.html">
+   Send PDF invoices
+   <strong>
+    without QRCode
+   </strong>
+   via email
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pdf-async-request-embebed-data.html">
+   Send PDF invoices
+   <strong>
+    with QRCode
+   </strong>
+   via email
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Get invoice PDF or UBL format from archive
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/get-document-formats.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sggodinho/api-notebooks"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/get-document-formats.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sggodinho/api-notebooks/master?urlpath=tree/dcn-sandbox/notebooks/get-document-formats.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-a-token-account-gettoken">
+   Get a token (Account/getToken)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid">
+   Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-the-service-endpoint-url">
+     Build the service endpoint url
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#call-the-service-to-get-the-formats">
+     Call the service to get the formats
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-the-service-response">
+     Read the service response
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="get-invoice-pdf-or-ubl-format-from-archive">
+<h1>Get invoice PDF or UBL format from archive<a class="headerlink" href="#get-invoice-pdf-or-ubl-format-from-archive" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-a-token-account-gettoken">
+<h2>Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">¶</a></h2>
+<p>You have been given credentials when registering in SIN.<br />
+Use those credentials to get a token at.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integration environment</span>
+<span class="c1">#server_base_adress = &quot;dcn-solution-int.saphety.com/Dcn.Business.WebApi&quot;</span>
+<span class="c1"># Quality environment</span>
+<span class="c1">#server_base_adress = &quot;dcn-solution-qa.saphety.com/Dcn.Business.WebApi&quot;</span>
+<span class="c1"># Production environemnt</span>
+<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
+<span class="c1"># SANDBOX - Integration environment</span>
+<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># SIN account service url</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Account/getToken&quot;</span>
+
+<span class="c1"># the username and password you registerd in SIN</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;sin_api_documentation_user@saphety.com&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;request_password&#39;</span>
+
+<span class="c1"># auhtentication data goes in payload as json</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;Username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+      <span class="s1">&#39;Password&#39;</span><span class="p">:</span> <span class="n">password</span>
+<span class="p">}</span>
+<span class="c1"># payload goes in json, serialize the payloal object to json</span>
+<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="c1"># indicate in header that payload is json</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+    <span class="p">}</span>
+<span class="c1"># POST request to get a token</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># formating the response to json for visualization purposes only</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;CorrelationId&quot;: &quot;339f974b-e559-48ed-85b2-76a39d8d88b0&quot;,
+    &quot;IsValid&quot;: true,
+    &quot;Errors&quot;: [],
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiY2MwZmM1NGItMDg3OC00YTdhLTlmM2UtMDllMWQ5MDdkMzc5IiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjEzMTQ4MjM2LCJleHAiOjE2MTkxNDQ1NzYsImlhdCI6MTYxMzE0ODE3NiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.9oiWidJyDWvx4FiAVeX21AhWTGYCFqvdvRNV8_6K0jA&quot;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your token is at:</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiY2MwZmM1NGItMDg3OC00YTdhLTlmM2UtMDllMWQ5MDdkMzc5IiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjEzMTQ4MjM2LCJleHAiOjE2MTkxNDQ1NzYsImlhdCI6MTYxMzE0ODE3NiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.9oiWidJyDWvx4FiAVeX21AhWTGYCFqvdvRNV8_6K0jA
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid">
+<h2>Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})<a class="headerlink" href="#get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build-the-service-endpoint-url">
+<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
+<p>In the service url you need to supply the outbfinancialdocument received</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocument</span><span class="o">/</span><span class="n">documentFormats</span><span class="o">/&lt;</span><span class="n">OutboundFinancialDocumentId</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/OutboundFinancialDocument/documentFormats/</span><span class="si">{OutboundFinancialDocumentId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
+    <span class="n">OutboundFinancialDocumentId</span><span class="o">=</span><span class="s2">&quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;</span>
+<span class="p">)</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/OutboundFinancialDocument/documentFormats/fc5e547d-8537-4e05-97d5-1159c62efd6f
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="call-the-service-to-get-the-formats">
+<h3>Call the service to get the formats<a class="headerlink" href="#call-the-service-to-get-the-formats" title="Permalink to this headline">¶</a></h3>
+<p>You will call the service endpoint url</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+    <span class="p">}</span>
+<span class="c1"># POST request to send the invoice</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="c1"># formating the response to json for visualization purposes only</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[
+    {
+        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00001&quot;,
+        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
+        &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
+        &quot;FormatType&quot;: &quot;pdf&quot;,
+        &quot;ContentType&quot;: &quot;application/pdf&quot;,
+        &quot;SignatureProvider&quot;: &quot;application/pdf&quot;,
+        &quot;DocumentLink&quot;: &quot;https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=J0xJAkSoEuKz5pJbG8SQOdoVdQN7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDEiLCJpRHQiOiIyMDIxLTAyLTEyIiwiZUR0IjoiMjAyMS0wMi0xNSIsImlCeSI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsImlUbyI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
+    },
+    {
+        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00002&quot;,
+        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
+        &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
+        &quot;FormatType&quot;: &quot;final&quot;,
+        &quot;ContentType&quot;: &quot;XadesBes&quot;,
+        &quot;SignatureProvider&quot;: &quot;application/xml&quot;,
+        &quot;DocumentLink&quot;: &quot;https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=zqnWa3dOriXHem%2BOkVcl4HWh2617ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDIiLCJpRHQiOiIyMDIxLTAyLTEyIiwiZUR0IjoiMjAyMS0wMi0xNSIsImlCeSI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsImlUbyI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
+    },
+    {
+        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00003&quot;,
+        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
+        &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
+        &quot;FormatType&quot;: &quot;ubl21&quot;,
+        &quot;ContentType&quot;: &quot;XadesBes&quot;,
+        &quot;SignatureProvider&quot;: &quot;application/xml&quot;,
+        &quot;DocumentLink&quot;: &quot;https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=QrwSDMJWPLFsV78dXbHov4ku%2Fkd7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDMiLCJpRHQiOiIyMDIxLTAyLTEyIiwiZUR0IjoiMjAyMS0wMi0xNSIsImlCeSI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsImlUbyI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
+    },
+    {
+        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00004&quot;,
+        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
+        &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
+        &quot;FormatType&quot;: &quot;signed&quot;,
+        &quot;ContentType&quot;: &quot;XadesBes&quot;,
+        &quot;SignatureProvider&quot;: &quot;application/xml&quot;,
+        &quot;DocumentLink&quot;: &quot;https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=YYDAtr%2BmcmX2HESkv83lvUXsMUZ7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDQiLCJpRHQiOiIyMDIxLTAyLTEyIiwiZUR0IjoiMjAyMS0wMi0xNSIsImlCeSI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsImlUbyI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
+    }
+]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="read-the-service-response">
+<h3>Read the service response<a class="headerlink" href="#read-the-service-response" title="Permalink to this headline">¶</a></h3>
+<p>Now you need to read the service response to format all document formats and get the end file</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for loop to see all Data</span>
+<span class="n">formats</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
+<span class="k">for</span> <span class="nb">format</span> <span class="ow">in</span> <span class="n">formats</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;FormatType&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pdf&quot;</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;PDF: &quot;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;DocumentLink&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;FormatType&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;final&quot;</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Final: &quot;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;DocumentLink&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;FormatType&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;ubl21&quot;</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;UBL: &quot;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;DocumentLink&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="k">if</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;FormatType&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;signed&quot;</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Signed: &quot;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;DocumentLink&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PDF: https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=VDz4P8D8USiDYO2P4n83GJiZBMt7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDEiLCJpRHQiOiIyMDIxLTAyLTExIiwiZUR0IjoiMjAyMS0wMi0xNCIsImlCeSI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsImlUbyI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
+
+Final: https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=XtM5x0esT%2FXKb%2FWcWXn2WuaUaP17ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDIiLCJpRHQiOiIyMDIxLTAyLTExIiwiZUR0IjoiMjAyMS0wMi0xNCIsImlCeSI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsImlUbyI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
+
+UBL: https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=zvcjKcCITyvCYoPGWg1lLXg%2Fw2R7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDMiLCJpRHQiOiIyMDIxLTAyLTExIiwiZUR0IjoiMjAyMS0wMi0xNCIsImlCeSI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsImlUbyI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
+
+Signed: https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=RyE4bzz349vcykbiOT3Go8fob1V7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDQiLCJpRHQiOiIyMDIxLTAyLTExIiwiZUR0IjoiMjAyMS0wMi0xNCIsImlCeSI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsImlUbyI6IlNJTiBBUEkgRG9jdW1lbnRhdGlvbiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="pdf-async-request-embebed-data.html" title="previous page">Send PDF invoices <strong>with QRCode</strong> via email</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Saphety<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -3,3 +3,5 @@
 
 - file: notebooks/country-format-async-request
 - file: notebooks/pdf-async-request
+- file: notebooks/pdf-async-request-embebed-data
+- file: notebooks/get-document-formats
