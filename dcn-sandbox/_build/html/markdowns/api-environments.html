@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Basics &#8212; API documentation</title>
+    <title>API Environments &#8212; API documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API Basics" href="api-services.html" />
-    <link rel="prev" title="API Environments" href="api-environments.html" />
+    <link rel="next" title="API Basics" href="api-basics.html" />
+    <link rel="prev" title="Overview" href="home.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -93,19 +93,19 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="api-environments.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    API Environments
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api-basics.html">
    API Basics
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="api-services.html">
-   API Basics
+   API Services
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
@@ -180,7 +180,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/markdowns/api-basics.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/markdowns/api-environments.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -200,7 +200,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fmarkdowns/api-basics.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fmarkdowns/api-environments.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -227,8 +227,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rest-api">
-   REST API
+  <a class="reference internal nav-link" href="#test-environment">
+   Test environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#production-environment">
+   Production environment
   </a>
  </li>
 </ul>
@@ -242,12 +247,32 @@
         
               <div>
                 
-  <div class="section" id="api-basics">
-<h1>API Basics<a class="headerlink" href="#api-basics" title="Permalink to this headline">¶</a></h1>
-<p>This api is exposed under the OAS3 specification.</p>
-<div class="section" id="rest-api">
-<h2>REST API<a class="headerlink" href="#rest-api" title="Permalink to this headline">¶</a></h2>
-<p>This is rest API that uses JWT tokens for authentication.</p>
+  <div class="section" id="api-environments">
+<h1>API Environments<a class="headerlink" href="#api-environments" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>Saphety Invoice Network API</strong> is connected to two environments:</p>
+<ul class="simple">
+<li><p>Test (Sandbox)</p></li>
+<li><p>Production</p></li>
+</ul>
+<div class="section" id="test-environment">
+<h2>Test environment<a class="headerlink" href="#test-environment" title="Permalink to this headline">¶</a></h2>
+<p>The first step to start testing the API is to register at <strong>API-SANDBOX Portal</strong> to get your own credentials (username and password) to generate a valid token to test the API in test environment.</p>
+<p>With these credentials you are able to test the API, simulating the scenarios as if you were in a Production environment.</p>
+<p>Through <strong>API-SANDBOX Portal</strong>, you can have access to:</p>
+<ul class="simple">
+<li><p>test API services</p></li>
+<li><p>access to API documentation</p></li>
+<li><p>request support by subscribing to a plan (not yet, but to be announced soon)</p></li>
+<li><p>request partnership agreements by subscribing to a plan (not yet, but to be announced soon)</p></li>
+</ul>
+<p>To register on the <strong>API-SANDBOX Portal</strong> access here: <a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Sandbox.Client/public">here</a></p>
+</div>
+<div class="section" id="production-environment">
+<h2>Production environment<a class="headerlink" href="#production-environment" title="Permalink to this headline">¶</a></h2>
+<p>After you have finished developing and testing the <strong>API</strong>, the next step will be to register the issuing company at <strong>Saphety Invoice Network</strong> in <strong>Production</strong> environment.</p>
+<p>The registration must be done by the issuing entity that will use the <strong>API</strong> services. This entity must be registered and must subscribe a plan to start send documents.</p>
+<p>To register on the <strong>Saphety Invoice Network API</strong> access here: <a class="reference external" href="https://www.saphety.com/">here</a></p>
+<p>The credentials obtained in this registration (user and password) will be the ones you must use to generate a valid token for <strong>API</strong> services in the <strong>Production</strong> environment.</p>
 </div>
 </div>
 
@@ -279,8 +304,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="api-environments.html" title="previous page">API Environments</a>
-    <a class='right-next' id="next-link" href="api-services.html" title="next page">API Basics</a>
+    <a class='left-prev' id="prev-link" href="home.html" title="previous page">Overview</a>
+    <a class='right-next' id="next-link" href="api-basics.html" title="next page">API Basics</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

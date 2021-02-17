@@ -4,41 +4,27 @@
 # # Send invoices using legal format
 # Portuguese government defined the **“XML UBL CIUS-PT”** as the format to interchange electronic invoices with the public administration entities.
 # 
-# If your billing system is able to generate this format, you can use **Saphety Invoice Network Portal** services to delivery your invoices and store them according to all legal requirements.
+# If your billing system is able to generate this format, you can use **Saphety Invoice Network API** services to send your invoices and store them according to all legal requirements.
 # 
 # The technical specifications of CIUS-PT format was defined by eSPap and they are published here: [Legal format documnetion documentation here at eSPAP](https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx)  
 # 
-# Bear in mind that **Saphety Invoice Network Portal** only processes **valid CIUS-PT**, so before you start testing the **API**, ensure that the **CIUS-PT** extracted from your system are compliant with all the semantic and syntactic rules defined by eSPap. You can use this **Validator tool**, to check if CIUS-PT is valid and compliant with all the syntactic and semantic rules defined: [A CIUS-PT validator is available here](https://svc.feap.gov.pt/Doc.Client/public/CIUSvalidation/PT?language=pt)
+# Bear in mind that **Saphety Invoice Network API** only processes **valid CIUS-PT**, so before you start testing the **API**, ensure that the **CIUS-PT** extracted from your system are compliant with all the semantic and syntactic rules defined by eSPap. You can use this **Validator tool**, to check if CIUS-PT is valid and compliant with all the syntactic and semantic rules defined: [A CIUS-PT validator is available here](https://svc.feap.gov.pt/Doc.Client/public/CIUSvalidation/PT?language=pt)
 # 
 # ## CountryFormatAsyncRequest
-# This is the **Saphety Invoice Network Portal** web service for processing and delivering invoices in **CIUS-PT** format.
+# This is the **Saphety Invoice Network API** web service for **processing and sending** invoices in **CIUS-PT** format.
 # 
 # This service should be used in the following cases:
 # * Your customer is a public administration entity that requires to receive the invoice in the Portuguese legal format (**CIUS-PT**);
 # * Your customer is a company that requires receiving the invoice in a specific standard format (**non CIUS-PT**) such as a retail company, banking institutions etc.;
 # * You want a full automation on sending invoices directly from your billing system using a standard format as **CIUS-PT**;
 # * You want to control the delivery status of the invoices to your customer;
-# * You want to guarantee that your invoices are in accordance to all legal requirements such as digital signature, repository storage, delivery methods, etc.
+# * You want to guarantee that your invoices are in accordance with all legal requirements such as digital signature, repository storage, delivery methods, etc.
 # 
 # ### Service steps
-# 1. Get a token from your **Saphety Invoice Network Portal** credentials by calling the service **_Account/getToken_**
+# 1. Get a token from your credentials by calling the service **_Account/getToken_**
 # 2. Send your invoice calling the **_asynchronous_** service **_CountryFormatAsyncRequest/processDocument_**; the legal invoice format (**XML CIUS-PT**) is sent in the payload
 # 3. Check the **result** of your request using the received **_request id_** at **_CountryFormatAsyncRequest/{RequestId}_**
 # 4. Once the request has finished successfully you get back a **_document id_**; check the invoice integration status on your customer at service **_OutboundFinancialDocument/{DocumentId}_**
-
-# ### Services considerations
-# All services can be consulted using the Open API Specification (OAS3):  
-# [API specification](https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html) at https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html
-# 
-# All API services can be consulted using the **Open API Specification (OAS3)**:
-# 
-# **For Tests purposes**<br>
-# API specification of Test environment at https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/index.html<br>
-# <font color=red>\*must use the credentials (user and pw) defined at your **API-SANDBOX Portal** registration</font>
-# 
-# **For Production**<br>
-# API specification of Production environment at https://dcn-solution.saphety.com/Dcn.Business.WebApi/api/index.html<br>
-# <font color=red>\*must use the credentials (user and pw) defined at **Saphety Invoice Network Portal** registration</font>
 
 # #### Asynchrounous
 # The service **_CountryFormatAsyncRequest/processDocument_** is an asynchrounous service.<br>
@@ -60,10 +46,10 @@
 # 
 
 # ## 1. Get a token (Account/getToken)
-# Credentials have be given to you, according to your registration at **API-SANDBOX Portal** or **Saphety Invoice Network Portal**:
+# Credentials have be given to you, according to your registration at **API-SANDBOX Portal** or **Saphety Invoice Network**:
 # * For **Test purposes**, the **_user_** and **_password_** defined at **API-SANDBOX Portal** registration<br>
 # or
-# * For **Production**, the **_user_** and **_password_** defined at **Saphety Invoice Network Portal** registration
+# * For **Production**, the **_user_** and **_password_** defined at **Saphety Invoice Network** registration
 # 
 # Use those credentials to get a token at:
 # ```
@@ -73,11 +59,11 @@
 # In[1]:
 
 
-# SANDBOX - Environment
-server_base_adress = "dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi"
+# SANDBOX - Test Environment
+server_base_adress = "dcn-solution.saphety.com/Dcn.Sandbox.WebApi"
 
 # Saphety Invoice Network - Production Environment
-#server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi"
+#server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi""
 
 
 # In[2]:
@@ -108,7 +94,7 @@ headers = {
 response = requests.request("POST", service_url, data=request_data, headers=headers)
 
 
-# <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. We recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font>
+# <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font>
 
 # In[3]:
 
@@ -129,10 +115,10 @@ print (token)
 # ## 2. Send invoice request (CountryFormatAsyncRequest/processDocument)
 # Now that you have a token, you can send an invoice in the legal format (CIUS-PT).
 
-# ### Bulild the service endpoint url
+# ### Build the service endpoint url
 # In the service url you need to supply two parameters:
 # 1. Invoice issuer NIF **_<IssuerNIF>_** (prefixed with the country code)
-# Must be the NIF of the registered company (ex: PT507957547). This NIF will be matched against the account registration in **Saphety Invoice Network (Production environment)** or SIN-API Portal (Test environment), for authorization purposes.
+# Must be the NIF of the registered company (ex: PT507957547). This NIF will be matched against the account registration in **Saphety Invoice Network (Production environment)** or **SIN-API Portal (Test environment)**, for authorization purposes.
 # 2. The document type **_<DocumentType>_** must be one of the following
 #     1. **INVOICE**
 #     2. **CREDIT_NOTE**
@@ -350,7 +336,7 @@ print ('The request id to query on service status: ' + request_id)
 # ## 3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})
 # Query the system using this **_request id_** in order to get the status (success or error) of your request
 
-# ### Bulild the service endpoint url
+# ### Build the service endpoint url
 # In the service url you need to supply the **_request id_** received
 # 
 # ```

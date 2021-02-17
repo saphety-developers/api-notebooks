@@ -2,26 +2,12 @@
 # coding: utf-8
 
 # # Send PDF invoices **without QRCode** via email
-# Use this service to **sign** and **send** PDF invoices by email to your costumers.
+# Use this service to **sign** and **send** PDF invoices **without QRCode** by email to your costumers.
 # 
 # ### Service steps
-# 1. Get a token from your **Saphety Invoice Network API** credentials by calling the service **_Account/getToken_**;
+# 1. Get a token from your credentials by calling the service **_Account/getToken_**;
 # 2. Send your invoice calling the **_asynchronous_** service **_PdfAsyncRequest/processDocument_**;
 # 3. Check to success of your request using the received **_request id_** at **_PdfAsyncRequest/{RequestId}_**
-
-# ### Services considerations
-# All services can be consulted using the Open API Specification (OAS3):  
-# [API specification](https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html) at https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html
-# 
-# All API services can be consulted using the **Open API Specification (OAS3)**:
-# 
-# **For Tests purposes**<br>
-# API specification of Test environment at https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/index.html<br>
-# <font color=red>\*must use the credentials (user and pw) defined at your **API-SANDBOX Portal** registration</font>
-# 
-# **For Production**<br>
-# API specification of Production environment at https://dcn-solution.saphety.com/Dcn.Business.WebApi/api/index.html<br>
-# <font color=red>\*must use the credentials (user and pw) defined at **Saphety Invoice Network Portal** registration</font>
 
 # #### Asynchrounous
 # The service **_PdfAsyncRequest/processDocument_** is an asynchrounous service.
@@ -43,10 +29,10 @@
 # ```
 
 # ## 1. Get a token (Account/getToken)
-# Credentials have be given to you, according to your registration at **API-SANDBOX Portal** or **Saphety Invoice Network Portal**:
+# Credentials have be given to you, according to your registration at **API-SANDBOX Portal** or **Saphety Invoice Network**:
 # * For **Test purposes**, the **_user_** and **_password_** defined at **API-SANDBOX Portal** registration<br>
 # or
-# * For **Production**, the **_user_** and **_password_** defined at **Saphety Invoice Network Portal** registration
+# * For **Production**, the **_user_** and **_password_** defined at **Saphety Invoice Network** registration
 # 
 # Use those credentials to get a token at:
 # ```
@@ -56,14 +42,11 @@
 # In[55]:
 
 
-# Integration environment
-#server_base_adress = "dcn-solution-int.saphety.com/Dcn.Business.WebApi"
-# Quality environment
-#server_base_adress = "dcn-solution-qa.saphety.com/Dcn.Business.WebApi"
-# Production environemnt
-#server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi"
-# SANDBOX - Integration environment
-server_base_adress = "dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi"
+# SANDBOX - Test Environment
+server_base_adress = "dcn-solution.saphety.com/Dcn.Sandbox.WebApi"
+
+# Saphety Invoice Network - Production Environment
+#server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi""
 
 
 # In[56]:
@@ -94,7 +77,7 @@ headers = {
 response = requests.request("POST", service_url, data=request_data, headers=headers)
 
 
-# <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. We recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font>
+# <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font>
 
 # In[57]:
 

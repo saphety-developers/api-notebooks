@@ -1,7 +1,10 @@
 - file: markdowns/home
+- file: markdowns/api-environments
 - file: markdowns/api-basics
 
-- file: notebooks/country-format-async-request
-- file: notebooks/pdf-async-request
-- file: notebooks/pdf-async-request-embebed-data
-- file: notebooks/get-document-formats
+- file: markdowns/api-services
+  sections:
+    - file: notebooks/country-format-async-request
+    - file: notebooks/pdf-async-request
+    - file: notebooks/pdf-async-request-embebed-data
+    - file: notebooks/get-document-formats

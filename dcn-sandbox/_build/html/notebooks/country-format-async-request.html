@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Send PDF invoices without QRCode via email" href="pdf-async-request.html" />
-    <link rel="prev" title="API Basics" href="../markdowns/api-basics.html" />
+    <link rel="prev" title="API Services" href="../markdowns/api-services.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -94,37 +94,51 @@
 </ul>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
+  <a class="reference internal" href="../markdowns/api-environments.html">
+   API Environments
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../markdowns/api-basics.html">
    API Basics
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Send invoices using legal format
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../markdowns/api-services.html">
+   API Services
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pdf-async-request.html">
-   Send PDF invoices
-   <strong>
-    without QRCode
-   </strong>
-   via email
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pdf-async-request-embebed-data.html">
-   Send PDF invoices
-   <strong>
-    with QRCode
-   </strong>
-   via email
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="get-document-formats.html">
-   Get invoice PDF or UBL format from archive
-  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Send invoices using legal format
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pdf-async-request.html">
+     Send PDF invoices
+     <strong>
+      without QRCode
+     </strong>
+     via email
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pdf-async-request-embebed-data.html">
+     Send PDF invoices
+     <strong>
+      with QRCode
+     </strong>
+     via email
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get-document-formats.html">
+     Get invoice PDF or UBL format from archive
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -238,11 +252,6 @@
     <a class="reference internal nav-link" href="#service-steps">
      Service steps
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#services-considerations">
-     Services considerations
-    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#asynchrounous">
@@ -269,8 +278,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bulild-the-service-endpoint-url">
-     Bulild the service endpoint url
+    <a class="reference internal nav-link" href="#build-the-service-endpoint-url">
+     Build the service endpoint url
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -292,7 +301,7 @@
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id1">
-     Bulild the service endpoint url
+     Build the service endpoint url
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -308,7 +317,7 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-the-service-endpoint-url">
+    <a class="reference internal nav-link" href="#id2">
      Build the service endpoint url
     </a>
    </li>
@@ -328,40 +337,28 @@
   <div class="section" id="send-invoices-using-legal-format">
 <h1>Send invoices using legal format<a class="headerlink" href="#send-invoices-using-legal-format" title="Permalink to this headline">¶</a></h1>
 <p>Portuguese government defined the <strong>“XML UBL CIUS-PT”</strong> as the format to interchange electronic invoices with the public administration entities.</p>
-<p>If your billing system is able to generate this format, you can use <strong>Saphety Invoice Network Portal</strong> services to delivery your invoices and store them according to all legal requirements.</p>
+<p>If your billing system is able to generate this format, you can use <strong>Saphety Invoice Network API</strong> services to send your invoices and store them according to all legal requirements.</p>
 <p>The technical specifications of CIUS-PT format was defined by eSPap and they are published here: <a class="reference external" href="https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx">Legal format documnetion documentation here at eSPAP</a></p>
-<p>Bear in mind that <strong>Saphety Invoice Network Portal</strong> only processes <strong>valid CIUS-PT</strong>, so before you start testing the <strong>API</strong>, ensure that the <strong>CIUS-PT</strong> extracted from your system are compliant with all the semantic and syntactic rules defined by eSPap. You can use this <strong>Validator tool</strong>, to check if CIUS-PT is valid and compliant with all the syntactic and semantic rules defined: <a class="reference external" href="https://svc.feap.gov.pt/Doc.Client/public/CIUSvalidation/PT?language=pt">A CIUS-PT validator is available here</a></p>
+<p>Bear in mind that <strong>Saphety Invoice Network API</strong> only processes <strong>valid CIUS-PT</strong>, so before you start testing the <strong>API</strong>, ensure that the <strong>CIUS-PT</strong> extracted from your system are compliant with all the semantic and syntactic rules defined by eSPap. You can use this <strong>Validator tool</strong>, to check if CIUS-PT is valid and compliant with all the syntactic and semantic rules defined: <a class="reference external" href="https://svc.feap.gov.pt/Doc.Client/public/CIUSvalidation/PT?language=pt">A CIUS-PT validator is available here</a></p>
 <div class="section" id="countryformatasyncrequest">
 <h2>CountryFormatAsyncRequest<a class="headerlink" href="#countryformatasyncrequest" title="Permalink to this headline">¶</a></h2>
-<p>This is the <strong>Saphety Invoice Network Portal</strong> web service for processing and delivering invoices in <strong>CIUS-PT</strong> format.</p>
+<p>This is the <strong>Saphety Invoice Network API</strong> web service for <strong>processing and sending</strong> invoices in <strong>CIUS-PT</strong> format.</p>
 <p>This service should be used in the following cases:</p>
 <ul class="simple">
 <li><p>Your customer is a public administration entity that requires to receive the invoice in the Portuguese legal format (<strong>CIUS-PT</strong>);</p></li>
 <li><p>Your customer is a company that requires receiving the invoice in a specific standard format (<strong>non CIUS-PT</strong>) such as a retail company, banking institutions etc.;</p></li>
 <li><p>You want a full automation on sending invoices directly from your billing system using a standard format as <strong>CIUS-PT</strong>;</p></li>
 <li><p>You want to control the delivery status of the invoices to your customer;</p></li>
-<li><p>You want to guarantee that your invoices are in accordance to all legal requirements such as digital signature, repository storage, delivery methods, etc.</p></li>
+<li><p>You want to guarantee that your invoices are in accordance with all legal requirements such as digital signature, repository storage, delivery methods, etc.</p></li>
 </ul>
 <div class="section" id="service-steps">
 <h3>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
-<li><p>Get a token from your <strong>Saphety Invoice Network Portal</strong> credentials by calling the service <strong><em>Account/getToken</em></strong></p></li>
+<li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong></p></li>
 <li><p>Send your invoice calling the <strong><em>asynchronous</em></strong> service <strong><em>CountryFormatAsyncRequest/processDocument</em></strong>; the legal invoice format (<strong>XML CIUS-PT</strong>) is sent in the payload</p></li>
 <li><p>Check the <strong>result</strong> of your request using the received <strong><em>request id</em></strong> at <strong><em>CountryFormatAsyncRequest/{RequestId}</em></strong></p></li>
 <li><p>Once the request has finished successfully you get back a <strong><em>document id</em></strong>; check the invoice integration status on your customer at service <strong><em>OutboundFinancialDocument/{DocumentId}</em></strong></p></li>
 </ol>
-</div>
-<div class="section" id="services-considerations">
-<h3>Services considerations<a class="headerlink" href="#services-considerations" title="Permalink to this headline">¶</a></h3>
-<p>All services can be consulted using the Open API Specification (OAS3):<br />
-<a class="reference external" href="https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html">API specification</a> at https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/index.html</p>
-<p>All API services can be consulted using the <strong>Open API Specification (OAS3)</strong>:</p>
-<p><strong>For Tests purposes</strong><br>
-API specification of Test environment at https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/index.html<br>
-<font color=red>*must use the credentials (user and pw) defined at your <strong>API-SANDBOX Portal</strong> registration</font></p>
-<p><strong>For Production</strong><br>
-API specification of Production environment at https://dcn-solution.saphety.com/Dcn.Business.WebApi/api/index.html<br>
-<font color=red>*must use the credentials (user and pw) defined at <strong>Saphety Invoice Network Portal</strong> registration</font></p>
 <div class="section" id="asynchrounous">
 <h4>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">¶</a></h4>
 <p>The service <strong><em>CountryFormatAsyncRequest/processDocument</em></strong> is an asynchrounous service.<br>
@@ -385,11 +382,11 @@ For each request you receive immediately a <strong><em>request id</em></strong>.
 </div>
 <div class="section" id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">¶</a></h2>
-<p>Credentials have be given to you, according to your registration at <strong>API-SANDBOX Portal</strong> or <strong>Saphety Invoice Network Portal</strong>:</p>
+<p>Credentials have be given to you, according to your registration at <strong>API-SANDBOX Portal</strong> or <strong>Saphety Invoice Network</strong>:</p>
 <ul class="simple">
 <li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>API-SANDBOX Portal</strong> registration<br>
 or</p></li>
-<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network Portal</strong> registration</p></li>
+<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
 </ul>
 <p>Use those credentials to get a token at:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
@@ -397,11 +394,11 @@ or</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SANDBOX - Environment</span>
-<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SANDBOX - Test Environment</span>
+<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
 
 <span class="c1"># Saphety Invoice Network - Production Environment</span>
-<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
+<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -435,7 +432,7 @@ or</p></li>
 </div>
 </div>
 </div>
-<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. We recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font></p>
+<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Formating the response to json for visualization purposes only</span>
@@ -473,12 +470,12 @@ or</p></li>
 <div class="section" id="send-invoice-request-countryformatasyncrequest-processdocument">
 <h2>2. Send invoice request (CountryFormatAsyncRequest/processDocument)<a class="headerlink" href="#send-invoice-request-countryformatasyncrequest-processdocument" title="Permalink to this headline">¶</a></h2>
 <p>Now that you have a token, you can send an invoice in the legal format (CIUS-PT).</p>
-<div class="section" id="bulild-the-service-endpoint-url">
-<h3>Bulild the service endpoint url<a class="headerlink" href="#bulild-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="build-the-service-endpoint-url">
+<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
 <p>In the service url you need to supply two parameters:</p>
 <ol class="simple">
 <li><p>Invoice issuer NIF <strong><em><IssuerNIF></em></strong> (prefixed with the country code)
-Must be the NIF of the registered company (ex: PT507957547). This NIF will be matched against the account registration in <strong>Saphety Invoice Network (Production environment)</strong> or SIN-API Portal (Test environment), for authorization purposes.</p></li>
+Must be the NIF of the registered company (ex: PT507957547). This NIF will be matched against the account registration in <strong>Saphety Invoice Network (Production environment)</strong> or <strong>SIN-API Portal (Test environment)</strong>, for authorization purposes.</p></li>
 <li><p>The document type <strong><em><DocumentType></em></strong> must be one of the following</p>
 <ol class="simple">
 <li><p><strong>INVOICE</strong></p></li>
@@ -726,7 +723,7 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 <h2>3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid" title="Permalink to this headline">¶</a></h2>
 <p>Query the system using this <strong><em>request id</em></strong> in order to get the status (success or error) of your request</p>
 <div class="section" id="id1">
-<h3>Bulild the service endpoint url<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>Build the service endpoint url<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>In the service url you need to supply the <strong><em>request id</em></strong> received</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">CountryFormatAsyncRequest</span><span class="o">/&lt;</span><span class="n">RequestId</span><span class="o">&gt;</span>
 </pre></div>
@@ -811,8 +808,8 @@ You have created the outbound document id: 969457df-d4ef-4ecf-872b-3331cda63e81
 <div class="section" id="check-the-invoice-integration-status-outboundfinancialdocument-documentid">
 <h2>4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})<a class="headerlink" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid" title="Permalink to this headline">¶</a></h2>
 <p>With the received outbound financial <strong><em>document id</em></strong> you can query the system for document integration status.</p>
-<div class="section" id="build-the-service-endpoint-url">
-<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Build the service endpoint url<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>In the service url you need to supply the <strong><em>outbound financial document id</em></strong> received.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocument</span><span class="o">/&lt;</span><span class="n">OutboundFinancialDocumentId</span><span class="o">&gt;</span>
 </pre></div>
@@ -939,7 +936,7 @@ You have created the outbound document id: 969457df-d4ef-4ecf-872b-3331cda63e81
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../markdowns/api-basics.html" title="previous page">API Basics</a>
+    <a class='left-prev' id="prev-link" href="../markdowns/api-services.html" title="previous page">API Services</a>
     <a class='right-next' id="next-link" href="pdf-async-request.html" title="next page">Send PDF invoices <strong>without QRCode</strong> via email</a>
 
     </div>

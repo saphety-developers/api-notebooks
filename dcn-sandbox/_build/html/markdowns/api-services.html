@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>API Basics &#8212; API documentation</title>
+    <title>API Services &#8212; API documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API Basics" href="api-services.html" />
-    <link rel="prev" title="API Environments" href="api-environments.html" />
+    <link rel="next" title="Send invoices using legal format" href="../notebooks/country-format-async-request.html" />
+    <link rel="prev" title="API Basics" href="api-basics.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -98,14 +98,14 @@
    API Environments
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="api-basics.html">
    API Basics
   </a>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="api-services.html">
-   API Basics
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="current reference internal" href="#">
+   API Services
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
@@ -180,7 +180,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/markdowns/api-basics.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/markdowns/api-services.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -200,7 +200,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fmarkdowns/api-basics.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fmarkdowns/api-services.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -227,8 +227,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rest-api">
-   REST API
+  <a class="reference internal nav-link" href="#services-considerations">
+   Services considerations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#services">
+   Services
   </a>
  </li>
 </ul>
@@ -242,12 +247,31 @@
         
               <div>
                 
-  <div class="section" id="api-basics">
-<h1>API Basics<a class="headerlink" href="#api-basics" title="Permalink to this headline">¶</a></h1>
-<p>This api is exposed under the OAS3 specification.</p>
-<div class="section" id="rest-api">
-<h2>REST API<a class="headerlink" href="#rest-api" title="Permalink to this headline">¶</a></h2>
-<p>This is rest API that uses JWT tokens for authentication.</p>
+  <div class="section" id="api-services">
+<h1>API Services<a class="headerlink" href="#api-services" title="Permalink to this headline">¶</a></h1>
+<p>Please consult the API services specification and orchestration.</p>
+<div class="section" id="services-considerations">
+<h2>Services considerations<a class="headerlink" href="#services-considerations" title="Permalink to this headline">¶</a></h2>
+<p>All API services can be consulted using the <strong>Open API Specification (OAS3)</strong>:</p>
+<p><strong>For Tests purposes</strong><br>
+API specification of Test environment at <a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/index.html">API specification</a><br>
+<font color=red>*must use the credentials (user and pw) defined at your <strong>API-SANDBOX Portal</strong> registration</font></p>
+<p><strong>For Production</strong><br>
+API specification of Production environment at <a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Business.WebApi/api/index.html">API specification</a><br>
+<font color=red>*must use the credentials (user and pw) defined at <strong>Saphety Invoice Network</strong> registration</font></p>
+</div>
+<div class="section" id="services">
+<h2>Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h2>
+<p><font size="5"><a class="reference internal" href="../notebooks/country-format-async-request.html"><span class="doc std std-doc">Send invoices using legal format</span></a></font><br>
+Use this service to <strong>send</strong> invoices in Portuguese legal format CIUS-PT.</p>
+<p><font size="5"><a class="reference internal" href="../notebooks/pdf-async-request.html"><span class="doc std std-doc">Send PDF invoices <strong>without QRCode</strong> via email</span></a></font><br>
+Use this service to <strong>sign</strong> and <strong>send</strong> PDF invoices by email to your costumers.</p>
+<p><font size="5"><a class="reference internal" href="../notebooks/pdf-async-request-embebed-data.html"><span class="doc std std-doc">Send PDF invoices <strong>with QRCode</strong> via email</span></a></font><br>
+Use this service to <strong>sign</strong> and <strong>send</strong> PDF invoices with QRCode by email to your costumers.</p>
+<p><font size="5"><a class="reference internal" href="../notebooks/get-document-formats.html"><span class="doc std std-doc">Get invoice formats from archive</span></a></font><br>
+Use this service to <strong>get</strong> all invoice formats from archive for your processed document.</p>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 
@@ -279,8 +303,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="api-environments.html" title="previous page">API Environments</a>
-    <a class='right-next' id="next-link" href="api-services.html" title="next page">API Basics</a>
+    <a class='left-prev' id="prev-link" href="api-basics.html" title="previous page">API Basics</a>
+    <a class='right-next' id="next-link" href="../notebooks/country-format-async-request.html" title="next page">Send invoices using legal format</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
