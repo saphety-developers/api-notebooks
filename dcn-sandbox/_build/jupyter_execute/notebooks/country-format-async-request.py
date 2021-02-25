@@ -428,7 +428,7 @@ else:
     print (service_url)
 
 
-# In[18]:
+# In[14]:
 
 
 # build the request
@@ -443,7 +443,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[19]:
+# In[15]:
 
 
 integration_status = json_response["Data"]["IntegrationStatus"]

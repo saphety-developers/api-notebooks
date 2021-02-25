@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Get Invoice formats from archive
-# Use this service to **get** all invoice formats from archive for your processed document.
+# # Resend PDF invoice notification
+# Use this service to **resend** PDF invoices email notification.
 # 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**;
-# 2. Get all invoice formats calling the service **_OutboundFinancialDocument/documentFormats/{documentId}_**;
+# 2. Resend notifications calling the service **_OutboundFinancialDocumentMaintnance/sendNotifications_**;
 # 
 # #### Response structure from server
 # When a request is well formed and the authentication data is correct the system responds with a message envelope as follows: 
@@ -31,7 +31,7 @@
 # https://<ServerBaseAddress>/api/Account/getToken
 # ```
 
-# In[5]:
+# In[1]:
 
 
 # SANDBOX - Test Environment
@@ -41,7 +41,7 @@ server_base_adress = "dcn-solution.saphety.com/Dcn.Sandbox.WebApi"
 #server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi""
 
 
-# In[6]:
+# In[2]:
 
 
 import requests
@@ -71,7 +71,7 @@ response = requests.request("POST", service_url, data=request_data, headers=head
 
 # <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font>
 
-# In[7]:
+# In[3]:
 
 
 # formating the response to json for visualization purposes only
@@ -79,7 +79,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[8]:
+# In[4]:
 
 
 # your token is at:
@@ -87,61 +87,71 @@ token = json_response["Data"];
 print (token)
 
 
-# ## 2. Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})
-# <font color=orange>\* **Note:** The number of formats returned and their type depends on several factors. In the case of this documentation, the formats are fixed, as you can see in the following example.</font>
+# ## 2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendNotifications)
 
 # ### Build the service endpoint url
-# In the service url you need to supply the outbfinancialdocumentId received
+# In the service url you don't need to supply anything.
 # 
 # ```
-# https://<ServerBaseUrl>/OutboundFinancialDocument/documentFormats/<OutboundFinancialDocumentId>
+# https://<ServerBaseUrl>/OutboundFinancialDocumentMaintnance/sendNotifications
 # ```
 
-# In[16]:
+# In[5]:
 
 
-# SIN service url for retrieving inforfation on invoice previously sent
-service_url = """{ServerBaseUrl}/api/OutboundFinancialDocument/documentFormats/{OutboundFinancialDocumentId}""".format(
-    ServerBaseUrl=server_base_adress,
-    OutboundFinancialDocumentId="fc5e547d-8537-4e05-97d5-1159c62efd6f"
+# SIN service ur
+service_url = """{ServerBaseUrl}/api/OutboundFinancialDocumentMaintnance/sendNotifications""".format(
+    ServerBaseUrl=server_base_adress
 )
 service_url = "https://" + service_url
 print (service_url)
 
 
-# ### Call the service to get the formats
-# You will call the service endpoint url
+# ### Build the service body
+# In the service body you need to supply some data.
 
-# In[17]:
+# In[6]:
 
 
-# build the request
+#headers
 headers = {
+    'Content-Type': 'application/json',
     'Authorization': 'bearer ' + token
     }
-# POST request to send the invoice
-response = requests.request("GET", service_url, headers=headers)
+# payload as json
+payload = {
+  'OutboundFinancialDocumentId': 'fc5e547d-8537-4e05-97d5-1159c62efd6f',
+  'SendToDefaultDestinantions': True,
+  'AdditionalEmails': [
+    'sin_api_documentation_user@saphety.com'
+  ]
+}
+request_data=json.dumps(payload)
+
+
+# <font color=red>\* **Note:** this service will only send and email for the calling user, because it is a test service.</font>
+
+# ### Call the service resend notifications
+# You will call the service endpoint url
+
+# In[7]:
+
+
+# Send the request (POST).
+response = requests.request("POST", service_url, data=request_data, headers=headers)
 
 # formating the response to json for visualization purposes only
 json_response = json.loads(response.text)
-print(json.dumps(json_response["Data"], indent=4))
+print(json.dumps(json_response, indent=4))
 
 
 # ### Read the service response
-# Now you need to read the service response to format all document formats and get the end file
+# Now you need to read the service response and see the email send
 
-# In[18]:
+# In[8]:
 
 
 # for loop to see all Data
 formats = json_response["Data"];
-for format in formats:
-    if format["FormatType"] == "pdf":
-        print ("PDF: " + format["DocumentLink"] + "\n");
-    if format["FormatType"] == "final":
-        print ("Final: " + format["DocumentLink"] + "\n");
-    if format["FormatType"] == "ubl21":
-        print ("UBL: " + format["DocumentLink"] + "\n");
-    if format["FormatType"] == "signed":
-        print ("Signed: " + format["DocumentLink"] + "\n");
+print(json.dumps(formats, indent=4))
 

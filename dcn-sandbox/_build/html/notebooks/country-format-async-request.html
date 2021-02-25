@@ -132,8 +132,34 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="pdf-async-request-store-only.html">
+     Store PDF invoices
+     <strong>
+      without QRCode
+     </strong>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pdf-async-request-embebed-data-store-only.html">
+     Store PDF invoices
+     <strong>
+      with QRCode
+     </strong>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get-document.html">
+     Get Invoice from archive
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="get-document-formats.html">
-     Get invoice PDF or UBL format from archive
+     Get Invoice formats from archive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sent-notifications.html">
+     Resend PDF invoice notification
     </a>
    </li>
   </ul>
@@ -443,10 +469,10 @@ or</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;f2861b53-90b1-4874-be16-300c539edce8&quot;,
+    &quot;CorrelationId&quot;: &quot;3052ad4c-d752-4e33-ad52-9ff9c9cd605e&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiYTUxN2M1OTctZDYxZC00ZTI3LWEwZGYtMTU2NjJlNTg0NWEyIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjEzNDA3NTMyLCJleHAiOjE2MTk0MDM4NzIsImlhdCI6MTYxMzQwNzQ3MiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.0BuOSYHS9k1Yj8c8w_nGBQpRlBR1qEQ9kEaWbxwU5nY&quot;
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNmRmNjQ2YTctNmI3Ny00NDM4LTg3M2UtNGQwYzcwNDRlMjJhIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0MTkwNjY0LCJleHAiOjE2MTQyMTk0NjQsImlhdCI6MTYxNDE5MDYwNCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.FxSEzgD3Eh9XJ2YxYwhoQqxO7hp9Mnk3eLnmY2J7Hcw&quot;
 }
 </pre></div>
 </div>
@@ -461,7 +487,7 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiYTUxN2M1OTctZDYxZC00ZTI3LWEwZGYtMTU2NjJlNTg0NWEyIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjEzNDA3NTMyLCJleHAiOjE2MTk0MDM4NzIsImlhdCI6MTYxMzQwNzQ3MiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.0BuOSYHS9k1Yj8c8w_nGBQpRlBR1qEQ9kEaWbxwU5nY
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNmRmNjQ2YTctNmI3Ny00NDM4LTg3M2UtNGQwYzcwNDRlMjJhIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0MTkwNjY0LCJleHAiOjE2MTQyMTk0NjQsImlhdCI6MTYxNDE5MDYwNCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.FxSEzgD3Eh9XJ2YxYwhoQqxO7hp9Mnk3eLnmY2J7Hcw
 </pre></div>
 </div>
 </div>
@@ -510,7 +536,7 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/CountryFormatAsyncRequest/processDocument/PT507957547/INVOICE/PT
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/CountryFormatAsyncRequest/processDocument/PT507957547/INVOICE/PT
 </pre></div>
 </div>
 </div>
@@ -694,10 +720,10 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;e943f276-1c6c-4847-a8bf-ad6189001ef9&quot;,
+    &quot;CorrelationId&quot;: &quot;65f2b7bf-4c68-4b7a-b9a6-a12d5cd6c12a&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;9387d12b-5df8-4c36-b321-9e2f28b9cfdf&quot;
+    &quot;Data&quot;: &quot;ddf7b642-8dd9-4e21-a848-b735cf8faa2a&quot;
 }
 </pre></div>
 </div>
@@ -712,7 +738,7 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The request id to query on service status: 9387d12b-5df8-4c36-b321-9e2f28b9cfdf
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The request id to query on service status: ddf7b642-8dd9-4e21-a848-b735cf8faa2a
 </pre></div>
 </div>
 </div>
@@ -742,7 +768,7 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/CountryFormatAsyncRequest/9387d12b-5df8-4c36-b321-9e2f28b9cfdf
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/CountryFormatAsyncRequest/ddf7b642-8dd9-4e21-a848-b735cf8faa2a
 </pre></div>
 </div>
 </div>
@@ -798,7 +824,7 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your request has finished.
-You have created the outbound document id: 969457df-d4ef-4ecf-872b-3331cda63e81
+You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </pre></div>
 </div>
 </div>
@@ -830,7 +856,7 @@ You have created the outbound document id: 969457df-d4ef-4ecf-872b-3331cda63e81
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/OutboundFinancialDocument/969457df-d4ef-4ecf-872b-3331cda63e81
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/OutboundFinancialDocument/c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </pre></div>
 </div>
 </div>
@@ -852,11 +878,12 @@ You have created the outbound document id: 969457df-d4ef-4ecf-872b-3331cda63e81
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;82e944b6-8de9-4b21-8553-cdd7441c8c7a&quot;,
+    &quot;CorrelationId&quot;: &quot;f91b2b02-2d0e-481a-8cda-8ef5babfa358&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
     &quot;Data&quot;: {
-        &quot;Id&quot;: &quot;969457df-d4ef-4ecf-872b-3331cda63e81&quot;,
+        &quot;Id&quot;: &quot;c4e864e7-69b6-4110-b4e3-a1cfa00a7d01&quot;,
+        &quot;VirtualOperatorCode&quot;: null,
         &quot;CompanyIntlVatCode&quot;: &quot;PT507641230&quot;,
         &quot;DocumentType&quot;: &quot;INVOICE&quot;,
         &quot;DocumentDate&quot;: &quot;2020-12-31 00:00:00&quot;,
@@ -871,7 +898,7 @@ You have created the outbound document id: 969457df-d4ef-4ecf-872b-3331cda63e81
         &quot;IntegrationStatus&quot;: &quot;Received&quot;,
         &quot;IntegrationDate&quot;: &quot;2021-01-03 00:00:00&quot;,
         &quot;LastUpdateDate&quot;: &quot;2021-01-03 00:00:00&quot;,
-        &quot;AuthorId&quot;: &quot;45bdc27e-dbaf-4e36-9c4a-df5dabf7e7a9&quot;,
+        &quot;AuthorId&quot;: &quot;3de7fd65-86c1-49dc-a261-9e2cc31b6386&quot;,
         &quot;Errors&quot;: null,
         &quot;CreationDate&quot;: &quot;2021-01-01 00:00:00&quot;
     }

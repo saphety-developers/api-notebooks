@@ -7,4 +7,8 @@
     - file: notebooks/country-format-async-request
     - file: notebooks/pdf-async-request
     - file: notebooks/pdf-async-request-embebed-data
+    - file: notebooks/pdf-async-request-store-only
+    - file: notebooks/pdf-async-request-embebed-data-store-only
+    - file: notebooks/get-document
     - file: notebooks/get-document-formats
+    - file: notebooks/sent-notifications

@@ -132,8 +132,34 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="pdf-async-request-store-only.html">
+     Store PDF invoices
+     <strong>
+      without QRCode
+     </strong>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pdf-async-request-embebed-data-store-only.html">
+     Store PDF invoices
+     <strong>
+      with QRCode
+     </strong>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get-document.html">
+     Get Invoice from archive
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="get-document-formats.html">
-     Get invoice PDF or UBL format from archive
+     Get Invoice formats from archive
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sent-notifications.html">
+     Resend PDF invoice notification
     </a>
    </li>
   </ul>
@@ -307,7 +333,7 @@
                 
   <div class="section" id="send-pdf-invoices-without-qrcode-via-email">
 <h1>Send PDF invoices <strong>without QRCode</strong> via email<a class="headerlink" href="#send-pdf-invoices-without-qrcode-via-email" title="Permalink to this headline">¶</a></h1>
-<p>Use this service to <strong>sign</strong> and <strong>send</strong> PDF invoices <strong>without QRCode</strong> by email to your costumers.</p>
+<p>Use this service to <strong>sign</strong>, <strong>store</strong> and <strong>send</strong> PDF invoices that <strong>don’t have</strong> a <strong>QRCode</strong>.</p>
 <div class="section" id="service-steps">
 <h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
@@ -318,7 +344,7 @@
 <div class="section" id="asynchrounous">
 <h3>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">¶</a></h3>
 <p>The service <strong><em>PdfAsyncRequest/processDocument</em></strong> is an asynchrounous service.</p>
-<p>An invoice can take a few seconds to process (sign, send to your costumer).</p>
+<p>An invoice can take a few seconds to process (sign, store and send to your costumer).</p>
 <p>Since this is an integration API, thousands of requests can be requested at the same time. For each request you receive immediately a <strong><em>request id</em></strong>. Use it to query the request status.</p>
 </div>
 <div class="section" id="response-structure-from-server">
@@ -397,10 +423,10 @@ or</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;ad32180b-a711-4d18-8842-2f972f555fb1&quot;,
+    &quot;CorrelationId&quot;: &quot;5611db85-05f3-4e96-b1f1-09be4e849b1c&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiYWIwOGU3OTktODY2My00NTlmLWIzYTMtZjIwZmViMTI0ZDI2IiwicmwiOlsiQ29tcGFueUFkbWluaXN0cmF0b3IiLCJDb21wYW55VXNlciJdLCJjcCI6IlBUNTA3OTU3NTQ3IiwibmJmIjoxNjExMTYwOTE0LCJleHAiOjE2MTcxNTcyNTQsImlhdCI6MTYxMTE2MDg1NCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2VydmVyIn0.0JfEH1wm4SVtXxON8P1ILugNBy0hq_oYVNKGo2_p0Aw&quot;
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNGEyYzY2N2MtNWU5My00NGM2LWFkYzItMzFlYjAyYzFhYjQxIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0MTc5ODk5LCJleHAiOjE2MTQyMDg2OTksImlhdCI6MTYxNDE3OTgzOSwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.h2toOIp4xFHAL4kffQWD6qmUNZZaoSplYKV_7riGzkM&quot;
 }
 </pre></div>
 </div>
@@ -415,7 +441,7 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiYWIwOGU3OTktODY2My00NTlmLWIzYTMtZjIwZmViMTI0ZDI2IiwicmwiOlsiQ29tcGFueUFkbWluaXN0cmF0b3IiLCJDb21wYW55VXNlciJdLCJjcCI6IlBUNTA3OTU3NTQ3IiwibmJmIjoxNjExMTYwOTE0LCJleHAiOjE2MTcxNTcyNTQsImlhdCI6MTYxMTE2MDg1NCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2VydmVyIn0.0JfEH1wm4SVtXxON8P1ILugNBy0hq_oYVNKGo2_p0Aw
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNGEyYzY2N2MtNWU5My00NGM2LWFkYzItMzFlYjAyYzFhYjQxIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0MTc5ODk5LCJleHAiOjE2MTQyMDg2OTksImlhdCI6MTYxNDE3OTgzOSwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.h2toOIp4xFHAL4kffQWD6qmUNZZaoSplYKV_7riGzkM
 </pre></div>
 </div>
 </div>
@@ -423,7 +449,38 @@ or</p></li>
 </div>
 <div class="section" id="send-invoice-request-without-qrcode-pdfasyncrequest-processdocument">
 <h2>2. Send invoice request without QRCode (PdfAsyncRequest/processDocument)<a class="headerlink" href="#send-invoice-request-without-qrcode-pdfasyncrequest-processdocument" title="Permalink to this headline">¶</a></h2>
-<p>Now that you have a token you can send an PDF invoice to your customer.</p>
+<p>Now that you have a token you can send an PDF invoice to your customer.
+In the service payload you need to supply these parameters:</p>
+<ul class="simple">
+<li><p><strong>IntlVatCode</strong><br>
+Set the issuer Vat Number. Format is countryCode + Vat Number (ex: PT507957547)</p></li>
+<li><p><strong>DocumentType</strong><br>
+Set the type of document that you are sending.<br>
+Allowed values for this parameter: Invoice, Credit_Note, Debit_Note, Invoice_Receipt, Simplified_Invoice</p></li>
+<li><p><strong>DocumentDate</strong><br>
+Set the document date. Format is YYYY-MM-DD (ex: 2021-01-01)</p></li>
+<li><p><strong>DocumentNumber</strong><br>
+Set the document number/reference.</p></li>
+<li><p><strong>ReceiverIntlVatCode</strong><br>
+Set the receiver/client Vat Number. Format is countryCode + Vat Number (ex: PT507641230)</p></li>
+<li><p><strong>ReceiverName</strong><br>
+Set the receiver/client name (ex: FIREFLY LDA.)</p></li>
+<li><p><strong>DocumentTotal</strong><br>
+Set the total amount payable of the document. Format is a number (ex: 1000)</p></li>
+<li><p><strong>CurrencyCode</strong><br>
+Set the currency code of the document. Format is ISO 4217 Alphabetic code (ex: EUR)</p></li>
+<li><p><strong>DestinationEmails</strong><br></p>
+<ul>
+<li><p><em>Email</em>: Set the client/receiver email address to send the notification<br></p></li>
+<li><p><em>SendAttachment</em>: Set whether the PDF is sent as an attachment in the notification. Allowed values for this parameter: True, False.<br></p></li>
+<li><p><em>LanguageCode</em>: Set the notification language. Format is ISO 639-1 (ex: pt)</p></li>
+</ul>
+</li>
+<li><p><strong>SerializedInput</strong><br>
+Set the base64 encoding of the PDF document.</p></li>
+<li><p><strong>ContentType</strong><br>
+Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/PdfAsyncRequest/processDocument&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -461,7 +518,7 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Service url: https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/PdfAsyncRequest/processDocument
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Service url: https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/PdfAsyncRequest/processDocument
 </pre></div>
 </div>
 </div>
@@ -481,10 +538,10 @@ or</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;4d68dce1-0a83-481c-9b96-862af21b7313&quot;,
+    &quot;CorrelationId&quot;: &quot;3fd55fe1-aff2-457a-a6bd-5d9ed84896e5&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;98625352-207d-4f18-94ea-791f8db268e9&quot;
+    &quot;Data&quot;: &quot;094db02c-43b5-4a9f-83f3-8e601617b1d8&quot;
 }
 </pre></div>
 </div>
@@ -499,7 +556,7 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>98625352-207d-4f18-94ea-791f8db268e9
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>094db02c-43b5-4a9f-83f3-8e601617b1d8
 </pre></div>
 </div>
 </div>
@@ -529,7 +586,7 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/PdfAsyncRequest/98625352-207d-4f18-94ea-791f8db268e9
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/PdfAsyncRequest/094db02c-43b5-4a9f-83f3-8e601617b1d8
 </pre></div>
 </div>
 </div>
@@ -585,7 +642,7 @@ or</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your request has finished.
-You have created the outbound document id: fc5e547d-8537-4e05-97d5-1159c62efd6f
+You have created the outbound document id: f7bed389-dfe0-4021-9c52-5d45cee3c20c
 </pre></div>
 </div>
 </div>

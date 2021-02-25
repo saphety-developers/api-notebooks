@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get Invoice formats from archive &#8212; API documentation</title>
+    <title>Resend PDF invoice notification &#8212; API documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,8 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Resend PDF invoice notification" href="sent-notifications.html" />
-    <link rel="prev" title="Get Invoice from archive" href="get-document.html" />
+    <link rel="prev" title="Get Invoice formats from archive" href="get-document-formats.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -152,13 +151,13 @@
      Get Invoice from archive
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="get-document-formats.html">
      Get Invoice formats from archive
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="sent-notifications.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Resend PDF invoice notification
     </a>
    </li>
@@ -206,7 +205,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/get-document-formats.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notebooks/sent-notifications.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -226,7 +225,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/get-document-formats.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/sent-notifications.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -247,7 +246,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sggodinho/api-notebooks/master?urlpath=tree/dcn-sandbox/notebooks/get-document-formats.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sggodinho/api-notebooks/master?urlpath=tree/dcn-sandbox/notebooks/sent-notifications.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -287,8 +286,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid">
-   2. Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})
+  <a class="reference internal nav-link" href="#resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendnotifications">
+   2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendNotifications)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -297,8 +296,13 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#call-the-service-to-get-the-formats">
-     Call the service to get the formats
+    <a class="reference internal nav-link" href="#build-the-service-body">
+     Build the service body
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#call-the-service-resend-notifications">
+     Call the service resend notifications
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -319,14 +323,14 @@
         
               <div>
                 
-  <div class="section" id="get-invoice-formats-from-archive">
-<h1>Get Invoice formats from archive<a class="headerlink" href="#get-invoice-formats-from-archive" title="Permalink to this headline">¶</a></h1>
-<p>Use this service to <strong>get</strong> all invoice formats from archive for your processed document.</p>
+  <div class="section" id="resend-pdf-invoice-notification">
+<h1>Resend PDF invoice notification<a class="headerlink" href="#resend-pdf-invoice-notification" title="Permalink to this headline">¶</a></h1>
+<p>Use this service to <strong>resend</strong> PDF invoices email notification.</p>
 <div class="section" id="service-steps">
 <h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong>;</p></li>
-<li><p>Get all invoice formats calling the service <strong><em>OutboundFinancialDocument/documentFormats/{documentId}</em></strong>;</p></li>
+<li><p>Resend notifications calling the service <strong><em>OutboundFinancialDocumentMaintnance/sendNotifications</em></strong>;</p></li>
 </ol>
 <div class="section" id="response-structure-from-server">
 <h3>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this headline">¶</a></h3>
@@ -404,10 +408,10 @@ or</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;b37c14a1-fedc-4f70-9a0a-4773a6764587&quot;,
+    &quot;CorrelationId&quot;: &quot;8b74ab2d-f4c0-4cd4-ade1-cfa10b7d56a1&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiYmJjZmU1NzktYTc1MS00YjVjLTg2NDAtNGJhN2YyNWE3YTRjIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0MTc5OTUwLCJleHAiOjE2MTQyMDg3NTAsImlhdCI6MTYxNDE3OTg5MCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.U77YeFJciM1KoylYRTB-gdcU4i5dX_O56xMK46KLJ_E&quot;
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiMDIwNWNiMDAtMTBiYi00YjZjLTgyYjYtZWI0MGZhNWM0MTAxIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0MTc5ODg0LCJleHAiOjE2MTQyMDg2ODQsImlhdCI6MTYxNDE3OTgyNCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.WIEkxIYHbQ1LwEvL3iWif5ZS2HB6YJDTRQf3eMHtsuc&quot;
 }
 </pre></div>
 </div>
@@ -422,27 +426,25 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiYmJjZmU1NzktYTc1MS00YjVjLTg2NDAtNGJhN2YyNWE3YTRjIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0MTc5OTUwLCJleHAiOjE2MTQyMDg3NTAsImlhdCI6MTYxNDE3OTg5MCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.U77YeFJciM1KoylYRTB-gdcU4i5dX_O56xMK46KLJ_E
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiMDIwNWNiMDAtMTBiYi00YjZjLTgyYjYtZWI0MGZhNWM0MTAxIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0MTc5ODg0LCJleHAiOjE2MTQyMDg2ODQsImlhdCI6MTYxNDE3OTgyNCwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.WIEkxIYHbQ1LwEvL3iWif5ZS2HB6YJDTRQf3eMHtsuc
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid">
-<h2>2. Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})<a class="headerlink" href="#get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid" title="Permalink to this headline">¶</a></h2>
-<p><font color=orange>* <strong>Note:</strong> The number of formats returned and their type depends on several factors. In the case of this documentation, the formats are fixed, as you can see in the following example.</font></p>
+<div class="section" id="resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendnotifications">
+<h2>2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendNotifications)<a class="headerlink" href="#resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendnotifications" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="build-the-service-endpoint-url">
 <h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
-<p>In the service url you need to supply the outbfinancialdocumentId received</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocument</span><span class="o">/</span><span class="n">documentFormats</span><span class="o">/&lt;</span><span class="n">OutboundFinancialDocumentId</span><span class="o">&gt;</span>
+<p>In the service url you don’t need to supply anything.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocumentMaintnance</span><span class="o">/</span><span class="n">sendNotifications</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/OutboundFinancialDocument/documentFormats/</span><span class="si">{OutboundFinancialDocumentId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
-    <span class="n">OutboundFinancialDocumentId</span><span class="o">=</span><span class="s2">&quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service ur</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/OutboundFinancialDocumentMaintnance/sendNotifications&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span>
 <span class="p">)</span>
 <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
@@ -450,69 +452,60 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/OutboundFinancialDocument/documentFormats/fc5e547d-8537-4e05-97d5-1159c62efd6f
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/OutboundFinancialDocumentMaintnance/sendNotifications
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="call-the-service-to-get-the-formats">
-<h3>Call the service to get the formats<a class="headerlink" href="#call-the-service-to-get-the-formats" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="build-the-service-body">
+<h3>Build the service body<a class="headerlink" href="#build-the-service-body" title="Permalink to this headline">¶</a></h3>
+<p>In the service body you need to supply some data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#headers</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+    <span class="p">}</span>
+<span class="c1"># payload as json</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;OutboundFinancialDocumentId&#39;</span><span class="p">:</span> <span class="s1">&#39;fc5e547d-8537-4e05-97d5-1159c62efd6f&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;SendToDefaultDestinantions&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+  <span class="s1">&#39;AdditionalEmails&#39;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s1">&#39;sin_api_documentation_user@saphety.com&#39;</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><font color=red>* <strong>Note:</strong> this service will only send and email for the calling user, because it is a test service.</font></p>
+</div>
+<div class="section" id="call-the-service-resend-notifications">
+<h3>Call the service resend notifications<a class="headerlink" href="#call-the-service-resend-notifications" title="Permalink to this headline">¶</a></h3>
 <p>You will call the service endpoint url</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
-    <span class="p">}</span>
-<span class="c1"># POST request to send the invoice</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Send the request (POST).</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="c1"># formating the response to json for visualization purposes only</span>
 <span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[
-    {
-        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00001&quot;,
-        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
-        &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
-        &quot;FormatType&quot;: &quot;pdf&quot;,
-        &quot;ContentType&quot;: &quot;application/pdf&quot;,
-        &quot;SignatureProvider&quot;: &quot;application/pdf&quot;,
-        &quot;DocumentLink&quot;: &quot;https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=yG3kGRK0lKbz%2FBAWMKMh8sm%2FCAx7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDEiLCJpRHQiOiIyMDIxLTAyLTI0IiwiZUR0IjoiMjAyMS0wMi0yNyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
-    },
-    {
-        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00002&quot;,
-        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
-        &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
-        &quot;FormatType&quot;: &quot;final&quot;,
-        &quot;ContentType&quot;: &quot;XadesBes&quot;,
-        &quot;SignatureProvider&quot;: &quot;application/xml&quot;,
-        &quot;DocumentLink&quot;: &quot;https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=UwRWu%2FeSp%2Bvv2XRt6MiXxCQFfKR7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDIiLCJpRHQiOiIyMDIxLTAyLTI0IiwiZUR0IjoiMjAyMS0wMi0yNyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
-    },
-    {
-        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00003&quot;,
-        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
-        &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
-        &quot;FormatType&quot;: &quot;ubl21&quot;,
-        &quot;ContentType&quot;: &quot;XadesBes&quot;,
-        &quot;SignatureProvider&quot;: &quot;application/xml&quot;,
-        &quot;DocumentLink&quot;: &quot;https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=5VtU8VdgB8YGn24dZaMPllfQYUt7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDMiLCJpRHQiOiIyMDIxLTAyLTI0IiwiZUR0IjoiMjAyMS0wMi0yNyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
-    },
-    {
-        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00004&quot;,
-        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
-        &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
-        &quot;FormatType&quot;: &quot;signed&quot;,
-        &quot;ContentType&quot;: &quot;XadesBes&quot;,
-        &quot;SignatureProvider&quot;: &quot;application/xml&quot;,
-        &quot;DocumentLink&quot;: &quot;https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=PBzXcADalCvIStegb%2BNcwo140t17ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDQiLCJpRHQiOiIyMDIxLTAyLTI0IiwiZUR0IjoiMjAyMS0wMi0yNyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
-    }
-]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;CorrelationId&quot;: &quot;dba3708b-3a02-4d93-8f7c-40689ec463e8&quot;,
+    &quot;IsValid&quot;: true,
+    &quot;Errors&quot;: [],
+    &quot;Data&quot;: [
+        &quot;sin_api_documentation_user@saphety.com&quot;
+    ]
+}
 </pre></div>
 </div>
 </div>
@@ -520,31 +513,19 @@ or</p></li>
 </div>
 <div class="section" id="read-the-service-response">
 <h3>Read the service response<a class="headerlink" href="#read-the-service-response" title="Permalink to this headline">¶</a></h3>
-<p>Now you need to read the service response to format all document formats and get the end file</p>
+<p>Now you need to read the service response and see the email send</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for loop to see all Data</span>
 <span class="n">formats</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-<span class="k">for</span> <span class="nb">format</span> <span class="ow">in</span> <span class="n">formats</span><span class="p">:</span>
-    <span class="k">if</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;FormatType&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pdf&quot;</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;PDF: &quot;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;DocumentLink&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;FormatType&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;final&quot;</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Final: &quot;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;DocumentLink&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;FormatType&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;ubl21&quot;</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;UBL: &quot;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;DocumentLink&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-    <span class="k">if</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;FormatType&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;signed&quot;</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Signed: &quot;</span> <span class="o">+</span> <span class="nb">format</span><span class="p">[</span><span class="s2">&quot;DocumentLink&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PDF: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=yG3kGRK0lKbz%2FBAWMKMh8sm%2FCAx7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDEiLCJpRHQiOiIyMDIxLTAyLTI0IiwiZUR0IjoiMjAyMS0wMi0yNyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
-
-Final: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=UwRWu%2FeSp%2Bvv2XRt6MiXxCQFfKR7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDIiLCJpRHQiOiIyMDIxLTAyLTI0IiwiZUR0IjoiMjAyMS0wMi0yNyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
-
-UBL: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=5VtU8VdgB8YGn24dZaMPllfQYUt7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDMiLCJpRHQiOiIyMDIxLTAyLTI0IiwiZUR0IjoiMjAyMS0wMi0yNyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
-
-Signed: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=PBzXcADalCvIStegb%2BNcwo140t17ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDQiLCJpRHQiOiIyMDIxLTAyLTI0IiwiZUR0IjoiMjAyMS0wMi0yNyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[
+    &quot;sin_api_documentation_user@saphety.com&quot;
+]
 </pre></div>
 </div>
 </div>
@@ -581,8 +562,7 @@ Signed: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="get-document.html" title="previous page">Get Invoice from archive</a>
-    <a class='right-next' id="next-link" href="sent-notifications.html" title="next page">Resend PDF invoice notification</a>
+    <a class='left-prev' id="prev-link" href="get-document-formats.html" title="previous page">Get Invoice formats from archive</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
