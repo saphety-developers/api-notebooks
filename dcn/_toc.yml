@@ -1,0 +1,10 @@
+- file: markdowns/home
+- file: markdowns/api-environments
+- file: markdowns/api-basics
+
+- file: markdowns/api-services/api-services-virtual-operator
+  sections:
+    - file: notebooks/virtual-operator/virtual-operator-client/virtual-operator-client-create
+    - file: notebooks/virtual-operator/virtual-operator-client/virtual-operator-client-delete
+    - file: notebooks/virtual-operator/virtual-operator-client/virtual-operator-client-search
+    - file: notebooks/virtual-operator/virtual-operator-client/virtual-operator-client-count
