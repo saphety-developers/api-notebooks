@@ -6,7 +6,7 @@
 # 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**;
-# 2. Resend notifications calling the service **_OutboundFinancialDocumentMaintnance/sendNotifications_**;
+# 2. Resend notifications calling the service **_OutboundFinancialDocumentMaintnance/sendAditionalNotifications_**;
 # 
 # #### Response structure from server
 # When a request is well formed and the authentication data is correct the system responds with a message envelope as follows: 
@@ -31,7 +31,7 @@
 # https://<ServerBaseAddress>/api/Account/getToken
 # ```
 
-# In[1]:
+# In[11]:
 
 
 # SANDBOX - Test Environment
@@ -41,7 +41,7 @@ server_base_adress = "dcn-solution.saphety.com/Dcn.Sandbox.WebApi"
 #server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi""
 
 
-# In[2]:
+# In[12]:
 
 
 import requests
@@ -71,7 +71,7 @@ response = requests.request("POST", service_url, data=request_data, headers=head
 
 # <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font>
 
-# In[3]:
+# In[13]:
 
 
 # formating the response to json for visualization purposes only
@@ -79,7 +79,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[4]:
+# In[14]:
 
 
 # your token is at:
@@ -87,20 +87,20 @@ token = json_response["Data"];
 print (token)
 
 
-# ## 2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendNotifications)
+# ## 2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendAditonalNotifications)
 
 # ### Build the service endpoint url
 # In the service url you don't need to supply anything.
 # 
 # ```
-# https://<ServerBaseUrl>/OutboundFinancialDocumentMaintnance/sendNotifications
+# https://<ServerBaseUrl>/OutboundFinancialDocumentMaintnance/sendAditionalNotifications
 # ```
 
-# In[5]:
+# In[15]:
 
 
 # SIN service ur
-service_url = """{ServerBaseUrl}/api/OutboundFinancialDocumentMaintnance/sendNotifications""".format(
+service_url = """{ServerBaseUrl}/api/OutboundFinancialDocumentMaintnance/sendAditionalNotifications""".format(
     ServerBaseUrl=server_base_adress
 )
 service_url = "https://" + service_url
@@ -110,7 +110,7 @@ print (service_url)
 # ### Build the service body
 # In the service body you need to supply some data.
 
-# In[6]:
+# In[16]:
 
 
 #headers
@@ -121,10 +121,11 @@ headers = {
 # payload as json
 payload = {
   'OutboundFinancialDocumentId': 'fc5e547d-8537-4e05-97d5-1159c62efd6f',
-  'SendToDefaultDestinantions': True,
-  'AdditionalEmails': [
-    'sin_api_documentation_user@saphety.com'
-  ]
+  'DestinationEmails': [{
+    'Email': 'sin_api_documentation_user@saphety.com',
+    'SendAttachment': True,
+    'LanguageCode': 'PT'
+  }]
 }
 request_data=json.dumps(payload)
 
@@ -134,7 +135,7 @@ request_data=json.dumps(payload)
 # ### Call the service resend notifications
 # You will call the service endpoint url
 
-# In[7]:
+# In[17]:
 
 
 # Send the request (POST).
@@ -148,7 +149,7 @@ print(json.dumps(json_response, indent=4))
 # ### Read the service response
 # Now you need to read the service response and see the email send
 
-# In[8]:
+# In[18]:
 
 
 # for loop to see all Data
