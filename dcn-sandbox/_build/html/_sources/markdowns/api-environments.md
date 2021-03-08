@@ -1,7 +1,7 @@
 # API Environments
 The **Saphety Invoice Network API** is connected to two environments:
 * Test (Sandbox)
-* Production
+* Production (Saphety Invoice Network)
 
 ## Test environment
 The first step to start testing the API is to register at **API-SANDBOX Portal** to get your own credentials (username and password) to generate a valid token to test the API in test environment.
@@ -11,10 +11,12 @@ With these credentials you are able to test the API, simulating the scenarios as
 Through **API-SANDBOX Portal**, you can have access to:
 * test API services
 * access to API documentation
-* request support by subscribing to a plan (not yet, but to be announced soon)
-* request partnership agreements by subscribing to a plan (not yet, but to be announced soon)
 
-To register on the **API-SANDBOX Portal** access here: [here](https://dcn-solution.saphety.com/Dcn.Sandbox.Client/public)
+**SANDBOX** is a controlled environment, that allows to test all services, but **does not** persist/archive documents in a database. In this way, it is possible to test all services, without the risk of sending invoices to the test environments of the receiving entities, or sending emails to real addresses of the receiving entities.
+
+Bear in mind that, because the documents in this **SANDBOX environment are not** persisted/archived in the database, some services (e.g: **_Get Invoice PDF - UBL from archive_** or **_Check Invoice status in archive_**) will always return results of a mockup invoice from Saphety, regardless of the document that has been processed. The same will happen with email notifications, that is, in the **SANDBOX** environment, email notifications generated in some services **will always be sent** to the user registration email address on the **API SANDBOX**.
+
+To register on the **API SANDBOX** access here: [here](https://dcn-solution.saphety.com/Dcn.Sandbox.Client/public)
 
 
 ## Production environment

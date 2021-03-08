@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Resend PDF invoice notification
+# # Resend PDF invoice email notification
 # Use this service to **resend** PDF invoices email notification.
 # 
 # ### Service steps
@@ -130,7 +130,7 @@ payload = {
 request_data=json.dumps(payload)
 
 
-# <font color=red>\* **Note:** this service will only send and email for the calling user, because it is a test service.</font>
+# <font color=red>\* **Note 1:** in the Sandbox environment, the notifications are sent only for the user registration email, even if within the service payload are displayed other email addresses.</font><br><font color=red>\* **Note 2:** within the service body parameter “AdditionalEmails”, if you want to put “n” emails, use “,” to separate them (eg: email_1@gmail.com,email_2@gmail.com).</font>
 
 # ### Call the service resend notifications
 # You will call the service endpoint url

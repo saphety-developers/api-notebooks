@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Get Invoice from archive
-# Use this service to **get** an invoice from archive for your processed document.
+# # Check invoice **status** in archive
+# Use this service to **check** an invoice **status** in archive for your processed document.
 # 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**;

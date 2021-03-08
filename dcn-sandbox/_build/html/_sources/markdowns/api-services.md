@@ -30,11 +30,11 @@ Use this service to **sign** and **store** PDF invoices that **don’t have** a 
 <font size="5">[Store PDF invoices **with QRCode**](../notebooks/pdf-async-request-embebed-data-store-only.ipynb)</font><br>
 Use this service to **sign** and **store** PDF invoices that **have** an **QRCode**.
 
-<font size="5">[Get invoice from archive](../notebooks/get-document.ipynb)</font><br>
-Use this service to **get** an invoice from archive.
+<font size="5">[Check invoice **status** in archive](../notebooks/get-document.ipynb)</font><br>
+Use this service to **check** an invoice **status** in archive.
 
-<font size="5">[Get invoice formats from archive](../notebooks/get-document-formats.ipynb)</font><br>
+<font size="5">[Get invoice PDF or UBL from archive](../notebooks/get-document-formats.ipynb)</font><br>
 Use this service to **get** invoice formats from archive.
 
-<font size="5">[Resend PDF invoice notification](../notebooks/sent-notifications.ipynb)</font><br>
+<font size="5">[Resend PDF invoice email notification](../notebooks/sent-notifications.ipynb)</font><br>
 Use this service to **resend** PDF invoices email notification.

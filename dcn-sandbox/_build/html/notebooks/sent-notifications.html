@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resend PDF invoice notification &#8212; API documentation</title>
+    <title>Resend PDF invoice email notification &#8212; API documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,7 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Get Invoice formats from archive" href="get-document-formats.html" />
+    <link rel="prev" title="Get invoice PDF or UBL from archive" href="get-document-formats.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -148,17 +148,21 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="get-document.html">
-     Get Invoice from archive
+     Check invoice
+     <strong>
+      status
+     </strong>
+     in archive
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="get-document-formats.html">
-     Get Invoice formats from archive
+     Get invoice PDF or UBL from archive
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Resend PDF invoice notification
+     Resend PDF invoice email notification
     </a>
    </li>
   </ul>
@@ -323,8 +327,8 @@
         
               <div>
                 
-  <div class="section" id="resend-pdf-invoice-notification">
-<h1>Resend PDF invoice notification<a class="headerlink" href="#resend-pdf-invoice-notification" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="resend-pdf-invoice-email-notification">
+<h1>Resend PDF invoice email notification<a class="headerlink" href="#resend-pdf-invoice-email-notification" title="Permalink to this headline">¶</a></h1>
 <p>Use this service to <strong>resend</strong> PDF invoices email notification.</p>
 <div class="section" id="service-steps">
 <h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h2>
@@ -482,7 +486,7 @@ or</p></li>
 </div>
 </div>
 </div>
-<p><font color=red>* <strong>Note:</strong> this service will only send and email for the calling user, because it is a test service.</font></p>
+<p><font color=red>* <strong>Note 1:</strong> in the Sandbox environment, the notifications are sent only for the user registration email, even if within the service payload are displayed other email addresses.</font><br><font color=red>* <strong>Note 2:</strong> within the service body parameter “AdditionalEmails”, if you want to put “n” emails, use “,” to separate them (eg: email_1&#64;gmail.com,email_2&#64;gmail.com).</font></p>
 </div>
 <div class="section" id="call-the-service-resend-notifications">
 <h3>Call the service resend notifications<a class="headerlink" href="#call-the-service-resend-notifications" title="Permalink to this headline">¶</a></h3>
@@ -563,7 +567,7 @@ or</p></li>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="get-document-formats.html" title="previous page">Get Invoice formats from archive</a>
+    <a class='left-prev' id="prev-link" href="get-document-formats.html" title="previous page">Get invoice PDF or UBL from archive</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

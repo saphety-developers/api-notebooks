@@ -149,17 +149,21 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../notebooks/get-document.html">
-     Get Invoice from archive
+     Check invoice
+     <strong>
+      status
+     </strong>
+     in archive
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../notebooks/get-document-formats.html">
-     Get Invoice formats from archive
+     Get invoice PDF or UBL from archive
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../notebooks/sent-notifications.html">
-     Resend PDF invoice notification
+     Resend PDF invoice email notification
     </a>
    </li>
   </ul>
@@ -278,7 +282,7 @@
 <p>The <strong>Saphety Invoice Network API</strong> is connected to two environments:</p>
 <ul class="simple">
 <li><p>Test (Sandbox)</p></li>
-<li><p>Production</p></li>
+<li><p>Production (Saphety Invoice Network)</p></li>
 </ul>
 <div class="section" id="test-environment">
 <h2>Test environment<a class="headerlink" href="#test-environment" title="Permalink to this headline">¶</a></h2>
@@ -288,10 +292,10 @@
 <ul class="simple">
 <li><p>test API services</p></li>
 <li><p>access to API documentation</p></li>
-<li><p>request support by subscribing to a plan (not yet, but to be announced soon)</p></li>
-<li><p>request partnership agreements by subscribing to a plan (not yet, but to be announced soon)</p></li>
 </ul>
-<p>To register on the <strong>API-SANDBOX Portal</strong> access here: <a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Sandbox.Client/public">here</a></p>
+<p><strong>SANDBOX</strong> is a controlled environment, that allows to test all services, but <strong>does not</strong> persist/archive documents in a database. In this way, it is possible to test all services, without the risk of sending invoices to the test environments of the receiving entities, or sending emails to real addresses of the receiving entities.</p>
+<p>Bear in mind that, because the documents in this <strong>SANDBOX environment are not</strong> persisted/archived in the database, some services (e.g: <strong><em>Get Invoice PDF - UBL from archive</em></strong> or <strong><em>Check Invoice status in archive</em></strong>) will always return results of a mockup invoice from Saphety, regardless of the document that has been processed. The same will happen with email notifications, that is, in the <strong>SANDBOX</strong> environment, email notifications generated in some services <strong>will always be sent</strong> to the user registration email address on the <strong>API SANDBOX</strong>.</p>
+<p>To register on the <strong>API SANDBOX</strong> access here: <a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Sandbox.Client/public">here</a></p>
 </div>
 <div class="section" id="production-environment">
 <h2>Production environment<a class="headerlink" href="#production-environment" title="Permalink to this headline">¶</a></h2>

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Get Invoice formats from archive
+# # Get invoice PDF or UBL from archive
 # Use this service to **get** all invoice formats from archive for your processed document.
 # 
 # ### Service steps
