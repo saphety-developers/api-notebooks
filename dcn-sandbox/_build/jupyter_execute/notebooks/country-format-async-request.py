@@ -443,6 +443,15 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
+# This documents can be in the next status:
+# * **Sent:** When the document was sent
+# * **Paid:** When the document is paid
+# * **Received:** When the document is received
+# * **Error:** When the document have errors
+# * **Not_Sent:** When the document was not sent
+# * **NotIntegrated:** When the document is not integrated
+# * **Rejected:** When the document was rejected
+
 # In[15]:
 
 
@@ -451,7 +460,7 @@ integration_status = json_response["Data"]["IntegrationStatus"]
 #integration status (Sent, Received,...)
 
 if integration_status == "Sent":
-    print ("Sent: Your invoice has been sucessfully processed ans sent to your customer.")
+    print ("Sent: Your invoice has been sucessfully processed and sent to your customer.")
 if integration_status == "Received":
     print ("Received: Your invoice has been received by your customer.")
 else:

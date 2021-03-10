@@ -31,7 +31,7 @@
 # https://<ServerBaseAddress>/api/Account/getToken
 # ```
 
-# In[2]:
+# In[1]:
 
 
 # SANDBOX - Test Environment
@@ -41,7 +41,7 @@ server_base_adress = "dcn-solution.saphety.com/Dcn.Sandbox.WebApi"
 #server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi"
 
 
-# In[3]:
+# In[2]:
 
 
 import requests
@@ -71,7 +71,7 @@ response = requests.request("POST", service_url, data=request_data, headers=head
 
 # <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font>
 
-# In[4]:
+# In[3]:
 
 
 # formating the response to json for visualization purposes only
@@ -79,7 +79,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[5]:
+# In[4]:
 
 
 # your token is at:
@@ -96,7 +96,7 @@ print (token)
 # https://<ServerBaseUrl>/OutboundFinancialDocument/<OutboundFinancialDocumentId>
 # ```
 
-# In[6]:
+# In[5]:
 
 
 # SIN service url for retrieving inforfation on invoice previously sent
@@ -111,7 +111,7 @@ print (service_url)
 # ### Call the service to get the document
 # You will call the service endpoint url
 
-# In[7]:
+# In[6]:
 
 
 # build the request
@@ -124,4 +124,30 @@ response = requests.request("GET", service_url, headers=headers)
 # formating the response to json for visualization purposes only
 json_response = json.loads(response.text)
 print(json.dumps(json_response["Data"], indent=4))
+
+
+# This documents can be in the next status:
+# * **Sent:** When the document was sent
+# * **Paid:** When the document is paid
+# * **Received:** When the document is received
+# * **Error:** When the document have errors
+# * **Not_Sent:** When the document was not sent
+# * **NotIntegrated:** When the document is not integrated
+# * **Rejected:** When the document was rejected
+
+# In[7]:
+
+
+integration_status = json_response["Data"]["IntegrationStatus"]
+
+#integration status (Sent, Received,...)
+
+if integration_status == "Sent":
+    print ("Sent: Your invoice has been sucessfully processed and sent to your customer.")
+if integration_status == "Received":
+    print ("Received: Your invoice has been received by your customer.")
+else:
+    print("Your invoice integration status: " + integration_status);
+
+#print(json.dumps(json_response, indent=4))
 

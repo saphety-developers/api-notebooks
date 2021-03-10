@@ -911,6 +911,16 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </div>
 </div>
 </div>
+<p>This documents can be in the next status:</p>
+<ul class="simple">
+<li><p><strong>Sent:</strong> When the document was sent</p></li>
+<li><p><strong>Paid:</strong> When the document is paid</p></li>
+<li><p><strong>Received:</strong> When the document is received</p></li>
+<li><p><strong>Error:</strong> When the document have errors</p></li>
+<li><p><strong>Not_Sent:</strong> When the document was not sent</p></li>
+<li><p><strong>NotIntegrated:</strong> When the document is not integrated</p></li>
+<li><p><strong>Rejected:</strong> When the document was rejected</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integration_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;IntegrationStatus&quot;</span><span class="p">]</span>
@@ -918,7 +928,7 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 <span class="c1">#integration status (Sent, Received,...)</span>
 
 <span class="k">if</span> <span class="n">integration_status</span> <span class="o">==</span> <span class="s2">&quot;Sent&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Sent: Your invoice has been sucessfully processed ans sent to your customer.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Sent: Your invoice has been sucessfully processed and sent to your customer.&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">integration_status</span> <span class="o">==</span> <span class="s2">&quot;Received&quot;</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Received: Your invoice has been received by your customer.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
