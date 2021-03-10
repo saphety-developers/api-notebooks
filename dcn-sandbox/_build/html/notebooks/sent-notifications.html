@@ -290,8 +290,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendaditonalnotifications">
-   2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendAditonalNotifications)
+  <a class="reference internal nav-link" href="#resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendaditionalnotifications">
+   2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendAditionalNotifications)
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -351,9 +351,9 @@
 </div>
 <div class="section" id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">¶</a></h2>
-<p>Credentials have be given to you, according to your registration at <strong>API-SANDBOX Portal</strong> or <strong>Saphety Invoice Network</strong>:</p>
+<p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
 <ul class="simple">
-<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>API-SANDBOX Portal</strong> registration<br>
+<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
 or</p></li>
 <li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
 </ul>
@@ -367,7 +367,7 @@ or</p></li>
 <span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
 
 <span class="c1"># Saphety Invoice Network - Production Environment</span>
-<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;&quot;</span>
+<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -401,7 +401,7 @@ or</p></li>
 </div>
 </div>
 </div>
-<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font></p>
+<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># formating the response to json for visualization purposes only</span>
@@ -436,8 +436,8 @@ or</p></li>
 </div>
 </div>
 </div>
-<div class="section" id="resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendaditonalnotifications">
-<h2>2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendAditonalNotifications)<a class="headerlink" href="#resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendaditonalnotifications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendaditionalnotifications">
+<h2>2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendAditionalNotifications)<a class="headerlink" href="#resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendaditionalnotifications" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="build-the-service-endpoint-url">
 <h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
 <p>In the service url you don’t need to supply anything.</p>
@@ -465,6 +465,17 @@ or</p></li>
 <div class="section" id="build-the-service-body">
 <h3>Build the service body<a class="headerlink" href="#build-the-service-body" title="Permalink to this headline">¶</a></h3>
 <p>In the service body you need to supply some data.</p>
+<ul class="simple">
+<li><p><strong>OutboundFinancialDocumentId</strong><br>
+Set the OutboundFinancialDocumentId to your document.<br></p></li>
+<li><p><strong>DestinationEmails</strong></p>
+<ul>
+<li><p><em>Email</em>: Set the client/receiver email address to send the notification</p></li>
+<li><p><em>SendAttachment</em>: Set whether the PDF is sent as an attachment in the notification. Allowed values for this parameter: True, False.</p></li>
+<li><p><em>LanguageCode</em>: Set the notification language. Format is ISO 639-1 (ex: pt)</p></li>
+</ul>
+</li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#headers</span>

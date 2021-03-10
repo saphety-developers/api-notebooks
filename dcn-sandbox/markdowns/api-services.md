@@ -6,7 +6,7 @@ All API services can be consulted using the **Open API Specification (OAS3)**:
 
 **For Tests purposes**<br>
 API specification of Test environment at [API specification](https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/index.html)<br>
-<font color=red>\*must use the credentials (user and pw) defined at your **API-SANDBOX Portal** registration</font>
+<font color=red>\*must use the credentials (user and pw) defined at your **SANDBOX** registration</font>
 
 **For Production**<br>
 API specification of Production environment at [API specification](https://dcn-solution.saphety.com/Dcn.Business.WebApi/api/index.html)<br>

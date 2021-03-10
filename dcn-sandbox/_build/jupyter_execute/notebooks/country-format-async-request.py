@@ -46,8 +46,8 @@
 # 
 
 # ## 1. Get a token (Account/getToken)
-# Credentials have be given to you, according to your registration at **API-SANDBOX Portal** or **Saphety Invoice Network**:
-# * For **Test purposes**, the **_user_** and **_password_** defined at **API-SANDBOX Portal** registration<br>
+# Credentials have be given to you, according to your registration at **SANDBOX** or **Saphety Invoice Network**:
+# * For **Test purposes**, the **_user_** and **_password_** defined at **SANDBOX** registration<br>
 # or
 # * For **Production**, the **_user_** and **_password_** defined at **Saphety Invoice Network** registration
 # 
@@ -63,7 +63,7 @@
 server_base_adress = "dcn-solution.saphety.com/Dcn.Sandbox.WebApi"
 
 # Saphety Invoice Network - Production Environment
-#server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi""
+#server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi"
 
 
 # In[2]:
@@ -94,7 +94,7 @@ headers = {
 response = requests.request("POST", service_url, data=request_data, headers=headers)
 
 
-# <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font>
+# <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font>
 
 # In[3]:
 
@@ -118,7 +118,7 @@ print (token)
 # ### Build the service endpoint url
 # In the service url you need to supply two parameters:
 # 1. Invoice issuer NIF **_<IssuerNIF>_** (prefixed with the country code)
-# Must be the NIF of the registered company (ex: PT507957547). This NIF will be matched against the account registration in **Saphety Invoice Network (Production environment)** or **SIN-API Portal (Test environment)**, for authorization purposes.
+# Must be the NIF of the registered company (ex: PT507957547). This NIF will be matched against the account registration in **Saphety Invoice Network (Production environment)** or **SANDBOX (Test environment)**, for authorization purposes.
 # 2. The document type **_<DocumentType>_** must be one of the following
 #     1. **INVOICE**
 #     2. **CREDIT_NOTE**
