@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resend PDF invoice email notification &#8212; API documentation</title>
+    <title>Get integrated destinations &#8212; API documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,8 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Get integrated destinations" href="get-destinations.html" />
-    <link rel="prev" title="Get invoice PDF or UBL from archive" href="get-document-formats.html" />
+    <link rel="prev" title="Resend PDF invoice email notification" href="sent-notifications.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -161,13 +160,13 @@
      Get invoice PDF or UBL from archive
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="sent-notifications.html">
      Resend PDF invoice email notification
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get-destinations.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Get integrated destinations
     </a>
    </li>
@@ -215,7 +214,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/sent-notifications.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notebooks/get-destinations.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -235,7 +234,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/sent-notifications.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/sggodinho/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/get-destinations.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -256,7 +255,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/sggodinho/api-notebooks/master?urlpath=tree/dcn-sandbox/notebooks/sent-notifications.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sggodinho/api-notebooks/master?urlpath=tree/dcn-sandbox/notebooks/get-destinations.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -296,8 +295,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendaditionalnotifications">
-   2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendAditionalNotifications)
+  <a class="reference internal nav-link" href="#get-integrated-destinations-companyconnections-destinations-or-companyconnections-destinations-searchvalue">
+   2. Get integrated destinations (CompanyConnections/destinations OR CompanyConnections/destinations/{searchValue})
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -306,18 +305,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-the-service-body">
-     Build the service body
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#call-the-service-resend-notifications">
-     Call the service resend notifications
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#read-the-service-response">
-     Read the service response
+    <a class="reference internal nav-link" href="#call-the-service-to-get-the-integrated-destination">
+     Call the service to get the integrated destination
     </a>
    </li>
   </ul>
@@ -333,14 +322,14 @@
         
               <div>
                 
-  <div class="section" id="resend-pdf-invoice-email-notification">
-<h1>Resend PDF invoice email notification<a class="headerlink" href="#resend-pdf-invoice-email-notification" title="Permalink to this headline">¶</a></h1>
-<p>Use this service to <strong>resend</strong> PDF invoices email notification.</p>
+  <div class="section" id="get-integrated-destinations">
+<h1>Get integrated destinations<a class="headerlink" href="#get-integrated-destinations" title="Permalink to this headline">¶</a></h1>
+<p>Use this service to <strong>get</strong> all or filtred integrated destinations.</p>
 <div class="section" id="service-steps">
 <h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong>;</p></li>
-<li><p>Resend notifications calling the service <strong><em>OutboundFinancialDocumentMaintnance/sendAditionalNotifications</em></strong>;</p></li>
+<li><p>Get all integrated destinations calling the service <strong><em>CompanyConnections/destinations</em></strong> or filtred integrated destinations by <strong><em>CompanyConnections/destinations/{searchValue}</em></strong>;</p></li>
 </ol>
 <div class="section" id="response-structure-from-server">
 <h3>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this headline">¶</a></h3>
@@ -418,10 +407,10 @@ or</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;c8da473e-f1ce-4ada-a15c-67ccbf1f0f01&quot;,
+    &quot;CorrelationId&quot;: &quot;caa3cc1e-e44f-4809-975f-9e0fba1fa910&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNGY2MDg1Y2UtZjNmMC00YjgyLThlMTMtMDMzOTU4NmMzOWE3IiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0OTU3OTM2LCJleHAiOjE2MTQ5ODY3MzYsImlhdCI6MTYxNDk1Nzg3NiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.oIEr8_XH_2mkAgy29bJC0E4gc2tjSoxbAw5oQUU-D2k&quot;
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiZjVmMmMxOWUtMjBlMi00OTNmLWE4NzMtMDE0ZjI1MzJhOWVlIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE1ODI1MzgyLCJleHAiOjE2MTU4NTQxODIsImlhdCI6MTYxNTgyNTMyMiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.DbUTwpckCVAEp7H-cyNVjAzC1hrZdevKpm4iWtmxZEo&quot;
 }
 </pre></div>
 </div>
@@ -436,25 +425,28 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNGY2MDg1Y2UtZjNmMC00YjgyLThlMTMtMDMzOTU4NmMzOWE3IiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0OTU3OTM2LCJleHAiOjE2MTQ5ODY3MzYsImlhdCI6MTYxNDk1Nzg3NiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.oIEr8_XH_2mkAgy29bJC0E4gc2tjSoxbAw5oQUU-D2k
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiZjVmMmMxOWUtMjBlMi00OTNmLWE4NzMtMDE0ZjI1MzJhOWVlIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE1ODI1MzgyLCJleHAiOjE2MTU4NTQxODIsImlhdCI6MTYxNTgyNTMyMiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.DbUTwpckCVAEp7H-cyNVjAzC1hrZdevKpm4iWtmxZEo
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendaditionalnotifications">
-<h2>2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendAditionalNotifications)<a class="headerlink" href="#resend-pdf-invoice-notifications-outboundfinancialdocumentmaintnance-sendaditionalnotifications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="get-integrated-destinations-companyconnections-destinations-or-companyconnections-destinations-searchvalue">
+<h2>2. Get integrated destinations (CompanyConnections/destinations OR CompanyConnections/destinations/{searchValue})<a class="headerlink" href="#get-integrated-destinations-companyconnections-destinations-or-companyconnections-destinations-searchvalue" title="Permalink to this headline">¶</a></h2>
+<p><font color=orange>*
+<strong>Note:</strong> Here we will use the service <strong><em>CompanyConnections/destinations/{searchValue}</em></strong> to get just one integrated company, searching for the company name. But you can user the service <strong><em>CompanyConnections/destinations</em></strong> to get all integrated companies!</font></p>
 <div class="section" id="build-the-service-endpoint-url">
 <h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
-<p>In the service url you don’t need to supply anything.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocumentMaintnance</span><span class="o">/</span><span class="n">sendAditionalNotifications</span>
+<p>In the service url you need to supply the searchValue, in this case we will use a company name</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">CompanyConnections</span><span class="o">/</span><span class="n">destinations</span><span class="o">/&lt;</span><span class="n">searchValue</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service ur</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/OutboundFinancialDocumentMaintnance/sendAditionalNotifications&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/CompanyConnections/destinations/</span><span class="si">{searchValue}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
+    <span class="n">searchValue</span><span class="o">=</span><span class="s2">&quot;TRUSTED&quot;</span>
 <span class="p">)</span>
 <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
@@ -462,91 +454,47 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/OutboundFinancialDocumentMaintnance/sendAditionalNotifications
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/CompanyConnections/destinations/TRUSTED
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="build-the-service-body">
-<h3>Build the service body<a class="headerlink" href="#build-the-service-body" title="Permalink to this headline">¶</a></h3>
-<p>In the service body you need to supply some data.</p>
-<ul class="simple">
-<li><p><strong>OutboundFinancialDocumentId</strong><br>
-Set the OutboundFinancialDocumentId to your document.<br></p></li>
-<li><p><strong>DestinationEmails</strong></p>
-<ul>
-<li><p><em>Email</em>: Set the client/receiver email address to send the notification</p></li>
-<li><p><em>SendAttachment</em>: Set whether the PDF is sent as an attachment in the notification. Allowed values for this parameter: True, False.</p></li>
-<li><p><em>LanguageCode</em>: Set the notification language. Format is ISO 639-1 (ex: pt)</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#headers</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
-    <span class="p">}</span>
-<span class="c1"># payload as json</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">&#39;OutboundFinancialDocumentId&#39;</span><span class="p">:</span> <span class="s1">&#39;fc5e547d-8537-4e05-97d5-1159c62efd6f&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;DestinationEmails&#39;</span><span class="p">:</span> <span class="p">[{</span>
-    <span class="s1">&#39;Email&#39;</span><span class="p">:</span> <span class="s1">&#39;sin_api_documentation_user@saphety.com&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;SendAttachment&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s1">&#39;LanguageCode&#39;</span><span class="p">:</span> <span class="s1">&#39;PT&#39;</span>
-  <span class="p">}]</span>
-<span class="p">}</span>
-<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><font color=red>* <strong>Note 1:</strong> in the Sandbox environment, the notifications are sent only for the user registration email, even if within the service payload are displayed other email addresses.</font><br><font color=red>* <strong>Note 2:</strong> within the service body parameter “AdditionalEmails”, if you want to put “n” emails, use “,” to separate them (eg: email_1&#64;gmail.com,email_2&#64;gmail.com).</font></p>
-</div>
-<div class="section" id="call-the-service-resend-notifications">
-<h3>Call the service resend notifications<a class="headerlink" href="#call-the-service-resend-notifications" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="call-the-service-to-get-the-integrated-destination">
+<h3>Call the service to get the integrated destination<a class="headerlink" href="#call-the-service-to-get-the-integrated-destination" title="Permalink to this headline">¶</a></h3>
 <p>You will call the service endpoint url</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Send the request (POST).</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+    <span class="p">}</span>
+<span class="c1"># POST request to send the invoice</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="c1"># formating the response to json for visualization purposes only</span>
 <span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;347b76f2-5870-4679-ab7b-c366a984a759&quot;,
-    &quot;IsValid&quot;: true,
-    &quot;Errors&quot;: [],
-    &quot;Data&quot;: [
-        &quot;sin_api_documentation_user@saphety.com&quot;
-    ]
-}
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="read-the-service-response">
-<h3>Read the service response<a class="headerlink" href="#read-the-service-response" title="Permalink to this headline">¶</a></h3>
-<p>Now you need to read the service response and see the email send</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for loop to see all Data</span>
-<span class="n">formats</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">formats</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[
-    &quot;sin_api_documentation_user@saphety.com&quot;
+    {
+        &quot;IntlVatCode&quot;: &quot;PT507957547&quot;,
+        &quot;CompanyName&quot;: &quot;SAPHETY LEVEL - TRUSTED SERVICES, S.A.&quot;,
+        &quot;AddressLine&quot;: &quot;Rua do Viriato, N\u00ba13 - 3\u00baPISO&quot;,
+        &quot;City&quot;: &quot;LISBOA&quot;,
+        &quot;ZipCode&quot;: &quot;1050-233&quot;,
+        &quot;ZipArea&quot;: &quot;LISBOA&quot;,
+        &quot;CountryCode&quot;: &quot;PT&quot;,
+        &quot;CommercialRecordWebCode&quot;: &quot;&quot;,
+        &quot;TenantCode&quot;: null,
+        &quot;LanguageCode&quot;: &quot;pt&quot;,
+        &quot;Status&quot;: &quot;Active&quot;,
+        &quot;IsPartner&quot;: false,
+        &quot;CreationDate&quot;: &quot;2010-09-29 15:25&quot;
+    }
 ]
 </pre></div>
 </div>
@@ -584,8 +532,7 @@ Set the OutboundFinancialDocumentId to your document.<br></p></li>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="get-document-formats.html" title="previous page">Get invoice PDF or UBL from archive</a>
-    <a class='right-next' id="next-link" href="get-destinations.html" title="next page">Get integrated destinations</a>
+    <a class='left-prev' id="prev-link" href="sent-notifications.html" title="previous page">Resend PDF invoice email notification</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

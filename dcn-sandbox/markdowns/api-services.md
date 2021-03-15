@@ -38,3 +38,6 @@ Use this service to **get** invoice formats from archive.
 
 <font size="5">[Resend PDF invoice email notification](../notebooks/sent-notifications.ipynb)</font><br>
 Use this service to **resend** PDF invoices email notification.
+
+<font size="5">[Get integrated destinations](../notebooks/get-destinations.ipynb)</font><br>
+Use this service to **get** all or filtred integrated destinations.

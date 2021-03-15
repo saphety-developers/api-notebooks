@@ -12,3 +12,4 @@
     - file: notebooks/get-document
     - file: notebooks/get-document-formats
     - file: notebooks/sent-notifications
+    - file: notebooks/get-destinations
