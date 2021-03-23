@@ -2,11 +2,11 @@
 # coding: utf-8
 
 # # Create client
-# Text 1
+# Use this service to **add/register** a client into your virtual operator account. 
 # 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**
-# 2. Send your invoice calling the **_asynchronous_** service **_VirtualOperator/client_**;
+# 2. Create your client calling the **_asynchronous_** service **_VirtualOperator/client_**;
 
 # #### Asynchrounous
 # The service **_VirtualOperator/client_** is an asynchrounous service.<br>
@@ -26,8 +26,10 @@
 # 
 
 # ## 1. Get a token (Account/getToken)
-# Credentials have be given to you, according to your registration at **Saphety Invoice Network**:
-# * For **Integration**, the **_user_** and **_password_** defined at **Saphety Invoice Network** registration
+# Credentials have be given to you, according to your registration at **SANDBOX** or **Saphety Invoice Network**:
+# * For **Test purposes**, the **_user_** and **_password_** defined at **SANDBOX** registration<br>
+# or
+# * For **Production**, the **_user_** and **_password_** defined at **Saphety Invoice Network** registration
 # 
 # Use those credentials to get a token at:
 # ```
@@ -88,7 +90,25 @@ print (token)
 
 
 # ## 2. Create client
-# Text 1
+# Now that you have a token you can **add/register** a client. In the service payload you need to supply these parameters: 
+# * **IntlVatCode**<br>
+#   Set the client Vat Number. Format is countryCode + Vat Number (ex: PT507957547)<br>
+# * **CompanyName**<br>
+#   Set the client’s name (ex: CLIENT LDA.)<br>
+# * **AdressLine**<br>
+#   Set the client address (ex: Rua do Cliente nº1 3ºPiso)<br>
+# * **City**<br>
+#   Set the client city (ex: Lisboa)<br>
+# * **ZipCode**<br>
+#   Set the client adress zipCode (ex: 1050-233)<br>
+# * **ZipArea**<br>
+#   Set the client adress area (ex: Lisboa)<br>
+# * **CountryCode**<br>
+#   Set the client countryCode. Format ISO 3166 Alpha-2 code (ex: PT)<br>
+# * **CommercialRecordWebCode**<br>
+#   Set the client commercial record web code (Registo commercial, ex:507957547)<br>
+# * **LanguageCode**<br>
+#   Set the client language. Format is ISO 639-1 (ex:PT)<br>
 
 # ### Build the service endpoint url and payload
 

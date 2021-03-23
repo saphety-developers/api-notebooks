@@ -2,11 +2,11 @@
 # coding: utf-8
 
 # # Count clients
-# Text 1
+# Use this service to **count** the registered clients from your virtual operator account. 
 # 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**
-# 2. Send your invoice calling the **_asynchronous_** service **_VirtualOperator/client/count_**;
+# 2. Count your registered clients calling the **_asynchronous_** service **_VirtualOperator/client/count_**;
 
 # #### Asynchrounous
 # The service **_VirtualOperator/client/count_** is an asynchrounous service.<br>
@@ -26,8 +26,10 @@
 # 
 
 # ## 1. Get a token (Account/getToken)
-# Credentials have be given to you, according to your registration at **Saphety Invoice Network**:
-# * For **Integration**, the **_user_** and **_password_** defined at **Saphety Invoice Network** registration
+# Credentials have be given to you, according to your registration at **SANDBOX** or **Saphety Invoice Network**:
+# * For **Test purposes**, the **_user_** and **_password_** defined at **SANDBOX** registration<br>
+# or
+# * For **Production**, the **_user_** and **_password_** defined at **Saphety Invoice Network** registration
 # 
 # Use those credentials to get a token at:
 # ```
@@ -88,11 +90,19 @@ print (token)
 
 
 # ## 2. Count clients
-# Text 1
+# Now that you have a token you can **count** your registered clients. In the service payload you need to supply these parameters:
+# * **CompanyName**<br>
+#   Set the client’s name (ex: CLIENT LDA.)<br>
+# * **IntlVatCode**<br>
+#   Set the client Vat Number. Format is countryCode + Vat Number (ex: PT507957547)<br>
+# * **CreationDateFrom**<br>
+#   Set a start date to narrow your search. Format is dd/mm/yyyy (ex: 01/01/2021)<br>
+# * **CreationDateTo**<br>
+#   Set an end date to narrow your search. Format is dd/mm/yyyy (ex: 01/01/2031)<br>
 
 # ### Build the service endpoint url and payload
 
-# In[10]:
+# In[11]:
 
 
 service_url = """{ServerBaseUrl}/api/VirtualOperator/client/count""".format(
@@ -108,13 +118,10 @@ headers = {
     }
 # payload as json
 payload = {
-      'RestrictionCriteria': {
-          'VirtualOperatorCode': 'PT950394033',
-          'CompanyName': 'Virtual Operator Client',
-          'IntlVatCode': 'PT979420199',
-          'CreationDateFrom': '01/01/2021',
-          'CreationDateTo': '01/01/2031',
-      }
+    'CompanyName': 'Virtual Operator Client',
+    'IntlVatCode': 'PT979420199',
+    'CreationDateFrom': '01/01/2021',
+    'CreationDateTo': '01/01/2031',
 }
 request_data=json.dumps(payload)
 
@@ -123,7 +130,7 @@ request_data=json.dumps(payload)
 
 # ### Call service and get back the response
 
-# In[11]:
+# In[12]:
 
 
 # Send the request (POST). The service return a request id

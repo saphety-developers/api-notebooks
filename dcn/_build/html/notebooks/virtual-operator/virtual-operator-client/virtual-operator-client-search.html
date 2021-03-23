@@ -287,12 +287,12 @@
                 
   <div class="section" id="search-clients">
 <h1>Search clients<a class="headerlink" href="#search-clients" title="Permalink to this headline">¶</a></h1>
-<p>Text 1</p>
+<p>Use this service to <strong>search</strong> a registered client from your virtual operator account.</p>
 <div class="section" id="service-steps">
 <h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong></p></li>
-<li><p>Send your invoice calling the <strong><em>asynchronous</em></strong> service <strong><em>VirtualOperator/client/search</em></strong>;</p></li>
+<li><p>Search a registered client calling the <strong><em>asynchronous</em></strong> service <strong><em>VirtualOperator/client/search</em></strong>;</p></li>
 </ol>
 <div class="section" id="asynchrounous">
 <h3>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">¶</a></h3>
@@ -314,9 +314,11 @@ Since this is an integration API, thousands of requests can be sent at the same 
 </div>
 <div class="section" id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">¶</a></h2>
-<p>Credentials have be given to you, according to your registration at <strong>Saphety Invoice Network</strong>:</p>
+<p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
 <ul class="simple">
-<li><p>For <strong>Integration</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
+<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
+or</p></li>
+<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
 </ul>
 <p>Use those credentials to get a token at:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
@@ -396,7 +398,17 @@ Since this is an integration API, thousands of requests can be sent at the same 
 </div>
 <div class="section" id="id1">
 <h2>2. Search clients<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Text 1</p>
+<p>Now that you have a token you can <strong>search</strong> a registered client. In the service payload you need to supply these parameters:</p>
+<ul class="simple">
+<li><p><strong>CompanyName</strong><br>
+Set the client’s name (ex: CLIENT LDA.)<br></p></li>
+<li><p><strong>IntlVatCode</strong><br>
+Set the client Vat Number. Format is countryCode + Vat Number (ex: PT507957547)<br></p></li>
+<li><p><strong>CreationDateFrom</strong><br>
+Set a start date to narrow your search. Format is dd/mm/yyyy (ex: 01/01/2021)<br></p></li>
+<li><p><strong>CreationDateTo</strong><br>
+Set an end date to narrow your search. Format is dd/mm/yyyy (ex: 01/01/2031)<br></p></li>
+</ul>
 <div class="section" id="build-the-service-endpoint-url-and-payload">
 <h3>Build the service endpoint url and payload<a class="headerlink" href="#build-the-service-endpoint-url-and-payload" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">

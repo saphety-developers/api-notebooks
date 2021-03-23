@@ -2,11 +2,11 @@
 # coding: utf-8
 
 # # Delete client
-# Text 1
+# Use this service to **delete** a registered client from your virtual operator account. 
 # 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**
-# 2. Send your invoice calling the **_asynchronous_** service **_VirtualOperator/client/{clientIntlVatCode}_**;
+# 2. Delete your registered client calling the **_asynchronous_** service **_VirtualOperator/client/{clientIntlVatCode}_**;
 
 # #### Asynchrounous
 # The service **_VirtualOperator/client/{clientIntlVatCode}_** is an asynchrounous service.<br>
@@ -26,8 +26,10 @@
 # 
 
 # ## 1. Get a token (Account/getToken)
-# Credentials have be given to you, according to your registration at **Saphety Invoice Network**:
-# * For **Integration**, the **_user_** and **_password_** defined at **Saphety Invoice Network** registration
+# Credentials have be given to you, according to your registration at **SANDBOX** or **Saphety Invoice Network**:
+# * For **Test purposes**, the **_user_** and **_password_** defined at **SANDBOX** registration<br>
+# or
+# * For **Production**, the **_user_** and **_password_** defined at **Saphety Invoice Network** registration
 # 
 # Use those credentials to get a token at:
 # ```
@@ -88,7 +90,9 @@ print (token)
 
 
 # ## 2. Delete client
-# Text 1
+# Now that you have a token you can **delete** a registered client. In the service payload you need to supply these parameters: 
+# * **clientIntlVatCode**<br>
+#   Set the client Vat Number. Format is countryCode + Vat Number (ex: PT507957547)<br>
 
 # ### Build the service endpoint url and payload
 
