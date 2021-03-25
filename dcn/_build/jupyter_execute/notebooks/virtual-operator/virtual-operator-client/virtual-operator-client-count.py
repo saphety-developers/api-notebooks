@@ -26,24 +26,23 @@
 # 
 
 # ## 1. Get a token (Account/getToken)
-# Credentials have be given to you, according to your registration at **SANDBOX** or **Saphety Invoice Network**:
-# * For **Test purposes**, the **_user_** and **_password_** defined at **SANDBOX** registration<br>
+# * For **Test purposes**, the **_user_** and **_password_** defined at **Saphety Invoice Network - Quality environment**<br>
 # or
-# * For **Production**, the **_user_** and **_password_** defined at **Saphety Invoice Network** registration
+# * For **Production**, the **_user_** and **_password_** defined at **Saphety Invoice Network - Production environment**
 # 
 # Use those credentials to get a token at:
 # ```
 # https://<ServerBaseAddress>/api/Account/getToken
 # ```
 
-# In[1]:
+# In[14]:
 
 
 # Saphety Invoice Network - Integration Environment
-server_base_adress = "dcn-solution-int.saphety.com/Dcn.Business.WebApi"
+server_base_adress = "dcn-solution-qa.saphety.com/Dcn.Business.WebApi"
 
 
-# In[2]:
+# In[15]:
 
 
 import requests
@@ -71,9 +70,9 @@ headers = {
 response = requests.request("POST", service_url, data=request_data, headers=headers)
 
 
-# <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font>
+# <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the Saphety Invoice Network - Quality environment. For tests we recommend that you use your own credentials.</font>
 
-# In[3]:
+# In[16]:
 
 
 # Formating the response to json for visualization purposes only
@@ -81,7 +80,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[4]:
+# In[17]:
 
 
 # Your token is at:
@@ -102,7 +101,7 @@ print (token)
 
 # ### Build the service endpoint url and payload
 
-# In[11]:
+# In[20]:
 
 
 service_url = """{ServerBaseUrl}/api/VirtualOperator/client/count""".format(
@@ -130,7 +129,7 @@ request_data=json.dumps(payload)
 
 # ### Call service and get back the response
 
-# In[12]:
+# In[21]:
 
 
 # Send the request (POST). The service return a request id
@@ -141,7 +140,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[12]:
+# In[22]:
 
 
 response = json_response["Data"];

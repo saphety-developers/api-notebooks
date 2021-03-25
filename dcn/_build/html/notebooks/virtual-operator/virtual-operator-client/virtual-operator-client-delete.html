@@ -314,11 +314,10 @@ Since this is an integration API, thousands of requests can be sent at the same 
 </div>
 <div class="section" id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">¶</a></h2>
-<p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
 <ul class="simple">
-<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
+<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network - Quality environment</strong><br>
 or</p></li>
-<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
+<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network - Production environment</strong></p></li>
 </ul>
 <p>Use those credentials to get a token at:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
@@ -327,7 +326,7 @@ or</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Saphety Invoice Network - Integration Environment</span>
-<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution-int.saphety.com/Dcn.Business.WebApi&quot;</span>
+<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution-qa.saphety.com/Dcn.Business.WebApi&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -361,7 +360,7 @@ or</p></li>
 </div>
 </div>
 </div>
-<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font></p>
+<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the Saphety Invoice Network - Quality environment. For tests we recommend that you use your own credentials.</font></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Formating the response to json for visualization purposes only</span>
@@ -372,10 +371,10 @@ or</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;cc10faeb-f403-4a04-89c5-7ac83f996b3d&quot;,
+    &quot;CorrelationId&quot;: &quot;4ff25e85-8e53-4cd1-a295-8cd4779d65bc&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX3ZvX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBWTyBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiN2ZhOWIxNWUtMTY3ZS00Yjg5LWJkZjAtMzRkN2FhOTUyY2JlIiwidm8iOiJTaW5BcGlWTyIsInJsIjoiVmlydHVhbE9wZXJhdG9yIiwiY3AiOiJQVDk1MDM5NDAzMyIsIm5iZiI6MTYxNDg4MjMyMSwiZXhwIjoxNjIwODc4NjYxLCJpYXQiOjE2MTQ4ODIyNjEsImlzcyI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tLyIsImF1ZCI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tL0RjblNlcnZlciJ9.fxswqfLcaInUf0ZGfllJIFzRpzG4dru9PhulYt--IYk&quot;
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX3ZvX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU2FwaGV0eVVzZXJBcGxpY2FjaW9uYWwiLCJzeXN0ZW1fYWRtaW4iOiJGYWxzZSIsInNlc3Npb25faWQiOiIxMjMzMjNkYy00NTc3LTRjODEtYjRiNi05MzU0NjBhYTU1MDkiLCJ2byI6IlZJUlRVQUxPUEVSQVRPUiIsInJsIjoiVmlydHVhbE9wZXJhdG9yIiwiY3AiOiJQVDk1MDM5NDAzMyIsIm5iZiI6MTYxNjY4OTQ3MSwiZXhwIjoxNjIyNjg1ODExLCJpYXQiOjE2MTY2ODk0MTEsImlzcyI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tLyIsImF1ZCI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tL0RjblNlcnZlciJ9.qWIIM1SvtadwwqbZ-8w3-EeLWb2WH1gNucZgl_8TG58&quot;
 }
 </pre></div>
 </div>
@@ -390,7 +389,7 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX3ZvX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBWTyBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiN2ZhOWIxNWUtMTY3ZS00Yjg5LWJkZjAtMzRkN2FhOTUyY2JlIiwidm8iOiJTaW5BcGlWTyIsInJsIjoiVmlydHVhbE9wZXJhdG9yIiwiY3AiOiJQVDk1MDM5NDAzMyIsIm5iZiI6MTYxNDg4MjMyMSwiZXhwIjoxNjIwODc4NjYxLCJpYXQiOjE2MTQ4ODIyNjEsImlzcyI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tLyIsImF1ZCI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tL0RjblNlcnZlciJ9.fxswqfLcaInUf0ZGfllJIFzRpzG4dru9PhulYt--IYk
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX3ZvX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU2FwaGV0eVVzZXJBcGxpY2FjaW9uYWwiLCJzeXN0ZW1fYWRtaW4iOiJGYWxzZSIsInNlc3Npb25faWQiOiIxMjMzMjNkYy00NTc3LTRjODEtYjRiNi05MzU0NjBhYTU1MDkiLCJ2byI6IlZJUlRVQUxPUEVSQVRPUiIsInJsIjoiVmlydHVhbE9wZXJhdG9yIiwiY3AiOiJQVDk1MDM5NDAzMyIsIm5iZiI6MTYxNjY4OTQ3MSwiZXhwIjoxNjIyNjg1ODExLCJpYXQiOjE2MTY2ODk0MTEsImlzcyI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tLyIsImF1ZCI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tL0RjblNlcnZlciJ9.qWIIM1SvtadwwqbZ-8w3-EeLWb2WH1gNucZgl_8TG58
 </pre></div>
 </div>
 </div>
@@ -425,7 +424,7 @@ Set the client Vat Number. Format is countryCode + Vat Number (ex: PT507957547)<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Service url: https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/VirtualOperator/client/PT979420199
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Service url: https://dcn-solution-qa.saphety.com/Dcn.Business.WebApi/api/VirtualOperator/client/PT979420199
 </pre></div>
 </div>
 </div>
@@ -447,7 +446,7 @@ Set the client Vat Number. Format is countryCode + Vat Number (ex: PT507957547)<
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;b1c370f2-8caa-4f8d-9ea0-237aa2458717&quot;,
+    &quot;CorrelationId&quot;: &quot;7e3eea67-3826-411f-a5fe-4725ce1a52b5&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
     &quot;Data&quot;: {}

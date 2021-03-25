@@ -314,11 +314,10 @@ Since this is an integration API, thousands of requests can be sent at the same 
 </div>
 <div class="section" id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">¶</a></h2>
-<p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
 <ul class="simple">
-<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
+<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network - Quality environment</strong><br>
 or</p></li>
-<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
+<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network - Production environment</strong></p></li>
 </ul>
 <p>Use those credentials to get a token at:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
@@ -327,7 +326,7 @@ or</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Saphety Invoice Network - Integration Environment</span>
-<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution-int.saphety.com/Dcn.Business.WebApi&quot;</span>
+<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution-qa.saphety.com/Dcn.Business.WebApi&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -361,7 +360,7 @@ or</p></li>
 </div>
 </div>
 </div>
-<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the API-SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the API-SANDBOX Portal.</font></p>
+<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the Saphety Invoice Network - Quality environment. For tests we recommend that you use your own credentials.</font></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Formating the response to json for visualization purposes only</span>
@@ -372,10 +371,10 @@ or</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;2c899f88-fc41-46cf-96df-f6fee9b3a3f3&quot;,
+    &quot;CorrelationId&quot;: &quot;dac3f87a-3b5d-4af0-ba63-a5407dcf0f73&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX3ZvX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBWTyBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiZWNjMjMxYzQtMzllZi00Y2QzLWIzMDItOTAxMjJlZGY1YWZlIiwidm8iOiJTaW5BcGlWTyIsInJsIjoiVmlydHVhbE9wZXJhdG9yIiwiY3AiOiJQVDk1MDM5NDAzMyIsIm5iZiI6MTYxNDg4MjM1NCwiZXhwIjoxNjIwODc4Njk0LCJpYXQiOjE2MTQ4ODIyOTQsImlzcyI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tLyIsImF1ZCI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tL0RjblNlcnZlciJ9.aB69KdWzsdXOJGAcPQ6P47g-blGjyF9R15VHzW78H44&quot;
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX3ZvX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU2FwaGV0eVVzZXJBcGxpY2FjaW9uYWwiLCJzeXN0ZW1fYWRtaW4iOiJGYWxzZSIsInNlc3Npb25faWQiOiIzZGVlMGNlOS0wMmE0LTQ0N2ItOWFjOC1lZTEwNjdhNGJlNGUiLCJ2byI6IlZJUlRVQUxPUEVSQVRPUiIsInJsIjoiVmlydHVhbE9wZXJhdG9yIiwiY3AiOiJQVDk1MDM5NDAzMyIsIm5iZiI6MTYxNjY4OTQ5MiwiZXhwIjoxNjIyNjg1ODMyLCJpYXQiOjE2MTY2ODk0MzIsImlzcyI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tLyIsImF1ZCI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tL0RjblNlcnZlciJ9.EceCUyaXXv3Ec1sdnUugSQC5Kodl_C08fLEqN8GKqh8&quot;
 }
 </pre></div>
 </div>
@@ -390,7 +389,7 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX3ZvX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBWTyBEb2N1bWVudGF0aW9uIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiZWNjMjMxYzQtMzllZi00Y2QzLWIzMDItOTAxMjJlZGY1YWZlIiwidm8iOiJTaW5BcGlWTyIsInJsIjoiVmlydHVhbE9wZXJhdG9yIiwiY3AiOiJQVDk1MDM5NDAzMyIsIm5iZiI6MTYxNDg4MjM1NCwiZXhwIjoxNjIwODc4Njk0LCJpYXQiOjE2MTQ4ODIyOTQsImlzcyI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tLyIsImF1ZCI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tL0RjblNlcnZlciJ9.aB69KdWzsdXOJGAcPQ6P47g-blGjyF9R15VHzW78H44
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX3ZvX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU2FwaGV0eVVzZXJBcGxpY2FjaW9uYWwiLCJzeXN0ZW1fYWRtaW4iOiJGYWxzZSIsInNlc3Npb25faWQiOiIzZGVlMGNlOS0wMmE0LTQ0N2ItOWFjOC1lZTEwNjdhNGJlNGUiLCJ2byI6IlZJUlRVQUxPUEVSQVRPUiIsInJsIjoiVmlydHVhbE9wZXJhdG9yIiwiY3AiOiJQVDk1MDM5NDAzMyIsIm5iZiI6MTYxNjY4OTQ5MiwiZXhwIjoxNjIyNjg1ODMyLCJpYXQiOjE2MTY2ODk0MzIsImlzcyI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tLyIsImF1ZCI6Imh0dHBzOi8vd3d3LnNhcGhldHkuY29tL0RjblNlcnZlciJ9.EceCUyaXXv3Ec1sdnUugSQC5Kodl_C08fLEqN8GKqh8
 </pre></div>
 </div>
 </div>
@@ -442,7 +441,7 @@ Set an end date to narrow your search. Format is dd/mm/yyyy (ex: 01/01/2031)<br>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Service url: https://dcn-solution-int.saphety.com/Dcn.Business.WebApi/api/VirtualOperator/client/search
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Service url: https://dcn-solution-qa.saphety.com/Dcn.Business.WebApi/api/VirtualOperator/client/search
 </pre></div>
 </div>
 </div>
@@ -464,7 +463,7 @@ Set an end date to narrow your search. Format is dd/mm/yyyy (ex: 01/01/2031)<br>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;0dea6a89-d323-473d-9b35-03b5cf283feb&quot;,
+    &quot;CorrelationId&quot;: &quot;478440da-eeb1-444c-9e20-7310e130d570&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
     &quot;Data&quot;: [
@@ -476,10 +475,10 @@ Set an end date to narrow your search. Format is dd/mm/yyyy (ex: 01/01/2031)<br>
             &quot;ZipCode&quot;: &quot;1050-233&quot;,
             &quot;ZipArea&quot;: &quot;Lisboa&quot;,
             &quot;CountryCode&quot;: &quot;PT&quot;,
-            &quot;CommercialRecordWebCode&quot;: null,
+            &quot;CommercialRecordWebCode&quot;: &quot;123456789&quot;,
             &quot;LanguageCode&quot;: &quot;PT&quot;,
-            &quot;CreationDate&quot;: &quot;2021-03-04 18:25:34&quot;,
-            &quot;VirtualOperatorCode&quot;: &quot;SinApiVO&quot;
+            &quot;CreationDate&quot;: &quot;2021-03-25 16:24:46&quot;,
+            &quot;VirtualOperatorCode&quot;: &quot;VIRTUALOPERATOR&quot;
         }
     ]
 }
@@ -504,10 +503,10 @@ Set an end date to narrow your search. Format is dd/mm/yyyy (ex: 01/01/2031)<br>
         &quot;ZipCode&quot;: &quot;1050-233&quot;,
         &quot;ZipArea&quot;: &quot;Lisboa&quot;,
         &quot;CountryCode&quot;: &quot;PT&quot;,
-        &quot;CommercialRecordWebCode&quot;: null,
+        &quot;CommercialRecordWebCode&quot;: &quot;123456789&quot;,
         &quot;LanguageCode&quot;: &quot;PT&quot;,
-        &quot;CreationDate&quot;: &quot;2021-03-04 18:25:34&quot;,
-        &quot;VirtualOperatorCode&quot;: &quot;SinApiVO&quot;
+        &quot;CreationDate&quot;: &quot;2021-03-25 16:24:46&quot;,
+        &quot;VirtualOperatorCode&quot;: &quot;VIRTUALOPERATOR&quot;
     }
 ]
 </pre></div>

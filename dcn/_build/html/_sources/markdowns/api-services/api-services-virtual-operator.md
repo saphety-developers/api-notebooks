@@ -5,12 +5,12 @@ Please consult the API services specification and orchestration.
 All API services can be consulted using the **Open API Specification (OAS3)**:
 
 **For Tests purposes**<br>
-API specification of Test environment at [API specification](https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/index.html)<br>
-<font color=red>\*must use the credentials (user and pw) defined at your **SANDBOX** registration</font>
+API specification of Quality environment at [API specification](https://dcn-solution-qa.saphety.com/Dcn.Business.WebApi/api/index.html)<br>
+<font color=red>\*must use the credentials (user and pw) defined at **Saphety Invoice Network - Quality environment** registration</font>
 
 **For Production**<br>
 API specification of Production environment at [API specification](https://dcn-solution.saphety.com/Dcn.Business.WebApi/api/index.html)<br>
-<font color=red>\*must use the credentials (user and pw) defined at **Saphety Invoice Network** registration</font>
+<font color=red>\*must use the credentials (user and pw) defined at **Saphety Invoice Network - Production environment** registration</font>
 
 ## Services
 <font size="5">[Create client](../../notebooks/virtual-operator/virtual-operator-client/virtual-operator-client-create.ipynb)</font><br>
