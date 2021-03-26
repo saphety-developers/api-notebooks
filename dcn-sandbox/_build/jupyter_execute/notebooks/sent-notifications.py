@@ -137,7 +137,7 @@ payload = {
 request_data=json.dumps(payload)
 
 
-# <font color=red>\* **Note 1:** in the Sandbox environment, the notifications are sent only for the user registration email, even if within the service payload are displayed other email addresses.</font><br><font color=red>\* **Note 2:** within the service body parameter “AdditionalEmails”, if you want to put “n” emails, use “,” to separate them (eg: email_1@gmail.com,email_2@gmail.com).</font>
+# <font color=red>\* **Note :** in the Sandbox environment, the notifications are sent only for the user registration email, even if within the service payload are displayed other email addresses.</font>
 
 # ### Call the service resend notifications
 # You will call the service endpoint url

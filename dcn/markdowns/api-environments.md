@@ -1,21 +1,12 @@
 # API Environments
 The **Saphety Invoice Network API** is connected to two environments:
-* Test (Sandbox)
+* Quality
 * Production
 
-## Test environment
-The first step to start testing the API is to register at **API-SANDBOX Portal** to get your own credentials (username and password) to generate a valid token to test the API in test environment.
+## Quality environment
+Request Saphety to create your Virtual Operator account in the Quality environment.
 
-With these credentials you are able to test the API, simulating the scenarios as if you were in a Production environment.
-
-Through **API-SANDBOX Portal**, you can have access to:
-* test API services
-* access to API documentation
-* request support by subscribing to a plan (not yet, but to be announced soon)
-* request partnership agreements by subscribing to a plan (not yet, but to be announced soon)
-
-To register on the **API-SANDBOX Portal** access here: [here](https://dcn-solution.saphety.com/Dcn.Sandbox.Client/public)
-
+Once your account is created in the Quality environment,you are able to test the API services, simulating the scenarios as if you were in a Production environment.
 
 ## Production environment
 After you have finished developing and testing the **API**, the next step will be to register the issuing company at **Saphety Invoice Network** in **Production** environment. 
