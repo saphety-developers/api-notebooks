@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: API documentation for DOC-server certified software (DOC+)
+title: API documentation for DOC-server - services overview
 author: Saphety
 logo: images/saphety_invoice_network_1.png
 
@@ -22,7 +22,7 @@ launch_buttons:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/saphety-developers/api-notebooks  # Online location of your book
-  path_to_book: "doc-server/certified-software"  # Optional path to your book, relative to the repository root
+  path_to_book: "doc-server/services-overview"  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
