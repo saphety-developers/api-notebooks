@@ -17,3 +17,8 @@ ipython_config.py
 #   git rm -r .ipynb_checkpoints/
 
 # End of https://www.toptal.com/developers/gitignore/api/jupyternotebooks
+
+# JT - 2021-04 Ignore books builds
+dcn/_build/
+dcn-sandbox/_build/
+doc-server/certified-software/_build/
