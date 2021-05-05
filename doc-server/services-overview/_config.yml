@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: API documentation for DOC-server - services overview
+title: DOC-server API overview
 author: Saphety
 logo: images/saphety_invoice_network_1.png
 
