@@ -14,3 +14,6 @@ API specification (Production environment) at [API specification](https://doc-se
 [Document series](../notebooks/document-series.ipynb)  
 Manage document series for invoices.  
 Before issuing invoices a document serie must be configured.
+
+[Saft report](../notebooks/saf-t-reports.ipynb)  
+Manage saft reports.  
