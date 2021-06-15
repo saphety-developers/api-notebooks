@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document contents &#8212; API documentation for DOC-server search and content services</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Document search" href="document-search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/saphety_invoice_network_1.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">API documentation for DOC-server search and content services</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdowns/home.html">
+   DOC Server Search API Overview
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../markdowns/api-services.html">
+   API Services
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="document-search.html">
+     Document search
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Document contents
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/document-contents.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/saphety-developers/api-notebooks"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/saphety-developers/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/document-contents.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/saphety-developers/api-notebooks/master?urlpath=tree/doc-server/document-search/notebooks/document-contents.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-a-token">
+   Get a token
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-document-contents">
+     Get document contents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#streaming-document-contents">
+     Streaming document contents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="document-contents">
+<h1>Document contents<a class="headerlink" href="#document-contents" title="Permalink to this headline">¶</a></h1>
+<p>Use this service to <strong>get document contents</strong> in <strong>Saphety’s Network</strong>.</p>
+<div class="section" id="get-a-token">
+<h2>Get a token<a class="headerlink" href="#get-a-token" title="Permalink to this headline">¶</a></h2>
+<p>Check more detail how to get a token in <span class="xref myst">Services overview</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set Environment</span>
+<span class="c1">#Integration</span>
+<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;doc-server-int.saphety.com/Doc.WebApi.Services&quot;</span>
+<span class="c1">#Quality</span>
+<span class="c1">#server_base_adress = &quot;doc-server-qa.saphety.com/Doc.WebApi.Services&quot;</span>
+<span class="c1">#Production</span>
+<span class="c1">#server_base_adress = &quot;doc-server.saphety.com/Doc.WebApi.Services&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Set authorization data</span>
+<span class="c1">#username = &#39;username&#39;</span>
+<span class="c1">#password = &#39;request_password&#39;</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;user_api_doc&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;request_password&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Get a JWT token from your username and password</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Account/token&quot;</span>
+
+<span class="c1"># Auhtentication data goes in payload as json</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;Username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+      <span class="s1">&#39;Password&#39;</span><span class="p">:</span> <span class="n">password</span>
+<span class="p">}</span>
+<span class="c1"># Payload goes in json, serialize the payloal object to json</span>
+<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="c1"># Indicate in header that payload is json</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+    <span class="p">}</span>
+<span class="c1"># POST request to get a token</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># Your token is at:</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Your authorization token:&#39;</span> <span class="o">+</span> <span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your authorization token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI1NDM5NSIsInVuaXF1ZV9uYW1lIjoidXNlcl9hcGlfZG9jIiwic2Vzc2lvbl9pZCI6IjIyODFiOWM5LWE1NGEtNDdlNC05MmY4LWI5NTQ4MTVkM2U0NyIsInN5c3RlbV9hZG1pbiI6IkZhbHNlIiwiZ2xvYl9lZGl0IjoiRmFsc2UiLCJleHRlcm5hbF91c2VybmFtZSI6InVzZXJfYXBpX2RvYyIsImV4dGVybmFsX3N5c3RlbV9hdWRpZW5jZSI6Imh0dHBzOi8vd3d3LnNhcGhldHktaW50LmNvbS9Eb2NTZXJ2ZXIiLCJuYmYiOjE2MjM3NjI2NTAsImV4cCI6MTYyMzgxMzY1MCwiaWF0IjoxNjIzNzYyNTkwLCJpc3MiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS8iLCJhdWQiOiJodHRwczovL3d3dy5zYXBoZXR5LWludC5jb20vRG9jU2VydmVyIn0.8Y3Fv-CE-p6KxBZz5rRi_vdLTzw3t_cGl_9RCcWxdKg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-document-contents">
+<h3>Get document contents<a class="headerlink" href="#get-document-contents" title="Permalink to this headline">¶</a></h3>
+<p>You can specify the following content you want to get:<br />
+<strong>Document ID</strong><br />
+<strong>Format Type</strong></p>
+<ul class="simple">
+<li><p>PDF</p></li>
+<li><p>Original</p></li>
+<li><p>Final</p></li>
+<li><p>Signed</p></li>
+<li><p>Ubl21</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Document/content&quot;</span>
+
+<span class="c1"># Search criteria data goes in payload as json</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;DocumentId&#39;</span><span class="p">:</span> <span class="mi">2833651</span><span class="p">,</span>
+  <span class="s1">&#39;Format&#39;</span><span class="p">:</span> <span class="s1">&#39;PDF&#39;</span>
+<span class="p">}</span>
+<span class="c1"># Payload goes in json, serialize the payloal object to json</span>
+<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="c1"># Indicate in header the authorization token</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+<span class="p">}</span>
+<span class="c1"># POST request to get a token</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># These two fields are truncated for better readability</span>
+<span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;ContentDataBytes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;ContentDataBytes&quot;</span><span class="p">][:</span><span class="mi">100</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;...&#39;</span>
+<span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;ContentDataText&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;ContentDataText&quot;</span><span class="p">][:</span><span class="mi">100</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;...&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+{
+    &quot;CorrelationId&quot;: &quot;faa92f0f-ff1d-45f2-b2d6-8c441c8f1a3f&quot;,
+    &quot;IsValid&quot;: true,
+    &quot;Errors&quot;: [],
+    &quot;Data&quot;: {
+        &quot;DocumentId&quot;: 2833651,
+        &quot;FormatType&quot;: &quot;pdf&quot;,
+        &quot;ContentDataBytes&quot;: &quot;JVBERi0xLjQKJeLjz9MKMSAwIG9iago8PC9Hcm91cCA8PC9TIC9UcmFuc3BhcmVuY3kvVHlwZSAvR3JvdXAvQ1MgL0RldmljZVJH...&quot;,
+        &quot;ContentProvider&quot;: &quot;Netdocs.Web.DataDownload#NDDownloadProvider&quot;,
+        &quot;ContentType&quot;: &quot;application/pdf&quot;,
+        &quot;ContentDataText&quot;: &quot;JVBERi0xLjQKJeLjz9MKMSAwIG9iago8PC9Hcm91cCA8PC9TIC9UcmFuc3BhcmVuY3kvVHlwZSAvR3JvdXAvQ1MgL0RldmljZVJH...&quot;,
+        &quot;SignatureProvider&quot;: &quot;Pdf&quot;,
+        &quot;Filename&quot;: null
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="streaming-document-contents">
+<h3>Streaming document contents<a class="headerlink" href="#streaming-document-contents" title="Permalink to this headline">¶</a></h3>
+<p>You can get the document content immediately streamed to your HTTP Response</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the serie Id from the previous serach service</span>
+<span class="n">documentId</span> <span class="o">=</span> <span class="s1">&#39;2833651&#39;</span>
+<span class="n">formatType</span> <span class="o">=</span> <span class="s1">&#39;PDF&#39;</span>
+<span class="n">inLine</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1"># Build the url</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Streaming/Document/content/&quot;</span> <span class="o">+</span> <span class="n">documentId</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">formatType</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">inLine</span><span class="p">)</span>
+<span class="c1"># Indicate in header the authorization token</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span> <span class="p">}</span>
+<span class="c1"># Use PUT to send the request</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+<span class="c1"># The document was truncated for better readability</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">[:</span><span class="mi">500</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+%PDF-1.4
+%����
+1 0 obj
+&lt;&lt;/Group &lt;&lt;/S /Transparency/Type /Group/CS /DeviceRGB&gt;&gt;/Contents 8 0 R/BleedBox [0 0 595.275635 841.889771]/Type /Page/Resources &lt;&lt;/ColorSpace &lt;&lt;/CS /DeviceRGB&gt;&gt;/ProcSet [/PDF  /Text  /ImageB  /ImageC  /ImageI]/ExtGState &lt;&lt;/GS1 7 0 R&gt;&gt;/Font &lt;&lt;/F1 2 0 R/F2 3 0 R/F3 4 0 R&gt;&gt;/XObject &lt;&lt;/img1 6 0 R/img0 5 0 R&gt;&gt;&gt;&gt;/Parent 9 0 R/MediaBox [0 0 595.275635 841.889771]/TrimBox [0 0 595.275635 841.889771]&gt;&gt;
+endobj
+2 0 obj
+&lt;&lt;/Subtype /TrueType/FirstChar 32/Type /Font/BaseFont /NVERXB+Ar...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="document-search.html" title="previous page">Document search</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Saphety<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

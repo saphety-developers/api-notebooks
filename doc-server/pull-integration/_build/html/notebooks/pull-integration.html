@@ -1,0 +1,711 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document pull &#8212; API documentation for DOC-server pull integration</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="API Services" href="../markdowns/api-services.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/saphety_invoice_network_1.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">API documentation for DOC-server pull integration</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdowns/home.html">
+   DOC Server Search API Overview
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../markdowns/api-services.html">
+   API Services
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Document pull
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/pull-integration.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/saphety-developers/api-notebooks"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/saphety-developers/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pull-integration.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/saphety-developers/api-notebooks/master?urlpath=tree/doc-server/pull-integration/notebooks/pull-integration.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-a-token">
+   Get a token
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#about-the-restriction-criteria">
+     About the restriction criteria
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-document-content-by-id">
+   Get document content by id
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="document-pull">
+<h1>Document pull<a class="headerlink" href="#document-pull" title="Permalink to this headline">¶</a></h1>
+<p>Use this service to <strong>pull documents</strong>.</p>
+<div class="section" id="get-a-token">
+<h2>Get a token<a class="headerlink" href="#get-a-token" title="Permalink to this headline">¶</a></h2>
+<p>Check more detail how to get a token in <span class="xref myst">Services overview</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set Environment</span>
+<span class="c1">#Integration</span>
+<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;doc-server-int.saphety.com/Doc.WebApi.Services&quot;</span>
+<span class="c1">#Quality</span>
+<span class="c1">#server_base_adress = &quot;doc-server-qa.saphety.com/Doc.WebApi.Services&quot;</span>
+<span class="c1">#Production</span>
+<span class="c1">#server_base_adress = &quot;doc-server.saphety.com/Doc.WebApi.Services&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Set authorization data</span>
+<span class="c1">#username = &#39;username&#39;</span>
+<span class="c1">#password = &#39;request_password&#39;</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;user_api_doc&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;request_password&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Get a JWT token from your username and password</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Account/token&quot;</span>
+
+<span class="c1"># Auhtentication data goes in payload as json</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;Username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+      <span class="s1">&#39;Password&#39;</span><span class="p">:</span> <span class="n">password</span>
+<span class="p">}</span>
+<span class="c1"># Payload goes in json, serialize the payloal object to json</span>
+<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="c1"># Indicate in header that payload is json</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+    <span class="p">}</span>
+<span class="c1"># POST request to get a token</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># Your token is at:</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Your authorization token:&#39;</span> <span class="o">+</span> <span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your authorization token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI1NDM5NSIsInVuaXF1ZV9uYW1lIjoidXNlcl9hcGlfZG9jIiwic2Vzc2lvbl9pZCI6IjU5MjY2YTVmLWVmM2MtNDBkMS1hZjg4LTg4MGFjOTMyZTM3YyIsInN5c3RlbV9hZG1pbiI6IkZhbHNlIiwiZ2xvYl9lZGl0IjoiRmFsc2UiLCJleHRlcm5hbF91c2VybmFtZSI6InVzZXJfYXBpX2RvYyIsImV4dGVybmFsX3N5c3RlbV9hdWRpZW5jZSI6Imh0dHBzOi8vd3d3LnNhcGhldHktaW50LmNvbS9Eb2NTZXJ2ZXIiLCJuYmYiOjE2MjM3NTMwMzEsImV4cCI6MTYyMzgwNDAzMSwiaWF0IjoxNjIzNzUyOTcxLCJpc3MiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS8iLCJhdWQiOiJodHRwczovL3d3dy5zYXBoZXR5LWludC5jb20vRG9jU2VydmVyIn0.MuAqAfLSXi-KpytvvR0PEhlh9J4WQxOjlxvL6SSeN3k
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="about-the-restriction-criteria">
+<h3>About the restriction criteria<a class="headerlink" href="#about-the-restriction-criteria" title="Permalink to this headline">¶</a></h3>
+<p>You can specify the following restriction creteria:</p>
+<ul class="simple">
+<li><p><strong>SenderEntityCode</strong><br />
+Place here the Sender enity code</p></li>
+<li><p><strong>DestinationEntityCode</strong><br />
+Place here the Destination enity code</p></li>
+<li><p><strong>CreationDateStart</strong><br />
+Place here the creation date start range you want to search</p></li>
+<li><p><strong>CreationDateEnd</strong><br />
+Place here the creation date end range you want to search</p></li>
+<li><p><strong>DeliveredDateStart</strong><br />
+Place here the delivered date start range you want to search</p></li>
+<li><p><strong>DeliveredDateEnd</strong><br />
+Place here the delivered date end range you want to search</p></li>
+<li><p><strong>DeliveredStatus</strong><br />
+This field is <strong>true</strong> or <strong>false</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/DocumentPull/OutboundShippments/search&quot;</span>
+
+<span class="c1"># Search criteria data goes in payload as json</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;RestrictionCriteria&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;SenderEntityCode&#39;</span><span class="p">:</span> <span class="s1">&#39;PT507957547&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DestinationEntityCode&#39;</span><span class="p">:</span> <span class="s1">&#39;PT560333331&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CreationDateStart&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-13 00:00:00&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CreationDateEnd&#39;</span><span class="p">:</span> <span class="s1">&#39;2021-06-16 00:00:00&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DeliveredStatus&#39;</span><span class="p">:</span> <span class="kc">False</span>
+  <span class="p">},</span>
+  <span class="s1">&#39;PageNumber&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s1">&#39;RowsPerPage&#39;</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">}</span>
+<span class="c1"># Payload goes in json, serialize the payloal object to json</span>
+<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="c1"># Indicate in header the authorization token</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
+    <span class="p">}</span>
+<span class="c1"># POST request to get a token</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+{
+    &quot;CorrelationId&quot;: &quot;07d681d9-99fa-43c7-bb13-b3cee24ef585&quot;,
+    &quot;IsValid&quot;: true,
+    &quot;Errors&quot;: [],
+    &quot;Data&quot;: [
+        {
+            &quot;Id&quot;: &quot;ac09853c-3cff-40af-865f-77192e9e3c81&quot;,
+            &quot;DocumentId&quot;: 2833651,
+            &quot;SenderEntityCode&quot;: &quot;PT507957547&quot;,
+            &quot;DestinationEntityCode&quot;: &quot;PT560333331&quot;,
+            &quot;CreationDate&quot;: &quot;2021-06-15 10:56:37&quot;,
+            &quot;DeliveredDate&quot;: null
+        }
+    ]
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="get-document-content-by-id">
+<h2>Get document content by id<a class="headerlink" href="#get-document-content-by-id" title="Permalink to this headline">¶</a></h2>
+<p>To get the document content use the service: <em><strong>/api/DocumentPull/OutboundShippments/{id}</strong></em></p>
+<ul class="simple">
+<li><p><strong>Id</strong><br />
+Id is the system identification for the document</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the serie Id from the previous serach service</span>
+<span class="n">documentId</span> <span class="o">=</span> <span class="s1">&#39;ac09853c-3cff-40af-865f-77192e9e3c81&#39;</span> 
+<span class="c1"># Build the url</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/DocumentPull/OutboundShippments/&quot;</span> <span class="o">+</span> <span class="n">documentId</span>
+<span class="c1"># Indicate in header the authorization token</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span> <span class="p">}</span>
+<span class="c1"># Use PUT to send the request</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+{
+    &quot;CreationDateTime&quot;: null,
+    &quot;LastUpdateDate&quot;: null,
+    &quot;DocTypeId&quot;: &quot;1&quot;,
+    &quot;DocPlatform&quot;: null,
+    &quot;DocInstanceId&quot;: &quot;aa7edb94-530d-3a1f-b979-d8849c3ec001&quot;,
+    &quot;Profile&quot;: null,
+    &quot;DocTypeQualifier&quot;: null,
+    &quot;SchemaVersion&quot;: null,
+    &quot;IsCertified&quot;: null,
+    &quot;SelfBilling&quot;: null,
+    &quot;DocumentCorrelationId&quot;: &quot;3d559e1d-4593-4c14-9546-c16fd8ff8bec&quot;,
+    &quot;SenderSoftwareCertificationNumber&quot;: null,
+    &quot;SenderSoftwareDocumentSignatureHash&quot;: null,
+    &quot;CurrencyISOCode&quot;: &quot;EUR&quot;,
+    &quot;ExchangeRate&quot;: null,
+    &quot;DocumentRectificationPurpose&quot;: null,
+    &quot;DocumentNumber&quot;: &quot;INVOICE20210615-00&quot;,
+    &quot;BinaryDocumentFormat&quot;: null,
+    &quot;BinaryAttachments&quot;: [],
+    &quot;OriginalDocumentFormat&quot;: null,
+    &quot;WorkingDocumentFormat&quot;: null,
+    &quot;OriginalSignedDocumentFormat&quot;: null,
+    &quot;OriginalSignedDocumentTransportFormat&quot;: null,
+    &quot;DocumentDates&quot;: {
+        &quot;DocumentDate&quot;: &quot;2021-06-15&quot;,
+        &quot;DueDate&quot;: null,
+        &quot;DeliveryDate&quot;: null,
+        &quot;GoodsServiceAvailableDate&quot;: null,
+        &quot;DepartureDate&quot;: null,
+        &quot;ArrivalDate&quot;: null,
+        &quot;InvoicingEndDate&quot;: null,
+        &quot;InvoicingStartDate&quot;: null,
+        &quot;CancellationDate&quot;: null,
+        &quot;DeliveryLatestDate&quot;: null,
+        &quot;GoodsReceiptDate&quot;: null,
+        &quot;BestBeforeDate&quot;: null
+    },
+    &quot;PartyInformation&quot;: {
+        &quot;Seller&quot;: {
+            &quot;Gln&quot;: &quot;5600000455210&quot;,
+            &quot;Name&quot;: &quot;SAPHETY LEVEL - TRUSTED SERVICES&quot;,
+            &quot;Address&quot;: null,
+            &quot;AdditionalAddress&quot;: null,
+            &quot;HeadquartersAddress&quot;: &quot;RUA DO VIRIATO, N\u00ba13 - 3\u00baPISO&quot;,
+            &quot;ZipCode&quot;: &quot;1050-233&quot;,
+            &quot;ZipArea&quot;: &quot;LISBOA&quot;,
+            &quot;Country&quot;: &quot;PT&quot;,
+            &quot;VatNumber&quot;: &quot;507957547&quot;,
+            &quot;VatNumberCountry&quot;: null,
+            &quot;CompanyRegistrationNumber&quot;: &quot;507957547&quot;,
+            &quot;CompanyRegistrationLocation&quot;: &quot;MAIA2&quot;,
+            &quot;SocialCapitalValue&quot;: &quot;2.098.039&quot;,
+            &quot;City&quot;: &quot;LISBOA&quot;,
+            &quot;Phone&quot;: null,
+            &quot;Email&quot;: &quot;facturacao.int@saphety.com&quot;,
+            &quot;Website&quot;: &quot;www.saphety.com&quot;,
+            &quot;IsFinalConsumer&quot;: null,
+            &quot;SellerAssignedPartyIdentification&quot;: null,
+            &quot;BuyerAssignedPartyIdentification&quot;: null,
+            &quot;CompanyRegistrationName&quot;: &quot;SAPHETY LEVEL - TRUSTED SERVICES&quot;,
+            &quot;AdditionalAddressData&quot;: [],
+            &quot;Contacts&quot;: [],
+            &quot;RegistrationInformation&quot;: [],
+            &quot;Departments&quot;: [],
+            &quot;Fax&quot;: null
+        },
+        &quot;Buyer&quot;: {
+            &quot;Gln&quot;: null,
+            &quot;Name&quot;: &quot;Company API DOC&quot;,
+            &quot;Address&quot;: null,
+            &quot;AdditionalAddress&quot;: null,
+            &quot;HeadquartersAddress&quot;: &quot;R. Viriato 13 3\u00ba Piso&quot;,
+            &quot;ZipCode&quot;: &quot;1050-233&quot;,
+            &quot;ZipArea&quot;: &quot;Lisboa&quot;,
+            &quot;Country&quot;: &quot;PT&quot;,
+            &quot;VatNumber&quot;: &quot;560333331&quot;,
+            &quot;VatNumberCountry&quot;: null,
+            &quot;CompanyRegistrationNumber&quot;: null,
+            &quot;CompanyRegistrationLocation&quot;: null,
+            &quot;SocialCapitalValue&quot;: null,
+            &quot;City&quot;: &quot;Lisboa&quot;,
+            &quot;Phone&quot;: null,
+            &quot;Email&quot;: null,
+            &quot;Website&quot;: &quot;https://www.saphety.com/&quot;,
+            &quot;IsFinalConsumer&quot;: null,
+            &quot;SellerAssignedPartyIdentification&quot;: null,
+            &quot;BuyerAssignedPartyIdentification&quot;: null,
+            &quot;CompanyRegistrationName&quot;: &quot;Company API DOC&quot;,
+            &quot;AdditionalAddressData&quot;: [],
+            &quot;Contacts&quot;: [],
+            &quot;RegistrationInformation&quot;: [],
+            &quot;Departments&quot;: [],
+            &quot;Fax&quot;: null
+        },
+        &quot;BillTo&quot;: null,
+        &quot;ShipTo&quot;: null,
+        &quot;ShipFrom&quot;: null,
+        &quot;Customer&quot;: null,
+        &quot;Issuer&quot;: null,
+        &quot;Receiver&quot;: null,
+        &quot;Carrier&quot;: null,
+        &quot;Payee&quot;: null,
+        &quot;TaxRepresentative&quot;: null,
+        &quot;Payer&quot;: null,
+        &quot;WarehouseDepositor&quot;: null
+    },
+    &quot;TransportInformation&quot;: null,
+    &quot;Observations&quot;: [],
+    &quot;DocumentReferences&quot;: {
+        &quot;InvoiceReference&quot;: [],
+        &quot;InvoiceReferencedDate&quot;: null,
+        &quot;OrderReference&quot;: &quot;ORDER20210615-000&quot;,
+        &quot;OrderReferencedDate&quot;: null,
+        &quot;CommitmentReference&quot;: null,
+        &quot;CommitmentReferenceDate&quot;: null,
+        &quot;DispatchAdviceReference&quot;: null,
+        &quot;DispatchAdviceReferencedDate&quot;: null,
+        &quot;ThirdPartyErpInternalReference&quot;: null,
+        &quot;ContractId&quot;: null,
+        &quot;CostCenterReference&quot;: null,
+        &quot;GrantFundReference&quot;: null,
+        &quot;TenderReference&quot;: null,
+        &quot;BuyerReference&quot;: null,
+        &quot;BarCode&quot;: null,
+        &quot;ReceptionAdviceReference&quot;: null,
+        &quot;SalesOrderReference&quot;: null,
+        &quot;SalesOrderReferencedDate&quot;: null,
+        &quot;ProjectReference&quot;: null,
+        &quot;AccountReference&quot;: null,
+        &quot;OrderCrossDockingReference&quot;: null,
+        &quot;AddresseeReference&quot;: null,
+        &quot;DispatchAdviceRequestReference&quot;: null,
+        &quot;ReturnsReference&quot;: null,
+        &quot;ReturnsReferencedDate&quot;: null,
+        &quot;WarehouseReference&quot;: null,
+        &quot;CreditAdviceReference&quot;: null,
+        &quot;CreditAdviceReferenceDate&quot;: null,
+        &quot;TransactionCustomerReference&quot;: null,
+        &quot;DeliveryScheduleReference&quot;: null
+    },
+    &quot;AccountId&quot;: null,
+    &quot;PaymentMethods&quot;: [],
+    &quot;PaymentTerms&quot;: [],
+    &quot;DocumentDiscounts&quot;: [],
+    &quot;DocumentCharges&quot;: [],
+    &quot;UtilitiesCPE&quot;: [],
+    &quot;LineItems&quot;: [
+        {
+            &quot;Number&quot;: null,
+            &quot;Type&quot;: null,
+            &quot;TradeItemIdentification&quot;: null,
+            &quot;ConsignedProduct&quot;: null,
+            &quot;ProductIdentification&quot;: null,
+            &quot;GrossPrice&quot;: null,
+            &quot;GrossPriceBasisQuantity&quot;: null,
+            &quot;NetPrice&quot;: &quot;100.0&quot;,
+            &quot;NetPriceBasisQuantity&quot;: null,
+            &quot;UnitPrice&quot;: null,
+            &quot;TaxableUnitPrice&quot;: null,
+            &quot;PriceDiscount&quot;: null,
+            &quot;GrossLineAmount&quot;: null,
+            &quot;ItemDescription&quot;: null,
+            &quot;AdditionalDescriptions&quot;: [],
+            &quot;NetLineAmount&quot;: &quot;100.0&quot;,
+            &quot;Observations&quot;: [],
+            &quot;LineTotalPayableAmount&quot;: null,
+            &quot;LineTotalTaxAmount&quot;: null,
+            &quot;LineTotalDiscountAmount&quot;: null,
+            &quot;SellerAssignedTradeItemIdentification&quot;: null,
+            &quot;BuyerAssignedTradeItemIdentification&quot;: null,
+            &quot;Quantity&quot;: {
+                &quot;Value&quot;: &quot;1&quot;,
+                &quot;UnitCodeValue&quot;: null
+            },
+            &quot;AdditionalQuantityInformation&quot;: null,
+            &quot;LinePackaging&quot;: null,
+            &quot;LineVat&quot;: {
+                &quot;TaxCode&quot;: null,
+                &quot;TaxPercentage&quot;: &quot;23&quot;,
+                &quot;TaxableAmount&quot;: null,
+                &quot;TaxTotalValue&quot;: &quot;23.0&quot;,
+                &quot;ExemptionReason&quot;: null
+            },
+            &quot;LineStampDuty&quot;: null,
+            &quot;LineWithHoldingTax&quot;: null,
+            &quot;LineDiscounts&quot;: [],
+            &quot;LineCharges&quot;: [],
+            &quot;DocumentLineReferences&quot;: null,
+            &quot;DocumentLineDates&quot;: null,
+            &quot;DocumentRectificationPurpose&quot;: null,
+            &quot;DeliveryLocation&quot;: null,
+            &quot;TransportInformation&quot;: null,
+            &quot;ScheduleLineDeliveries&quot;: [],
+            &quot;MetaInfos&quot;: [],
+            &quot;ChangeAction&quot;: null,
+            &quot;ContractInformation&quot;: null
+        }
+    ],
+    &quot;DocumentTotals&quot;: {
+        &quot;TotalAmountPayable&quot;: &quot;123.00&quot;,
+        &quot;TotalVatAmount&quot;: &quot;23.00&quot;,
+        &quot;TotalVatTaxableAmount&quot;: &quot;100.0&quot;,
+        &quot;TotalGrossAmount&quot;: null,
+        &quot;TotalNetAmount&quot;: null,
+        &quot;TotalDiscountAmount&quot;: null,
+        &quot;TotalChargesAmount&quot;: null,
+        &quot;TotalStampDutyAmount&quot;: null,
+        &quot;TotalWithholdingTaxAmount&quot;: null,
+        &quot;TotalTaxAndTaxableAmount&quot;: null,
+        &quot;PrepaidAmount&quot;: null,
+        &quot;VatSummaries&quot;: [
+            {
+                &quot;TaxPercentage&quot;: &quot;23&quot;,
+                &quot;TaxableAmount&quot;: &quot;100.0&quot;,
+                &quot;TaxTotalValue&quot;: &quot;23.00&quot;,
+                &quot;TaxCode&quot;: null,
+                &quot;ExemptionReason&quot;: null,
+                &quot;ExemptionReasonCode&quot;: null
+            }
+        ],
+        &quot;WithholdingTaxSummaries&quot;: [],
+        &quot;StampDutySummaries&quot;: [],
+        &quot;ChargeSummaries&quot;: [],
+        &quot;NumberOfLines&quot;: null,
+        &quot;TotalLineDiscountAmount&quot;: null,
+        &quot;TotalLineChargesAmount&quot;: null
+    },
+    &quot;LineAggregation&quot;: null,
+    &quot;AdvancePayments&quot;: [],
+    &quot;MetaInfos&quot;: [],
+    &quot;EmailNotifications&quot;: [],
+    &quot;IgnoreDatabaseNotificationsConfiguration&quot;: null,
+    &quot;DoNotStoreOriginalFormat&quot;: false,
+    &quot;ArchiveOnly&quot;: false,
+    &quot;ArchiveOnlyForDestination&quot;: false,
+    &quot;IsOcr&quot;: true,
+    &quot;SendToFinishing&quot;: false,
+    &quot;OriginSystemId&quot;: null,
+    &quot;TaxAuthorityUniqueDocumentIdentification&quot;: null,
+    &quot;QrData&quot;: null,
+    &quot;TransactionDetail&quot;: null,
+    &quot;TaxAuthorityTransportDocumentIdentification&quot;: null,
+    &quot;DryRunConfiguration&quot;: null
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../markdowns/api-services.html" title="previous page">API Services</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Saphety<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
