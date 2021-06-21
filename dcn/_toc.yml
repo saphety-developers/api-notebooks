@@ -10,3 +10,4 @@
     - file: notebooks/virtual-operator/client-count
     
 - file: notebooks/email-notification-status
+- file: notebooks/document-status-transitions
