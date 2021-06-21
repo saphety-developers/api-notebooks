@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send messages to Saphety (ReceiveMessage) &#8212; API documentation for Trade</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="API Services" href="../markdowns/api-services.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/saphety_invoice_network_1.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">API documentation for Trade</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdowns/home.html">
+   DOC Server Search API Overview
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdowns/api-authorization.html">
+   API Authorization
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../markdowns/api-services.html">
+   API Services
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Send messages to Saphety (ReceiveMessage)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/rest-api-messaging.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/saphety-developers/api-notebooks"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/saphety-developers/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/rest-api-messaging.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/saphety-developers/api-notebooks/master?urlpath=tree/trade/rest-api-messaging/notebooks/rest-api-messaging.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-the-request-object">
+   Create the request object
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#service-response-from-receivemessage">
+   Service Response from ReceiveMessage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#retrieve-messages-from-saphety-getmessagedata">
+   Retrieve messages from Saphety (GetMessageData)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#retrieving-messages-from-the-message-queue">
+   Retrieving messages from the message queue
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calling-the-service-listqueuedmessageids">
+     Calling the service ListQueuedMessageIds
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calling-the-service-getmessagedata">
+     Calling the service GetMessageData
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calling-the-service-changequeuedtoprocessed">
+     Calling the service ChangeQueuedToProcessed
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="send-messages-to-saphety-receivemessage">
+<h1>Send messages to Saphety (ReceiveMessage)<a class="headerlink" href="#send-messages-to-saphety-receivemessage" title="Permalink to this headline">¶</a></h1>
+<p>Although this service is called ReceiveMessage, it allows you to send a message to Saphety’s network;<br />
+The method name (ReceiveMessage) is given from Saphety’s network perspective.<br />
+The following example shows how to send a file to Saphety. This file is just an example; its content can be any commercial document (Order, Invoice etc.).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fileText</span> <span class="o">=</span> <span class="s1">&#39;&lt;invoice&gt;&lt;number&gt;inv001&lt;number&gt;&lt;date&gt;2019-04-19&lt;/date&gt;&lt;value&gt;115.00&lt;/value&gt;&lt;/invoice&gt;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First read the file content and convert to it Base64. Following is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fileBase64</span> <span class="o">=</span> <span class="s1">&#39;PGludm9pY2U+DQo8bnVtYmVyPmludjAwMTxudW1iZXI+DQo8ZGF0ZT4yMDE5LTA0LTE5PC9kYXRlPg0KPHZhbHVlPjExNSwwMDwvdmFsdWU+DQo8L2ludm9pY2U+&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The file content encoded in Base64 is transmitted in the Base64Data element.</p>
+<div class="section" id="create-the-request-object">
+<h2>Create the request object<a class="headerlink" href="#create-the-request-object" title="Permalink to this headline">¶</a></h2>
+<p>The request object have the following values:</p>
+<ul class="simple">
+<li><p><strong>Sender</strong><br />
+Your UserId (Partner Id)</p></li>
+<li><p><strong>Receiver</strong><br />
+Saphety WS endpoint: QA urn:netdoc:qa; PRD: urn:netdoc:prd</p></li>
+<li><p><strong>ContentType</strong><br />
+File content type, ex: application/xml</p></li>
+<li><p><strong>Base64Data</strong><br />
+File contents encoded in Base64</p></li>
+<li><p><strong>MessageId</strong><br />
+A message identifier for control, use a GUID</p></li>
+<li><p><strong>Filename</strong><br />
+The filename being transferred</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set Environment</span>
+<span class="c1">#Integration</span>
+<span class="c1">#server_base_adress = &quot;saphetydoc-int.saphety.com/TradeHttp/MessageServiceRest&quot;</span>
+<span class="c1">#Quality</span>
+<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;www-qa.netdocs.com.pt/TradeHttp/MessageServiceRest&quot;</span>
+<span class="c1">#Production</span>
+<span class="c1">#server_base_adress = &quot;ws.netdocs.com.pt/TradeHttp/MessageServiceRes&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Set authorization data</span>
+<span class="n">authorization</span> <span class="o">=</span> <span class="s1">&#39;PT500111111:Saphety#_2021&#39;</span>
+<span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;UFQ1MDAxMTExMTE6U2FwaGV0eSNfMjAyMQ==&#39;</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/ReceiveMessage&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="service-response-from-receivemessage">
+<h2>Service Response from ReceiveMessage<a class="headerlink" href="#service-response-from-receivemessage" title="Permalink to this headline">¶</a></h2>
+<p>For a successful request, the http code for the result is 200<br />
+Following is a response body for a success call to Receive Message:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Get a JWT token from your username and password</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Sender&#39;</span><span class="p">:</span> <span class="s1">&#39;PT500111111&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Receiver&#39;</span><span class="p">:</span> <span class="s1">&#39;urn:netdoc:qa&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentType&#39;</span><span class="p">:</span> <span class="s1">&#39;application/xml&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Base64Data&#39;</span><span class="p">:</span> <span class="n">fileBase64</span><span class="p">,</span>
+    <span class="s1">&#39;MessageId&#39;</span><span class="p">:</span> <span class="s1">&#39;de10ebd5-eef5-421e-9ee5-f08f59dfa327&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Filename&#39;</span><span class="p">:</span><span class="s1">&#39;invoice001.xml&#39;</span>
+<span class="p">}</span>
+<span class="c1"># Payload goes in json, serialize the payloal object to json</span>
+<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="c1"># Indicate in header that payload is json</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Basic &#39;</span> <span class="o">+</span> <span class="n">token</span><span class="p">,</span>
+    <span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="c1"># POST request to get a token</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;Errors&quot;: [],
+    &quot;IsValid&quot;: true,
+    &quot;ResultCode&quot;: 200,
+    &quot;ResultData&quot;: {
+        &quot;Messages&quot;: []
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pay attention that for an error request the http code of the result is 200.<br />
+It is required to check the response content for possible errors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Get a JWT token from your username and password</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Sender&#39;</span><span class="p">:</span> <span class="s1">&#39;PT500111111&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Receiver&#39;</span><span class="p">:</span> <span class="s1">&#39;urn:netdoc:qa&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentType&#39;</span><span class="p">:</span> <span class="s1">&#39;application/xml&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Base64Data&#39;</span><span class="p">:</span> <span class="s1">&#39;fileBase64&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;MessageId&#39;</span><span class="p">:</span> <span class="s1">&#39;de10ebd5-eef5-421e-9ee5-f08f59dfa327&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Filename&#39;</span><span class="p">:</span><span class="s1">&#39;invoice001.xml&#39;</span>
+<span class="p">}</span>
+<span class="c1"># Payload goes in json, serialize the payloal object to json</span>
+<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="c1"># Indicate in header that payload is json</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Basic &#39;</span> <span class="o">+</span> <span class="n">token</span><span class="p">,</span>
+    <span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="c1"># POST request to get a token</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;Errors&quot;: [
+        {
+            &quot;Code&quot;: null,
+            &quot;Description&quot;: &quot;Invalid length for a Base-64 char array or string.&quot;,
+            &quot;ExplanationValues&quot;: [],
+            &quot;Field&quot;: null
+        }
+    ],
+    &quot;IsValid&quot;: false,
+    &quot;ResultCode&quot;: 500,
+    &quot;ResultData&quot;: null
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="retrieve-messages-from-saphety-getmessagedata">
+<h2>Retrieve messages from Saphety (GetMessageData)<a class="headerlink" href="#retrieve-messages-from-saphety-getmessagedata" title="Permalink to this headline">¶</a></h2>
+<p>Saphety web services act like a mailbox for your incoming messages.<br />
+It is a pool system and you have to pool the messages that are stored in your message queue.<br />
+You need to performer the following steps:</p>
+<ol class="simple">
+<li><p>Query your queue to retrieve the list of messages available to download (note that any of this messages can be any document type, ORDERS, INVOICE, DESADV, STATUS, etc); for each message you will obtain the message identifier (Message ID). This is done using the service <strong>ListQueuedMessageIds</strong>.</p></li>
+<li><p>With the previous Message ID, you can obtain your message content. This is done using the service <strong>GetMessageData</strong>.</p></li>
+<li><p>After downloading a message, you need to mark it as “read”, so that message is removed from your queue. This is done using the service <strong>ChangeQueuedToProcessed</strong></p></li>
+</ol>
+</div>
+<div class="section" id="retrieving-messages-from-the-message-queue">
+<h2>Retrieving messages from the message queue<a class="headerlink" href="#retrieving-messages-from-the-message-queue" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="calling-the-service-listqueuedmessageids">
+<h3>Calling the service ListQueuedMessageIds<a class="headerlink" href="#calling-the-service-listqueuedmessageids" title="Permalink to this headline">¶</a></h3>
+<p>This service is called with a simple GET with the following url parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;https://&#39;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s1">&#39;/ListQueuedMessageIds?Receiver=</span><span class="si">{receiver}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www-qa.netdocs.com.pt/TradeHttp/MessageServiceRest/ListQueuedMessageIds?Receiver={receiver}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Where <strong>{receiver}</strong> is your <strong>UserId</strong> in Saphety network.<br />
+This will list all messages that are available to download.<br />
+This service also support additional fields capabilities such as the “<strong>Sender</strong>”. Consult the Swagger documentation to more details.<br />
+Sample request:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">receiver</span> <span class="o">=</span> <span class="s1">&#39;PT500111111&#39;</span> 
+<span class="c1"># Build the url</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s1">&#39;https://&#39;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s1">&#39;/ListQueuedMessageIds?Receiver=&#39;</span> <span class="o">+</span> <span class="n">receiver</span><span class="p">;</span>
+<span class="c1"># Use GET to send the request</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="c1"># The result is cutted for better readability</span>
+<span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;ResultData&quot;</span><span class="p">][</span><span class="s2">&quot;MessageIds&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;ResultData&quot;</span><span class="p">][</span><span class="s2">&quot;MessageIds&quot;</span><span class="p">][:</span><span class="mi">2</span><span class="p">];</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;Errors&quot;: [],
+    &quot;IsValid&quot;: true,
+    &quot;ResultCode&quot;: 200,
+    &quot;ResultData&quot;: {
+        &quot;MessageIds&quot;: [
+            {
+                &quot;MessageId&quot;: &quot;20200414164216.db3c28f1-31a7-4a02-9c68-459fe4d56faa@L-QA-FES02&quot;,
+                &quot;Receiver&quot;: &quot;PT500111111&quot;,
+                &quot;Sender&quot;: &quot;5600000002186&quot;
+            },
+            {
+                &quot;MessageId&quot;: &quot;20200414164315.842d707d-5764-4f0c-8003-6592f1ecc4cd@L-QA-FES02&quot;,
+                &quot;Receiver&quot;: &quot;PT500111111&quot;,
+                &quot;Sender&quot;: &quot;5600000002186&quot;
+            }
+        ]
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The previous response indicate you have 2 messages available to download with the Message Id:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;ResultData&quot;</span><span class="p">][</span><span class="s2">&quot;MessageIds&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s2">&quot;MessageId&quot;</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;20200414164216.db3c28f1-31a7-4a02-9c68-459fe4d56faa@L-QA-FES02&quot;
+&quot;20200414164315.842d707d-5764-4f0c-8003-6592f1ecc4cd@L-QA-FES02&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calling-the-service-getmessagedata">
+<h3>Calling the service GetMessageData<a class="headerlink" href="#calling-the-service-getmessagedata" title="Permalink to this headline">¶</a></h3>
+<p>To retrieve the message content, you need to call the <strong>GetMessageData</strong> as following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;https://&#39;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s1">&#39;/GetMessageData?Receiver=</span><span class="si">{receiver}</span><span class="s1">&amp;MessageId=</span><span class="si">{messageId}</span><span class="s1">&amp;Sender=</span><span class="si">{sender}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www-qa.netdocs.com.pt/TradeHttp/MessageServiceRest/GetMessageData?Receiver={receiver}&amp;MessageId={messageId}&amp;Sender={sender}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">receiver</span> <span class="o">=</span> <span class="s1">&#39;PT500111111&#39;</span>
+<span class="n">messageId</span> <span class="o">=</span> <span class="s1">&#39;20210608142029.91a7f766-c2eb-4dd3-9274-520c2b28a806@L-QA-FES02&#39;</span>
+<span class="n">sender</span> <span class="o">=</span> <span class="s1">&#39;5600000002186&#39;</span>
+<span class="c1"># Build the url</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s1">&#39;https://&#39;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s1">&#39;/GetMessageData?Receiver=&#39;</span> <span class="o">+</span> <span class="n">receiver</span> <span class="o">+</span> <span class="s1">&#39;&amp;MessageId=&#39;</span> <span class="o">+</span> <span class="n">messageId</span> <span class="o">+</span> <span class="s1">&#39;&amp;Sender=&#39;</span> <span class="o">+</span> <span class="n">sender</span><span class="p">;</span>
+<span class="c1"># Use GET to send the request</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;Errors&quot;: [],
+    &quot;IsValid&quot;: true,
+    &quot;ResultCode&quot;: 200,
+    &quot;ResultData&quot;: {
+        &quot;Base64Data&quot;: &quot;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxkb2N1bWVudFN0YXR1cyB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIiB4bWxuczp4c2Q9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hIiBkb2NJbnN0YW5jZUlkPSI1YTdlZGI5NC01MzBkLTNhNWYtYjk3OS1kODg0OWMzZWM1MjEiIGRvY3VtZW50Q29ycmVsYXRpb25JZD0iNGQ4NjllOTAtMTc2Ni00MDU4LTk0NTMtOTg5YzcyYmM2ODlmIj4NCiAgPG9yaWdpbmF0b3JFbnRpdHlDb2RlPjU2MDAwMDAwMDIxODY8L29yaWdpbmF0b3JFbnRpdHlDb2RlPg0KICA8ZG9jdW1lbnROdW1iZXI+VFNUXzIwMjEwNjA4MDE8L2RvY3VtZW50TnVtYmVyPg0KICA8cmVmZXJlZERvY3VtZW50Q29ycmVsYXRpb25JZD4yMDIxMDYwODE0MjAwNS41YjA1MTVkOS1hYmJkLTRmN2YtYjAxYS02ZTM4NDgyOTIwZjM8L3JlZmVyZWREb2N1bWVudENvcnJlbGF0aW9uSWQ+DQogIDxyZWZlcmVkRG9jdW1lbnRJZGVudGlmaWNhdGlvbj4NCiAgICA8RG9jdW1lbnROdW1iZXI+VFNUXzIwMjEwNjA4MDE8L0RvY3VtZW50TnVtYmVyPg0KICAgIDxEb2N1bWVudFR5cGU+SU5WT0lDRTwvRG9jdW1lbnRUeXBlPg0KICAgIDxEb2N1bWVudERhdGU+MjAxOS0wMS0xNjwvRG9jdW1lbnREYXRlPg0KICAgIDxPcmlnaW4+DQogICAgICA8SWQ+NTAwMTExMTExPC9JZD4NCiAgICAgIDxDb3VudHJ5PlBUPC9Db3VudHJ5Pg0KICAgIDwvT3JpZ2luPg0KICAgIDxEZXN0aW5hdGlvbj4NCiAgICAgIDxJZD41MTIwOTY0ODE8L0lkPg0KICAgICAgPENvdW50cnk+UFQ8L0NvdW50cnk+DQogICAgPC9EZXN0aW5hdGlvbj4NCiAgPC9yZWZlcmVkRG9jdW1lbnRJZGVudGlmaWNhdGlvbj4NCiAgPHN0YXR1cz5ET0NTVFNfU0VOVDwvc3RhdHVzPg0KICA8c3RhdHVzRGF0ZT4yMDIxLTA2LTA4IDE0OjIwOjI4PC9zdGF0dXNEYXRlPg0KICA8ZG9Ob3RTdG9yZU9yaWdpbmFsRm9ybWF0PmZhbHNlPC9kb05vdFN0b3JlT3JpZ2luYWxGb3JtYXQ+DQogIDxkcnlSdW5Db25maWd1cmF0aW9uPg0KICAgIDxJc0RyeVJ1bj5mYWxzZTwvSXNEcnlSdW4+DQogIDwvZHJ5UnVuQ29uZmlndXJhdGlvbj4NCiAgPHN0YXR1c1NvdXJjZT5JbnRlZ3JhdGlvbjwvc3RhdHVzU291cmNlPg0KPC9kb2N1bWVudFN0YXR1cz4=&quot;,
+        &quot;ContentType&quot;: &quot;application/xml&quot;,
+        &quot;Filename&quot;: &quot;STATUS-MESSAGE-DOCSTS_SENT-202106081420-d756e5c8-5737-4d87-bab4-6787d04eb06c.xml&quot;,
+        &quot;MessageId&quot;: &quot;20210608142029.91a7f766-c2eb-4dd3-9274-520c2b28a806@L-QA-FES02&quot;,
+        &quot;Receiver&quot;: &quot;PT500111111&quot;,
+        &quot;Sender&quot;: &quot;5600000002186&quot;
+    }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <strong>ContentType</strong> indicate the file type being download (ex: XML, Text, CSV, etc) and the content itself is encoded in Base64 in the <strong>Base64Data</strong>.</p>
+</div>
+<div class="section" id="calling-the-service-changequeuedtoprocessed">
+<h3>Calling the service ChangeQueuedToProcessed<a class="headerlink" href="#calling-the-service-changequeuedtoprocessed" title="Permalink to this headline">¶</a></h3>
+<p>After retrieving the documents from your queue, it is required to mark then as <strong>processed</strong>. This operation removes the document from the queue.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/ChangeQueuedToProcessed&quot;</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Sender&#39;</span><span class="p">:</span> <span class="n">sender</span><span class="p">,</span>
+    <span class="s1">&#39;Receiver&#39;</span><span class="p">:</span> <span class="n">receiver</span><span class="p">,</span>
+    <span class="s1">&#39;MessageId&#39;</span><span class="p">:</span> <span class="n">messageId</span>
+<span class="p">}</span>
+<span class="c1"># Payload goes in json, serialize the payloal object to json</span>
+<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span class="c1"># Indicate in header that payload is json</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Basic &#39;</span> <span class="o">+</span> <span class="n">token</span><span class="p">,</span>
+    <span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+<span class="p">}</span>
+<span class="c1"># POST request to get a token</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="c1"># Serializethe response</span>
+<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &quot;Errors&quot;: [],
+    &quot;IsValid&quot;: true,
+    &quot;ResultCode&quot;: 200,
+    &quot;ResultData&quot;: null
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../markdowns/api-services.html" title="previous page">API Services</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Saphety<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
