@@ -1,4 +1,4 @@
-# Virtual Operator API Services
+# Virtual Operator
 Please consult the API services specification and orchestration.
 
 ### Services considerations
