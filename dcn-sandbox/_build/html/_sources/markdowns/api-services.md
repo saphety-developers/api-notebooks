@@ -20,14 +20,14 @@ Use this service to **send** invoices in Portuguese legal format CIUS-PT.
 Use this service to **sign**, **store** and **send** PDF invoices that don’t have a QRCode.
 The PDF will be sent by email to your costumers.
 
-<font size="5">[Send PDF invoices **with QRCode** via email](../notebooks/pdf-async-request-embebed-data.ipynb)</font><br>
+<font size="5">[Send PDF invoices **with QRCode** via email](../notebooks/pdf-async-request-embedded-data.ipynb)</font><br>
 Use this service to **sign**, **store** and **send** PDF invoices that have a QRCode.
 The PDF will be sent by email to your costumers.
 
 <font size="5">[Store PDF invoices **without QRCode**](../notebooks/pdf-async-request-store-only.ipynb)</font><br>
 Use this service to **sign** and **store** PDF invoices that **don’t have** a **QRCode**.
 
-<font size="5">[Store PDF invoices **with QRCode**](../notebooks/pdf-async-request-embebed-data-store-only.ipynb)</font><br>
+<font size="5">[Store PDF invoices **with QRCode**](../notebooks/pdf-async-request-embedded-data-store-only.ipynb)</font><br>
 Use this service to **sign** and **store** PDF invoices that **have** an **QRCode**.
 
 <font size="5">[Check invoice **status** in archive](../notebooks/get-document.ipynb)</font><br>
@@ -36,8 +36,8 @@ Use this service to **check** an invoice **status** in archive.
 <font size="5">[Get invoice PDF or UBL from archive](../notebooks/get-document-formats.ipynb)</font><br>
 Use this service to **get** invoice formats from archive.
 
-<font size="5">[Resend PDF invoice email notification](../notebooks/sent-notifications.ipynb)</font><br>
-Use this service to **resend** PDF invoices email notification.
+<font size="5">[Resend invoice by email notification](../notebooks/sent-notifications.ipynb)</font><br>
+Use this service to **resend** invoices by email notification.
 
 <font size="5">[Get integrated destinations](../notebooks/get-destinations.ipynb)</font><br>
 Use this service to **get** all or filtred integrated destinations.

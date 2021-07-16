@@ -31,7 +31,7 @@
 # https://<ServerBaseAddress>/api/Account/getToken
 # ```
 
-# In[5]:
+# In[1]:
 
 
 # SANDBOX - Test Environment
@@ -41,7 +41,7 @@ server_base_adress = "dcn-solution.saphety.com/Dcn.Sandbox.WebApi"
 #server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi"
 
 
-# In[6]:
+# In[2]:
 
 
 import requests
@@ -71,7 +71,7 @@ response = requests.request("POST", service_url, data=request_data, headers=head
 
 # <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font>
 
-# In[7]:
+# In[3]:
 
 
 # formating the response to json for visualization purposes only
@@ -79,7 +79,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[8]:
+# In[4]:
 
 
 # your token is at:
@@ -97,7 +97,7 @@ print (token)
 # https://<ServerBaseUrl>/OutboundFinancialDocument/documentFormats/<OutboundFinancialDocumentId>
 # ```
 
-# In[16]:
+# In[5]:
 
 
 # SIN service url for retrieving inforfation on invoice previously sent
@@ -112,7 +112,7 @@ print (service_url)
 # ### Call the service to get the formats
 # You will call the service endpoint url
 
-# In[17]:
+# In[6]:
 
 
 # build the request
@@ -130,7 +130,7 @@ print(json.dumps(json_response["Data"], indent=4))
 # ### Read the service response
 # Now you need to read the service response to format all document formats and get the end file
 
-# In[18]:
+# In[7]:
 
 
 # for loop to see all Data

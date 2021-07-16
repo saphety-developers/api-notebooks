@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Resend PDF invoice email notification
-# Use this service to **resend** PDF invoices email notification.
+# # Resend invoice by email notification
+# Use this service to **resend** invoices by email notification.
 # 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**;

@@ -4,6 +4,8 @@
 # # Store PDF invoices **without QRCode**
 # Use this service to **sign** and **store** PDF invoices that **don’t have** a **QRCode**.
 # 
+# <font color=red>This service does not send the PDF by email notifications for the costumer, it only **signs** and **archives** the PDF..</font>
+# 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**;
 # 2. Store your invoice calling the **_asynchronous_** service **_PdfAsyncRequest/storeOnly/processDocument_**;
