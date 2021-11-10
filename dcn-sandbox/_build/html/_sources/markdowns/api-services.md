@@ -33,6 +33,9 @@ Use this service to **sign** and **store** PDF invoices that **have** an **QRCod
 <font size="5">[Check invoice **status** in archive](../notebooks/get-document.ipynb)</font><br>
 Use this service to **check** an invoice **status** in archive.
 
+<font size="5">[Check invoice **status transitions** ](../notebooks/get-document-status-transitions.ipynb)</font><br>
+Use this service to **check** an invoice **status transitions** for your processed document.
+
 <font size="5">[Get invoice PDF or UBL from archive](../notebooks/get-document-formats.ipynb)</font><br>
 Use this service to **get** invoice formats from archive.
 
