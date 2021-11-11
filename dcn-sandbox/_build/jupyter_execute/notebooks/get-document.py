@@ -31,7 +31,7 @@
 # https://<ServerBaseAddress>/api/Account/getToken
 # ```
 
-# In[1]:
+# In[8]:
 
 
 # SANDBOX - Test Environment
@@ -41,7 +41,7 @@ server_base_adress = "dcn-solution.saphety.com/Dcn.Sandbox.WebApi"
 #server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi"
 
 
-# In[2]:
+# In[9]:
 
 
 import requests
@@ -71,7 +71,7 @@ response = requests.request("POST", service_url, data=request_data, headers=head
 
 # <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font>
 
-# In[3]:
+# In[10]:
 
 
 # formating the response to json for visualization purposes only
@@ -79,7 +79,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[4]:
+# In[11]:
 
 
 # your token is at:
@@ -96,7 +96,7 @@ print (token)
 # https://<ServerBaseUrl>/OutboundFinancialDocument/<OutboundFinancialDocumentId>
 # ```
 
-# In[5]:
+# In[12]:
 
 
 # SIN service url for retrieving inforfation on invoice previously sent
@@ -111,7 +111,7 @@ print (service_url)
 # ### Call the service to get the document
 # You will call the service endpoint url
 
-# In[6]:
+# In[13]:
 
 
 # build the request
@@ -135,7 +135,7 @@ print(json.dumps(json_response["Data"], indent=4))
 # * **NotIntegrated:** When the document is not integrated
 # * **Rejected:** When the document was rejected
 
-# In[7]:
+# In[14]:
 
 
 integration_status = json_response["Data"]["IntegrationStatus"]
@@ -150,4 +150,10 @@ else:
     print("Your invoice integration status: " + integration_status);
 
 #print(json.dumps(json_response, indent=4))
+
+
+# In[ ]:
+
+
+
 
