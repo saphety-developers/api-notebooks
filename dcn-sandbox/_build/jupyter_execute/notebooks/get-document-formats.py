@@ -91,7 +91,7 @@ print (token)
 # <font color=orange>\* **Note:** The number of formats returned and their type depends on several factors. In the case of this documentation, the formats are fixed, as you can see in the following example.</font>
 
 # ### Build the service endpoint url
-# In the service url you need to supply the outbfinancialdocumentId received
+# In the service url you need to supply the outboundfinancialdocumentId received
 # 
 # ```
 # https://<ServerBaseUrl>/OutboundFinancialDocument/documentFormats/<OutboundFinancialDocumentId>

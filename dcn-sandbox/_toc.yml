@@ -15,3 +15,5 @@ sections:
   - file: notebooks/get-document-formats
   - file: notebooks/sent-notifications
   - file: notebooks/get-destinations
+  - file: notebooks/get-document-email-tracking-ids
+

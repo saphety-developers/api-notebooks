@@ -90,7 +90,7 @@ print (token)
 # ## 2. Get a Document storage by DocumentId (OutboundFinancialDocument/{documentId})
 
 # ### Build the service endpoint url
-# In the service url you need to supply the outbfinancialdocumentId received
+# In the service url you need to supply the outboundfinancialdocumentId received
 # 
 # ```
 # https://<ServerBaseUrl>/OutboundFinancialDocument/<OutboundFinancialDocumentId>
