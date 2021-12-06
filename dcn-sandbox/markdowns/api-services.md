@@ -20,15 +20,8 @@ Use this service to **send** invoices in Portuguese legal format CIUS-PT.
 Use this service to **sign**, **store** and **send** PDF invoices that don’t have a QRCode.
 The PDF will be sent by email to your costumers.
 
-<font size="5">[Send PDF invoices **with QRCode** via email](../notebooks/pdf-async-request-embedded-data.ipynb)</font><br>
-Use this service to **sign**, **store** and **send** PDF invoices that have a QRCode.
-The PDF will be sent by email to your costumers.
-
 <font size="5">[Store PDF invoices **without QRCode**](../notebooks/pdf-async-request-store-only.ipynb)</font><br>
 Use this service to **sign** and **store** PDF invoices that **don’t have** a **QRCode**.
-
-<font size="5">[Store PDF invoices **with QRCode**](../notebooks/pdf-async-request-embedded-data-store-only.ipynb)</font><br>
-Use this service to **sign** and **store** PDF invoices that **have** an **QRCode**.
 
 <font size="5">[Check invoice **status** in archive](../notebooks/get-document.ipynb)</font><br>
 Use this service to **check** an invoice **status** in archive.
