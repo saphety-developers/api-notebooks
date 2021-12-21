@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Check invoice status in archive &#8212; API documentation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -32,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -43,6 +42,7 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -52,10 +52,13 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Check invoice status transitions" href="get-document-status-transitions.html" />
-    <link rel="prev" title="Store PDF invoices with QRCode" href="pdf-async-request-embedded-data-store-only.html" />
+    <link rel="next" title="Check invoice status transitions in archive" href="get-document-status-transitions.html" />
+    <link rel="prev" title="Store PDF invoices" href="pdf-async-request-store-only.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -122,36 +125,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="pdf-async-request.html">
-     Send PDF invoices
-     <strong>
-      without QRCode
-     </strong>
-     via email
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pdf-async-request-embedded-data.html">
-     Send PDF invoices
-     <strong>
-      with QRCode
-     </strong>
-     via email
+     Send PDF invoices by email
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="pdf-async-request-store-only.html">
      Store PDF invoices
-     <strong>
-      without QRCode
-     </strong>
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pdf-async-request-embedded-data-store-only.html">
-     Store PDF invoices
-     <strong>
-      with QRCode
-     </strong>
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -169,6 +148,7 @@
      <strong>
       status transitions
      </strong>
+     in archive
     </a>
    </li>
    <li class="toctree-l2">
@@ -345,16 +325,16 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="check-invoice-status-in-archive">
+  <div class="tex2jax_ignore mathjax_ignore section" id="check-invoice-status-in-archive">
 <h1>Check invoice <strong>status</strong> in archive<a class="headerlink" href="#check-invoice-status-in-archive" title="Permalink to this headline">¶</a></h1>
 <p>Use this service to <strong>check</strong> an invoice <strong>status</strong> in archive for your processed document.</p>
-<section id="service-steps">
+<div class="section" id="service-steps">
 <h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong>;</p></li>
-<li><p>Get all invoice formats calling the service <strong><em>OutboundFinancialDocument/{documentId}</em></strong>;</p></li>
+<li><p>Get an invoice status in archive calling the service <strong><em>OutboundFinancialDocument/{documentId}</em></strong>;</p></li>
 </ol>
-<section id="response-structure-from-server">
+<div class="section" id="response-structure-from-server">
 <h3>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this headline">¶</a></h3>
 <p>When a request is well formed and the authentication data is correct the system responds with a message envelope as follows:</p>
 <div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -365,9 +345,9 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="get-a-token-account-gettoken">
+</div>
+</div>
+<div class="section" id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">¶</a></h2>
 <p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
 <ul class="simple">
@@ -453,10 +433,10 @@ or</p></li>
 </div>
 </div>
 </div>
-</section>
-<section id="get-a-document-storage-by-documentid-outboundfinancialdocument-documentid">
+</div>
+<div class="section" id="get-a-document-storage-by-documentid-outboundfinancialdocument-documentid">
 <h2>2. Get a Document storage by DocumentId (OutboundFinancialDocument/{documentId})<a class="headerlink" href="#get-a-document-storage-by-documentid-outboundfinancialdocument-documentid" title="Permalink to this headline">¶</a></h2>
-<section id="build-the-service-endpoint-url">
+<div class="section" id="build-the-service-endpoint-url">
 <h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
 <p>In the service url you need to supply the outboundfinancialdocumentId received</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocument</span><span class="o">/&lt;</span><span class="n">OutboundFinancialDocumentId</span><span class="o">&gt;</span>
@@ -480,8 +460,8 @@ or</p></li>
 </div>
 </div>
 </div>
-</section>
-<section id="call-the-service-to-get-the-document">
+</div>
+<div class="section" id="call-the-service-to-get-the-document">
 <h3>Call the service to get the document<a class="headerlink" href="#call-the-service-to-get-the-document" title="Permalink to this headline">¶</a></h3>
 <p>You will call the service endpoint url</p>
 <div class="cell docutils container">
@@ -559,9 +539,9 @@ or</p></li>
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -586,31 +566,22 @@ or</p></li>
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="pdf-async-request-embedded-data-store-only.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Store PDF invoices <strong>with QRCode</strong></p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="pdf-async-request-store-only.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Store PDF invoices</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="get-document-status-transitions.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Check invoice <strong>status transitions</strong> in archive</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="get-document-status-transitions.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Check invoice <strong>status transitions</strong></p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -631,8 +602,7 @@ or</p></li>
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

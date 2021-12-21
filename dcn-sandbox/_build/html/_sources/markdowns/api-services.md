@@ -16,18 +16,19 @@ API specification of Production environment at [API specification](https://dcn-s
 <font size="5">[Send invoices using legal format](../notebooks/country-format-async-request.ipynb)</font><br>
 Use this service to **send** invoices in Portuguese legal format CIUS-PT.
 
-<font size="5">[Send PDF invoices **without QRCode** via email](../notebooks/pdf-async-request.ipynb)</font><br>
-Use this service to **sign**, **store** and **send** PDF invoices that don’t have a QRCode.
-The PDF will be sent by email to your costumers.
+<font size="5">[Send PDF invoices by email](../notebooks/pdf-async-request.ipynb)</font><br>
+Use this service to **sign**, **store** and **send** PDF invoices.
+The PDF invoice will be sent by email to your costumer.
 
-<font size="5">[Store PDF invoices **without QRCode**](../notebooks/pdf-async-request-store-only.ipynb)</font><br>
-Use this service to **sign** and **store** PDF invoices that **don’t have** a **QRCode**.
+<font size="5">[Store PDF invoices](../notebooks/pdf-async-request-store-only.ipynb)</font><br>
+Use this service to **sign** and **store** PDF invoices.
+The PDF invoice will be signed and stored, and not sent to your costumers.
 
 <font size="5">[Check invoice **status** in archive](../notebooks/get-document.ipynb)</font><br>
 Use this service to **check** an invoice **status** in archive.
 
-<font size="5">[Check invoice **status transitions** ](../notebooks/get-document-status-transitions.ipynb)</font><br>
-Use this service to **check** an invoice **status transitions** for your processed document.
+<font size="5">[Check invoice **status transitions** in archive ](../notebooks/get-document-status-transitions.ipynb)</font><br>
+Use this service to **check** an invoice **status transitions** in archive.
 
 <font size="5">[Get invoice PDF or UBL from archive](../notebooks/get-document-formats.ipynb)</font><br>
 Use this service to **get** invoice formats from archive.

@@ -6,7 +6,7 @@
 # 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**;
-# 2. Get all invoice formats calling the service **_OutboundFinancialDocument/{documentId}_**;
+# 2. Get an invoice status in archive calling the service **_OutboundFinancialDocument/{documentId}_**;
 # 
 # #### Response structure from server
 # When a request is well formed and the authentication data is correct the system responds with a message envelope as follows: 

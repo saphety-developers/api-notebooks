@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Send PDF invoices **without QRCode** via email
-# Use this service to **sign**, **store** and **send** PDF invoices that **don’t have** a **QRCode**.
+# # Send PDF invoices by email
+# Use this service to **sign**, **store** and **send** PDF invoices by email to your costumers.
 # 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**;
@@ -95,10 +95,12 @@ token = json_response["Data"];
 print (token)
 
 
-# ## 2. Send invoice request without QRCode (PdfAsyncRequest/processDocument)
+# ## 2. Send PDF invoice request (PdfAsyncRequest/processDocument)
 # Now that you have a token you can send an PDF invoice to your customer.
-# In the service payload you need to supply these parameters:
+# By default, the service uses a generic email template that has a predefined layout. The email that is sent to the client has a "From", "FromDisplayName", "Subject" and "Email body content" already defined.
 # 
+# 
+# For a **generic email template**, in the service payload, you need to supply these parameters:
 # * **IntlVatCode**<br>
 #   Set the issuer Vat Number. Format is countryCode + Vat Number (ex: PT507957547)
 # * **DocumentType**<br>
@@ -120,6 +122,41 @@ print (token)
 #   * _Email_: Set the client/receiver email address to send the notification<br>
 #   * _SendAttachment_: Set whether the PDF is sent as an attachment in the notification. Allowed values for this parameter: True, False.<br>
 #   * _LanguageCode_: Set the notification language. Format is ISO 639-1 (ex: pt)
+# * **SerializedInput**<br>
+#   Set the base64 encoding of the PDF document.
+# * **ContentType**<br>
+#   Set the mime code. Allowed values for this parameter: application/pdf.
+#   
+#   
+# For a **customized email template**, in the service payload, you need to supply these additional parameters (marked in **<font color=red>red</font>**):
+# * **IntlVatCode**<br>
+#   Set the issuer Vat Number. Format is countryCode + Vat Number (ex: PT507957547)
+# * **DocumentType**<br>
+#   Set the type of document that you are sending.<br>
+#   Allowed values for this parameter: Invoice, Credit_Note, Debit_Note, Invoice_Receipt, Simplified_Invoice
+# * **DocumentDate**<br>
+#   Set the document date. Format is YYYY-MM-DD (ex: 2021-01-01)
+# * **DocumentNumber**<br>
+#   Set the document number/reference.
+# * **ReceiverIntlVatCode**<br>
+#   Set the receiver/client Vat Number. Format is countryCode + Vat Number (ex: PT507641230)
+# * **ReceiverName**<br>
+#   Set the receiver/client name (ex: FIREFLY LDA.)
+# * **DocumentTotal**<br>
+#   Set the total amount payable of the document. Format is a number (ex: 1000)
+# * **CurrencyCode**<br>
+#   Set the currency code of the document. Format is ISO 4217 Alphabetic code (ex: EUR)
+# * **DestinationEmails**<br>
+#   * _Email_: Set the client/receiver email address to send the notification<br>
+#   * _SendAttachment_: Set whether the PDF is sent as an attachment in the notification. Allowed values for this parameter: True, False.<br>
+#   * _LanguageCode_: Set the notification language. Format is ISO 639-1 (ex: pt).<br>
+#   * <font color=red>_CC_: Set one or a list of email adressess for CC.</font><br>
+#   * <font color=red>_BCC_: Set one or a list of email adressess for BCC.</font><br>
+#   * <font color=red>_From_: S_et the email address to identify the From of the email notification.</font><br>
+#   * <font color=red>_FromDisplayName_: set the From display name to send in the email notification.</font><br>
+#   * <font color=red>_Subject_: set the Subject to send in the email notification.</font><br>
+#   * <font color=red>_Body_: set the Body content of the email notification. Note: it's mandatory that the Body must be converted to base64 format.</font><br>
+#   * <font color=red>_BodyContentType_: Set the mime code according to the type of body that was converted to base64 in the Body parameter. Example: if the Body is a Base64 from an html set as application/html</font>
 # * **SerializedInput**<br>
 #   Set the base64 encoding of the PDF document.
 # * **ContentType**<br>

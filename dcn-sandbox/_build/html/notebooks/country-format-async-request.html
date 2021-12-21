@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Send invoices using legal format &#8212; API documentation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -32,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -43,6 +42,7 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -52,10 +52,13 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Send PDF invoices without QRCode via email" href="pdf-async-request.html" />
+    <link rel="next" title="Send PDF invoices via email" href="pdf-async-request.html" />
     <link rel="prev" title="API Services" href="../markdowns/api-services.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -122,36 +125,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="pdf-async-request.html">
-     Send PDF invoices
-     <strong>
-      without QRCode
-     </strong>
-     via email
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pdf-async-request-embedded-data.html">
-     Send PDF invoices
-     <strong>
-      with QRCode
-     </strong>
-     via email
+     Send PDF invoices via email
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="pdf-async-request-store-only.html">
      Store PDF invoices
-     <strong>
-      without QRCode
-     </strong>
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pdf-async-request-embedded-data-store-only.html">
-     Store PDF invoices
-     <strong>
-      with QRCode
-     </strong>
     </a>
    </li>
    <li class="toctree-l2">
@@ -184,6 +163,14 @@
    <li class="toctree-l2">
     <a class="reference internal" href="get-destinations.html">
      Get integrated destinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get-document-email-tracking-ids.html">
+     Check invoice
+     <strong>
+      email tracking ids
+     </strong>
     </a>
    </li>
   </ul>
@@ -383,13 +370,13 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="send-invoices-using-legal-format">
+  <div class="tex2jax_ignore mathjax_ignore section" id="send-invoices-using-legal-format">
 <h1>Send invoices using legal format<a class="headerlink" href="#send-invoices-using-legal-format" title="Permalink to this headline">¶</a></h1>
 <p>Portuguese government defined the <strong>“XML UBL CIUS-PT”</strong> as the format to interchange electronic invoices with the public administration entities.</p>
 <p>If your billing system is able to generate this format, you can use <strong>Saphety Invoice Network API</strong> services to send your invoices and store them according to all legal requirements.</p>
 <p>The technical specifications of CIUS-PT format was defined by eSPap and they are published here: <a class="reference external" href="https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx">Legal format documnetion documentation here at eSPAP</a></p>
 <p>Bear in mind that <strong>Saphety Invoice Network API</strong> only processes <strong>valid CIUS-PT</strong>, so before you start testing the <strong>API</strong>, ensure that the <strong>CIUS-PT</strong> extracted from your system are compliant with all the semantic and syntactic rules defined by eSPap. You can use this <strong>Validator tool</strong>, to check if CIUS-PT is valid and compliant with all the syntactic and semantic rules defined: <a class="reference external" href="https://svc.feap.gov.pt/Doc.Client/public/CIUSvalidation/PT?language=pt">A CIUS-PT validator is available here</a></p>
-<section id="countryformatasyncrequest">
+<div class="section" id="countryformatasyncrequest">
 <h2>CountryFormatAsyncRequest<a class="headerlink" href="#countryformatasyncrequest" title="Permalink to this headline">¶</a></h2>
 <p>This is the <strong>Saphety Invoice Network API</strong> web service for <strong>processing and sending</strong> invoices in <strong>CIUS-PT</strong> format.</p>
 <p>This service should be used in the following cases:</p>
@@ -400,7 +387,7 @@
 <li><p>You want to control the delivery status of the invoices to your customer;</p></li>
 <li><p>You want to guarantee that your invoices are in accordance with all legal requirements such as digital signature, repository storage, delivery methods, etc.</p></li>
 </ul>
-<section id="service-steps">
+<div class="section" id="service-steps">
 <h3>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong></p></li>
@@ -408,14 +395,14 @@
 <li><p>Check the <strong>result</strong> of your request using the received <strong><em>request id</em></strong> at <strong><em>CountryFormatAsyncRequest/{RequestId}</em></strong></p></li>
 <li><p>Once the request has finished successfully you get back a <strong><em>document id</em></strong>; check the invoice integration status on your customer at service <strong><em>OutboundFinancialDocument/{DocumentId}</em></strong></p></li>
 </ol>
-<section id="asynchrounous">
+<div class="section" id="asynchrounous">
 <h4>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">¶</a></h4>
 <p>The service <strong><em>CountryFormatAsyncRequest/processDocument</em></strong> is an asynchrounous service.<br>
 An invoice can take a few seconds to process (validate, sign, send to your costumer).<br>
 Since this is an integration API, thousands of requests can be sent at the same time.<br>
 For each request you receive immediately a <strong><em>request id</em></strong>. Use it to query the <strong><em>request status</em></strong>.</p>
-</section>
-<section id="response-structure-from-server">
+</div>
+<div class="section" id="response-structure-from-server">
 <h4>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this headline">¶</a></h4>
 <p>When a request is well formed and the authentication data is correct the system responds with a message envelope as follows:</p>
 <div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -426,10 +413,10 @@ For each request you receive immediately a <strong><em>request id</em></strong>.
 <span class="p">}</span>
 </pre></div>
 </div>
-</section>
-</section>
-</section>
-<section id="get-a-token-account-gettoken">
+</div>
+</div>
+</div>
+<div class="section" id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">¶</a></h2>
 <p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
 <ul class="simple">
@@ -515,11 +502,11 @@ or</p></li>
 </div>
 </div>
 </div>
-</section>
-<section id="send-invoice-request-countryformatasyncrequest-processdocument">
+</div>
+<div class="section" id="send-invoice-request-countryformatasyncrequest-processdocument">
 <h2>2. Send invoice request (CountryFormatAsyncRequest/processDocument)<a class="headerlink" href="#send-invoice-request-countryformatasyncrequest-processdocument" title="Permalink to this headline">¶</a></h2>
 <p>Now that you have a token, you can send an invoice in the legal format (CIUS-PT).</p>
-<section id="build-the-service-endpoint-url">
+<div class="section" id="build-the-service-endpoint-url">
 <h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
 <p>In the service url you need to supply two parameters:</p>
 <ol class="simple">
@@ -564,8 +551,8 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 </div>
 </div>
-</section>
-<section id="prepare-the-payload-according-to-legal-invoice-format-cius-pt">
+</div>
+<div class="section" id="prepare-the-payload-according-to-legal-invoice-format-cius-pt">
 <h3>Prepare the payload according to legal invoice format (CIUS-PT)<a class="headerlink" href="#prepare-the-payload-according-to-legal-invoice-format-cius-pt" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned before, Saphety Invoice Network (SIN) API only processes valid CIUS-PT, so, ensure that the CIUS-PT that you are going to put into the payload is a valid one.<br />
 <a class="reference external" href="https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx">Legal Format [CISU-PT] technical specification is available here</a><br />
@@ -717,8 +704,8 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 </div>
 <p><font color=red>* <strong>Note:</strong> the payload example showed here is a sample created by Saphety, you can use another cius-pt payload with your data, as long as it is a valid one.</font></p>
-</section>
-<section id="call-service-and-get-back-the-request-id">
+</div>
+<div class="section" id="call-service-and-get-back-the-request-id">
 <h3>Call service and get back the request id<a class="headerlink" href="#call-service-and-get-back-the-request-id" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -766,12 +753,12 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="check-to-success-of-your-request-countryformatasyncrequest-requestid">
+</div>
+</div>
+<div class="section" id="check-to-success-of-your-request-countryformatasyncrequest-requestid">
 <h2>3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid" title="Permalink to this headline">¶</a></h2>
 <p>Query the system using this <strong><em>request id</em></strong> in order to get the status (success or error) of your request</p>
-<section id="id1">
+<div class="section" id="id1">
 <h3>Build the service endpoint url<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>In the service url you need to supply the <strong><em>request id</em></strong> received</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">CountryFormatAsyncRequest</span><span class="o">/&lt;</span><span class="n">RequestId</span><span class="o">&gt;</span>
@@ -796,8 +783,8 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 </div>
 </div>
-</section>
-<section id="check-your-request-status">
+</div>
+<div class="section" id="check-your-request-status">
 <h3>Check your request status<a class="headerlink" href="#check-your-request-status" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -852,12 +839,12 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="check-the-invoice-integration-status-outboundfinancialdocument-documentid">
+</div>
+</div>
+<div class="section" id="check-the-invoice-integration-status-outboundfinancialdocument-documentid">
 <h2>4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})<a class="headerlink" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid" title="Permalink to this headline">¶</a></h2>
 <p>With the received outbound financial <strong><em>document id</em></strong> you can query the system for document integration status.</p>
-<section id="id2">
+<div class="section" id="id2">
 <h3>Build the service endpoint url<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>In the service url you need to supply the <strong><em>outbound financial document id</em></strong> received.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocument</span><span class="o">/&lt;</span><span class="n">OutboundFinancialDocumentId</span><span class="o">&gt;</span>
@@ -964,9 +951,9 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </div>
 </div>
 <p><strong>Use the OutboundFinancialDocumentId for any future checks on the invoice.</strong></p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -991,31 +978,22 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../markdowns/api-services.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">API Services</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../markdowns/api-services.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">API Services</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="pdf-async-request.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Send PDF invoices via email</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="pdf-async-request.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Send PDF invoices <strong>without QRCode</strong> via email</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1036,8 +1014,7 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

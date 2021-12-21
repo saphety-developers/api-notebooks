@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Store PDF invoices **without QRCode**
-# Use this service to **sign** and **store** PDF invoices that **don’t have** a **QRCode**.
+# # Store PDF invoices
+# Use this service to **sign** and **store** PDF invoices. The PDF invoice will be signed and stored, and not sent to your costumers.
 # 
 # <font color=red>This service does not send the PDF by email notifications for the costumer, it only **signs** and **archives** the PDF..</font>
 # 
@@ -97,7 +97,7 @@ token = json_response["Data"];
 print (token)
 
 
-# ## 2. Store invoice request without QRCode (PdfAsyncRequest/storeOnly/processDocument)
+# ## 2. Store invoice request (PdfAsyncRequest/storeOnly/processDocument)
 # Now that you have a token you can store an PDF invoice.
 # In the service payload you need to supply these parameters:
 # 

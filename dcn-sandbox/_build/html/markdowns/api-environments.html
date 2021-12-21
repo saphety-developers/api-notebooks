@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Environments &#8212; API documentation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -32,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -43,6 +42,7 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -55,7 +55,10 @@
     <link rel="next" title="API Basics" href="api-basics.html" />
     <link rel="prev" title="Overview" href="home.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -122,36 +125,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../notebooks/pdf-async-request.html">
-     Send PDF invoices
-     <strong>
-      without QRCode
-     </strong>
-     via email
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/pdf-async-request-embedded-data.html">
-     Send PDF invoices
-     <strong>
-      with QRCode
-     </strong>
-     via email
+     Send PDF invoices via email
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../notebooks/pdf-async-request-store-only.html">
      Store PDF invoices
-     <strong>
-      without QRCode
-     </strong>
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notebooks/pdf-async-request-embedded-data-store-only.html">
-     Store PDF invoices
-     <strong>
-      with QRCode
-     </strong>
     </a>
    </li>
    <li class="toctree-l2">
@@ -184,6 +163,14 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../notebooks/get-destinations.html">
      Get integrated destinations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/get-document-email-tracking-ids.html">
+     Check invoice
+     <strong>
+      email tracking ids
+     </strong>
     </a>
    </li>
   </ul>
@@ -296,14 +283,14 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="api-environments">
+  <div class="tex2jax_ignore mathjax_ignore section" id="api-environments">
 <h1>API Environments<a class="headerlink" href="#api-environments" title="Permalink to this headline">¶</a></h1>
 <p>The <strong>Saphety Invoice Network API</strong> is connected to two environments:</p>
 <ul class="simple">
 <li><p>Test (SANDBOX)</p></li>
 <li><p>Production (Saphety Invoice Network)</p></li>
 </ul>
-<section id="test-environment">
+<div class="section" id="test-environment">
 <h2>Test environment<a class="headerlink" href="#test-environment" title="Permalink to this headline">¶</a></h2>
 <p>The first step to start testing the API is to register at <strong>SANDBOX</strong> to get your own credentials (username and password) to generate a valid token to test the API in test environment.</p>
 <p>With these credentials you are able to test the API, simulating the scenarios as if you were in a Production environment.</p>
@@ -315,15 +302,15 @@
 <p><strong>SANDBOX</strong> is a controlled environment, that allows to test all services, but <strong>does not</strong> persist/archive documents in a database. In this way, it is possible to test all services, without the risk of sending invoices to the test environments of the receiving entities, or sending emails to real addresses of the receiving entities.</p>
 <p>Bear in mind that, because the documents in this <strong>SANDBOX environment are not</strong> persisted/archived in the database, some services (e.g: <strong><em>Get Invoice PDF - UBL from archive</em></strong> or <strong><em>Check Invoice status in archive</em></strong>) will always return results of a mockup invoice from Saphety, regardless of the document that has been processed. The same will happen with email notifications, that is, in the <strong>SANDBOX</strong> environment, email notifications generated in some services <strong>will always be sent</strong> to the user registration email address on the <strong>SANDBOX</strong>.</p>
 <p>To register on the <strong>SANDBOX</strong> access here: <a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Sandbox.Client/public">here</a></p>
-</section>
-<section id="production-environment">
+</div>
+<div class="section" id="production-environment">
 <h2>Production environment<a class="headerlink" href="#production-environment" title="Permalink to this headline">¶</a></h2>
 <p>After you have finished developing and testing the <strong>API</strong>, the next step will be to register the issuing company at <strong>Saphety Invoice Network</strong> in <strong>Production</strong> environment.</p>
 <p>The registration must be done by the issuing entity that will use the <strong>API</strong> services. This entity must be registered and must subscribe a plan to start send documents.</p>
 <p>To register on the <strong>Saphety Invoice Network API</strong> access here: <a class="reference external" href="https://www.saphety.com/">here</a></p>
 <p>The credentials obtained in this registration (user and password) will be the ones you must use to generate a valid token for <strong>API</strong> services in the <strong>Production</strong> environment.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -348,31 +335,22 @@
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="home.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Overview</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="home.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Overview</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="api-basics.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API Basics</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="api-basics.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">API Basics</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -393,8 +371,7 @@
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
