@@ -87,7 +87,7 @@ token = json_response["Data"];
 print (token)
 
 
-# ## 2. Get a Document storage by DocumentId (OutboundFinancialDocument/{documentId})
+# ## 2. Get a Document status by DocumentId (OutboundFinancialDocument/{documentId})
 
 # ### Build the service endpoint url
 # In the service url you need to supply the outboundfinancialdocumentId received

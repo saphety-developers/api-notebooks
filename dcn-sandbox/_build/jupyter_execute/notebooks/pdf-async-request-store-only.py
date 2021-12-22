@@ -97,7 +97,7 @@ token = json_response["Data"];
 print (token)
 
 
-# ## 2. Store invoice request (PdfAsyncRequest/storeOnly/processDocument)
+# ## 2. Store PDF invoice request (PdfAsyncRequest/storeOnly/processDocument)
 # Now that you have a token you can store an PDF invoice.
 # In the service payload you need to supply these parameters:
 # 
