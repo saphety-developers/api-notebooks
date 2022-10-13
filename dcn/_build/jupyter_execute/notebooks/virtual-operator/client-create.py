@@ -53,7 +53,7 @@ service_url = "https://" + server_base_adress + "/api/Account/getToken"
 
 # Example of username and password
 username = 'sin_api_vo_documentation_user@saphety.com'
-password = 'request_password'
+password = 'DocUser2022@'
 
 # Auhtentication data goes in payload as json
 payload = {

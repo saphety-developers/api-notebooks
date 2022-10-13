@@ -1,13 +1,33 @@
-- file: markdowns/home
+format: jb-article
+root: markdowns/home
+sections:
 - file: markdowns/api-environments
 - file: markdowns/api-basics
-
+- file: markdowns/api-services/api-services-company
+  sections:
+  - file: notebooks/company/get-company-info
 - file: markdowns/api-services/api-services-virtual-operator
   sections:
-    - file: notebooks/virtual-operator/client-create
-    - file: notebooks/virtual-operator/client-delete
-    - file: notebooks/virtual-operator/client-search
-    - file: notebooks/virtual-operator/client-count
-    
+  - file: notebooks/virtual-operator/client-create
+  - file: notebooks/virtual-operator/client-delete
+  - file: notebooks/virtual-operator/client-search
+  - file: notebooks/virtual-operator/client-count
+- file: markdowns/api-services/api-services-networks
+  sections:
+  - file: notebooks/networks/search-integrated-destinations
+  - file: notebooks/networks/get-business-group-connection
+  - file: notebooks/networks/search-business-group-connections
 - file: notebooks/email-notification-status
 - file: notebooks/document-status-transitions
+- file: markdowns/models
+  sections:
+  - file: markdowns/models/company
+    sections:
+    - file: notebooks/models/company/company-model
+    - file: notebooks/models/company/company-status-enum
+    - file: notebooks/models/company/company-properties-model
+  - file: markdowns/models/networks
+    sections:
+    - file: notebooks/models/networks/business-group-connection-model
+    - file: notebooks/models/networks/integrated-destination-group-model
+    - file: notebooks/models/networks/integration-access-status-enum

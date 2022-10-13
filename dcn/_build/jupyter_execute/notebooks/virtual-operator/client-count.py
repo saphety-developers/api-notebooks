@@ -35,14 +35,14 @@
 # https://<ServerBaseAddress>/api/Account/getToken
 # ```
 
-# In[14]:
+# In[1]:
 
 
 # Saphety Invoice Network - Integration Environment
 server_base_adress = "dcn-solution-qa.saphety.com/Dcn.Business.WebApi"
 
 
-# In[15]:
+# In[2]:
 
 
 import requests
@@ -53,7 +53,7 @@ service_url = "https://" + server_base_adress + "/api/Account/getToken"
 
 # Example of username and password
 username = 'sin_api_vo_documentation_user@saphety.com'
-password = 'request_password'
+password = 'DocUser2022@'
 
 # Auhtentication data goes in payload as json
 payload = {
@@ -72,7 +72,7 @@ response = requests.request("POST", service_url, data=request_data, headers=head
 
 # <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the Saphety Invoice Network - Quality environment. For tests we recommend that you use your own credentials.</font>
 
-# In[16]:
+# In[3]:
 
 
 # Formating the response to json for visualization purposes only
@@ -80,7 +80,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[17]:
+# In[4]:
 
 
 # Your token is at:
@@ -101,7 +101,7 @@ print (token)
 
 # ### Build the service endpoint url and payload
 
-# In[20]:
+# In[5]:
 
 
 service_url = """{ServerBaseUrl}/api/VirtualOperator/client/count""".format(
@@ -129,7 +129,7 @@ request_data=json.dumps(payload)
 
 # ### Call service and get back the response
 
-# In[21]:
+# In[6]:
 
 
 # Send the request (POST). The service return a request id
@@ -140,9 +140,15 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[22]:
+# In[7]:
 
 
 response = json_response["Data"];
 print(json.dumps(response, indent=4))
+
+
+# In[ ]:
+
+
+
 
