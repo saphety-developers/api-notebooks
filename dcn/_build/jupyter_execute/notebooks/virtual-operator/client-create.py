@@ -35,14 +35,14 @@
 # https://<ServerBaseAddress>/api/Account/getToken
 # ```
 
-# In[8]:
+# In[1]:
 
 
 # Saphety Invoice Network - Integration Environment
 server_base_adress = "dcn-solution-qa.saphety.com/Dcn.Business.WebApi"
 
 
-# In[9]:
+# In[2]:
 
 
 import requests
@@ -72,7 +72,7 @@ response = requests.request("POST", service_url, data=request_data, headers=head
 
 # <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the Saphety Invoice Network - Quality environment. For tests we recommend that you use your own credentials.</font>
 
-# In[10]:
+# In[3]:
 
 
 # Formating the response to json for visualization purposes only
@@ -80,7 +80,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[11]:
+# In[4]:
 
 
 # Your token is at:
@@ -108,10 +108,14 @@ print (token)
 #   Set the client commercial record web code (Registo commercial, ex:507957547)<br>
 # * **LanguageCode**<br>
 #   Set the client language. Format is ISO 639-1 (ex:PT)<br>
+# * **CapitalValue**<br>
+#   Set the client company capital value. (ex: 50000)<br>
+# * **UserEmail**<br>
+#   Set the client email. (ex: some_email@provider.pt)<br>
 
 # ### Build the service endpoint url and payload
 
-# In[12]:
+# In[5]:
 
 
 service_url = """{ServerBaseUrl}/api/VirtualOperator/client""".format(
@@ -135,7 +139,9 @@ payload = {
       'ZipArea': 'Lisboa',
       'CountryCode': 'PT',
       'CommercialRecordWebCode': '123456789',
-      'LanguageCode': 'PT'
+      'LanguageCode': 'PT',
+      'CapitalValue': '50000',
+      'UserEmail': 'some_email@provider.pt'
 }
 request_data=json.dumps(payload)
 
@@ -144,7 +150,7 @@ request_data=json.dumps(payload)
 
 # ### Call service and get back the response
 
-# In[13]:
+# In[6]:
 
 
 # Send the request (POST). The service return a request id
@@ -155,7 +161,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[14]:
+# In[7]:
 
 
 response = json_response["Data"];
