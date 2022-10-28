@@ -6,7 +6,7 @@
 # 
 # ### Service steps
 # 1. Get a token from your credentials by calling the service **_Account/getToken_**;
-# 2. Resend notifications calling the service **_OutboundFinancialDocumentMaintnance/sendAditionalNotifications_**;
+# 2. Resend notifications calling the service **_OutboundFinancialDocumentMaintenance/sendAditionalNotifications_**;
 # 
 # #### Response structure from server
 # When a request is well formed and the authentication data is correct the system responds with a message envelope as follows: 
@@ -31,7 +31,7 @@
 # https://<ServerBaseAddress>/api/Account/getToken
 # ```
 
-# In[11]:
+# In[1]:
 
 
 # SANDBOX - Test Environment
@@ -41,7 +41,7 @@ server_base_adress = "dcn-solution.saphety.com/Dcn.Sandbox.WebApi"
 #server_base_adress = "dcn-solution.saphety.com/Dcn.Business.WebApi"
 
 
-# In[12]:
+# In[2]:
 
 
 import requests
@@ -71,7 +71,7 @@ response = requests.request("POST", service_url, data=request_data, headers=head
 
 # <font color=red>\* **Note:** the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font>
 
-# In[13]:
+# In[3]:
 
 
 # formating the response to json for visualization purposes only
@@ -79,7 +79,7 @@ json_response = json.loads(response.text)
 print(json.dumps(json_response, indent=4))
 
 
-# In[14]:
+# In[4]:
 
 
 # your token is at:
@@ -87,20 +87,20 @@ token = json_response["Data"];
 print (token)
 
 
-# ## 2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintnance/sendAditionalNotifications)
+# ## 2. Resend PDF invoice notifications (OutboundFinancialDocumentMaintenance/sendAditionalNotifications)
 
 # ### Build the service endpoint url
 # In the service url you don't need to supply anything.
 # 
 # ```
-# https://<ServerBaseUrl>/OutboundFinancialDocumentMaintnance/sendAditionalNotifications
+# https://<ServerBaseUrl>/OutboundFinancialDocumentMaintenance/sendAditionalNotifications
 # ```
 
-# In[15]:
+# In[5]:
 
 
 # SIN service ur
-service_url = """{ServerBaseUrl}/api/OutboundFinancialDocumentMaintnance/sendAditionalNotifications""".format(
+service_url = """{ServerBaseUrl}/api/OutboundFinancialDocumentMaintenance/sendAditionalNotifications""".format(
     ServerBaseUrl=server_base_adress
 )
 service_url = "https://" + service_url
@@ -117,7 +117,7 @@ print (service_url)
 #   * _SendAttachment_: Set whether the PDF is sent as an attachment in the notification. Allowed values for this parameter: True, False.
 #   * _LanguageCode_: Set the notification language. Format is ISO 639-1 (ex: pt)
 
-# In[16]:
+# In[6]:
 
 
 #headers
@@ -142,7 +142,7 @@ request_data=json.dumps(payload)
 # ### Call the service resend notifications
 # You will call the service endpoint url
 
-# In[17]:
+# In[7]:
 
 
 # Send the request (POST).
@@ -156,7 +156,7 @@ print(json.dumps(json_response, indent=4))
 # ### Read the service response
 # Now you need to read the service response and see the email send
 
-# In[18]:
+# In[8]:
 
 
 # for loop to see all Data

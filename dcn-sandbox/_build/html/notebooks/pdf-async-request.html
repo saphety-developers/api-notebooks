@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Send PDF invoices by email &#8212; API documentation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,31 +20,30 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -61,7 +62,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -70,9 +85,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -90,14 +106,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../markdowns/home.html">
-   Overview
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../markdowns/home.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../markdowns/api-environments.html">
    API Environments
@@ -179,107 +196,209 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/pdf-async-request.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/saphety-developers/api-notebooks"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/saphety-developers/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pdf-async-request.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/saphety-developers/api-notebooks/master?urlpath=tree/dcn-sandbox/notebooks/pdf-async-request.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/saphety-developers/api-notebooks/master?urlpath=tree/dcn-sandbox/notebooks/pdf-async-request.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/saphety-developers/api-notebooks"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/saphety-developers/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/pdf-async-request.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/pdf-async-request.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#service-steps">
    Service steps
@@ -333,46 +452,115 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Send PDF invoices by email</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#service-steps">
+   Service steps
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#asynchrounous">
+     Asynchrounous
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#response-structure-from-server">
+     Response structure from server
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-a-token-account-gettoken">
+   1. Get a token (Account/getToken)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#send-pdf-invoice-request-pdfasyncrequest-processdocument">
+   2. Send PDF invoice request (PdfAsyncRequest/processDocument)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">
+     Call service and get back the request id
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#check-to-success-of-your-request-pdfasyncrequest-requestid">
+   3. Check to success of your request (PdfAsyncRequest/{RequestId})
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-the-service-endpoint-url">
+     Build the service endpoint url
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#call-service-and-get-back-the-outbound-document-id">
+     Call service and get back the outbound document id
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="send-pdf-invoices-by-email">
-<h1>Send PDF invoices by email<a class="headerlink" href="#send-pdf-invoices-by-email" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="send-pdf-invoices-by-email">
+<h1>Send PDF invoices by email<a class="headerlink" href="#send-pdf-invoices-by-email" title="Permalink to this headline">#</a></h1>
 <p>Use this service to <strong>sign</strong>, <strong>store</strong> and <strong>send</strong> PDF invoices by email to your costumers.</p>
-<div class="section" id="service-steps">
-<h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">¶</a></h2>
+<section id="service-steps">
+<h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong>;</p></li>
 <li><p>Send your invoice calling the <strong><em>asynchronous</em></strong> service <strong><em>PdfAsyncRequest/processDocument</em></strong>;</p></li>
 <li><p>Check to success of your request using the received <strong><em>request id</em></strong> at <strong><em>PdfAsyncRequest/{RequestId}</em></strong></p></li>
 </ol>
-<div class="section" id="asynchrounous">
-<h3>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">¶</a></h3>
+<section id="asynchrounous">
+<h3>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">#</a></h3>
 <p>The service <strong><em>PdfAsyncRequest/processDocument</em></strong> is an asynchrounous service.</p>
 <p>An invoice can take a few seconds to process (sign, store and send to your costumer).</p>
 <p>Since this is an integration API, thousands of requests can be requested at the same time. For each request you receive immediately a <strong><em>request id</em></strong>. Use it to query the request status.</p>
-</div>
-<div class="section" id="response-structure-from-server">
-<h3>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="response-structure-from-server">
+<h3>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this headline">#</a></h3>
 <p>When a request is well formed and the authentication data is correct the system responds with a message envelope as follows:</p>
-<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-	<span class="s2">&quot;CorrelationId&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;GUID&gt;&quot;</span><span class="p">,</span> <span class="cm">/* for correlation purposes */</span>
-	<span class="s2">&quot;IsValid&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>           <span class="cm">/* false in case of erros */</span>
-	<span class="s2">&quot;Errors&quot;</span><span class="o">:</span> <span class="p">[],</span>              <span class="cm">/* if empty is a good signal */</span>
-	<span class="s2">&quot;Data&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span>   <span class="cm">/* the data retuned ex: token, invoice status, dependent on the service called */</span>
-<span class="p">}</span>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="s2">&quot;CorrelationId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;GUID&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="cm">/* for correlation purposes */</span><span class="w"></span>
+<span class="w">	</span><span class="s2">&quot;IsValid&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">           </span><span class="cm">/* false in case of erros */</span><span class="w"></span>
+<span class="w">	</span><span class="s2">&quot;Errors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w">              </span><span class="cm">/* if empty is a good signal */</span><span class="w"></span>
+<span class="w">	</span><span class="s2">&quot;Data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span><span class="w">   </span><span class="cm">/* the data retuned ex: token, invoice status, dependent on the service called */</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="get-a-token-account-gettoken">
-<h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="get-a-token-account-gettoken">
+<h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">#</a></h2>
 <p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
 <ul class="simple">
 <li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
@@ -457,9 +645,9 @@ or</p></li>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="send-pdf-invoice-request-pdfasyncrequest-processdocument">
-<h2>2. Send PDF invoice request (PdfAsyncRequest/processDocument)<a class="headerlink" href="#send-pdf-invoice-request-pdfasyncrequest-processdocument" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="send-pdf-invoice-request-pdfasyncrequest-processdocument">
+<h2>2. Send PDF invoice request (PdfAsyncRequest/processDocument)<a class="headerlink" href="#send-pdf-invoice-request-pdfasyncrequest-processdocument" title="Permalink to this headline">#</a></h2>
 <p>Now that you have a token you can send an PDF invoice to your customer.
 By default, the service uses a generic email template that has a predefined layout. The email that is sent to the client has a “From”, “FromDisplayName”, “Subject” and “Email body content” already defined.</p>
 <p>For a <strong>generic email template</strong>, in the service payload, you need to supply these parameters:</p>
@@ -573,8 +761,8 @@ Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
 </div>
 </div>
 </div>
-<div class="section" id="call-service-and-get-back-the-request-id">
-<h3>Call service and get back the request id<a class="headerlink" href="#call-service-and-get-back-the-request-id" title="Permalink to this headline">¶</a></h3>
+<section id="call-service-and-get-back-the-request-id">
+<h3>Call service and get back the request id<a class="headerlink" href="#call-service-and-get-back-the-request-id" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Send the request (POST). The service return a request id</span>
@@ -611,13 +799,13 @@ Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="check-to-success-of-your-request-pdfasyncrequest-requestid">
-<h2>3. Check to success of your request (PdfAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-pdfasyncrequest-requestid" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="check-to-success-of-your-request-pdfasyncrequest-requestid">
+<h2>3. Check to success of your request (PdfAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-pdfasyncrequest-requestid" title="Permalink to this headline">#</a></h2>
 <p>Query the system using this <strong>request id</strong> in order to get the status (success or error) of your request.t</p>
-<div class="section" id="build-the-service-endpoint-url">
-<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">¶</a></h3>
+<section id="build-the-service-endpoint-url">
+<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">#</a></h3>
 <p>In the service url you need to supply the <strong>request id</strong> received.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">PdfAsyncRequest</span><span class="o">/&lt;</span><span class="n">RequestId</span><span class="o">&gt;</span>
 </pre></div>
@@ -641,9 +829,9 @@ Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="call-service-and-get-back-the-outbound-document-id">
-<h3>Call service and get back the outbound document id<a class="headerlink" href="#call-service-and-get-back-the-outbound-document-id" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="call-service-and-get-back-the-outbound-document-id">
+<h3>Call service and get back the outbound document id<a class="headerlink" href="#call-service-and-get-back-the-outbound-document-id" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -697,9 +885,9 @@ You have created the outbound document id: f7bed389-dfe0-4021-9c52-5d45cee3c20c
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -723,9 +911,11 @@ You have created the outbound document id: f7bed389-dfe0-4021-9c52-5d45cee3c20c
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="country-format-async-request.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -741,26 +931,28 @@ You have created the outbound document id: f7bed389-dfe0-4021-9c52-5d45cee3c20c
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Saphety<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Saphety<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
