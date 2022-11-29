@@ -19,5 +19,5 @@ Search the network to which a specific destination NIF belong.
 <font size="5">[Get business group connection](../../notebooks/networks/get-business-group-connection.ipynb)</font><br>
 Get an company business group connection.
 
-<font size="5">[Search business group connection](../../notebooks/networks/search-business-group-connection.ipynb)</font><br>
+<font size="5">[Search business group connection](../../notebooks/networks/search-business-group-connections.ipynb)</font><br>
 Search for companies business groups connections.
