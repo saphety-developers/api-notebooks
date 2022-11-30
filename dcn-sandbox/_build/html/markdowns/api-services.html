@@ -44,12 +44,11 @@
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -189,6 +188,11 @@
      <strong>
       email tracking ids
      </strong>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../notebooks/get-document-permalinks.html">
+     Document Permalinks
     </a>
    </li>
   </ul>
@@ -454,6 +458,8 @@ Use this service to <strong>resend</strong> invoices by email notification.</p>
 Use this service to <strong>get</strong> all or filtred integrated destinations.</p>
 <p><font size="5"><a class="reference internal" href="../notebooks/get-destinations.html"><span class="doc std std-doc">Get invoice <strong>email tracking ids</strong></span></a></font><br>
 Use this service to <strong>get</strong> invoice’s <strong>email tracking ids</strong>.</p>
+<p><font size="5"><a class="reference internal" href="../notebooks/get-document-permalinks.html"><span class="doc std std-doc">Get invoice <strong>permalinks</strong></span></a></font><br>
+Use this service to <strong>get</strong> an invoice <strong>download permalinks</strong>.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>

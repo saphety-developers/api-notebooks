@@ -44,12 +44,11 @@
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -189,6 +188,11 @@
      <strong>
       email tracking ids
      </strong>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="get-document-permalinks.html">
+     Document Permalinks
     </a>
    </li>
   </ul>
@@ -591,10 +595,10 @@ or</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;82b71915-21c9-4f81-abdc-ae640ef7fdce&quot;,
+    &quot;CorrelationId&quot;: &quot;592e5681-251a-4440-a30d-85f909f97199&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiZmM1MGQzZjctZTBiMC00NmJjLWI4ZjYtOWUzZGQzOGE1MDNhIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjIzNzY4OTE2LCJleHAiOjE2MjM3OTc3MTYsImlhdCI6MTYyMzc2ODg1NiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.1u0rh06G2MBCQtd6buIss7Y7G7I-0FMzPAkBpwEwuXc&quot;
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoic2luX2FwaV9kb2N1bWVudGF0aW9uX3VzZXJAc2FwaGV0eS5jb20iLCJzeXN0ZW1fYWRtaW4iOiJGYWxzZSIsInNlc3Npb25faWQiOiIwYTRhYmI3Ni1jYWExLTQ2YzAtODQ5My04M2Q2MjlmOTJhZWQiLCJjcCI6InNpbl9hcGlfZG9jdW1lbnRhdGlvbl91c2VyQHNhcGhldHkuY29tIiwicmwiOiJEZXZlbG9wZXIiLCJuYmYiOjE2Njk4MTE1NzQsImV4cCI6MTY2OTg0MDM3NCwiaWF0IjoxNjY5ODExNTE0LCJpc3MiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS8iLCJhdWQiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS9EY25TYW5kYm94In0.J7RBLAPt220VBGg49cQgC0HgUmMxqhRhQYScBZ56s_c&quot;
 }
 </pre></div>
 </div>
@@ -609,7 +613,7 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiZmM1MGQzZjctZTBiMC00NmJjLWI4ZjYtOWUzZGQzOGE1MDNhIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjIzNzY4OTE2LCJleHAiOjE2MjM3OTc3MTYsImlhdCI6MTYyMzc2ODg1NiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.1u0rh06G2MBCQtd6buIss7Y7G7I-0FMzPAkBpwEwuXc
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoic2luX2FwaV9kb2N1bWVudGF0aW9uX3VzZXJAc2FwaGV0eS5jb20iLCJzeXN0ZW1fYWRtaW4iOiJGYWxzZSIsInNlc3Npb25faWQiOiIwYTRhYmI3Ni1jYWExLTQ2YzAtODQ5My04M2Q2MjlmOTJhZWQiLCJjcCI6InNpbl9hcGlfZG9jdW1lbnRhdGlvbl91c2VyQHNhcGhldHkuY29tIiwicmwiOiJEZXZlbG9wZXIiLCJuYmYiOjE2Njk4MTE1NzQsImV4cCI6MTY2OTg0MDM3NCwiaWF0IjoxNjY5ODExNTE0LCJpc3MiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS8iLCJhdWQiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS9EY25TYW5kYm94In0.J7RBLAPt220VBGg49cQgC0HgUmMxqhRhQYScBZ56s_c
 </pre></div>
 </div>
 </div>
@@ -664,40 +668,18 @@ or</p></li>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[
     {
-        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00001&quot;,
-        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
         &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
         &quot;FormatType&quot;: &quot;pdf&quot;,
         &quot;ContentType&quot;: &quot;application/pdf&quot;,
         &quot;SignatureProvider&quot;: &quot;application/pdf&quot;,
-        &quot;DocumentLink&quot;: &quot;https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=lIWI3OY6opFmSC%2FgedVv%2FrktekF7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDEiLCJpRHQiOiIyMDIxLTA2LTE1IiwiZUR0IjoiMjAyMS0wNi0xOCIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
+        &quot;DocumentLink&quot;: &quot;https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=DkIleLbjFKXGOqJwJQ8Alolood97ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDEiLCJpRHQiOiIyMDIyLTExLTMwIiwiZUR0IjoiMjAyMi0xMi0wMyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
     },
     {
-        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00002&quot;,
-        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
-        &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
-        &quot;FormatType&quot;: &quot;final&quot;,
-        &quot;ContentType&quot;: &quot;XadesBes&quot;,
-        &quot;SignatureProvider&quot;: &quot;application/xml&quot;,
-        &quot;DocumentLink&quot;: &quot;https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=lvvy6IKKq%2F53epSertaFJQLSfYV7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDIiLCJpRHQiOiIyMDIxLTA2LTE1IiwiZUR0IjoiMjAyMS0wNi0xOCIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
-    },
-    {
-        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00003&quot;,
-        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
         &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
         &quot;FormatType&quot;: &quot;ubl21&quot;,
         &quot;ContentType&quot;: &quot;XadesBes&quot;,
         &quot;SignatureProvider&quot;: &quot;application/xml&quot;,
-        &quot;DocumentLink&quot;: &quot;https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=FJ62ZxO6RpR5MeTXtHGD4w%2FrphZ7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDMiLCJpRHQiOiIyMDIxLTA2LTE1IiwiZUR0IjoiMjAyMS0wNi0xOCIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
-    },
-    {
-        &quot;ContentId&quot;: &quot;e74b7ed5-3358-4b4f-b43f-e164bdc00004&quot;,
-        &quot;ContentProvider&quot;: &quot;Dcn.Sandbox&quot;,
-        &quot;OutboundFinancialDocumentId&quot;: &quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;,
-        &quot;FormatType&quot;: &quot;signed&quot;,
-        &quot;ContentType&quot;: &quot;XadesBes&quot;,
-        &quot;SignatureProvider&quot;: &quot;application/xml&quot;,
-        &quot;DocumentLink&quot;: &quot;https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=Y7Pw1yx6WWDtV47jM6COId0UWi57ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDQiLCJpRHQiOiIyMDIxLTA2LTE1IiwiZUR0IjoiMjAyMS0wNi0xOCIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
+        &quot;DocumentLink&quot;: &quot;https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=%2BdA%2FJ17tGd8sW6fJH0brwTqv21V7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDMiLCJpRHQiOiIyMDIyLTExLTMwIiwiZUR0IjoiMjAyMi0xMi0wMyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D&quot;
     }
 ]
 </pre></div>
@@ -725,13 +707,9 @@ or</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PDF: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=lIWI3OY6opFmSC%2FgedVv%2FrktekF7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDEiLCJpRHQiOiIyMDIxLTA2LTE1IiwiZUR0IjoiMjAyMS0wNi0xOCIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PDF: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=DkIleLbjFKXGOqJwJQ8Alolood97ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDEiLCJpRHQiOiIyMDIyLTExLTMwIiwiZUR0IjoiMjAyMi0xMi0wMyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
 
-Final: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=lvvy6IKKq%2F53epSertaFJQLSfYV7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDIiLCJpRHQiOiIyMDIxLTA2LTE1IiwiZUR0IjoiMjAyMS0wNi0xOCIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
-
-UBL: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=FJ62ZxO6RpR5MeTXtHGD4w%2FrphZ7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDMiLCJpRHQiOiIyMDIxLTA2LTE1IiwiZUR0IjoiMjAyMS0wNi0xOCIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
-
-Signed: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=Y7Pw1yx6WWDtV47jM6COId0UWi57ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDQiLCJpRHQiOiIyMDIxLTA2LTE1IiwiZUR0IjoiMjAyMS0wNi0xOCIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
+UBL: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?token=%2BdA%2FJ17tGd8sW6fJH0brwTqv21V7ImN0SWQiOiJlNzRiN2VkNS0zMzU4LTRiNGYtYjQzZi1lMTY0YmRjMDAwMDMiLCJpRHQiOiIyMDIyLTExLTMwIiwiZUR0IjoiMjAyMi0xMi0wMyIsImlCeSI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsImlUbyI6IlNJTiBBUEkgRE9DVU1FTlRBVElPTiIsInMiOiJ3ZWIiLCJhYWgiOmZhbHNlfQ%3D%3D
 </pre></div>
 </div>
 </div>

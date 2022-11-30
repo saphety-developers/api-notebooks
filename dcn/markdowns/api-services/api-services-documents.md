@@ -18,6 +18,3 @@ Get email notification status from outbound financial document
 
 <font size="5">[Get document status transitions](../../notebooks/documents/document-status-transitions.ipynb)</font><br>
 Get document status transitions from outbound financial document.
-
-<font size="5">[Get document permalinks](../../notebooks/documents/document-status-transitions.ipynb)</font><br>
-Get document permalinks for download.

@@ -14,4 +14,5 @@ sections:
   - file: notebooks/sent-notifications
   - file: notebooks/get-destinations
   - file: notebooks/get-document-email-tracking-ids
+  - file: notebooks/get-document-permalinks
 

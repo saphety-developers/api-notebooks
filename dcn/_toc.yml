@@ -21,7 +21,6 @@ sections:
   sections:
   - file: notebooks/documents/email-notification-status
   - file: notebooks/documents/document-status-transitions
-  - file: notebooks/documents/get-document-permalinks
 - file: markdowns/models
   sections:
   - file: markdowns/models/company
@@ -34,7 +33,3 @@ sections:
     - file: notebooks/models/networks/business-group-connection-model
     - file: notebooks/models/networks/integrated-destination-group-model
     - file: notebooks/models/networks/integration-access-status-enum
-  - file: markdowns/models/documents
-    sections:
-    - file: notebooks/models/documents/document-permalink-model
-    - file: notebooks/models/documents/document-format-permalink-model
