@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: API documentation for Trade
-author: Saphety
+author: SOVOS Saphety
 logo: images/saphety_invoice_network_1.png
 
 # Force re-execution of notebooks on each build.

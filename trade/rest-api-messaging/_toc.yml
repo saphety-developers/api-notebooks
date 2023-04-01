@@ -1,5 +1,5 @@
 - file: markdowns/home
-- file: markdowns/api-authorization
+- file: notebooks/api-authorization
 - file: markdowns/api-services
   sections:
     - file: notebooks/rest-api-messaging
