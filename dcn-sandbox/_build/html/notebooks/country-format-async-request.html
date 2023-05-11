@@ -1,48 +1,59 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Send invoices using legal format &#8212; API documentation</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,61 +61,93 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/country-format-async-request';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Send PDF invoices by email" href="pdf-async-request.html" />
     <link rel="prev" title="API Services" href="../markdowns/api-services.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../markdowns/home.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/saphety_invoice_network_1.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">API documentation</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/saphety_invoice_network_1.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/saphety_invoice_network_1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -114,497 +157,289 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../markdowns/api-environments.html">
-   API Environments
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../markdowns/api-basics.html">
-   API Basics
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../markdowns/api-services.html">
-   API Services
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Send invoices using legal format
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pdf-async-request.html">
-     Send PDF invoices by email
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pdf-async-request-store-only.html">
-     Store PDF invoices
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get-document.html">
-     Check invoice
-     <strong>
-      status
-     </strong>
-     in archive
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get-document-status-transitions.html">
-     Check invoice
-     <strong>
-      status transitions
-     </strong>
-     in archive
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get-document-formats.html">
-     Get invoice PDF or UBL from archive
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="sent-notifications-deprecated.html">
-     Resend invoice by email notification (Deprecated)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="new-sent-notifications.html">
-     (New) Resend invoice by email notification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get-destinations.html">
-     Get integrated destinations
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get-document-email-tracking-ids.html">
-     Check invoice
-     <strong>
-      email tracking ids
-     </strong>
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="get-document-permalinks.html">
-     Document Permalinks
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../markdowns/api-environments.html">API Environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdowns/api-basics.html">API Basics</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../markdowns/api-services.html">API Services</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Send invoices using legal format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf-async-request.html">Send PDF invoices by email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-document.html">Check invoice <strong>status</strong> in archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-document-status-transitions.html">Check invoice <strong>status transitions</strong> in archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-document-formats.html">Get invoice PDF or UBL from archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sent-notifications-deprecated.html">Resend invoice by email notification (Deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new-sent-notifications.html">(New) Resend invoice by email notification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-destinations.html">Get integrated destinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-document-email-tracking-ids.html">Check invoice <strong>email tracking ids</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-document-permalinks.html">Document Permalinks</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/saphety-developers/api-notebooks/master?urlpath=tree/dcn-sandbox/notebooks/country-format-async-request.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/saphety-developers/api-notebooks/master?urlpath=tree/dcn-sandbox/notebooks/country-format-async-request.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/saphety-developers/api-notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/saphety-developers/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/country-format-async-request.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/country-format-async-request.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/saphety-developers/api-notebooks"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/saphety-developers/api-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/country-format-async-request.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/notebooks/country-format-async-request.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#countryformatasyncrequest">
-   CountryFormatAsyncRequest
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#service-steps">
-     Service steps
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#asynchrounous">
-       Asynchrounous
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#response-structure-from-server">
-       Response structure from server
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-a-token-account-gettoken">
-   1. Get a token (Account/getToken)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#send-invoice-request-countryformatasyncrequest-processdocument">
-   2. Send invoice request (CountryFormatAsyncRequest/processDocument)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-the-service-endpoint-url">
-     Build the service endpoint url
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#prepare-the-payload-according-to-legal-invoice-format-cius-pt">
-     Prepare the payload according to legal invoice format (CIUS-PT)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">
-     Call service and get back the request id
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid">
-   3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Build the service endpoint url
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-your-request-status">
-     Check your request status
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid">
-   4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Build the service endpoint url
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Send invoices using legal format</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#countryformatasyncrequest">
-   CountryFormatAsyncRequest
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#service-steps">
-     Service steps
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#asynchrounous">
-       Asynchrounous
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#response-structure-from-server">
-       Response structure from server
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-a-token-account-gettoken">
-   1. Get a token (Account/getToken)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#send-invoice-request-countryformatasyncrequest-processdocument">
-   2. Send invoice request (CountryFormatAsyncRequest/processDocument)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-the-service-endpoint-url">
-     Build the service endpoint url
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#prepare-the-payload-according-to-legal-invoice-format-cius-pt">
-     Prepare the payload according to legal invoice format (CIUS-PT)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">
-     Call service and get back the request id
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid">
-   3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Build the service endpoint url
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#check-your-request-status">
-     Check your request status
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid">
-   4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Build the service endpoint url
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Send invoices using legal format</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#countryformatasyncrequest">CountryFormatAsyncRequest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchrounous">Asynchrounous</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send-invoice-request-countryformatasyncrequest-processdocument">2. Send invoice request (CountryFormatAsyncRequest/processDocument)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">Build the service endpoint url</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-payload-according-to-legal-invoice-format-cius-pt">Prepare the payload according to legal invoice format (CIUS-PT)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">Call service and get back the request id</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid">3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Build the service endpoint url</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-request-status">Check your request status</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid">4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Build the service endpoint url</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="send-invoices-using-legal-format">
-<h1>Send invoices using legal format<a class="headerlink" href="#send-invoices-using-legal-format" title="Permalink to this headline">#</a></h1>
+<h1>Send invoices using legal format<a class="headerlink" href="#send-invoices-using-legal-format" title="Permalink to this heading">#</a></h1>
 <p>Portuguese government defined the <strong>“XML UBL CIUS-PT”</strong> as the format to interchange electronic invoices with the public administration entities.</p>
 <p>If your billing system is able to generate this format, you can use <strong>Saphety Invoice Network API</strong> services to send your invoices and store them according to all legal requirements.</p>
 <p>The technical specifications of CIUS-PT format was defined by eSPap and they are published here: <a class="reference external" href="https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx">Legal format documnetion documentation here at eSPAP</a></p>
 <p>Bear in mind that <strong>Saphety Invoice Network API</strong> only processes <strong>valid CIUS-PT</strong>, so before you start testing the <strong>API</strong>, ensure that the <strong>CIUS-PT</strong> extracted from your system are compliant with all the semantic and syntactic rules defined by eSPap. You can use this <strong>Validator tool</strong>, to check if CIUS-PT is valid and compliant with all the syntactic and semantic rules defined: <a class="reference external" href="https://svc.feap.gov.pt/Doc.Client/public/CIUSvalidation/PT?language=pt">A CIUS-PT validator is available here</a></p>
 <section id="countryformatasyncrequest">
-<h2>CountryFormatAsyncRequest<a class="headerlink" href="#countryformatasyncrequest" title="Permalink to this headline">#</a></h2>
+<h2>CountryFormatAsyncRequest<a class="headerlink" href="#countryformatasyncrequest" title="Permalink to this heading">#</a></h2>
 <p>This is the <strong>Saphety Invoice Network API</strong> web service for <strong>processing and sending</strong> invoices in <strong>CIUS-PT</strong> format.</p>
 <p>This service should be used in the following cases:</p>
 <ul class="simple">
@@ -615,36 +450,36 @@ title="Print to PDF"
 <li><p>You want to guarantee that your invoices are in accordance with all legal requirements such as digital signature, repository storage, delivery methods, etc.</p></li>
 </ul>
 <section id="service-steps">
-<h3>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this headline">#</a></h3>
-<ol class="simple">
+<h3>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
 <li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong></p></li>
 <li><p>Send your invoice calling the <strong><em>asynchronous</em></strong> service <strong><em>CountryFormatAsyncRequest/processDocument</em></strong>; the legal invoice format (<strong>XML CIUS-PT</strong>) is sent in the payload</p></li>
 <li><p>Check the <strong>result</strong> of your request using the received <strong><em>request id</em></strong> at <strong><em>CountryFormatAsyncRequest/{RequestId}</em></strong></p></li>
 <li><p>Once the request has finished successfully you get back a <strong><em>document id</em></strong>; check the invoice integration status on your customer at service <strong><em>OutboundFinancialDocument/{DocumentId}</em></strong></p></li>
 </ol>
 <section id="asynchrounous">
-<h4>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this headline">#</a></h4>
+<h4>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this heading">#</a></h4>
 <p>The service <strong><em>CountryFormatAsyncRequest/processDocument</em></strong> is an asynchrounous service.<br>
 An invoice can take a few seconds to process (validate, sign, send to your costumer).<br>
 Since this is an integration API, thousands of requests can be sent at the same time.<br>
 For each request you receive immediately a <strong><em>request id</em></strong>. Use it to query the <strong><em>request status</em></strong>.</p>
 </section>
 <section id="response-structure-from-server">
-<h4>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this headline">#</a></h4>
+<h4>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this heading">#</a></h4>
 <p>When a request is well formed and the authentication data is correct the system responds with a message envelope as follows:</p>
-<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-<span class="w">	</span><span class="s2">&quot;CorrelationId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;GUID&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="cm">/* for correlation purposes */</span><span class="w"></span>
-<span class="w">	</span><span class="s2">&quot;IsValid&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">           </span><span class="cm">/* false in case of erros */</span><span class="w"></span>
-<span class="w">	</span><span class="s2">&quot;Errors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w">              </span><span class="cm">/* if empty is a good signal */</span><span class="w"></span>
-<span class="w">	</span><span class="s2">&quot;Data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span><span class="w">   </span><span class="cm">/* the data retuned ex: token, invoice status .. dependent on the service called */</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">	</span><span class="s2">&quot;CorrelationId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;GUID&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="cm">/* for correlation purposes */</span>
+<span class="w">	</span><span class="s2">&quot;IsValid&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">           </span><span class="cm">/* false in case of erros */</span>
+<span class="w">	</span><span class="s2">&quot;Errors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w">              </span><span class="cm">/* if empty is a good signal */</span>
+<span class="w">	</span><span class="s2">&quot;Data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span><span class="w">   </span><span class="cm">/* the data retuned ex: token, invoice status .. dependent on the service called */</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </section>
 </section>
 </section>
 <section id="get-a-token-account-gettoken">
-<h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this headline">#</a></h2>
+<h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this heading">#</a></h2>
 <p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
 <ul class="simple">
 <li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
@@ -731,16 +566,16 @@ or</p></li>
 </div>
 </section>
 <section id="send-invoice-request-countryformatasyncrequest-processdocument">
-<h2>2. Send invoice request (CountryFormatAsyncRequest/processDocument)<a class="headerlink" href="#send-invoice-request-countryformatasyncrequest-processdocument" title="Permalink to this headline">#</a></h2>
+<h2>2. Send invoice request (CountryFormatAsyncRequest/processDocument)<a class="headerlink" href="#send-invoice-request-countryformatasyncrequest-processdocument" title="Permalink to this heading">#</a></h2>
 <p>Now that you have a token, you can send an invoice in the legal format (CIUS-PT).</p>
 <section id="build-the-service-endpoint-url">
-<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this headline">#</a></h3>
+<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this heading">#</a></h3>
 <p>In the service url you need to supply two parameters:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Invoice issuer NIF <strong><em><IssuerNIF></em></strong> (prefixed with the country code)
 Must be the NIF of the registered company (ex: PT507957547). This NIF will be matched against the account registration in <strong>Saphety Invoice Network (Production environment)</strong> or <strong>SANDBOX (Test environment)</strong>, for authorization purposes.</p></li>
 <li><p>The document type <strong><em><DocumentType></em></strong> must be one of the following</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><strong>INVOICE</strong></p></li>
 <li><p><strong>CREDIT_NOTE</strong></p></li>
 <li><p><strong>DEBIT_NOTE</strong></p></li>
@@ -780,7 +615,7 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 </section>
 <section id="prepare-the-payload-according-to-legal-invoice-format-cius-pt">
-<h3>Prepare the payload according to legal invoice format (CIUS-PT)<a class="headerlink" href="#prepare-the-payload-according-to-legal-invoice-format-cius-pt" title="Permalink to this headline">#</a></h3>
+<h3>Prepare the payload according to legal invoice format (CIUS-PT)<a class="headerlink" href="#prepare-the-payload-according-to-legal-invoice-format-cius-pt" title="Permalink to this heading">#</a></h3>
 <p>As mentioned before, Saphety Invoice Network (SIN) API only processes valid CIUS-PT, so, ensure that the CIUS-PT that you are going to put into the payload is a valid one.<br />
 <a class="reference external" href="https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx">Legal Format [CISU-PT] technical specification is available here</a><br />
 <a class="reference external" href="https://doc-server.saphety.com/Doc.Client/public/CIUSvalidation/PT?language=pt">CIUS-PT validator is available here</a></p>
@@ -933,7 +768,7 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 <p><font color=red>* <strong>Note:</strong> the payload example showed here is a sample created by Saphety, you can use another cius-pt payload with your data, as long as it is a valid one.</font></p>
 </section>
 <section id="call-service-and-get-back-the-request-id">
-<h3>Call service and get back the request id<a class="headerlink" href="#call-service-and-get-back-the-request-id" title="Permalink to this headline">#</a></h3>
+<h3>Call service and get back the request id<a class="headerlink" href="#call-service-and-get-back-the-request-id" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -983,10 +818,10 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </section>
 </section>
 <section id="check-to-success-of-your-request-countryformatasyncrequest-requestid">
-<h2>3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid" title="Permalink to this headline">#</a></h2>
+<h2>3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid" title="Permalink to this heading">#</a></h2>
 <p>Query the system using this <strong><em>request id</em></strong> in order to get the status (success or error) of your request</p>
 <section id="id1">
-<h3>Build the service endpoint url<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>Build the service endpoint url<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>In the service url you need to supply the <strong><em>request id</em></strong> received</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">CountryFormatAsyncRequest</span><span class="o">/&lt;</span><span class="n">RequestId</span><span class="o">&gt;</span>
 </pre></div>
@@ -1012,7 +847,7 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </div>
 </section>
 <section id="check-your-request-status">
-<h3>Check your request status<a class="headerlink" href="#check-your-request-status" title="Permalink to this headline">#</a></h3>
+<h3>Check your request status<a class="headerlink" href="#check-your-request-status" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -1069,10 +904,10 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </section>
 </section>
 <section id="check-the-invoice-integration-status-outboundfinancialdocument-documentid">
-<h2>4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})<a class="headerlink" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid" title="Permalink to this headline">#</a></h2>
+<h2>4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})<a class="headerlink" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid" title="Permalink to this heading">#</a></h2>
 <p>With the received outbound financial <strong><em>document id</em></strong> you can query the system for document integration status.</p>
 <section id="id2">
-<h3>Build the service endpoint url<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3>Build the service endpoint url<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>In the service url you need to supply the <strong><em>outbound financial document id</em></strong> received.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocument</span><span class="o">/&lt;</span><span class="n">OutboundFinancialDocumentId</span><span class="o">&gt;</span>
 </pre></div>
@@ -1146,6 +981,7 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </div>
 <p>This documents can be in the next status:</p>
 <ul class="simple">
+<li><p><strong>Sending:</strong> When the document is sending</p></li>
 <li><p><strong>Sent:</strong> When the document was sent</p></li>
 <li><p><strong>Paid:</strong> When the document is paid</p></li>
 <li><p><strong>Received:</strong> When the document is received</p></li>
@@ -1153,6 +989,7 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 <li><p><strong>Not_Sent:</strong> When the document was not sent</p></li>
 <li><p><strong>NotIntegrated:</strong> When the document is not integrated</p></li>
 <li><p><strong>Rejected:</strong> When the document was rejected</p></li>
+<li><p><strong>Returned:</strong> When the document is returned</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1194,7 +1031,7 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -1202,50 +1039,128 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../markdowns/api-services.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">API Services</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../markdowns/api-services.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">API Services</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="pdf-async-request.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="pdf-async-request.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Send PDF invoices by email</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Saphety<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#countryformatasyncrequest">CountryFormatAsyncRequest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchrounous">Asynchrounous</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send-invoice-request-countryformatasyncrequest-processdocument">2. Send invoice request (CountryFormatAsyncRequest/processDocument)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">Build the service endpoint url</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-payload-according-to-legal-invoice-format-cius-pt">Prepare the payload according to legal invoice format (CIUS-PT)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">Call service and get back the request id</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid">3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Build the service endpoint url</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-request-status">Check your request status</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid">4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Build the service endpoint url</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Saphety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
