@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Send invoices using legal format &#8212; API documentation</title>
+    <title>Send electronic invoices using legal format &#8212; API documentation</title>
   
   
   
@@ -160,10 +160,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../markdowns/api-environments.html">API Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdowns/api-basics.html">API Basics</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../markdowns/api-services.html">API Services</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Send invoices using legal format</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Send electronic invoices using legal format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pdf-async-request.html">Send PDF invoices by email</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="get-document.html">Check invoice <strong>status</strong> in archive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-document.html">Check invoice <strong>status</strong> in archive (electronic or PDF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get-document-status-transitions.html">Check invoice <strong>status transitions</strong> in archive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get-document-formats.html">Get invoice PDF or UBL from archive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sent-notifications-deprecated.html">Resend invoice by email notification (Deprecated)</a></li>
@@ -387,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Send invoices using legal format</h1>
+    <h1>Send electronic invoices using legal format</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,8 +432,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="send-invoices-using-legal-format">
-<h1>Send invoices using legal format<a class="headerlink" href="#send-invoices-using-legal-format" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="send-electronic-invoices-using-legal-format">
+<h1>Send electronic invoices using legal format<a class="headerlink" href="#send-electronic-invoices-using-legal-format" title="Permalink to this heading">#</a></h1>
 <p>Portuguese government defined the <strong>“XML UBL CIUS-PT”</strong> as the format to interchange electronic invoices with the public administration entities.</p>
 <p>If your billing system is able to generate this format, you can use <strong>Saphety Invoice Network API</strong> services to send your invoices and store them according to all legal requirements.</p>
 <p>The technical specifications of CIUS-PT format was defined by eSPap and they are published here: <a class="reference external" href="https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx">Legal format documnetion documentation here at eSPAP</a></p>
@@ -979,18 +979,19 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </div>
 </div>
 </div>
-<p>This documents can be in the next status:</p>
+<p>The integration status of an electronic invoice in archive is returned at “IntegrationStatus” parameter.<br />
+<strong>IntegrationStatus</strong>, indicates the current integration status that the electronic invoice has in archive, see the possible values returned:</p>
 <ul class="simple">
-<li><p><strong>Sending:</strong> When the document is sending</p></li>
-<li><p><strong>Sent:</strong> When the document was sent</p></li>
-<li><p><strong>Paid:</strong> When the document is paid</p></li>
-<li><p><strong>Received:</strong> When the document is received</p></li>
-<li><p><strong>Error:</strong> When the document have errors</p></li>
-<li><p><strong>Not_Sent:</strong> When the document was not sent</p></li>
-<li><p><strong>NotIntegrated:</strong> When the document is not integrated</p></li>
-<li><p><strong>Rejected:</strong> When the document was rejected</p></li>
-<li><p><strong>Returned:</strong> When the document is returned</p></li>
+<li><p><strong>NotIntegrated</strong> - electronic invoice not sent to receiver entity for integration</p></li>
+<li><p><strong>Not_Sent</strong> - electronic invoice not sent for receiver entity</p></li>
+<li><p><strong>Error</strong> - electronic invoice with errors, not sent to receiver entity for integration</p></li>
+<li><p><strong>Sent</strong> - electronic invoice sent to receiver entity for integration</p></li>
+<li><p><strong>Received</strong> - electronic invoice sent to receiver entity for integration, receiver entity has confirmed its reception</p></li>
+<li><p><strong>Rejected</strong> - electronic invoice sent to receiver entity for integration, receiver entity is rejecting it</p></li>
+<li><p><strong>Paid</strong> - electronic invoice sent to receiver entity for integration, receiver entity is confirming it as paid</p></li>
 </ul>
+<p><strong>[Important note_1]</strong> When an electronic invoice is sent to a receiver entity outside Saphety network, the integration status will always be <em><strong>“NotIntegrated”</strong></em>. In this scenario the electronic invoice may have also a <strong>notification status</strong> <em>(Sent, Delivered, Read or Error)</em> if the CIUS-PT XML has the tag BT-49 filled in with the receiver entity’s email address (ex: &lt;cbc:EndpointID schemeID=”EM”&gt;<a class="reference external" href="mailto:eee&#37;&#52;&#48;hh&#46;pt">eee<span>&#64;</span>hh<span>&#46;</span>pt</a>&lt;/cbc:EndpointID&gt;), otherwise the document will have <strong>integration status</strong> as <em><strong>“NotIntegrated”</strong></em> and <strong>notification status</strong> as <em><strong>“NoEmails”</strong></em>.</p>
+<p><strong>[Important note_2]</strong> When an electronic invoice is sent to a receiver entity of a network with interoperability, but the issuer does not have an approved connection to this network, the integration status will always be <em><strong>“NotIntegrated”</strong></em>. In this scenario the electronic invoice may have also a <strong>notification status</strong> <em>(Sent, Delivered, Read or Error)</em> if the CIUS-PT XML has the tag BT-49 filled in with the receiver entity’s email address (ex: &lt;cbc:EndpointID schemeID=”EM”&gt;<a class="reference external" href="mailto:eee&#37;&#52;&#48;hh&#46;pt">eee<span>&#64;</span>hh<span>&#46;</span>pt</a>&lt;/cbc:EndpointID&gt;), otherwise the document will have <strong>integration status</strong> as <em><strong>“NotIntegrated”</strong></em> and <strong>notification status</strong> as <em><strong>“NoEmails”</strong></em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integration_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;IntegrationStatus&quot;</span><span class="p">]</span>

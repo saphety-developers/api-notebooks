@@ -13,8 +13,8 @@ API specification of Production environment at [API specification](https://dcn-s
 <font color=red>\*must use the credentials (user and pw) defined at **Saphety Invoice Network** registration</font>
 
 ## Services
-<font size="5">[Send invoices using legal format](../notebooks/country-format-async-request.ipynb)</font><br>
-Use this service to **send** invoices in Portuguese legal format CIUS-PT.
+<font size="5">[Send electronic invoices using legal format](../notebooks/country-format-async-request.ipynb)</font><br>
+Use this service to **send** eletronic invoices in Portuguese legal format CIUS-PT.
 
 <font size="5">[Send PDF invoices by email](../notebooks/pdf-async-request.ipynb)</font><br>
 Use this service to **sign**, **store** and **send** PDF invoices.

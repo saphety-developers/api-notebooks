@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Check invoice status in archive &#8212; API documentation</title>
+    <title>Check invoice status in archive (electronic or PDF) &#8212; API documentation</title>
   
   
   
@@ -160,10 +160,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../markdowns/api-environments.html">API Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdowns/api-basics.html">API Basics</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../markdowns/api-services.html">API Services</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="country-format-async-request.html">Send invoices using legal format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="country-format-async-request.html">Send electronic invoices using legal format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pdf-async-request.html">Send PDF invoices by email</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoices</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Check invoice <strong>status</strong> in archive</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Check invoice <strong>status</strong> in archive (electronic or PDF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get-document-status-transitions.html">Check invoice <strong>status transitions</strong> in archive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get-document-formats.html">Get invoice PDF or UBL from archive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sent-notifications-deprecated.html">Resend invoice by email notification (Deprecated)</a></li>
@@ -387,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Check invoice status in archive</h1>
+    <h1>Check invoice status in archive (electronic or PDF)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -418,9 +418,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="check-invoice-status-in-archive">
-<h1>Check invoice <strong>status</strong> in archive<a class="headerlink" href="#check-invoice-status-in-archive" title="Permalink to this heading">#</a></h1>
-<p>Use this service to <strong>check</strong> an invoice <strong>status</strong> in archive for your processed document.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="check-invoice-status-in-archive-electronic-or-pdf">
+<h1>Check invoice <strong>status</strong> in archive (electronic or PDF)<a class="headerlink" href="#check-invoice-status-in-archive-electronic-or-pdf" title="Permalink to this heading">#</a></h1>
+<p>Use this service to <strong>check</strong> an invoice (electronic or PDF) <strong>status</strong> in archive for your processed document.</p>
 <section id="service-steps">
 <h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -599,18 +599,41 @@ or</p></li>
 </div>
 </div>
 </div>
-<p>This documents can be in the next status:</p>
+<p>There are 2 types of documents in the archive:</p>
 <ul class="simple">
-<li><p><strong>Sending:</strong> When the document is sending</p></li>
-<li><p><strong>Sent:</strong> When the document was sent</p></li>
-<li><p><strong>Paid:</strong> When the document is paid</p></li>
-<li><p><strong>Received:</strong> When the document is received</p></li>
-<li><p><strong>Error:</strong> When the document have errors</p></li>
-<li><p><strong>Not_Sent:</strong> When the document was not sent</p></li>
-<li><p><strong>NotIntegrated:</strong> When the document is not integrated</p></li>
-<li><p><strong>Rejected:</strong> When the document was rejected</p></li>
-<li><p><strong>Returned:</strong> When the document is returned</p></li>
+<li><p>Electronic invoice</p></li>
+<li><p>PDF invoice</p></li>
 </ul>
+<p>To query the status of a document in archive, it is necessary to consider 2 concepts of status:</p>
+<ul class="simple">
+<li><p><strong>Integration status</strong> - indicates the current integration status that a document has in archive</p></li>
+<li><p><strong>Notification status</strong> - indicates the current email notification status that a document has in archive</p></li>
+</ul>
+<p>The <em><strong>integration status</strong></em> of a document in archive is returned at <em><strong>“IntegrationStatus”</strong></em> parameter, see the possible values returned:</p>
+<ul class="simple">
+<li><p><strong>NotIntegrated</strong> - document not sent to receiver entity for integration</p></li>
+<li><p><strong>Not_Sent</strong> - document not sent for receiver entity</p></li>
+<li><p><strong>Error</strong> - document with errors, not sent to receiver entity for integration</p></li>
+<li><p><strong>Sent</strong> - document sent to receiver entity for integration</p></li>
+<li><p><strong>Received</strong> - document sent to receiver entity for integration, receiver entity has confirmed its reception</p></li>
+<li><p><strong>Rejected</strong> - document sent to receiver entity for integration, receiver entity is rejecting it</p></li>
+<li><p><strong>Paid</strong> - document sent to receiver entity for integration, receiver entity is confirming it as paid</p></li>
+</ul>
+<p>The <em><strong>notification status</strong></em> of a document in archive is returned at <em><strong>“NotificationStatus”</strong></em> parameter, see the possible values returned:</p>
+<ul class="simple">
+<li><p><strong>NoEmails</strong> - document without any email notification</p></li>
+<li><p><strong>Sent</strong> - document with at least one email notification sent</p></li>
+<li><p><strong>Delivered</strong> - document with at least one email notification delivered</p></li>
+<li><p><strong>Read</strong> - document with at least one email notification read</p></li>
+<li><p><strong>Error</strong> - document with at all email notifications in error</p></li>
+</ul>
+<p><strong>[Important note_1]</strong> If an electronic invoice is sent to an entity outside Saphety network, it will not be sent to receiver entity for integration, so the <strong>integration status</strong> will always be <em><strong>“NotIntegrated”</strong></em>.</p>
+<p>In this scenario the electronic invoice may have also a <strong>notification status</strong> <em>(Sent, Delivered, Read or Error)</em> if the CIUS-PT XML has the tag BT-49 filled in with the receiver entity’s email address (ex: &lt;cbc:EndpointID schemeID=”EM”&gt;<a class="reference external" href="mailto:eee&#37;&#52;&#48;hh&#46;pt">eee<span>&#64;</span>hh<span>&#46;</span>pt</a>&lt;/cbc:EndpointID&gt;), otherwise the document will have <strong>integration status</strong> as <em><strong>“NotIntegrated”</strong></em> and <strong>notification status</strong> as <em><strong>“NoEmails”</strong></em>.</p>
+<p><strong>[Important note_2]</strong> If an electronic invoice is sent to a receiver entity of a network with interoperability, but the issuer does not have an approved connection to this network, it will not be sent to receiver entity for integration, so the <strong>integration status</strong> will always be <em><strong>“NotIntegrated”</strong></em>.</p>
+<p>In this scenario the electronic invoice may have also a <strong>notification status</strong> <em>(Sent, Delivered, Read or Error)</em> if the CIUS-PT XML has the tag BT-49 filled in with the receiver entity’s email address (ex: &lt;cbc:EndpointID schemeID=”EM”&gt;<a class="reference external" href="mailto:eee&#37;&#52;&#48;hh&#46;pt">eee<span>&#64;</span>hh<span>&#46;</span>pt</a>&lt;/cbc:EndpointID&gt;), otherwise the document will have <strong>integration status</strong> as <em><strong>“NotIntegrated”</strong></em> and <strong>notification status</strong> as <em><strong>“NoEmails”</strong></em>.</p>
+<p><strong>[Important note_3]</strong> A PDF invoice has always the <strong>integration status</strong> as <em><strong>“NotIntegrated”</strong></em>.</p>
+<p>If the PDF invoice was signed, stored and sent by email to the receiver entity, the <strong>notification status</strong> will return the status “<em><strong>Sent</strong></em>”, “<em><strong>Delivered</strong></em>”, “<em><strong>Read</strong></em>” or “<em><strong>Error</strong></em>”.</p>
+<p>If the PDF invoice was signed, stored and not sent by email to the receiver entity, the <strong>notification status</strong> will return the status <em><strong>“NoEmails”</strong></em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integration_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;IntegrationStatus&quot;</span><span class="p">]</span>
