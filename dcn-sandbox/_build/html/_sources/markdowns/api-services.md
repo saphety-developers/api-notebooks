@@ -42,8 +42,5 @@ Use this service to **resend** invoices by email notification.
 <font size="5">[Get integrated destinations](../notebooks/get-destinations.ipynb)</font><br>
 Use this service to **get** all or filtred integrated destinations.
 
-<font size="5">[Get invoice **email tracking ids**](../notebooks/get-destinations.ipynb)</font><br>
-Use this service to **get** invoice's **email tracking ids**.
-
 <font size="5">[Get invoice **permalinks**](../notebooks/get-document-permalinks.ipynb)</font><br>
 Use this service to **get** an invoice **download permalinks**.
