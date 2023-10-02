@@ -33,9 +33,6 @@ Use this service to **check** an invoice **status transitions** in archive.
 <font size="5">[Get invoice PDF or UBL from archive](../notebooks/get-document-formats.ipynb)</font><br>
 Use this service to **get** invoice formats from archive.
 
-<font size="5">[Resend invoice by email notification (***Deprecated***)](../notebooks/sent-notifications-deprecated.ipynb)</font><br>
-***This service is deprecated and will be removed on June 30, 2023***. Use the [(New) Resend invoice by email notification](../notebooks/new-sent-notifications.ipynb) service instead.
-
 <font size="5">[(New) Resend invoice by email notification](../notebooks/new-sent-notifications.ipynb)</font><br>
 Use this service to **resend** invoices by email notification.
 

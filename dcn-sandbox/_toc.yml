@@ -11,7 +11,6 @@ sections:
   - file: notebooks/get-document
   - file: notebooks/get-document-status-transitions
   - file: notebooks/get-document-formats
-  - file: notebooks/sent-notifications-deprecated
   - file: notebooks/new-sent-notifications
   - file: notebooks/get-destinations
   - file: notebooks/get-document-permalinks
