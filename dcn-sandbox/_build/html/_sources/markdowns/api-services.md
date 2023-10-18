@@ -41,3 +41,15 @@ Use this service to **get** all or filtred integrated destinations.
 
 <font size="5">[Get invoice **permalinks**](../notebooks/get-document-permalinks.ipynb)</font><br>
 Use this service to **get** an invoice **download permalinks**.
+
+<font size="5">[Get **subscriptions**](../notebooks/get-subscriptions.ipynb)</font><br>
+Use this service to **get** all your **company subscriptions**.
+
+<font size="5">[Get **subscription features**](../notebooks/get-document-permalinks.ipynb)</font><br>
+Use this service to **get subscription features** information.
+
+<font size="5">[Get **plan**](../notebooks/get-plan.ipynb)</font><br>
+Use this service to **get plan** information.
+
+<font size="5">[Get **custom plan**](../notebooks/get-custom-plan.ipynb)</font><br>
+Use this service to **get custom plan** information.

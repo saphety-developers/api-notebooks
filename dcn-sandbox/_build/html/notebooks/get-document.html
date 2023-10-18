@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Check invoice status in archive (electronic or PDF) &#8212; API documentation</title>
+    <title>Get invoice status in archive (electronic or PDF) &#8212; API documentation</title>
   
   
   
@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/get-document';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Check invoice status transitions in archive" href="get-document-status-transitions.html" />
+    <link rel="next" title="Get invoice status transitions in archive" href="get-document-status-transitions.html" />
     <link rel="prev" title="Store PDF invoices" href="pdf-async-request-store-only.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -163,12 +163,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="country-format-async-request.html">Send electronic invoices using legal format</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pdf-async-request.html">Send PDF invoices by email</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoices</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Check invoice <strong>status</strong> in archive (electronic or PDF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="get-document-status-transitions.html">Check invoice <strong>status transitions</strong> in archive</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Get invoice <strong>status</strong> in archive (electronic or PDF)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong> in archive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get-document-formats.html">Get invoice PDF or UBL from archive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="new-sent-notifications.html">(New) Resend invoice by email notification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="new-sent-notifications.html">Resend invoice by email notification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get-destinations.html">Get integrated destinations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="get-document-permalinks.html">Document Permalinks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-document-permalinks.html">Get Document Permalinks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-subscriptions.html">Get Company Subscriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-subscription-features.html">Get Company Subscription Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-plan.html">Get Company Plan Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get-custom-plan.html">Get Company Custom Plan Information</a></li>
 </ul>
 </li>
 </ul>
@@ -385,7 +389,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Check invoice status in archive (electronic or PDF)</h1>
+    <h1>Get invoice status in archive (electronic or PDF)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -416,9 +420,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="check-invoice-status-in-archive-electronic-or-pdf">
-<h1>Check invoice <strong>status</strong> in archive (electronic or PDF)<a class="headerlink" href="#check-invoice-status-in-archive-electronic-or-pdf" title="Permalink to this heading">#</a></h1>
-<p>Use this service to <strong>check</strong> an invoice (electronic or PDF) <strong>status</strong> in archive for your processed document.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="get-invoice-status-in-archive-electronic-or-pdf">
+<h1>Get invoice <strong>status</strong> in archive (electronic or PDF)<a class="headerlink" href="#get-invoice-status-in-archive-electronic-or-pdf" title="Permalink to this heading">#</a></h1>
+<p>Use this service to <strong>get</strong> an invoice (electronic or PDF) <strong>status</strong> in archive for your processed document.</p>
 <section id="service-steps">
 <h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -704,7 +708,7 @@ or</p></li>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Check invoice <strong>status transitions</strong> in archive</p>
+        <p class="prev-next-title">Get invoice <strong>status transitions</strong> in archive</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

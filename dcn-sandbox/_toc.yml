@@ -14,4 +14,8 @@ sections:
   - file: notebooks/new-sent-notifications
   - file: notebooks/get-destinations
   - file: notebooks/get-document-permalinks
+  - file: notebooks/get-subscriptions
+  - file: notebooks/get-subscription-features
+  - file: notebooks/get-plan
+  - file: notebooks/get-custom-plan
 
