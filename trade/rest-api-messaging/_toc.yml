@@ -1,4 +1,6 @@
-- file: markdowns/home
+format: jb-article
+root: markdowns/home
+sections:
 - file: notebooks/api-authorization
 - file: markdowns/api-services
   sections:
