@@ -161,7 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="api-basics.html">API Basics</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">API Services</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/country-format-async-request.html">Send electronic invoices using legal format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/pdf-async-request.html">Send PDF invoices by email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/pdf-async-request.html">Send PDF invoice, <strong>by standard</strong> email notification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/pdf-async-request-customized-email.html">Send PDF invoice, <strong>by customized</strong> email notification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/pdf-async-request-store-only.html">Store PDF invoices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/get-document.html">Get invoice <strong>status</strong> in archive (electronic or PDF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../notebooks/get-document-status-transitions.html">Get invoice <strong>status transitions</strong> in archive</a></li>
@@ -398,9 +399,12 @@ API specification of Production environment at <a class="reference external" hre
 <h2>Services<a class="headerlink" href="#services" title="Permalink to this heading">#</a></h2>
 <p><font size="5"><a class="reference internal" href="../notebooks/country-format-async-request.html"><span class="doc std std-doc">Send electronic invoices using legal format</span></a></font><br>
 Use this service to <strong>send</strong> eletronic invoices in Portuguese legal format CIUS-PT.</p>
-<p><font size="5"><a class="reference internal" href="../notebooks/pdf-async-request.html"><span class="doc std std-doc">Send PDF invoices by email</span></a></font><br>
+<p><font size="5"><a class="reference internal" href="../notebooks/pdf-async-request.html"><span class="doc std std-doc">Send PDF invoice, <b>by standard</b> email notification</span></a></font><br>
 Use this service to <strong>sign</strong>, <strong>store</strong> and <strong>send</strong> PDF invoices.
-The PDF invoice will be sent by email to your costumer.</p>
+The PDF invoice will be sent by email to your costumer using the predefined content layout.</p>
+<p><font size="5"><a class="reference internal" href="../notebooks/pdf-async-request-customized-email.html"><span class="doc std std-doc">Send PDF invoice, <b>by customized</b> email notification</span></a></font><br>
+Use this service to <strong>sign</strong>, <strong>store</strong> and <strong>send</strong> PDF invoices.
+The PDF invoice will be sent by email to your costumer using a cutomized contetn layout.</p>
 <p><font size="5"><a class="reference internal" href="../notebooks/pdf-async-request-store-only.html"><span class="doc std std-doc">Store PDF invoices</span></a></font><br>
 Use this service to <strong>sign</strong> and <strong>store</strong> PDF invoices.
 The PDF invoice will be signed and stored, and not sent to your costumers.</p>

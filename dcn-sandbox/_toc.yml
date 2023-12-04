@@ -7,6 +7,7 @@ sections:
   sections:
   - file: notebooks/country-format-async-request
   - file: notebooks/pdf-async-request
+  - file: notebooks/pdf-async-request-customized-email
   - file: notebooks/pdf-async-request-store-only
   - file: notebooks/get-document
   - file: notebooks/get-document-status-transitions

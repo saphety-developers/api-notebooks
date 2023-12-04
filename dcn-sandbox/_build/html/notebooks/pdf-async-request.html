@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Send PDF invoices by email &#8212; API documentation</title>
+    <title>Send PDF invoice, by standard email notification &#8212; API documentation</title>
   
   
   
@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/pdf-async-request';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Store PDF invoices" href="pdf-async-request-store-only.html" />
+    <link rel="next" title="Send PDF invoice, by customized email notification" href="pdf-async-request-customized-email.html" />
     <link rel="prev" title="Send electronic invoices using legal format" href="country-format-async-request.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -161,7 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../markdowns/api-basics.html">API Basics</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../markdowns/api-services.html">API Services</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="country-format-async-request.html">Send electronic invoices using legal format</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Send PDF invoices by email</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Send PDF invoice, <strong>by standard</strong> email notification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdf-async-request-customized-email.html">Send PDF invoice, <strong>by customized</strong> email notification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get-document.html">Get invoice <strong>status</strong> in archive (electronic or PDF)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong> in archive</a></li>
@@ -389,7 +390,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Send PDF invoices by email</h1>
+    <h1>Send PDF invoice, by standard email notification</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -400,18 +401,33 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchrounous">Asynchrounous</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-server-base-url">Endpoint Server Base URL</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send-pdf-invoice-request-pdfasyncrequest-processdocument">2. Send PDF invoice request (PdfAsyncRequest/processDocument)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">Call service and get back the request id</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-body-structure">2.1 Request body structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intlvatcode">IntlVatCode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documenttype">DocumentType</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentdate">DocumentDate</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentnumber">DocumentNumber</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#receiverintlvatcode">ReceiverIntlVatCode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#receivername">ReceiverName</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documenttotal">DocumentTotal</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#currencycode">CurrencyCode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#destinationemails">DestinationEmails</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#serializedinput">SerializedInput</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contenttype">ContentType</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#request-exemple">2.2 Request exemple</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">2.3 Call service and get back the request id</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-to-success-of-your-request-pdfasyncrequest-requestid">3. Check to success of your request (PdfAsyncRequest/{RequestId})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">Build the service endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-outbound-document-id">Call service and get back the outbound document id</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-status-of-your-request-pdfasyncrequest-requestid">3. Check the status of your request (PdfAsyncRequest/{RequestId})</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">3.1 Build the service endpoint url</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-outbound-document-id">3.2 Call service and get back the outbound document id</a></li>
 </ul>
 </li>
 </ul>
@@ -425,9 +441,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="send-pdf-invoices-by-email">
-<h1>Send PDF invoices by email<a class="headerlink" href="#send-pdf-invoices-by-email" title="Permalink to this heading">#</a></h1>
-<p>Use this service to <strong>sign</strong>, <strong>store</strong> and <strong>send</strong> PDF invoices by email to your costumers.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="send-pdf-invoice-by-standard-email-notification">
+<h1>Send PDF invoice, <strong>by standard</strong> email notification<a class="headerlink" href="#send-pdf-invoice-by-standard-email-notification" title="Permalink to this heading">#</a></h1>
+<p>This endpoint is used to <strong>sign</strong>, <strong>store</strong> and <strong>send</strong> PDF invoices by email to your costumers/receivers. The email notification sent to your costumers/receivers has a predefined content layout.</p>
 <section id="service-steps">
 <h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -435,11 +451,19 @@ document.write(`
 <li><p>Send your invoice calling the <strong><em>asynchronous</em></strong> service <strong><em>PdfAsyncRequest/processDocument</em></strong>;</p></li>
 <li><p>Check to success of your request using the received <strong><em>request id</em></strong> at <strong><em>PdfAsyncRequest/{RequestId}</em></strong></p></li>
 </ol>
-<section id="asynchrounous">
-<h3>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this heading">#</a></h3>
-<p>The service <strong><em>PdfAsyncRequest/processDocument</em></strong> is an asynchrounous service.</p>
-<p>An invoice can take a few seconds to process (sign, store and send to your costumer).</p>
-<p>Since this is an integration API, thousands of requests can be requested at the same time. For each request you receive immediately a <strong><em>request id</em></strong>. Use it to query the request status.</p>
+<section id="endpoint-server-base-url">
+<h3>Endpoint Server Base URL<a class="headerlink" href="#endpoint-server-base-url" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SANDBOX - Test Environment</span>
+<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
+
+<span class="c1"># Saphety Invoice Network - Production Environment</span>
+<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="response-structure-from-server">
 <h3>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this heading">#</a></h3>
@@ -465,17 +489,6 @@ or</p></li>
 <p>Use those credentials to get a token at:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
 </pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SANDBOX - Test Environment</span>
-<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
-
-<span class="c1"># Saphety Invoice Network - Production Environment</span>
-<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -512,30 +525,19 @@ or</p></li>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># formating the response to json for visualization purposes only</span>
 <span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># your token is at:</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;5611db85-05f3-4e96-b1f1-09be4e849b1c&quot;,
+    &quot;CorrelationId&quot;: &quot;377da537-e6bb-4234-8dbb-cfad06fe29bb&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNGEyYzY2N2MtNWU5My00NGM2LWFkYzItMzFlYjAyYzFhYjQxIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0MTc5ODk5LCJleHAiOjE2MTQyMDg2OTksImlhdCI6MTYxNDE3OTgzOSwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.h2toOIp4xFHAL4kffQWD6qmUNZZaoSplYKV_7riGzkM&quot;
+    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoic2luX2FwaV9kb2N1bWVudGF0aW9uX3VzZXJAc2FwaGV0eS5jb20iLCJzeXN0ZW1fYWRtaW4iOiJGYWxzZSIsInNlc3Npb25faWQiOiI4MGNlNzljNy1iZDYzLTQwOWQtYTQyYS02ODM4ZTY0NmJhNzUiLCJjcCI6InNpbl9hcGlfZG9jdW1lbnRhdGlvbl91c2VyQHNhcGhldHkuY29tIiwicmwiOiJEZXZlbG9wZXIiLCJuYmYiOjE3MDExOTM0OTMsImV4cCI6MTcwNzE5MzQzMywiaWF0IjoxNzAxMTkzNDMzLCJpc3MiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS8iLCJhdWQiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS9EY25TYW5kYm94In0.sT_CcXWTDd4gSuNeEmFRh0dTGS2Vzahem5BBDFqW-O8&quot;
 }
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your token is at:</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">token</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiNGEyYzY2N2MtNWU5My00NGM2LWFkYzItMzFlYjAyYzFhYjQxIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE0MTc5ODk5LCJleHAiOjE2MTQyMDg2OTksImlhdCI6MTYxNDE3OTgzOSwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.h2toOIp4xFHAL4kffQWD6qmUNZZaoSplYKV_7riGzkM
 </pre></div>
 </div>
 </div>
@@ -543,85 +545,187 @@ or</p></li>
 </section>
 <section id="send-pdf-invoice-request-pdfasyncrequest-processdocument">
 <h2>2. Send PDF invoice request (PdfAsyncRequest/processDocument)<a class="headerlink" href="#send-pdf-invoice-request-pdfasyncrequest-processdocument" title="Permalink to this heading">#</a></h2>
-<p>Now that you have a token you can send an PDF invoice to your customer.
-By default, the service uses a generic email template that has a predefined layout. The email that is sent to the client has a “From”, “FromDisplayName”, “Subject” and “Email body content” already defined.</p>
-<p>For a <strong>generic email template</strong>, in the service payload, you need to supply these parameters:</p>
+<p>This endpoint is asynchrounous. Thousands of requests can be requested at the same time. For each request you receive immediately a <strong>request id</strong>. Use it to query the request status.</p>
+<section id="request-body-structure">
+<h3>2.1 Request body structure<a class="headerlink" href="#request-body-structure" title="Permalink to this heading">#</a></h3>
+<div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;IntlVatCode&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;DocumentType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;DocumentDate&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;DocumentNumber&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;ReceiverIntlVatCode&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;ReceiverName&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;DocumentTotal&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;CurrencyCode&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;DestinationEmails&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;Email&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;SendAttachment&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;LanguageCode&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;CC&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;string&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="s2">&quot;BCC&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;string&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="s2">&quot;SerializedInput&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;ContentType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="intlvatcode">
+<h4>IntlVatCode<a class="headerlink" href="#intlvatcode" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
-<li><p><strong>IntlVatCode</strong><br>
-Set the issuer Vat Number. Format is countryCode + Vat Number (ex: PT507957547)</p></li>
-<li><p><strong>DocumentType</strong><br>
-Set the type of document that you are sending.<br>
-Allowed values for this parameter: Invoice, Credit_Note, Debit_Note, Invoice_Receipt, Simplified_Invoice</p></li>
-<li><p><strong>DocumentDate</strong><br>
-Set the document date. Format is YYYY-MM-DD (ex: 2021-01-01)</p></li>
-<li><p><strong>DocumentNumber</strong><br>
-Set the document number/reference.</p></li>
-<li><p><strong>ReceiverIntlVatCode</strong><br>
-Set the receiver/client Vat Number. Format is countryCode + Vat Number (ex: PT507641230)</p></li>
-<li><p><strong>ReceiverName</strong><br>
-Set the receiver/client name (ex: FIREFLY LDA.)</p></li>
-<li><p><strong>DocumentTotal</strong><br>
-Set the total amount payable of the document. Format is a number (ex: 1000)</p></li>
-<li><p><strong>CurrencyCode</strong><br>
-Set the currency code of the document. Format is ISO 4217 Alphabetic code (ex: EUR)<br />
-<font color=red><strong>Allowed values for this parameter: EUR, GBP, USD.</strong></font></p></li>
-<li><p><strong>DestinationEmails</strong><br></p>
+<li><p><strong>Description</strong>: Tax identification of the supplier/issuer entity (aka as vatNumber).</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Exemple</strong>: “PT518576302”</p></li>
+<li><p><strong><em>Notes</em></strong>: Only accepts valid vatNumbers and filled with the countryCode prefix.</p></li>
+</ul>
+</section>
+<section id="documenttype">
+<h4>DocumentType<a class="headerlink" href="#documenttype" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: Type of document that is sent.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Allowed values</strong>: “Invoice”, “Credit_Note”, “Debit_Note”, “Invoice_Receipt”, “Simplified_Invoice”</p></li>
+<li><p><strong>Exemple</strong>: “Invoice”</p></li>
+</ul>
+</section>
+<section id="documentdate">
+<h4>DocumentDate<a class="headerlink" href="#documentdate" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: Document date</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string (date format “YYYY-MM-DD”)</p></li>
+<li><p><strong>Exemple</strong>: “2023-11-23”</p></li>
+</ul>
+</section>
+<section id="documentnumber">
+<h4>DocumentNumber<a class="headerlink" href="#documentnumber" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: Original document number/reference</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Exemple</strong>: “FTSCN 2020/00000346”</p></li>
+</ul>
+</section>
+<section id="receiverintlvatcode">
+<h4>ReceiverIntlVatCode<a class="headerlink" href="#receiverintlvatcode" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: Tax identification of the customer/receiver entity (aka as vatNumber).</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Exemple</strong>: “PT534314376”</p></li>
+<li><p><strong><em>Notes</em></strong>: Only accepts valid vatNumbers and filled with the countryCode prefix.</p></li>
+</ul>
+</section>
+<section id="receivername">
+<h4>ReceiverName<a class="headerlink" href="#receivername" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: Specifies the entity name of the customer/receiver.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Exemple</strong>: “CUSTOMER-RECEIVER COMPANY, LDA.”</p></li>
+</ul>
+</section>
+<section id="documenttotal">
+<h4>DocumentTotal<a class="headerlink" href="#documenttotal" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: Defines the total amount payable of the document.</p></li>
+<li><p><strong>Required</strong>: No</p></li>
+<li><p><strong>Type</strong>: number (decimal)</p></li>
+<li><p><strong>Exemple</strong>: 5000000.35</p></li>
+<li><p><strong><em>Notes</em></strong>: If it’s not declared in the payload, it will assume 0 as the total amount for the document.</p></li>
+</ul>
+</section>
+<section id="currencycode">
+<h4>CurrencyCode<a class="headerlink" href="#currencycode" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: Defines the document currency.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Allowed values</strong>: “EUR”, “USD”, “GBP”</p></li>
+<li><p><strong>Exemple</strong>: “EUR”</p></li>
+<li><p><strong><em>Notes</em></strong>: Follows the ISO-4217 Alphabetic Code Format</p></li>
+</ul>
+</section>
+<section id="destinationemails">
+<h4>DestinationEmails<a class="headerlink" href="#destinationemails" title="Permalink to this heading">#</a></h4>
+<p>Array of <em>DestinationEmail</em></p>
+<ul class="simple">
+<li><p>Email</p>
 <ul>
-<li><p><em>Email</em>: Set the client/receiver email address to send the notification<br></p></li>
-<li><p><em>SendAttachment</em>: Set whether the PDF is sent as an attachment in the notification. Allowed values for this parameter: True, False.<br></p></li>
-<li><p><em>LanguageCode</em>: Set the notification language. Format is ISO 639-1 (ex: pt)</p></li>
+<li><p><strong>Description</strong>: Defines the primary receiver/customer email address for the notification.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Exemple</strong>: “<a class="reference external" href="mailto:receiver&#37;&#52;&#48;example&#46;com">receiver<span>&#64;</span>example<span>&#46;</span>com</a>”</p></li>
 </ul>
 </li>
-<li><p><strong>SerializedInput</strong><br>
-Set the base64 encoding of the PDF document.</p></li>
-<li><p><strong>ContentType</strong><br>
-Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
-</ul>
-<p>For a <strong>customized email template</strong>, in the service payload, you need to supply these additional parameters (marked in <strong><font color=red>red</font></strong>):</p>
-<ul class="simple">
-<li><p><strong>IntlVatCode</strong><br>
-Set the issuer Vat Number. Format is countryCode + Vat Number (ex: PT507957547)</p></li>
-<li><p><strong>DocumentType</strong><br>
-Set the type of document that you are sending.<br>
-Allowed values for this parameter: Invoice, Credit_Note, Debit_Note, Invoice_Receipt, Simplified_Invoice</p></li>
-<li><p><strong>DocumentDate</strong><br>
-Set the document date. Format is YYYY-MM-DD (ex: 2021-01-01)</p></li>
-<li><p><strong>DocumentNumber</strong><br>
-Set the document number/reference.</p></li>
-<li><p><strong>ReceiverIntlVatCode</strong><br>
-Set the receiver/client Vat Number. Format is countryCode + Vat Number (ex: PT507641230)</p></li>
-<li><p><strong>ReceiverName</strong><br>
-Set the receiver/client name (ex: FIREFLY LDA.)</p></li>
-<li><p><strong>DocumentTotal</strong><br>
-Set the total amount payable of the document. Format is a number (ex: 1000)</p></li>
-<li><p><strong>CurrencyCode</strong><br>
-Set the currency code of the document. Format is ISO 4217 Alphabetic code (ex: EUR)<br />
-<font color=red><strong>Allowed values for this parameter: EUR, GBP, USD.</strong></font></p></li>
-<li><p><strong>DestinationEmails</strong><br></p>
+<li><p>CC</p>
 <ul>
-<li><p><em>Email</em>: Set the client/receiver email address to send the notification<br></p></li>
-<li><p><em>SendAttachment</em>: Set whether the PDF is sent as an attachment in the notification. Allowed values for this parameter: True, False.<br></p></li>
-<li><p><em>LanguageCode</em>: Set the notification language. Format is ISO 639-1 (ex: pt).<br></p></li>
-<li><p><font color=red><em>CC</em>: Set one or a list of email adressess for CC.</font><br></p></li>
-<li><p><font color=red><em>BCC</em>: Set one or a list of email adressess for BCC.</font><br></p></li>
-<li><p><font color=red><em>From</em>: S_et the email address to identify the From of the email notification.</font><br></p></li>
-<li><p><font color=red><em>FromDisplayName</em>: set the From display name to send in the email notification.</font><br></p></li>
-<li><p><font color=red><em>Subject</em>: set the Subject to send in the email notification.</font><br></p></li>
-<li><p><font color=red><em>Body</em>: set the Body content of the email notification. Note: it’s mandatory that the Body must be converted to base64 format.</font><br></p></li>
-<li><p><font color=red><em>BodyContentType</em>: Set the mime code according to the type of body that was converted to base64 in the Body parameter. Example: if the Body is a Base64 from an html set as application/html</font></p></li>
+<li><p><strong>Description</strong>: Defines the CC email addresses for the notification.</p></li>
+<li><p><strong>Required</strong>: No</p></li>
+<li><p><strong>Type</strong>: string array</p></li>
+<li><p><strong>Exemple</strong>: [“cc_recipient1&#64;example.com”, “<a class="reference external" href="mailto:cc_recipient2&#37;&#52;&#48;example&#46;com">cc_recipient2<span>&#64;</span>example<span>&#46;</span>com</a>”]</p></li>
 </ul>
 </li>
-<li><p><strong>SerializedInput</strong><br>
-Set the base64 encoding of the PDF document.</p></li>
-<li><p><strong>ContentType</strong><br>
-Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
+<li><p>BCC</p>
+<ul>
+<li><p><strong>Description</strong>: Defines the BCC email addresses for the notification.</p></li>
+<li><p><strong>Required</strong>: No</p></li>
+<li><p><strong>Type</strong>: string array</p></li>
+<li><p><strong>Exemple</strong>: [“bcc_recipient1&#64;example.com”, “<a class="reference external" href="mailto:bcc_recipient2&#37;&#52;&#48;example&#46;com">bcc_recipient2<span>&#64;</span>example<span>&#46;</span>com</a>”]</p></li>
 </ul>
+</li>
+<li><p>SendAttachment</p>
+<ul>
+<li><p><strong>Description</strong>: Indicates whether the PDF is sent or not as an attachment in the notification.</p></li>
+<li><p><strong>Required</strong>: No</p></li>
+<li><p><strong>Type</strong>: boolean</p></li>
+<li><p><strong>Exemple</strong>: true</p></li>
+<li><p><strong><em>Notes</em></strong>: If it’s not declared in the payload, it will assume false.</p></li>
+</ul>
+</li>
+<li><p>LanguageCode</p>
+<ul>
+<li><p><strong>Description</strong>: Indicates the email notification language content.</p></li>
+<li><p><strong>Required</strong>: No</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Allowed values</strong>: “pt” or “en”</p></li>
+<li><p><strong>Exemple</strong>: “pt”</p></li>
+<li><p><strong><em>Notes</em></strong>: If it’s not declared in the payload, it will assume “en”.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="serializedinput">
+<h4>SerializedInput<a class="headerlink" href="#serializedinput" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: PDF encoded in base64.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Exemple</strong>: “JVBERi0xLjQKJeLjz9MKNiAwIG9iago8PAovTGVuZ3RoMSA0MD….”</p></li>
+</ul>
+</section>
+<section id="contenttype">
+<h4>ContentType<a class="headerlink" href="#contenttype" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: Specifies the content type of the document.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Allowed values</strong>: “application/pdf”</p></li>
+<li><p><strong>Exemple</strong>: “application/pdf”</p></li>
+</ul>
+</section>
+<section id="request-exemple">
+<h4>2.2 Request exemple<a class="headerlink" href="#request-exemple" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/PdfAsyncRequest/processDocument&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span>
-<span class="p">)</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/PdfAsyncRequest/processDocument&quot;</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Service url: &#39;</span> <span class="o">+</span> <span class="n">service_url</span><span class="p">)</span>
 
 <span class="c1">#headers</span>
@@ -658,8 +762,10 @@ Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
 </div>
 </div>
 </div>
+</section>
 <section id="call-service-and-get-back-the-request-id">
-<h3>Call service and get back the request id<a class="headerlink" href="#call-service-and-get-back-the-request-id" title="Permalink to this heading">#</a></h3>
+<h4>2.3 Call service and get back the request id<a class="headerlink" href="#call-service-and-get-back-the-request-id" title="Permalink to this heading">#</a></h4>
+<p><strong>Send</strong> your PDF invoice using endpoint <strong><em>api/PdfAsyncRequest/processDocument</em></strong>, record the <strong>request id</strong> from response Data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Send the request (POST). The service return a request id</span>
@@ -668,41 +774,31 @@ Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
 <span class="c1"># formating the response to json for visualization purposes only</span>
 <span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># your request id is at:</span>
+<span class="n">request_id</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;3fd55fe1-aff2-457a-a6bd-5d9ed84896e5&quot;,
+    &quot;CorrelationId&quot;: &quot;4974d7fb-22b2-4cb1-b841-05a3666b9ef6&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;094db02c-43b5-4a9f-83f3-8e601617b1d8&quot;
+    &quot;Data&quot;: &quot;c4dd5343-aeeb-4426-a565-856669f603a4&quot;
 }
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your request id is at:</span>
-<span class="n">request_id</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">request_id</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>094db02c-43b5-4a9f-83f3-8e601617b1d8
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
-<section id="check-to-success-of-your-request-pdfasyncrequest-requestid">
-<h2>3. Check to success of your request (PdfAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-pdfasyncrequest-requestid" title="Permalink to this heading">#</a></h2>
-<p>Query the system using this <strong>request id</strong> in order to get the status (success or error) of your request.t</p>
+</section>
+<section id="check-the-status-of-your-request-pdfasyncrequest-requestid">
+<h2>3. Check the status of your request (PdfAsyncRequest/{RequestId})<a class="headerlink" href="#check-the-status-of-your-request-pdfasyncrequest-requestid" title="Permalink to this heading">#</a></h2>
+<p>Get the status of your request using the <strong>request id</strong> previously received on the send document endpoint</p>
 <section id="build-the-service-endpoint-url">
-<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this heading">#</a></h3>
+<h3>3.1 Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this heading">#</a></h3>
 <p>In the service url you need to supply the <strong>request id</strong> received.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">PdfAsyncRequest</span><span class="o">/&lt;</span><span class="n">RequestId</span><span class="o">&gt;</span>
 </pre></div>
@@ -711,24 +807,20 @@ Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving the status of a process</span>
 
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/PdfAsyncRequest/</span><span class="si">{RequestId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
-    <span class="n">RequestId</span><span class="o">=</span><span class="n">request_id</span>
-<span class="p">)</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/PdfAsyncRequest/&quot;</span> <span class="o">+</span> <span class="n">request_id</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/PdfAsyncRequest/094db02c-43b5-4a9f-83f3-8e601617b1d8
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/PdfAsyncRequest/c4dd5343-aeeb-4426-a565-856669f603a4
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="call-service-and-get-back-the-outbound-document-id">
-<h3>Call service and get back the outbound document id<a class="headerlink" href="#call-service-and-get-back-the-outbound-document-id" title="Permalink to this heading">#</a></h3>
+<h3>3.2 Call service and get back the outbound document id<a class="headerlink" href="#call-service-and-get-back-the-outbound-document-id" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -737,7 +829,6 @@ Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
     <span class="p">}</span>
 <span class="c1"># POST request to send the invoice</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-<span class="c1"># formating the response to json for visualization purposes only</span>
 <span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -746,42 +837,31 @@ Set the mime code. Allowed values for this parameter: application/pdf.</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your status:</span>
-<span class="n">status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">]</span>
+<span class="n">response_data</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">]</span>
 <span class="n">outbound_financial_document_id</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="c1">#print(json.dumps(json_response, indent=4))</span>
 
 <span class="c1">#request status (Queued, Running, Error, Finished)</span>
-<span class="n">request_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;AsyncStatus&quot;</span><span class="p">]</span>
+<span class="n">request_status</span> <span class="o">=</span> <span class="n">response_data</span><span class="p">[</span><span class="s2">&quot;AsyncStatus&quot;</span><span class="p">]</span>
 
-<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Queued&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request in queue to be processed check the status again in a few seconds...&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Running&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request is runnig check the status again in a few seconds...&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request has finished with the following errors:&quot;</span><span class="p">)</span>
-    <span class="n">error_list</span><span class="o">=</span><span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;ErrorList&quot;</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">error_list</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Correct the errros and sublit the document again&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Finished&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Finished&quot;</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request has finished.&quot;</span><span class="p">)</span>
-    <span class="n">outbound_financial_document_id</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;OutboundFinancialDocumentId&quot;</span><span class="p">]</span>
+    <span class="n">outbound_financial_document_id</span> <span class="o">=</span> <span class="n">response_data</span><span class="p">[</span><span class="s2">&quot;OutboundFinancialDocumentId&quot;</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You have created the outbound document id: &quot;</span> <span class="o">+</span> <span class="n">outbound_financial_document_id</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your request status: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">);</span>
-
-<span class="c1"># the final status Finished and Error</span>
-<span class="k">if</span> <span class="n">request_status</span> <span class="o">!=</span> <span class="s2">&quot;Finished&quot;</span> <span class="ow">and</span> <span class="n">request_status</span> <span class="o">!=</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your is not finished yet: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your request has finished.
-You have created the outbound document id: f7bed389-dfe0-4021-9c52-5d45cee3c20c
+You have created the outbound document id: 102a0715-7130-4874-a361-a27ecd2265df
 </pre></div>
 </div>
 </div>
 </div>
+<p><br>Your request status is at response.Data.AsyncStatus, see the possible values:</p>
+<p><strong>“Queued”</strong>: The request is in queue to be processed. Check the status again in a few seconds.</p>
+<p><strong>“Running”</strong>: The request is still runnig. Check the status again in a few seconds.</p>
+<p><strong>“Error”</strong>: Your request has finished with errors. Check the error list at response.Data.ErrorList. You need to correct the errors and submit the document again (new request).</p>
+<p><strong>“Finished”</strong>: Your request has finished without errors. The request has created the outbound document id at response.Data.OutboundFinancialDocumentId. With “OutboundFinancialDocumentId” you can query the system for invoice notification status using the endpoint /api/OutboundFinancialDocument/:id.</p>
 </section>
 </section>
 </section>
@@ -827,11 +907,11 @@ You have created the outbound document id: f7bed389-dfe0-4021-9c52-5d45cee3c20c
       </div>
     </a>
     <a class="right-next"
-       href="pdf-async-request-store-only.html"
+       href="pdf-async-request-customized-email.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Store PDF invoices</p>
+        <p class="prev-next-title">Send PDF invoice, <strong>by customized</strong> email notification</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -854,18 +934,33 @@ You have created the outbound document id: f7bed389-dfe0-4021-9c52-5d45cee3c20c
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchrounous">Asynchrounous</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-server-base-url">Endpoint Server Base URL</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send-pdf-invoice-request-pdfasyncrequest-processdocument">2. Send PDF invoice request (PdfAsyncRequest/processDocument)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">Call service and get back the request id</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-body-structure">2.1 Request body structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intlvatcode">IntlVatCode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documenttype">DocumentType</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentdate">DocumentDate</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentnumber">DocumentNumber</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#receiverintlvatcode">ReceiverIntlVatCode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#receivername">ReceiverName</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documenttotal">DocumentTotal</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#currencycode">CurrencyCode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#destinationemails">DestinationEmails</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#serializedinput">SerializedInput</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contenttype">ContentType</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#request-exemple">2.2 Request exemple</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">2.3 Call service and get back the request id</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-to-success-of-your-request-pdfasyncrequest-requestid">3. Check to success of your request (PdfAsyncRequest/{RequestId})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">Build the service endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-outbound-document-id">Call service and get back the outbound document id</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-status-of-your-request-pdfasyncrequest-requestid">3. Check the status of your request (PdfAsyncRequest/{RequestId})</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">3.1 Build the service endpoint url</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-outbound-document-id">3.2 Call service and get back the outbound document id</a></li>
 </ul>
 </li>
 </ul>

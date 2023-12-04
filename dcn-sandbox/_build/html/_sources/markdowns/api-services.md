@@ -16,9 +16,13 @@ API specification of Production environment at [API specification](https://dcn-s
 <font size="5">[Send electronic invoices using legal format](../notebooks/country-format-async-request.ipynb)</font><br>
 Use this service to **send** eletronic invoices in Portuguese legal format CIUS-PT.
 
-<font size="5">[Send PDF invoices by email](../notebooks/pdf-async-request.ipynb)</font><br>
+<font size="5">[Send PDF invoice, <b>by standard</b> email notification](../notebooks/pdf-async-request.ipynb)</font><br>
 Use this service to **sign**, **store** and **send** PDF invoices.
-The PDF invoice will be sent by email to your costumer.
+The PDF invoice will be sent by email to your costumer using the predefined content layout.
+
+<font size="5">[Send PDF invoice, <b>by customized</b> email notification](../notebooks/pdf-async-request-customized-email.ipynb)</font><br>
+Use this service to **sign**, **store** and **send** PDF invoices.
+The PDF invoice will be sent by email to your costumer using a cutomized contetn layout.
 
 <font size="5">[Store PDF invoices](../notebooks/pdf-async-request-store-only.ipynb)</font><br>
 Use this service to **sign** and **store** PDF invoices.
