@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview &#8212; API documentation</title>
+    <title>Configuration and Specification &#8212; API documentation</title>
   
   
   
@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'markdowns/home';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API Environments" href="api-environments.html" />
+    <link rel="next" title="API Basics" href="api-basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -151,28 +151,35 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Overview
+                    Configuration and Specification
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="api-environments.html">API Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-basics.html">API Basics</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api-services.html">API Services</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/country-format-async-request.html">Send electronic invoices using legal format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/pdf-async-request.html">Send PDF invoice, <strong>by standard</strong> email notification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/pdf-async-request-customized-email.html">Send PDF invoice, <strong>by customized</strong> email notification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/pdf-async-request-store-only.html">Store PDF invoices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/get-document.html">Get invoice <strong>status</strong> in archive (electronic or PDF)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/get-document-status-transitions.html">Get invoice <strong>status transitions</strong> in archive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/get-document-formats.html">Get invoice PDF or UBL from archive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/new-sent-notifications.html">Resend invoice by email notification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/get-destinations.html">Get integrated destinations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/get-document-permalinks.html">Get Document Permalinks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/get-subscriptions.html">Get Company Subscriptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/get-subscription-features.html">Get Company Subscription Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/get-plan.html">Get Company Plan Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../notebooks/get-custom-plan.html">Get Company Custom Plan Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-configurations.html">API Environments</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api-endpoints.html">Endpoints</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api-endpoints-authentication.html">Authentication</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-token.html">Get Token</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api-endpoints-invoice-lifecycle.html">Invoice lifecycle</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-document.html">Get invoice <strong>status</strong> in archive (electronic or PDF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-document-status-transitions.html">Get invoice <strong>status transitions</strong> in archive</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api-endpoints-receiver-entities.html">Receiver Entities</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-destinations.html">Get integrated destinations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api-endpoints-networks.html">Interoperability Networks</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api-endpoints-company-subcriptions.html">Company Subscription</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-subscriptions.html">Get Company Subscriptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-subscription-features.html">Get Company Subscription Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-plan.html">Get Company Plan Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-custom-plan.html">Get Company Custom Plan Information</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -358,7 +365,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Overview</h1>
+    <h1>Configuration and Specification</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -368,7 +375,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audience">Audience</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-servers-base-address-url">API Servers Base Address URL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-api-specification-oas3">Open API specification (OAS3)</a></li>
 </ul>
             </nav>
         </div>
@@ -380,14 +389,42 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
-<p>Issuing invoices in accordance with all <strong>legal requirements</strong> and ensuring delivery to the costumers, is something that should be done using each company’s billing system.
-This document is a technical guide how to implement an integration between any software and <strong>Saphety Invoice Network API</strong>, thus bringing the power of this <strong>API</strong> directly into your billing system.</p>
-<section id="audience">
-<h2>Audience<a class="headerlink" href="#audience" title="Permalink to this heading">#</a></h2>
-<p>This document is intended for <strong>developers</strong> that want to automate issuing invoices from any system using <strong>Saphety Invoice Network API</strong>.</p>
-<p>After reading this book you should be able to fully automate any system integration with <strong>Saphety Invoice Network API</strong>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="configuration-and-specification">
+<h1>Configuration and Specification<a class="headerlink" href="#configuration-and-specification" title="Permalink to this heading">#</a></h1>
+<section id="environments">
+<h2>Environments<a class="headerlink" href="#environments" title="Permalink to this heading">#</a></h2>
+<p>Saphety Invoice Network API is connected with these environments:</p>
+<ul class="simple">
+<li><p>Sandbox (test)</p></li>
+<li><p>Production</p></li>
+</ul>
+<p><strong>Sandbox environment</strong><br />
+Used for initial testing purposes. It’s a controlled environment, that allows to test API services, but does not persist/archive documents in a database.</p>
+<p>In this way, it is possible to test API services, without the risk of sending invoices to customers test environments, or sending notification emails to real customers addresses.</p>
+<p>Bear in mind that, because the documents in this environment are not persisted/archived in the database, services will always return results of a mockup invoice, regardless of the document that has been processed. The same will happen with email notifications, in this environment, email notifications generated will always be sent to the user registration email created in Sandbox portal.</p>
+<p>If you want to test the API in this environment, you will need to register at Sandbox portal to get your own credentials (username and password) to generate a valid token.</p>
+<p>To register and get your credentials for Sandbox portal go here: <a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Sandbox.Client/public">Dcn Sandbox</a></p>
+<p><strong>Production environment</strong><br />
+Production environment represents the live and stable version of the API that serves actual users, businesses, or applications in a real-world setting.</p>
+<p>It is the operational state where the API is fully deployed and available for regular use.</p>
+<p>If you want to register your company in Saphety Invoice Network solution go here: <a class="reference external" href="https://www.saphety.com/">Dcn Client</a></p>
+</section>
+<section id="api-servers-base-address-url">
+<h2>API Servers Base Address URL<a class="headerlink" href="#api-servers-base-address-url" title="Permalink to this heading">#</a></h2>
+<p><strong>Sandbox environment</strong>:<br />
+<a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi">https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi</a></p>
+<p><strong>Production environment</strong>:<br />
+<a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Business.WebApi">https://dcn-solution.saphety.com/Dcn.Business.WebApi</a></p>
+</section>
+<section id="open-api-specification-oas3">
+<h2>Open API specification (OAS3)<a class="headerlink" href="#open-api-specification-oas3" title="Permalink to this heading">#</a></h2>
+<p><strong>Sandbox environment</strong>:<br />
+<a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/index.html">https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/index.html</a></p>
+<p><strong>Production environment</strong>:<br />
+<a class="reference external" href="https://dcn-solution.saphety.com/Dcn.Business.WebApi/api/index.html">https://dcn-solution.saphety.com/Dcn.Business.WebApi/api/index.html</a><br />
+<a class="reference external" href="https://invoicenetwork.saphety.com/IN2.Notifications.WebApi/swagger/index.html">https://invoicenetwork.saphety.com/IN2.Notifications.WebApi/swagger/index.html</a><br />
+<a class="reference external" href="https://dcn-solution.saphety.com/IN2.WebStore.WebApi/swagger/index.html">https://dcn-solution.saphety.com/IN2.WebStore.WebApi/swagger/index.html</a><br />
+<a class="reference external" href="https://dcn-solution.saphety.com/IN2.IntegrationAccess.WebApi/swagger/index.html">https://dcn-solution.saphety.com/IN2.IntegrationAccess.WebApi/swagger/index.html</a></p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -425,11 +462,11 @@ This document is a technical guide how to implement an integration between any s
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
-       href="api-environments.html"
+       href="api-basics.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">API Environments</p>
+        <p class="prev-next-title">API Basics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -451,7 +488,9 @@ This document is a technical guide how to implement an integration between any s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audience">Audience</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#environments">Environments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#api-servers-base-address-url">API Servers Base Address URL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-api-specification-oas3">Open API specification (OAS3)</a></li>
 </ul>
   </nav></div>
 

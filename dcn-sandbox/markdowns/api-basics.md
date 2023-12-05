@@ -1,23 +1,52 @@
 # API Basics
-An API is a set of definitions and protocols for building and integrating application software. It’s sometimes referred to as a contract between an information provider and an information user—establishing the content required from the consumer (the call) and the content required by the producer (the response). For example, the API design for a weather service could specify that the user supply a zip code and that the producer reply with a 2-part answer, the first being the high temperature, and the second being the low.  
+## Target audience
+Our API is targeted towards developers, software engineers, and businesses seeking to automate their invoicing processes.
 
-In other words, if you want to interact with a computer or system to retrieve information or perform a function, an API helps you communicate what you want to that system so it can understand and fulfill the request. 
+## Key Features and Functionality
+Our API includes:
+- **Invoice sending**: send invoice (legal format and PDF).
+- **Invoice lifecycle management**: track invoice lifecycle status.
+- **Customers/receivers management**: know who are the costumers/receivers available, and/or, who are their networks that interoperate with Saphety Invoice Network.
+- **Compliance and standards**: Ensure adherence to regulatory standards.
 
-You can think of an API as a mediator between the users or clients and the resources or web services they want to get. It’s also a way for an organization to share resources and information while maintaining security, control, and authentication—determining who gets access to what. 
+## Key Features and Functionality
+By using our API, developers can:
 
-Another advantage of an API is that you don’t have to know the specifics of caching—how your resource is retrieved or where it comes from.
+- Reduce manual errors by automating the invoice generation and sending process.
+- Expedite payment cycles by sending invoices promptly and tracking invoice lifecycle status.
+- Improve customer experience by offering electronic invoicing options tailored to their needs.
+- Ensure compliance with regulatory requirements and standardized invoicing practices.
 
-## REST API
-**This is rest API that uses JWT tokens for authentication.**
+## Supported Platforms and Integration
+The API supports integration across various platforms and programming languages.
 
-### What is a REST API?
-A REST API (also known as RESTful API) is an application programming interface (API or web API) that conforms to the constraints of REST architectural style and allows for interaction with RESTful web services. REST stands for representational state transfer and was created by computer scientist Roy Fielding.
+Developers can seamlessly integrate our API by making HTTP requests to our RESTful endpoints, allowing for easy integration into web applications, accounting software, and enterprise systems.
 
-REST is a set of architectural constraints, not a protocol or a standard. API developers can implement REST in a variety of ways.
+## What is a REST API?
+In today's interconnected digital landscape, web services play a pivotal role in enabling communication between different applications. REST, which stands for Representational State Transfer, is an architectural style that provides standards and guidelines for creating web services. A RESTful API (Application Programming Interface) adheres to these principles, allowing applications to communicate over the internet by using standard HTTP methods.
 
-When a client request is made via a RESTful API, it transfers a representation of the state of the resource to the requester or endpoint. This information, or representation, is delivered in one of several formats via HTTP: JSON (Javascript Object Notation), HTML, XLT, Python, PHP, or plain text. JSON is the most generally popular programming language to use because, despite its name, it’s language-agnostic, as well as readable by both humans and machines. 
+### Key Principles of REST
+_**Statelessness**_  
+One of the fundamental principles of REST is statelessness. Each request from a client to a server must contain all the information necessary to understand and fulfill the request. The server doesn't store any client state between requests, enhancing scalability and reliability.
 
-Something else to keep in mind: Headers and parameters are also important in the HTTP methods of a RESTful API HTTP request, as they contain important identifier information as to the request's metadata, authorization, uniform resource identifier (URI), caching, cookies, and more. There are request headers and response headers, each with their own HTTP connection information and status codes.
+_**Resource-Based Architecture**_  
+REST revolves around resources, which are entities that can be accessed and manipulated. These resources are identified by unique URIs (Uniform Resource Identifiers), and the interactions with these resources are performed using standard HTTP methods like GET, POST, PUT, DELETE, and others.
 
-### What is a JWT Token?
-JSON Web Token (JWT) is a means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON object that is digitally signed using JSON Web Signature (JWS) and/or encrypted using JSON Web Encryption (JWE).
+_**Uniform Interface**_  
+A uniform interface simplifies the architecture and decouples the client and server components. It includes four constraints: identification of resources, manipulation of resources through representations, self-descriptive messages, and hypermedia as the engine of application state (HATEOAS), which allows the server to guide clients through available actions.
+
+### Advantages of REST APIs
+_**Scalability**_  
+The stateless nature of REST APIs allows them to be highly scalable. Servers can handle a large number of client requests as they do not need to maintain session information between requests.
+
+_**Flexibility and Simplicity**_  
+REST APIs use standard HTTP methods, making them easy to understand and use. They also support various data formats, such as JSON (JavaScript Object Notation) and XML (Extensible Markup Language), providing flexibility in data representation.
+
+_**Platform Independence and Compatibility**_  
+As long as the client and server understand the HTTP protocol, REST APIs can be implemented in any programming language and can run on any platform. This interoperability promotes compatibility and ease of integration.
+
+### Common Use Cases
+REST APIs are widely used in various industries and applications:  
+- **Web Applications**: Many modern web applications use REST APIs to communicate with servers for data exchange.
+- **Mobile Applications**: Mobile apps often rely on RESTful services to retrieve data from servers.IoT (Internet of Things): RESTful APIs facilitate communication between IoT devices and servers, enabling seamless data transfer.
+- **Integration Between Systems**: REST APIs are crucial for integrating different systems and services, allowing them to work together efficiently.

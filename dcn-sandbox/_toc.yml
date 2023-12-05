@@ -1,22 +1,35 @@
 format: jb-article
 root: markdowns/home
 sections:
-- file: markdowns/api-environments
 - file: markdowns/api-basics
-- file: markdowns/api-services
+- file: markdowns/api-configurations
+- file: markdowns/api-endpoints
   sections:
-  - file: notebooks/country-format-async-request
-  - file: notebooks/pdf-async-request
-  - file: notebooks/pdf-async-request-customized-email
-  - file: notebooks/pdf-async-request-store-only
-  - file: notebooks/get-document
-  - file: notebooks/get-document-status-transitions
-  - file: notebooks/get-document-formats
-  - file: notebooks/new-sent-notifications
-  - file: notebooks/get-destinations
-  - file: notebooks/get-document-permalinks
-  - file: notebooks/get-subscriptions
-  - file: notebooks/get-subscription-features
-  - file: notebooks/get-plan
-  - file: notebooks/get-custom-plan
-
+  - file: markdowns/api-endpoints-authentication
+    sections:
+    - file: notebooks/get-token
+  - file: markdowns/api-endpoints-send-invoices
+    sections:
+    - file: notebooks/country-format-async-request
+    - file: notebooks/pdf-async-request
+    - file: notebooks/pdf-async-request-customized-email
+    - file: notebooks/pdf-async-request-store-only
+    - file: notebooks/new-sent-notifications
+  - file: markdowns/api-endpoints-invoice-lifecycle
+    sections:
+    - file: notebooks/get-document
+    - file: notebooks/get-document-status-transitions
+  - file: markdowns/api-endpoints-document-information
+    sections:
+    - file: notebooks/get-document-formats
+    - file: notebooks/get-document-permalinks
+  - file: markdowns/api-endpoints-receiver-entities
+    sections:
+    - file: notebooks/get-destinations
+  - file: markdowns/api-endpoints-networks
+  - file: markdowns/api-endpoints-company-subcriptions
+    sections:
+    - file: notebooks/get-subscriptions
+    - file: notebooks/get-subscription-features
+    - file: notebooks/get-plan
+    - file: notebooks/get-custom-plan
