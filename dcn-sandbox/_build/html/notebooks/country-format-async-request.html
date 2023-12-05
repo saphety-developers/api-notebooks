@@ -171,7 +171,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get integrated destinations</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../markdowns/api-endpoints-networks.html">Interoperability Networks</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company Subscription</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get Company Subscriptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get Company Subscription Features</a></li>
@@ -405,31 +404,44 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#countryformatasyncrequest">CountryFormatAsyncRequest</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchrounous">Asynchrounous</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Send electronic invoices using legal format</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#countryformatasyncrequest">CountryFormatAsyncRequest</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send-invoice-request-countryformatasyncrequest-processdocument">2. Send invoice request (CountryFormatAsyncRequest/processDocument)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">Build the service endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-payload-according-to-legal-invoice-format-cius-pt">Prepare the payload according to legal invoice format (CIUS-PT)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">Call service and get back the request id</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#send-invoice-request-countryformatasyncrequest-processdocument">2. Send invoice request (CountryFormatAsyncRequest/processDocument)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-structure">2.1 Request structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intlvatcode">intlVatCode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documenttype">documentType</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#country">country</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid">3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Build the service endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-request-status">Check your request status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-body">2.2 Request body</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cius-pt-xml-format">CIUS-PT XML format</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid">4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Build the service endpoint url</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.3 Request example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-endpoint-and-get-back-the-request-id">2.3 Call endpoint and get back the request id</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid">3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-endpoint-url">3.1 Build the endpoint url</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-request-status">3.2 Check your request status</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid">4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1 Build the endpoint url</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-invoice-integration-status">4.2 Get the invoice integration status</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -440,46 +452,33 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="send-electronic-invoices-using-legal-format">
+  <section id="send-electronic-invoices-using-legal-format">
 <h1>Send electronic invoices using legal format<a class="headerlink" href="#send-electronic-invoices-using-legal-format" title="Permalink to this heading">#</a></h1>
 <p>Portuguese government defined the <strong>“XML UBL CIUS-PT”</strong> as the format to interchange electronic invoices with the public administration entities.</p>
 <p>If your billing system is able to generate this format, you can use <strong>Saphety Invoice Network API</strong> services to send your invoices and store them according to all legal requirements.</p>
 <p>The technical specifications of CIUS-PT format was defined by eSPap and they are published here: <a class="reference external" href="https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx">Legal format documnetion documentation here at eSPAP</a></p>
 <p>Bear in mind that <strong>Saphety Invoice Network API</strong> only processes <strong>valid CIUS-PT</strong>, so before you start testing the <strong>API</strong>, ensure that the <strong>CIUS-PT</strong> extracted from your system are compliant with all the semantic and syntactic rules defined by eSPap. You can use this <strong>Validator tool</strong>, to check if CIUS-PT is valid and compliant with all the syntactic and semantic rules defined: <a class="reference external" href="https://svc.feap.gov.pt/Doc.Client/public/CIUSvalidation/PT?language=pt">A CIUS-PT validator is available here</a></p>
-<section id="countryformatasyncrequest">
-<h2>CountryFormatAsyncRequest<a class="headerlink" href="#countryformatasyncrequest" title="Permalink to this heading">#</a></h2>
-<p>This is the <strong>Saphety Invoice Network API</strong> web service for <strong>processing and sending</strong> invoices in <strong>CIUS-PT</strong> format.</p>
-<p>This service should be used in the following cases:</p>
-<ul class="simple">
-<li><p>Your customer is a public administration entity that requires to receive the invoice in the Portuguese legal format (<strong>CIUS-PT</strong>);</p></li>
-<li><p>Your customer is a company that requires receiving the invoice in a specific standard format (<strong>non CIUS-PT</strong>) such as a retail company, banking institutions etc.;</p></li>
-<li><p>You want a full automation on sending invoices directly from your billing system using a standard format as <strong>CIUS-PT</strong>;</p></li>
-<li><p>You want to control the delivery status of the invoices to your customer;</p></li>
-<li><p>You want to guarantee that your invoices are in accordance with all legal requirements such as digital signature, repository storage, delivery methods, etc.</p></li>
-</ul>
-<section id="service-steps">
-<h3>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong></p></li>
-<li><p>Send your invoice calling the <strong><em>asynchronous</em></strong> service <strong><em>CountryFormatAsyncRequest/processDocument</em></strong>; the legal invoice format (<strong>XML CIUS-PT</strong>) is sent in the payload</p></li>
-<li><p>Check the <strong>result</strong> of your request using the received <strong><em>request id</em></strong> at <strong><em>CountryFormatAsyncRequest/{RequestId}</em></strong></p></li>
-<li><p>Once the request has finished successfully you get back a <strong><em>document id</em></strong>; check the invoice integration status on your customer at service <strong><em>OutboundFinancialDocument/{DocumentId}</em></strong></p></li>
-</ol>
-<section id="asynchrounous">
-<h4>Asynchrounous<a class="headerlink" href="#asynchrounous" title="Permalink to this heading">#</a></h4>
-<p>The service <strong><em>CountryFormatAsyncRequest/processDocument</em></strong> is an asynchrounous service.<br>
-An invoice can take a few seconds to process (validate, sign, send to your costumer).<br>
-Since this is an integration API, thousands of requests can be sent at the same time.<br>
-For each request you receive immediately a <strong><em>request id</em></strong>. Use it to query the <strong><em>request status</em></strong>.</p>
 </section>
+<section id="countryformatasyncrequest">
+<h1>CountryFormatAsyncRequest<a class="headerlink" href="#countryformatasyncrequest" title="Permalink to this heading">#</a></h1>
+<p>This endpoint is used to send eletronic invoice to your costumer/receiver using the portuguese CIUS-PT legal format.</p>
+<p>After using this endpoint, a electronic invoice will be sent to your costumer/receiver to be integrated in their system.</p>
+<section id="endpoint-steps">
+<h2>Endpoint steps<a class="headerlink" href="#endpoint-steps" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Get a token from your credentials by calling the endpoint <strong><em>Account/getToken</em></strong></p></li>
+<li><p>Send your invoice calling the <strong><em>asynchronous</em></strong> endpoint <strong><em>CountryFormatAsyncRequest/processDocument</em></strong>; the legal invoice format (<strong>XML CIUS-PT</strong>) is sent in the payload</p></li>
+<li><p>Check the <strong>result</strong> of your request using the received <strong><em>request id</em></strong> at <strong><em>CountryFormatAsyncRequest/{RequestId}</em></strong></p></li>
+<li><p>Once the request has finished successfully you get back a <strong><em>document id</em></strong>; check the invoice integration status on your customer at endpoint <strong><em>OutboundFinancialDocument/{DocumentId}</em></strong></p></li>
+</ol>
 <section id="response-structure-from-server">
-<h4>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this heading">#</a></h4>
+<h3>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this heading">#</a></h3>
 <p>When a request is well formed and the authentication data is correct the system responds with a message envelope as follows:</p>
 <div class="highlight-Javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">	</span><span class="s2">&quot;CorrelationId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;GUID&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="cm">/* for correlation purposes */</span>
 <span class="w">	</span><span class="s2">&quot;IsValid&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">           </span><span class="cm">/* false in case of erros */</span>
 <span class="w">	</span><span class="s2">&quot;Errors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w">              </span><span class="cm">/* if empty is a good signal */</span>
-<span class="w">	</span><span class="s2">&quot;Data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span><span class="w">   </span><span class="cm">/* the data retuned ex: token, invoice status .. dependent on the service called */</span>
+<span class="w">	</span><span class="s2">&quot;Data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span><span class="w">   </span><span class="cm">/* the data retuned ex: token, invoice status .. dependent on the endpoint called */</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -487,149 +486,74 @@ For each request you receive immediately a <strong><em>request id</em></strong>.
 </section>
 </section>
 <section id="get-a-token-account-gettoken">
-<h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this heading">#</a></h2>
-<p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
-<ul class="simple">
-<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
-or</p></li>
-<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
-</ul>
-<p>Use those credentials to get a token at:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SANDBOX - Test Environment</span>
-<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
-
-<span class="c1"># Saphety Invoice Network - Production Environment</span>
-<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="c1"># SIN account service url</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Account/getToken&quot;</span>
-
-<span class="c1"># Example of username and password</span>
-<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;sin_api_documentation_user@saphety.com&#39;</span>
-<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;request_password&#39;</span>
-
-<span class="c1"># Auhtentication data goes in payload as json</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s1">&#39;Username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
-      <span class="s1">&#39;Password&#39;</span><span class="p">:</span> <span class="n">password</span>
-<span class="p">}</span>
-<span class="c1"># Payload goes in json, serialize the payloal object to json</span>
-<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
-<span class="c1"># Indicate in header that payload is json</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
-    <span class="p">}</span>
-<span class="c1"># POST request to get a token</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Formating the response to json for visualization purposes only</span>
-<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;d72f5a6f-0dcf-4185-943b-1790c1215fc1&quot;,
-    &quot;IsValid&quot;: true,
-    &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiYmMwMWQ4MTAtMDhjNC00YTYyLWJlZjctNTkzNjQ1NjRmMGM2IiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjIwMjIzNTAzLCJleHAiOjE2MjAyNTIzMDMsImlhdCI6MTYyMDIyMzQ0MywiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.rOfYmF16W473-SrnmESU-1ovgaYNDtAZXsi3Ti3dbf0&quot;
-}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your token is at:</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">token</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiYmMwMWQ4MTAtMDhjNC00YTYyLWJlZjctNTkzNjQ1NjRmMGM2IiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjIwMjIzNTAzLCJleHAiOjE2MjAyNTIzMDMsImlhdCI6MTYyMDIyMzQ0MywiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.rOfYmF16W473-SrnmESU-1ovgaYNDtAZXsi3Ti3dbf0
-</pre></div>
-</div>
-</div>
-</div>
+<h1>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this heading">#</a></h1>
+<p>Get a token from your account credentials using endpoint api/Account/getToken<br />
+Check <a class="reference internal" href="get-token.html"><span class="doc std std-doc">here</span></a> how to obtain an authentication token.</p>
 </section>
 <section id="send-invoice-request-countryformatasyncrequest-processdocument">
-<h2>2. Send invoice request (CountryFormatAsyncRequest/processDocument)<a class="headerlink" href="#send-invoice-request-countryformatasyncrequest-processdocument" title="Permalink to this heading">#</a></h2>
-<p>Now that you have a token, you can send an invoice in the legal format (CIUS-PT).</p>
-<section id="build-the-service-endpoint-url">
-<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this heading">#</a></h3>
-<p>In the service url you need to supply two parameters:</p>
-<ol class="arabic simple">
-<li><p>Invoice issuer NIF <strong><em><IssuerNIF></em></strong> (prefixed with the country code)
-Must be the NIF of the registered company (ex: PT507957547). This NIF will be matched against the account registration in <strong>Saphety Invoice Network (Production environment)</strong> or <strong>SANDBOX (Test environment)</strong>, for authorization purposes.</p></li>
-<li><p>The document type <strong><em><DocumentType></em></strong> must be one of the following</p>
-<ol class="arabic simple">
-<li><p><strong>INVOICE</strong></p></li>
-<li><p><strong>CREDIT_NOTE</strong></p></li>
-<li><p><strong>DEBIT_NOTE</strong></p></li>
-<li><p><strong>INVOICE_RECEIPT</strong></p></li>
-<li><p><strong>SIMPLIFIED_INVOICE</strong></p></li>
-</ol>
-</li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">CountryFormatAsyncRequest</span><span class="o">/</span><span class="n">processDocument</span><span class="o">/&lt;</span><span class="n">IssuerNIF</span><span class="o">&gt;/&lt;</span><span class="n">DocumentType</span><span class="o">&gt;/</span><span class="n">PT</span>
-</pre></div>
-</div>
-<p>For sending an invoice the service endpoint becomes (example):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">CountryFormatAsyncRequest</span><span class="o">/</span><span class="n">processDocument</span><span class="o">/</span><span class="n">PT507957547</span><span class="o">/</span><span class="n">INVOICE</span><span class="o">/</span><span class="n">PT</span>
-</pre></div>
-</div>
+<h1>2. Send invoice request (CountryFormatAsyncRequest/processDocument)<a class="headerlink" href="#send-invoice-request-countryformatasyncrequest-processdocument" title="Permalink to this heading">#</a></h1>
+<p>This endpoint is asynchrounous. Thousands of requests can be requested at the same time. For each request you receive immediately a request id. Use it to query the request status.</p>
+<section id="request-structure">
+<h2>2.1 Request structure<a class="headerlink" href="#request-structure" title="Permalink to this heading">#</a></h2>
+<p>In the url you need to supply three parameters:</p>
+<section id="intlvatcode">
+<h3>intlVatCode<a class="headerlink" href="#intlvatcode" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Description</strong>: Tax identification of the supplier/issuer entity (aka as vatNumber).</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Example</strong>: “PT518576302”</p></li>
+<li><p><strong><em>Notes</em></strong>: Only accepts valid vatNumbers and filled with the countryCode prefix.</p></li>
+</ul>
+</section>
+<section id="documenttype">
+<h3>documentType<a class="headerlink" href="#documenttype" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Description</strong>: Type of document that is sent.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Allowed values</strong>: “INVOICE”, “CREDIT_NOTE”, “DEBIT_NOTE”, “INVOICE_RECEIPT”, “SIMPLIFIED_INVOICE”</p></li>
+<li><p><strong>Example</strong>: “INVOICE”</p></li>
+</ul>
+</section>
+<section id="country">
+<h3>country<a class="headerlink" href="#country" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Description</strong>: Contry code of the contry legal format. It is a fixed value since we sending invoices compliant for legal format of Portuguese legislation.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: XML</p></li>
+</ul>
+</section>
+</section>
+<section id="request-body">
+<h2>2.2 Request body<a class="headerlink" href="#request-body" title="Permalink to this heading">#</a></h2>
+<p>At endpoint body you need to supply the CIUS-PT XML of the invoice.</p>
+<section id="cius-pt-xml-format">
+<h3>CIUS-PT XML format<a class="headerlink" href="#cius-pt-xml-format" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Description</strong>: The body of this endpoint it’s the CIUS-PT XML format of the invoice.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Example</strong>: “PT”</p></li>
+</ul>
+</section>
+</section>
+<section id="request-example">
+<h2>2.3 Request example<a class="headerlink" href="#request-example" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url form sending invoices requires issuer NIF and country and the document type</span>
 <span class="n">issuer_nif</span> <span class="o">=</span> <span class="s2">&quot;PT507957547&quot;</span>
 <span class="n">document_type</span> <span class="o">=</span> <span class="s2">&quot;INVOICE&quot;</span>
 
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/CountryFormatAsyncRequest/processDocument/</span><span class="si">{IssuerNIF}</span><span class="s2">/</span><span class="si">{DocumentType}</span><span class="s2">/PT&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/CountryFormatAsyncRequest/processDocument/</span><span class="si">{IssuerNIF}</span><span class="s2">/</span><span class="si">{DocumentType}</span><span class="s2">/PT&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
     <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
     <span class="n">IssuerNIF</span><span class="o">=</span><span class="n">issuer_nif</span><span class="p">,</span>
     <span class="n">DocumentType</span><span class="o">=</span><span class="n">document_type</span>
 <span class="p">)</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/CountryFormatAsyncRequest/processDocument/PT507957547/INVOICE/PT
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="prepare-the-payload-according-to-legal-invoice-format-cius-pt">
-<h3>Prepare the payload according to legal invoice format (CIUS-PT)<a class="headerlink" href="#prepare-the-payload-according-to-legal-invoice-format-cius-pt" title="Permalink to this heading">#</a></h3>
-<p>As mentioned before, Saphety Invoice Network (SIN) API only processes valid CIUS-PT, so, ensure that the CIUS-PT that you are going to put into the payload is a valid one.<br />
-<a class="reference external" href="https://www.espap.gov.pt/spfin/normas/Paginas/normas.aspx">Legal Format [CISU-PT] technical specification is available here</a><br />
-<a class="reference external" href="https://doc-server.saphety.com/Doc.Client/public/CIUSvalidation/PT?language=pt">CIUS-PT validator is available here</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># request boby must be a valid CIUS-PT</span>
+
+<span class="c1"># request boby must be a valid CIUS-PT</span>
 <span class="n">body_cius_pt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="s2">&lt;ubl:Invoice xmlns:cac=&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2&quot; </span>
 <span class="s2">xmlns:cbc=&quot;urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2&quot; xmlns:ubl=&quot;urn:oasis:names:specification:ubl:schema:xsd:Invoice-2&quot;&gt;</span>
@@ -772,11 +696,16 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/CountryFormatAsyncRequest/processDocument/PT507957547/INVOICE/PT
+</pre></div>
+</div>
+</div>
 </div>
 <p><font color=red>* <strong>Note:</strong> the payload example showed here is a sample created by Saphety, you can use another cius-pt payload with your data, as long as it is a valid one.</font></p>
-</section>
-<section id="call-service-and-get-back-the-request-id">
-<h3>Call service and get back the request id<a class="headerlink" href="#call-service-and-get-back-the-request-id" title="Permalink to this heading">#</a></h3>
+<section id="call-endpoint-and-get-back-the-request-id">
+<h3>2.3 Call endpoint and get back the request id<a class="headerlink" href="#call-endpoint-and-get-back-the-request-id" title="Permalink to this heading">#</a></h3>
+<p><strong>Send</strong> your electronic invoice using the endpoint <em><strong>/api/CountryFormatAsyncRequest/processDocument/:intlVatCode/:documentType/:country</strong></em>, then record the <strong>request id</strong> from response Data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -786,76 +715,57 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
     <span class="p">}</span>
 <span class="c1"># POST request to send the invoice</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">body_cius_pt</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># formating the response to json for visualization purposes only</span>
+
+<span class="c1"># formating the response to json for visualization purposes only</span>
 <span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># your request id is at:</span>
+<span class="n">request_id</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;65f2b7bf-4c68-4b7a-b9a6-a12d5cd6c12a&quot;,
+    &quot;CorrelationId&quot;: &quot;f6ef8ee6-9e28-4612-bec4-7502e05415a0&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;ddf7b642-8dd9-4e21-a848-b735cf8faa2a&quot;
+    &quot;Data&quot;: &quot;c5a88c1a-219b-4218-a157-edd5c5e62b06&quot;
 }
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your request id is at:</span>
-<span class="n">request_id</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;The request id to query on service status: &#39;</span> <span class="o">+</span> <span class="n">request_id</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The request id to query on service status: ddf7b642-8dd9-4e21-a848-b735cf8faa2a
-</pre></div>
-</div>
-</div>
-</div>
+</section>
 </section>
 </section>
 <section id="check-to-success-of-your-request-countryformatasyncrequest-requestid">
-<h2>3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid" title="Permalink to this heading">#</a></h2>
-<p>Query the system using this <strong><em>request id</em></strong> in order to get the status (success or error) of your request</p>
-<section id="id1">
-<h3>Build the service endpoint url<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>In the service url you need to supply the <strong><em>request id</em></strong> received</p>
+<h1>3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid" title="Permalink to this heading">#</a></h1>
+<p><strong>Get</strong> the request status by the <strong>request id</strong> using the endpoint <em><strong>/api/CountryFormatAsyncRequest/:id</strong></em></p>
+<section id="build-the-endpoint-url">
+<h2>3.1 Build the endpoint url<a class="headerlink" href="#build-the-endpoint-url" title="Permalink to this heading">#</a></h2>
+<p>In the url you need to supply the <strong><em>request id</em></strong> received</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">CountryFormatAsyncRequest</span><span class="o">/&lt;</span><span class="n">RequestId</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving the status of a process</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN endpoint url for retrieving the status of a process</span>
 
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/CountryFormatAsyncRequest/</span><span class="si">{RequestId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
-    <span class="n">RequestId</span><span class="o">=</span><span class="n">request_id</span>
-<span class="p">)</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/CountryFormatAsyncRequest/&quot;</span> <span class="o">+</span> <span class="n">request_id</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/CountryFormatAsyncRequest/ddf7b642-8dd9-4e21-a848-b735cf8faa2a
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/CountryFormatAsyncRequest/c5a88c1a-219b-4218-a157-edd5c5e62b06
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="check-your-request-status">
-<h3>Check your request status<a class="headerlink" href="#check-your-request-status" title="Permalink to this heading">#</a></h3>
+<h2>3.2 Check your request status<a class="headerlink" href="#check-your-request-status" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -880,67 +790,53 @@ Must be the NIF of the registered company (ex: PT507957547). This NIF will be ma
 <span class="c1">#request status (Queued, Running, Error, Finished)</span>
 <span class="n">request_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;AsyncStatus&quot;</span><span class="p">]</span>
 
-<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Queued&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request in queue to be processed check the status again in a few seconds...&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Running&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request is runnig check the status again in a few seconds...&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request has finished with the following errors:&quot;</span><span class="p">)</span>
-    <span class="n">error_list</span><span class="o">=</span><span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;ErrorList&quot;</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">error_list</span><span class="p">)</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Correct the errros and sublit the document again&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Finished&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">request_status</span> <span class="o">==</span> <span class="s2">&quot;Finished&quot;</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Your request has finished.&quot;</span><span class="p">)</span>
     <span class="n">outbound_financial_document_id</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;OutboundFinancialDocumentId&quot;</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You have created the outbound document id: &quot;</span> <span class="o">+</span> <span class="n">outbound_financial_document_id</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your request status: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">);</span>
-
-<span class="c1"># the final status Finished and Error</span>
-<span class="k">if</span> <span class="n">request_status</span> <span class="o">!=</span> <span class="s2">&quot;Finished&quot;</span> <span class="ow">and</span> <span class="n">request_status</span> <span class="o">!=</span> <span class="s2">&quot;Error&quot;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your is not finished yet: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your request has finished.
-You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
+You have created the outbound document id: c720b060-6849-40ee-a2cd-143c3e32486e
 </pre></div>
 </div>
 </div>
 </div>
+<p><br>Your request status is at response.Data.AsyncStatus, see the possible values:</p>
+<p><strong>“Queued”</strong>: The request is in queue to be processed. Check the status again in a few seconds.</p>
+<p><strong>“Running”</strong>: The request is still runnig. Check the status again in a few seconds.</p>
+<p><strong>“Error”</strong>: Your request has finished with errors. Check the error list at response.Data.ErrorList. You need to correct the errors and submit the document again (new request).</p>
+<p><strong>“Finished”</strong>: Your request has finished without errors. The request has created the outbound document id at response.Data.OutboundFinancialDocumentId. With “OutboundFinancialDocumentId” you can query the system for invoice notification status using the endpoint /api/OutboundFinancialDocument/:id.</p>
 </section>
 </section>
 <section id="check-the-invoice-integration-status-outboundfinancialdocument-documentid">
-<h2>4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})<a class="headerlink" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid" title="Permalink to this heading">#</a></h2>
-<p>With the received outbound financial <strong><em>document id</em></strong> you can query the system for document integration status.</p>
-<section id="id2">
-<h3>Build the service endpoint url<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<p>In the service url you need to supply the <strong><em>outbound financial document id</em></strong> received.</p>
+<h1>4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})<a class="headerlink" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid" title="Permalink to this heading">#</a></h1>
+<p><strong>Get</strong> the invoice integration status by the <strong>Document id</strong> (response “OutboundFinancialDocumentId“) using endpoint <em><strong>OutboundFinancialDocument/:id</strong></em></p>
+<section id="id1">
+<h2>4.1 Build the endpoint url<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>In the url you need to supply the <strong><em>outbound financial document id</em></strong> received.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocument</span><span class="o">/&lt;</span><span class="n">OutboundFinancialDocumentId</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">outbound_financial_document_id</span><span class="p">:</span>
-     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your do not have a valid document id. Make sure the service CountryFormatAsyncRequest finished successfully last known status: &quot;</span> <span class="o">+</span> <span class="n">request_status</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
-    <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/OutboundFinancialDocument/</span><span class="si">{OutboundFinancialDocumentId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-        <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
-        <span class="n">OutboundFinancialDocumentId</span><span class="o">=</span><span class="n">outbound_financial_document_id</span>
-    <span class="p">)</span>
-    <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span><span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span><span class="s2">&quot;/api/OutboundFinancialDocument/&quot;</span> <span class="o">+</span> <span class="n">outbound_financial_document_id</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/OutboundFinancialDocument/c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/OutboundFinancialDocument/c720b060-6849-40ee-a2cd-143c3e32486e
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="get-the-invoice-integration-status">
+<h2>4.2 Get the invoice integration status<a class="headerlink" href="#get-the-invoice-integration-status" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -958,11 +854,11 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;f91b2b02-2d0e-481a-8cda-8ef5babfa358&quot;,
+    &quot;CorrelationId&quot;: &quot;cc35adec-42a2-4b16-a8be-97f4e0f447bf&quot;,
     &quot;IsValid&quot;: true,
     &quot;Errors&quot;: [],
     &quot;Data&quot;: {
-        &quot;Id&quot;: &quot;c4e864e7-69b6-4110-b4e3-a1cfa00a7d01&quot;,
+        &quot;Id&quot;: &quot;c720b060-6849-40ee-a2cd-143c3e32486e&quot;,
         &quot;VirtualOperatorCode&quot;: null,
         &quot;CompanyIntlVatCode&quot;: &quot;PT507641230&quot;,
         &quot;DocumentType&quot;: &quot;INVOICE&quot;,
@@ -975,10 +871,11 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
         &quot;DocumentLink&quot;: &quot;&quot;,
         &quot;DocumentTotal&quot;: 11.07,
         &quot;CurrencyCode&quot;: &quot;EUR&quot;,
+        &quot;NotificationStatus&quot;: &quot;Delivered&quot;,
         &quot;IntegrationStatus&quot;: &quot;Received&quot;,
         &quot;IntegrationDate&quot;: &quot;2021-01-03 00:00:00&quot;,
         &quot;LastUpdateDate&quot;: &quot;2021-01-03 00:00:00&quot;,
-        &quot;AuthorId&quot;: &quot;3de7fd65-86c1-49dc-a261-9e2cc31b6386&quot;,
+        &quot;AuthorId&quot;: &quot;e199d2e6-c1e8-4f7c-bb1e-01ea815c31f3&quot;,
         &quot;Errors&quot;: null,
         &quot;CreationDate&quot;: &quot;2021-01-01 00:00:00&quot;
     }
@@ -987,7 +884,7 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </div>
 </div>
 </div>
-<p>The integration status of an electronic invoice in archive is returned at “IntegrationStatus” parameter.<br />
+<p>The integration status of an electronic invoice in archive is returned at “Data.IntegrationStatus” parameter.<br />
 <strong>IntegrationStatus</strong>, indicates the current integration status that the electronic invoice has in archive, see the possible values returned:</p>
 <ul class="simple">
 <li><p><strong>NotIntegrated</strong> - electronic invoice not sent to receiver entity for integration</p></li>
@@ -1000,31 +897,7 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
 </ul>
 <p><strong>[Important note_1]</strong> When an electronic invoice is sent to a receiver entity outside Saphety network, the integration status will always be <em><strong>“NotIntegrated”</strong></em>. In this scenario the electronic invoice may have also a <strong>notification status</strong> <em>(Sent, Delivered, Read or Error)</em> if the CIUS-PT XML has the tag BT-49 filled in with the receiver entity’s email address (ex: &lt;cbc:EndpointID schemeID=”EM”&gt;<a class="reference external" href="mailto:eee&#37;&#52;&#48;hh&#46;pt">eee<span>&#64;</span>hh<span>&#46;</span>pt</a>&lt;/cbc:EndpointID&gt;), otherwise the document will have <strong>integration status</strong> as <em><strong>“NotIntegrated”</strong></em> and <strong>notification status</strong> as <em><strong>“NoEmails”</strong></em>.</p>
 <p><strong>[Important note_2]</strong> When an electronic invoice is sent to a receiver entity of a network with interoperability, but the issuer does not have an approved connection to this network, the integration status will always be <em><strong>“NotIntegrated”</strong></em>. In this scenario the electronic invoice may have also a <strong>notification status</strong> <em>(Sent, Delivered, Read or Error)</em> if the CIUS-PT XML has the tag BT-49 filled in with the receiver entity’s email address (ex: &lt;cbc:EndpointID schemeID=”EM”&gt;<a class="reference external" href="mailto:eee&#37;&#52;&#48;hh&#46;pt">eee<span>&#64;</span>hh<span>&#46;</span>pt</a>&lt;/cbc:EndpointID&gt;), otherwise the document will have <strong>integration status</strong> as <em><strong>“NotIntegrated”</strong></em> and <strong>notification status</strong> as <em><strong>“NoEmails”</strong></em>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integration_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;IntegrationStatus&quot;</span><span class="p">]</span>
-
-<span class="c1">#integration status (Sent, Received,...)</span>
-
-<span class="k">if</span> <span class="n">integration_status</span> <span class="o">==</span> <span class="s2">&quot;Sent&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Sent: Your invoice has been sucessfully processed and sent to your customer.&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">integration_status</span> <span class="o">==</span> <span class="s2">&quot;Received&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Received: Your invoice has been received by your customer.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your invoice integration status: &quot;</span> <span class="o">+</span> <span class="n">integration_status</span><span class="p">);</span>
-
-<span class="c1">#print(json.dumps(json_response, indent=4))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Received: Your invoice has been received by your customer.
-</pre></div>
-</div>
-</div>
-</div>
 <p><strong>Use the OutboundFinancialDocumentId for any future checks on the invoice.</strong></p>
-</section>
 </section>
 </section>
 
@@ -1077,31 +950,44 @@ You have created the outbound document id: c4e864e7-69b6-4110-b4e3-a1cfa00a7d01
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#countryformatasyncrequest">CountryFormatAsyncRequest</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#asynchrounous">Asynchrounous</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Send electronic invoices using legal format</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#countryformatasyncrequest">CountryFormatAsyncRequest</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send-invoice-request-countryformatasyncrequest-processdocument">2. Send invoice request (CountryFormatAsyncRequest/processDocument)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">Build the service endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-payload-according-to-legal-invoice-format-cius-pt">Prepare the payload according to legal invoice format (CIUS-PT)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-service-and-get-back-the-request-id">Call service and get back the request id</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#send-invoice-request-countryformatasyncrequest-processdocument">2. Send invoice request (CountryFormatAsyncRequest/processDocument)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-structure">2.1 Request structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intlvatcode">intlVatCode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documenttype">documentType</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#country">country</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid">3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Build the service endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-request-status">Check your request status</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-body">2.2 Request body</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cius-pt-xml-format">CIUS-PT XML format</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid">4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Build the service endpoint url</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.3 Request example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-endpoint-and-get-back-the-request-id">2.3 Call endpoint and get back the request id</a></li>
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid">3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-endpoint-url">3.1 Build the endpoint url</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-request-status">3.2 Check your request status</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-invoice-integration-status-outboundfinancialdocument-documentid">4. Check the invoice integration status (OutboundFinancialDocument/{DocumentId})</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">4.1 Build the endpoint url</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-the-invoice-integration-status">4.2 Get the invoice integration status</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

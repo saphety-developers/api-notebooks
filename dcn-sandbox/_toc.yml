@@ -26,7 +26,6 @@ sections:
   - file: markdowns/api-endpoints-receiver-entities
     sections:
     - file: notebooks/get-destinations
-  - file: markdowns/api-endpoints-networks
   - file: markdowns/api-endpoints-company-subcriptions
     sections:
     - file: notebooks/get-subscriptions
