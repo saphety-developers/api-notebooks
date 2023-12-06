@@ -15,6 +15,7 @@ sections:
     - file: notebooks/pdf-async-request-customized-email
     - file: notebooks/pdf-async-request-store-only
     - file: notebooks/new-sent-notifications
+    - file: notebooks/new-sent-notifications-costumized-email
   - file: markdowns/api-endpoints-invoice-lifecycle
     sections:
     - file: notebooks/get-document
