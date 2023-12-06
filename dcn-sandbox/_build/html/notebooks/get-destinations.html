@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/get-destinations';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Company Subscription" href="../markdowns/api-endpoints-company-subcriptions.html" />
-    <link rel="prev" title="Receiver Entities" href="../markdowns/api-endpoints-receiver-entities.html" />
+    <link rel="next" title="Company subscription" href="../markdowns/api-endpoints-company-subcriptions.html" />
+    <link rel="prev" title="Receiver entities" href="../markdowns/api-endpoints-receiver-entities.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,9 +167,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="get-token.html">Get Token</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-send-invoices.html">Send Invoice</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="country-format-async-request.html">Send electronic invoices using legal format</a></li>
-
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-send-invoices.html">Send invoice</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="country-format-async-request.html">Send electronic invoice, <strong>using legal format</strong></a></li>
 
 
 
@@ -183,7 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-invoice-lifecycle.html">Invoice lifecycle</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-document.html">Get invoice <strong>status</strong></a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong> in archive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong></a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-document-informations.html">Documents information</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -191,11 +190,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="get-document-permalinks.html">Get invoice permanent links</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../markdowns/api-endpoints-receiver-entities.html">Receiver Entities</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../markdowns/api-endpoints-receiver-entities.html">Receiver entities</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Get integrated destinations</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company Subscription</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company subscription</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get Company Subscriptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get Company Subscription Features</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get Company Plan Information</a></li>
@@ -434,8 +433,11 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-integrated-destinations-companyconnections-destinations-or-companyconnections-destinations-searchvalue">2. Get integrated destinations (CompanyConnections/destinations OR CompanyConnections/destinations/{searchValue})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-endpoint-url">Build the endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-integrated-destination">Call the endpoint to get the integrated destination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-structure">2.1 Request structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#searchvalue">searchValue</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-integrated-destination">2.2 Call the endpoint to get the integrated destination</a></li>
 </ul>
 </li>
 </ul>
@@ -451,7 +453,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="get-integrated-destinations">
 <h1>Get integrated destinations<a class="headerlink" href="#get-integrated-destinations" title="Permalink to this heading">#</a></h1>
-<p>Use this endpoint to <strong>get</strong> all or filtred integrated destinations.</p>
+<p>Use this endpoint to <strong>get</strong> all or filtered integrated destinations.</p>
 <section id="endpoint-steps">
 <h2>Endpoint steps<a class="headerlink" href="#endpoint-steps" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -473,109 +475,30 @@ document.write(`
 </section>
 <section id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this heading">#</a></h2>
-<p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
-<ul class="simple">
-<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
-or</p></li>
-<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
-</ul>
-<p>Use those credentials to get a token at:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SANDBOX - Test Environment</span>
-<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
-
-<span class="c1"># Saphety Invoice Network - Production Environment</span>
-<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="c1"># SIN account endpoint url</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Account/getToken&quot;</span>
-
-<span class="c1"># the username and password you registerd in SIN</span>
-<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;sin_api_documentation_user@saphety.com&#39;</span>
-<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;request_password&#39;</span>
-
-<span class="c1"># auhtentication data goes in payload as json</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s1">&#39;Username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
-      <span class="s1">&#39;Password&#39;</span><span class="p">:</span> <span class="n">password</span>
-<span class="p">}</span>
-<span class="c1"># payload goes in json, serialize the payloal object to json</span>
-<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
-<span class="c1"># indicate in header that payload is json</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
-    <span class="p">}</span>
-<span class="c1"># POST request to get a token</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># formating the response to json for visualization purposes only</span>
-<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;caa3cc1e-e44f-4809-975f-9e0fba1fa910&quot;,
-    &quot;IsValid&quot;: true,
-    &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiZjVmMmMxOWUtMjBlMi00OTNmLWE4NzMtMDE0ZjI1MzJhOWVlIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE1ODI1MzgyLCJleHAiOjE2MTU4NTQxODIsImlhdCI6MTYxNTgyNTMyMiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.DbUTwpckCVAEp7H-cyNVjAzC1hrZdevKpm4iWtmxZEo&quot;
-}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your token is at:</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">token</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoiU0lOIEFQSSBET0NVTUVOVEFUSU9OIiwic3lzdGVtX2FkbWluIjoiRmFsc2UiLCJzZXNzaW9uX2lkIjoiZjVmMmMxOWUtMjBlMi00OTNmLWE4NzMtMDE0ZjI1MzJhOWVlIiwiY3AiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjE1ODI1MzgyLCJleHAiOjE2MTU4NTQxODIsImlhdCI6MTYxNTgyNTMyMiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.DbUTwpckCVAEp7H-cyNVjAzC1hrZdevKpm4iWtmxZEo
-</pre></div>
-</div>
-</div>
-</div>
+<p>Get a token from your account credentials using endpoint api/Account/getToken<br />
+Check <a class="reference internal" href="get-token.html"><span class="doc std std-doc">here</span></a> how to obtain an authentication token.</p>
 </section>
 <section id="get-integrated-destinations-companyconnections-destinations-or-companyconnections-destinations-searchvalue">
 <h2>2. Get integrated destinations (CompanyConnections/destinations OR CompanyConnections/destinations/{searchValue})<a class="headerlink" href="#get-integrated-destinations-companyconnections-destinations-or-companyconnections-destinations-searchvalue" title="Permalink to this heading">#</a></h2>
 <p><font color=orange>*
-<strong>Note:</strong> Here we will use the endpoint <strong><em>CompanyConnections/destinations/{searchValue}</em></strong> to get just one integrated company, searching for the company name. But you can user the endpoint <strong><em>CompanyConnections/destinations</em></strong> to get all integrated companies!</font></p>
-<section id="build-the-endpoint-url">
-<h3>Build the endpoint url<a class="headerlink" href="#build-the-endpoint-url" title="Permalink to this heading">#</a></h3>
-<p>In the endpoint url you need to supply the searchValue, in this case we will use a company name</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">CompanyConnections</span><span class="o">/</span><span class="n">destinations</span><span class="o">/&lt;</span><span class="n">searchValue</span><span class="o">&gt;</span>
-</pre></div>
-</div>
+<strong>Note:</strong> Here we will use the endpoint <strong><em>CompanyConnections/destinations/{searchValue}</em></strong> to get just one integrated company, searching for the company name. But you can use the endpoint <strong><em>CompanyConnections/destinations</em></strong> to get all integrated companies!</font></p>
+<section id="request-structure">
+<h3>2.1 Request structure<a class="headerlink" href="#request-structure" title="Permalink to this heading">#</a></h3>
+<p>In the endpoint url you have the option to supply the searchValue</p>
+<section id="searchvalue">
+<h4>searchValue<a class="headerlink" href="#searchvalue" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: The vat number or the name of the company</p></li>
+<li><p><strong>Required</strong>: No</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Example</strong>: “Company name”</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN endpoint url for retrieving inforfation on invoice previously sent</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/CompanyConnections/destinations/</span><span class="si">{searchValue}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
-    <span class="n">searchValue</span><span class="o">=</span><span class="s2">&quot;TRUSTED&quot;</span>
-<span class="p">)</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">searchValue</span> <span class="o">=</span> <span class="s2">&quot;TRUSTED&quot;</span>
+
+<span class="c1"># SIN endpoint url for retrieving inforfation on invoice previously sent</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/CompanyConnections/destinations/&quot;</span> <span class="o">+</span> <span class="n">searchValue</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -587,9 +510,10 @@ or</p></li>
 </div>
 </div>
 </section>
+</section>
 <section id="call-the-endpoint-to-get-the-integrated-destination">
-<h3>Call the endpoint to get the integrated destination<a class="headerlink" href="#call-the-endpoint-to-get-the-integrated-destination" title="Permalink to this heading">#</a></h3>
-<p>You will call the endpoint endpoint url</p>
+<h3>2.2 Call the endpoint to get the integrated destination<a class="headerlink" href="#call-the-endpoint-to-get-the-integrated-destination" title="Permalink to this heading">#</a></h3>
+<p><strong>Get</strong> the integrated destination companies, filtering with a <strong>search value</strong> using the endpoint <em><strong>/api/OutboundFinancialDocument/documentFormats/:documentId</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -668,7 +592,7 @@ or</p></li>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Receiver Entities</p>
+        <p class="prev-next-title">Receiver entities</p>
       </div>
     </a>
     <a class="right-next"
@@ -676,7 +600,7 @@ or</p></li>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Company Subscription</p>
+        <p class="prev-next-title">Company subscription</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -704,8 +628,11 @@ or</p></li>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-integrated-destinations-companyconnections-destinations-or-companyconnections-destinations-searchvalue">2. Get integrated destinations (CompanyConnections/destinations OR CompanyConnections/destinations/{searchValue})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-endpoint-url">Build the endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-integrated-destination">Call the endpoint to get the integrated destination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-structure">2.1 Request structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#searchvalue">searchValue</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-integrated-destination">2.2 Call the endpoint to get the integrated destination</a></li>
 </ul>
 </li>
 </ul>

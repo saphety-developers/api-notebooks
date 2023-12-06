@@ -1,4 +1,4 @@
-# Company Subscription
+# Company subscription
 <font size="5">[Get company subscribed plans](../notebooks/get-subscriptions.ipynb)</font><br>
 This endpoint is used to **retrieve** a company **subscribed** plans.
 

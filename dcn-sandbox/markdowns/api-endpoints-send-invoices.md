@@ -1,4 +1,4 @@
-# Send Invoice
+# Send invoice
 <font size="5">[Send electronic invoice using legal format](../notebooks/country-format-async-request.ipynb)</font><br>
 This endpoint is used to send electronic invoice, using the defined legal format **UBL2.1**, **CIUS-PT** and **XML**.
 

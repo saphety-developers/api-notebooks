@@ -1,4 +1,4 @@
-# Interoperability Networks
+# Interoperability networks
 <font size="5">[**TODO** Get the list of networks available]</font><br>
 This endpoint is used to **retrieve** a list of **all the networks**a available.
 
