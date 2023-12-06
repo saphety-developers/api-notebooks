@@ -20,7 +20,7 @@ sections:
     sections:
     - file: notebooks/get-document
     - file: notebooks/get-document-status-transitions
-  - file: markdowns/api-endpoints-document-information
+  - file: markdowns/api-endpoints-document-informations
     sections:
     - file: notebooks/get-document-formats
     - file: notebooks/get-document-permalinks

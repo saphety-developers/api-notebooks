@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Get invoice PDF or UBL from archive &#8212; API documentation</title>
+    <title>Get invoice formats &#8212; API documentation</title>
   
   
   
@@ -64,6 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/get-document-formats';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Get Document Permalinks" href="get-document-permalinks.html" />
+    <link rel="prev" title="Documents information" href="../markdowns/api-endpoints-document-informations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,10 +156,10 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../markdowns/api-basics.html">API Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdowns/api-configurations.html">API Environments</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../markdowns/api-endpoints.html">Endpoints</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../markdowns/api-endpoints.html">Endpoints</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-authentication.html">Authentication</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-token.html">Get Token</a></li>
 </ul>
@@ -181,11 +183,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong> in archive</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-receiver-entities.html">Receiver Entities</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../markdowns/api-endpoints-document-informations.html">Documents information</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Get invoice formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-document-permalinks.html">Get Document Permalinks</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-receiver-entities.html">Receiver Entities</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get integrated destinations</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company Subscription</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company Subscription</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get Company Subscriptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get Company Subscription Features</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get Company Plan Information</a></li>
@@ -408,7 +415,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Get invoice PDF or UBL from archive</h1>
+    <h1>Get invoice formats</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -418,15 +425,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid">2. Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">Build the service endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-formats">Call the service to get the formats</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-service-response">Read the service response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-structure">2.1 Request structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outboundfinancialdocumentid">OutboundFinancialDocumentId</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-formats">2.3 Call the service to get the formats</a></li>
 </ul>
 </li>
 </ul>
@@ -440,14 +450,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="get-invoice-pdf-or-ubl-from-archive">
-<h1>Get invoice PDF or UBL from archive<a class="headerlink" href="#get-invoice-pdf-or-ubl-from-archive" title="Permalink to this heading">#</a></h1>
-<p>Use this service to <strong>get</strong> all invoice formats from archive for your processed document.</p>
-<section id="service-steps">
-<h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="get-invoice-formats">
+<h1>Get invoice formats<a class="headerlink" href="#get-invoice-formats" title="Permalink to this heading">#</a></h1>
+<p>This endpoint is used to retrieve the invoice formats stored in archive.</p>
+<section id="endpoint-steps">
+<h2>Endpoint steps<a class="headerlink" href="#endpoint-steps" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong>;</p></li>
-<li><p>Get all invoice formats calling the service <strong><em>OutboundFinancialDocument/documentFormats/{documentId}</em></strong>;</p></li>
+<li><p>Get a token from your credentials by calling the endpoint <strong><em>Account/getToken</em></strong>;</p></li>
+<li><p>Get all invoice formats calling the endpoint <strong><em>OutboundFinancialDocument/documentFormats/{documentId}</em></strong>;</p></li>
 </ol>
 <section id="response-structure-from-server">
 <h3>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this heading">#</a></h3>
@@ -456,7 +466,7 @@ document.write(`
 <span class="w">	</span><span class="s2">&quot;CorrelationId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;GUID&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="cm">/* for correlation purposes */</span>
 <span class="w">	</span><span class="s2">&quot;IsValid&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">           </span><span class="cm">/* false in case of erros */</span>
 <span class="w">	</span><span class="s2">&quot;Errors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w">              </span><span class="cm">/* if empty is a good signal */</span>
-<span class="w">	</span><span class="s2">&quot;Data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span><span class="w">   </span><span class="cm">/* the data retuned ex: token, invoice status, dependent on the service called */</span>
+<span class="w">	</span><span class="s2">&quot;Data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span><span class="w">   </span><span class="cm">/* the data retuned ex: token, invoice status, dependent on the endpoint called */</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -464,108 +474,33 @@ document.write(`
 </section>
 <section id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this heading">#</a></h2>
-<p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
-<ul class="simple">
-<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
-or</p></li>
-<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
-</ul>
-<p>Use those credentials to get a token at:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SANDBOX - Test Environment</span>
-<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
-
-<span class="c1"># Saphety Invoice Network - Production Environment</span>
-<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="c1"># SIN account service url</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Account/getToken&quot;</span>
-
-<span class="c1"># the username and password you registerd in SIN</span>
-<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;sin_api_documentation_user@saphety.com&#39;</span>
-<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;request_password&#39;</span>
-
-<span class="c1"># auhtentication data goes in payload as json</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s1">&#39;Username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
-      <span class="s1">&#39;Password&#39;</span><span class="p">:</span> <span class="n">password</span>
-<span class="p">}</span>
-<span class="c1"># payload goes in json, serialize the payloal object to json</span>
-<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
-<span class="c1"># indicate in header that payload is json</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
-    <span class="p">}</span>
-<span class="c1"># POST request to get a token</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># formating the response to json for visualization purposes only</span>
-<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;592e5681-251a-4440-a30d-85f909f97199&quot;,
-    &quot;IsValid&quot;: true,
-    &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoic2luX2FwaV9kb2N1bWVudGF0aW9uX3VzZXJAc2FwaGV0eS5jb20iLCJzeXN0ZW1fYWRtaW4iOiJGYWxzZSIsInNlc3Npb25faWQiOiIwYTRhYmI3Ni1jYWExLTQ2YzAtODQ5My04M2Q2MjlmOTJhZWQiLCJjcCI6InNpbl9hcGlfZG9jdW1lbnRhdGlvbl91c2VyQHNhcGhldHkuY29tIiwicmwiOiJEZXZlbG9wZXIiLCJuYmYiOjE2Njk4MTE1NzQsImV4cCI6MTY2OTg0MDM3NCwiaWF0IjoxNjY5ODExNTE0LCJpc3MiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS8iLCJhdWQiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS9EY25TYW5kYm94In0.J7RBLAPt220VBGg49cQgC0HgUmMxqhRhQYScBZ56s_c&quot;
-}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your token is at:</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">token</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoic2luX2FwaV9kb2N1bWVudGF0aW9uX3VzZXJAc2FwaGV0eS5jb20iLCJzeXN0ZW1fYWRtaW4iOiJGYWxzZSIsInNlc3Npb25faWQiOiIwYTRhYmI3Ni1jYWExLTQ2YzAtODQ5My04M2Q2MjlmOTJhZWQiLCJjcCI6InNpbl9hcGlfZG9jdW1lbnRhdGlvbl91c2VyQHNhcGhldHkuY29tIiwicmwiOiJEZXZlbG9wZXIiLCJuYmYiOjE2Njk4MTE1NzQsImV4cCI6MTY2OTg0MDM3NCwiaWF0IjoxNjY5ODExNTE0LCJpc3MiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS8iLCJhdWQiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS9EY25TYW5kYm94In0.J7RBLAPt220VBGg49cQgC0HgUmMxqhRhQYScBZ56s_c
-</pre></div>
-</div>
-</div>
-</div>
+<p>Get a token from your account credentials using endpoint api/Account/getToken<br />
+Check <a class="reference internal" href="get-token.html"><span class="doc std std-doc">here</span></a> how to obtain an authentication token.</p>
 </section>
 <section id="get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid">
 <h2>2. Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})<a class="headerlink" href="#get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid" title="Permalink to this heading">#</a></h2>
 <p><font color=orange>* <strong>Note:</strong> The number of formats returned and their type depends on several factors. In the case of this documentation, the formats are fixed, as you can see in the following example.</font></p>
-<section id="build-the-service-endpoint-url">
-<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this heading">#</a></h3>
+<section id="request-structure">
+<h3>2.1 Request structure<a class="headerlink" href="#request-structure" title="Permalink to this heading">#</a></h3>
 <p>In the service url you need to supply the outboundfinancialdocumentId received</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocument</span><span class="o">/</span><span class="n">documentFormats</span><span class="o">/&lt;</span><span class="n">OutboundFinancialDocumentId</span><span class="o">&gt;</span>
-</pre></div>
-</div>
+<section id="outboundfinancialdocumentid">
+<h4>OutboundFinancialDocumentId<a class="headerlink" href="#outboundfinancialdocumentid" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: You need to supply the id of the invoice.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Example</strong>: “3fa85f64-5717-4562-b3fc-2c963f66afa6”</p></li>
+</ul>
+</section>
+</section>
+<section id="request-example">
+<h3>2.2 Request example<a class="headerlink" href="#request-example" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/OutboundFinancialDocument/documentFormats/</span><span class="si">{OutboundFinancialDocumentId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
-    <span class="n">OutboundFinancialDocumentId</span><span class="o">=</span><span class="s2">&quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;</span>
-<span class="p">)</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outboundFinancialDocumentId</span> <span class="o">=</span> <span class="s2">&quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;</span>
+
+<span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/OutboundFinancialDocument/documentFormats/&quot;</span> <span class="o">+</span> <span class="n">outboundFinancialDocumentId</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -578,8 +513,8 @@ or</p></li>
 </div>
 </section>
 <section id="call-the-service-to-get-the-formats">
-<h3>Call the service to get the formats<a class="headerlink" href="#call-the-service-to-get-the-formats" title="Permalink to this heading">#</a></h3>
-<p>You will call the service endpoint url</p>
+<h3>2.3 Call the service to get the formats<a class="headerlink" href="#call-the-service-to-get-the-formats" title="Permalink to this heading">#</a></h3>
+<p><strong>Get</strong> the invoice formats stored in archive by the <strong>Document id</strong> (“OutboundFinancialDocumentId“) using endpoint <em><strong>/api/OutboundFinancialDocument/documentFormats/:documentId</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -616,10 +551,7 @@ or</p></li>
 </div>
 </div>
 </div>
-</section>
-<section id="read-the-service-response">
-<h3>Read the service response<a class="headerlink" href="#read-the-service-response" title="Permalink to this heading">#</a></h3>
-<p>Now you need to read the service response to format all document formats and get the end file</p>
+<p>The invoice formats are returned at response “Data.DocumentLink”, see the possible values returned</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for loop to see all Data</span>
@@ -679,6 +611,24 @@ UBL: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?to
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../markdowns/api-endpoints-document-informations.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Documents information</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="get-document-permalinks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Get Document Permalinks</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -697,15 +647,18 @@ UBL: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?to
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid">2. Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">Build the service endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-formats">Call the service to get the formats</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-service-response">Read the service response</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-structure">2.1 Request structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outboundfinancialdocumentid">OutboundFinancialDocumentId</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-formats">2.3 Call the service to get the formats</a></li>
 </ul>
 </li>
 </ul>
