@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Get invoice status in archive (electronic or PDF) &#8212; API documentation</title>
+    <title>Get invoice status &#8212; API documentation</title>
   
   
   
@@ -179,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../markdowns/api-endpoints-invoice-lifecycle.html">Invoice lifecycle</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Get invoice <strong>status</strong> in archive (electronic or PDF)</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Get invoice <strong>status</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong> in archive</a></li>
 </ul>
 </li>
@@ -410,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Get invoice status in archive (electronic or PDF)</h1>
+    <h1>Get invoice status</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,14 +420,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-document-status-by-documentid-outboundfinancialdocument-documentid">2. Get a Document status by DocumentId (OutboundFinancialDocument/{documentId})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">Build the service endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-document">Call the service to get the document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-structure">2.1 Request structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outboundfinancialdocumentid">OutboundFinancialDocumentId</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-document">2.3 Call the service to get the document</a></li>
 </ul>
 </li>
 </ul>
@@ -441,14 +445,14 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="get-invoice-status-in-archive-electronic-or-pdf">
-<h1>Get invoice <strong>status</strong> in archive (electronic or PDF)<a class="headerlink" href="#get-invoice-status-in-archive-electronic-or-pdf" title="Permalink to this heading">#</a></h1>
-<p>Use this service to <strong>get</strong> an invoice (electronic or PDF) <strong>status</strong> in archive for your processed document.</p>
-<section id="service-steps">
-<h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="get-invoice-status">
+<h1>Get invoice <strong>status</strong><a class="headerlink" href="#get-invoice-status" title="Permalink to this heading">#</a></h1>
+<p>This endpoint is used to retrieve invoice integration or notification status in archive.</p>
+<section id="endpoint-steps">
+<h2>Endpoint steps<a class="headerlink" href="#endpoint-steps" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Get a token from your credentials by calling the service <strong><em>Account/getToken</em></strong>;</p></li>
-<li><p>Get an invoice status in archive calling the service <strong><em>OutboundFinancialDocument/{documentId}</em></strong>;</p></li>
+<li><p>Get a token from your credentials by calling the endpoint <strong><em>Account/getToken</em></strong>;</p></li>
+<li><p>Get an invoice status in archive calling the endpoint <strong><em>OutboundFinancialDocument/{documentId}</em></strong>;</p></li>
 </ol>
 <section id="response-structure-from-server">
 <h3>Response structure from server<a class="headerlink" href="#response-structure-from-server" title="Permalink to this heading">#</a></h3>
@@ -457,7 +461,7 @@ document.write(`
 <span class="w">	</span><span class="s2">&quot;CorrelationId&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;GUID&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="cm">/* for correlation purposes */</span>
 <span class="w">	</span><span class="s2">&quot;IsValid&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">           </span><span class="cm">/* false in case of erros */</span>
 <span class="w">	</span><span class="s2">&quot;Errors&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w">              </span><span class="cm">/* if empty is a good signal */</span>
-<span class="w">	</span><span class="s2">&quot;Data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span><span class="w">   </span><span class="cm">/* the data retuned ex: token, invoice status, dependent on the service called */</span>
+<span class="w">	</span><span class="s2">&quot;Data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span><span class="w">   </span><span class="cm">/* the data retuned ex: token, invoice status, dependent on the endpoint called */</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -465,121 +469,45 @@ document.write(`
 </section>
 <section id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this heading">#</a></h2>
-<p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
-<ul class="simple">
-<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
-or</p></li>
-<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
-</ul>
-<p>Use those credentials to get a token at:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SANDBOX - Test Environment</span>
-<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
-
-<span class="c1"># Saphety Invoice Network - Production Environment</span>
-<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="c1"># SIN account service url</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Account/getToken&quot;</span>
-
-<span class="c1"># the username and password you registerd in SIN</span>
-<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;sin_api_documentation_user@saphety.com&#39;</span>
-<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;request_password&#39;</span>
-
-<span class="c1"># auhtentication data goes in payload as json</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s1">&#39;Username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
-      <span class="s1">&#39;Password&#39;</span><span class="p">:</span> <span class="n">password</span>
-<span class="p">}</span>
-<span class="c1"># payload goes in json, serialize the payloal object to json</span>
-<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
-<span class="c1"># indicate in header that payload is json</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
-    <span class="p">}</span>
-<span class="c1"># POST request to get a token</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># formating the response to json for visualization purposes only</span>
-<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;640d50fc-8b54-429c-90d0-883c9229c581&quot;,
-    &quot;IsValid&quot;: true,
-    &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW1hby5nb2RpbmhvQHNhcGhldHkuY29tIiwidW5pcXVlX25hbWUiOiJTaW3Do28gR29kaW5obyIsInN5c3RlbV9hZG1pbiI6IkZhbHNlIiwic2Vzc2lvbl9pZCI6ImYxODhkMjNlLTdiZTUtNDVmMy1iYzBkLWIxMWU0NWRhNWY1ZSIsImNwIjoic2ltYW8uZ29kaW5ob0BzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjM2NjQ5MDYyLCJleHAiOjE2NDI2NDkwMDIsImlhdCI6MTYzNjY0OTAwMiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.F1dusIPLNP7PoOaaAM1b1KwB8xy8EI9-pzXOPOAaT2k&quot;
-}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your token is at:</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">token</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW1hby5nb2RpbmhvQHNhcGhldHkuY29tIiwidW5pcXVlX25hbWUiOiJTaW3Do28gR29kaW5obyIsInN5c3RlbV9hZG1pbiI6IkZhbHNlIiwic2Vzc2lvbl9pZCI6ImYxODhkMjNlLTdiZTUtNDVmMy1iYzBkLWIxMWU0NWRhNWY1ZSIsImNwIjoic2ltYW8uZ29kaW5ob0BzYXBoZXR5LmNvbSIsInJsIjoiRGV2ZWxvcGVyIiwibmJmIjoxNjM2NjQ5MDYyLCJleHAiOjE2NDI2NDkwMDIsImlhdCI6MTYzNjY0OTAwMiwiaXNzIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vIiwiYXVkIjoiaHR0cHM6Ly93d3cuc2FwaGV0eS5jb20vRGNuU2FuZGJveCJ9.F1dusIPLNP7PoOaaAM1b1KwB8xy8EI9-pzXOPOAaT2k
-</pre></div>
-</div>
-</div>
-</div>
+<p>Get a token from your account credentials using endpoint api/Account/getToken<br />
+Check <a class="reference internal" href="get-token.html"><span class="doc std std-doc">here</span></a> how to obtain an authentication token.</p>
 </section>
 <section id="get-a-document-status-by-documentid-outboundfinancialdocument-documentid">
 <h2>2. Get a Document status by DocumentId (OutboundFinancialDocument/{documentId})<a class="headerlink" href="#get-a-document-status-by-documentid-outboundfinancialdocument-documentid" title="Permalink to this heading">#</a></h2>
-<section id="build-the-service-endpoint-url">
-<h3>Build the service endpoint url<a class="headerlink" href="#build-the-service-endpoint-url" title="Permalink to this heading">#</a></h3>
+<section id="request-structure">
+<h3>2.1 Request structure<a class="headerlink" href="#request-structure" title="Permalink to this heading">#</a></h3>
 <p>In the service url you need to supply the outboundfinancialdocumentId received</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseUrl</span><span class="o">&gt;/</span><span class="n">OutboundFinancialDocument</span><span class="o">/&lt;</span><span class="n">OutboundFinancialDocumentId</span><span class="o">&gt;</span>
-</pre></div>
-</div>
+<section id="outboundfinancialdocumentid">
+<h4>OutboundFinancialDocumentId<a class="headerlink" href="#outboundfinancialdocumentid" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Description</strong>: You need to supply the id of the invoice.</p></li>
+<li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Type</strong>: string</p></li>
+<li><p><strong>Example</strong>: “3fa85f64-5717-4562-b3fc-2c963f66afa6”</p></li>
+</ul>
+</section>
+</section>
+<section id="request-example">
+<h3>2.2 Request example<a class="headerlink" href="#request-example" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/OutboundFinancialDocument/</span><span class="si">{OutboundFinancialDocumentId}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-    <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
-    <span class="n">OutboundFinancialDocumentId</span><span class="o">=</span><span class="s2">&quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;</span>
-<span class="p">)</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">service_url</span>
+<span class="n">outboundFinancialDocumentId</span> <span class="o">=</span> <span class="s2">&quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/OutboundFinancialDocument/&quot;</span> <span class="o">+</span> <span class="n">outboundFinancialDocumentId</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution-int.saphety.com/Dcn.Sandbox.WebApi/api/OutboundFinancialDocument/fc5e547d-8537-4e05-97d5-1159c62efd6f
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://dcn-solution.saphety.com/Dcn.Sandbox.WebApi/api/OutboundFinancialDocument/fc5e547d-8537-4e05-97d5-1159c62efd6f
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="call-the-service-to-get-the-document">
-<h3>Call the service to get the document<a class="headerlink" href="#call-the-service-to-get-the-document" title="Permalink to this heading">#</a></h3>
-<p>You will call the service endpoint url</p>
+<h3>2.3 Call the service to get the document<a class="headerlink" href="#call-the-service-to-get-the-document" title="Permalink to this heading">#</a></h3>
+<p><strong>Get</strong> the invoice status by the <strong>Document id</strong> (“OutboundFinancialDocumentId“) using endpoint <em><strong>OutboundFinancialDocument/:id</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
@@ -657,29 +585,6 @@ or</p></li>
 <p><strong>[Important note_3]</strong> A PDF invoice has always the <strong>integration status</strong> as <em><strong>“NotIntegrated”</strong></em>.</p>
 <p>If the PDF invoice was signed, stored and sent by email to the receiver entity, the <strong>notification status</strong> will return the status “<em><strong>Sent</strong></em>”, “<em><strong>Delivered</strong></em>”, “<em><strong>Read</strong></em>” or “<em><strong>Error</strong></em>”.</p>
 <p>If the PDF invoice was signed, stored and not sent by email to the receiver entity, the <strong>notification status</strong> will return the status <em><strong>“NoEmails”</strong></em>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integration_status</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">][</span><span class="s2">&quot;IntegrationStatus&quot;</span><span class="p">]</span>
-
-<span class="c1">#integration status (Sent, Received,...)</span>
-
-<span class="k">if</span> <span class="n">integration_status</span> <span class="o">==</span> <span class="s2">&quot;Sent&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Sent: Your invoice has been sucessfully processed and sent to your customer.&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">integration_status</span> <span class="o">==</span> <span class="s2">&quot;Received&quot;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Received: Your invoice has been received by your customer.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your invoice integration status: &quot;</span> <span class="o">+</span> <span class="n">integration_status</span><span class="p">);</span>
-
-<span class="c1">#print(json.dumps(json_response, indent=4))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Received: Your invoice has been received by your customer.
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 </section>
@@ -751,14 +656,18 @@ or</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-document-status-by-documentid-outboundfinancialdocument-documentid">2. Get a Document status by DocumentId (OutboundFinancialDocument/{documentId})</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-service-endpoint-url">Build the service endpoint url</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-document">Call the service to get the document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-structure">2.1 Request structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outboundfinancialdocumentid">OutboundFinancialDocumentId</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-document">2.3 Call the service to get the document</a></li>
 </ul>
 </li>
 </ul>
