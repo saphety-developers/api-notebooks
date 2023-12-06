@@ -64,6 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/pdf-async-request';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Send PDF invoice, by customized email notification" href="pdf-async-request-customized-email.html" />
+    <link rel="prev" title="Send electronic invoices using legal format" href="country-format-async-request.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,24 +156,37 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../markdowns/api-basics.html">API Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdowns/api-configurations.html">API Environments</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../markdowns/api-endpoints.html">Endpoints</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../markdowns/api-endpoints.html">Endpoints</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-authentication.html">Authentication</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-token.html">Get Token</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-invoice-lifecycle.html">Invoice lifecycle</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../markdowns/api-endpoints-send-invoices.html">Send Invoice</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="country-format-async-request.html">Send electronic invoices using legal format</a></li>
+
+
+
+
+
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Send PDF invoice, <strong>by standard</strong> email notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-async-request-customized-email.html">Send PDF invoice, <strong>by customized</strong> email notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="new-sent-notifications.html">Resend invoice by email notification</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-invoice-lifecycle.html">Invoice lifecycle</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-document.html">Get invoice <strong>status</strong> in archive (electronic or PDF)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong> in archive</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-receiver-entities.html">Receiver Entities</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-receiver-entities.html">Receiver Entities</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get integrated destinations</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company Subscription</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company Subscription</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get Company Subscriptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get Company Subscription Features</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get Company Plan Information</a></li>
@@ -404,7 +419,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-server-base-url">Endpoint Server Base URL</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
 </ul>
@@ -448,8 +463,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="send-pdf-invoice-by-standard-email-notification">
 <h1>Send PDF invoice, <strong>by standard</strong> email notification<a class="headerlink" href="#send-pdf-invoice-by-standard-email-notification" title="Permalink to this heading">#</a></h1>
 <p>This endpoint is used to <strong>sign</strong>, <strong>store</strong> and <strong>send</strong> PDF invoices by email to your costumers/receivers. The email notification sent to your costumers/receivers has a predefined content layout.</p>
-<section id="service-steps">
-<h2>Service steps<a class="headerlink" href="#service-steps" title="Permalink to this heading">#</a></h2>
+<section id="endpoint-steps">
+<h2>Endpoint steps<a class="headerlink" href="#endpoint-steps" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Get a token from your credentials by calling the endpoint <strong><em>Account/getToken</em></strong>;</p></li>
 <li><p>Send your invoice calling the <strong><em>asynchronous</em></strong> endpoint <strong><em>PdfAsyncRequest/processDocument</em></strong>;</p></li>
@@ -902,6 +917,24 @@ You have created the outbound document id: 5b29abb5-c178-4857-bc85-5744909ba83c
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="country-format-async-request.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Send electronic invoices using legal format</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pdf-async-request-customized-email.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Send PDF invoice, <strong>by customized</strong> email notification</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -920,7 +953,7 @@ You have created the outbound document id: 5b29abb5-c178-4857-bc85-5744909ba83c
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#service-steps">Service steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-server-base-url">Endpoint Server Base URL</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
 </ul>
