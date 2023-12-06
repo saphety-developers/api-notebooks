@@ -1,8 +1,10 @@
 format: jb-article
-root: markdowns/home
+root: markdowns/welcome
 sections:
-- file: markdowns/api-basics
-- file: markdowns/api-configurations
+- file: markdowns/introduction
+  sections:
+  - file: markdowns/api-basics
+  - file: markdowns/api-configurations
 - file: markdowns/api-endpoints
   sections:
   - file: markdowns/api-endpoints-authentication
