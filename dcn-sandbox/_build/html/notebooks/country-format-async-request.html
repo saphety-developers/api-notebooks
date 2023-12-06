@@ -563,7 +563,7 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <h2>2.3 Request example<a class="headerlink" href="#request-example" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url form sending invoices requires issuer NIF and country and the document type</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN endpoint url form sending invoices requires issuer NIF and country and the document type</span>
 <span class="n">issuer_nif</span> <span class="o">=</span> <span class="s2">&quot;PT507957547&quot;</span>
 <span class="n">document_type</span> <span class="o">=</span> <span class="s2">&quot;INVOICE&quot;</span>
 
@@ -843,7 +843,7 @@ You have created the outbound document id: c720b060-6849-40ee-a2cd-143c3e32486e
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN endpoint url for retrieving inforfation on invoice previously sent</span>
 <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span><span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span><span class="s2">&quot;/api/OutboundFinancialDocument/&quot;</span> <span class="o">+</span> <span class="n">outbound_financial_document_id</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
 </pre></div>

@@ -436,7 +436,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-document">2.3 Call the service to get the document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-document">2.3 Call the endpoint to get the document</a></li>
 </ul>
 </li>
 </ul>
@@ -481,7 +481,7 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <h2>2. Get a Document status by DocumentId (OutboundFinancialDocument/{documentId})<a class="headerlink" href="#get-a-document-status-by-documentid-outboundfinancialdocument-documentid" title="Permalink to this heading">#</a></h2>
 <section id="request-structure">
 <h3>2.1 Request structure<a class="headerlink" href="#request-structure" title="Permalink to this heading">#</a></h3>
-<p>In the service url you need to supply the outboundfinancialdocumentId received</p>
+<p>In the endpoint url you need to supply the outboundfinancialdocumentId received</p>
 <section id="outboundfinancialdocumentid">
 <h4>OutboundFinancialDocumentId<a class="headerlink" href="#outboundfinancialdocumentid" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
@@ -496,7 +496,7 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <h3>2.2 Request example<a class="headerlink" href="#request-example" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN endpoint url for retrieving inforfation on invoice previously sent</span>
 <span class="n">outboundFinancialDocumentId</span> <span class="o">=</span> <span class="s2">&quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;</span>
 <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/OutboundFinancialDocument/&quot;</span> <span class="o">+</span> <span class="n">outboundFinancialDocumentId</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
@@ -510,8 +510,8 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 </div>
 </div>
 </section>
-<section id="call-the-service-to-get-the-document">
-<h3>2.3 Call the service to get the document<a class="headerlink" href="#call-the-service-to-get-the-document" title="Permalink to this heading">#</a></h3>
+<section id="call-the-endpoint-to-get-the-document">
+<h3>2.3 Call the endpoint to get the document<a class="headerlink" href="#call-the-endpoint-to-get-the-document" title="Permalink to this heading">#</a></h3>
 <p><strong>Get</strong> the invoice status by the <strong>Document id</strong> (“OutboundFinancialDocumentId“) using endpoint <em><strong>OutboundFinancialDocument/:id</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -672,7 +672,7 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-document">2.3 Call the service to get the document</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-document">2.3 Call the endpoint to get the document</a></li>
 </ul>
 </li>
 </ul>

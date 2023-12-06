@@ -436,7 +436,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-formats">2.3 Call the service to get the formats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-formats">2.3 Call the endpoint to get the formats</a></li>
 </ul>
 </li>
 </ul>
@@ -482,7 +482,7 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <p><font color=orange>* <strong>Note:</strong> The number of formats returned and their type depends on several factors. In the case of this documentation, the formats are fixed, as you can see in the following example.</font></p>
 <section id="request-structure">
 <h3>2.1 Request structure<a class="headerlink" href="#request-structure" title="Permalink to this heading">#</a></h3>
-<p>In the service url you need to supply the outboundfinancialdocumentId received</p>
+<p>In the endpoint url you need to supply the outboundfinancialdocumentId received</p>
 <section id="outboundfinancialdocumentid">
 <h4>OutboundFinancialDocumentId<a class="headerlink" href="#outboundfinancialdocumentid" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
@@ -499,7 +499,7 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outboundFinancialDocumentId</span> <span class="o">=</span> <span class="s2">&quot;fc5e547d-8537-4e05-97d5-1159c62efd6f&quot;</span>
 
-<span class="c1"># SIN service url for retrieving inforfation on invoice previously sent</span>
+<span class="c1"># SIN endpoint url for retrieving inforfation on invoice previously sent</span>
 <span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/OutboundFinancialDocument/documentFormats/&quot;</span> <span class="o">+</span> <span class="n">outboundFinancialDocumentId</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
 </pre></div>
@@ -512,8 +512,8 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 </div>
 </div>
 </section>
-<section id="call-the-service-to-get-the-formats">
-<h3>2.3 Call the service to get the formats<a class="headerlink" href="#call-the-service-to-get-the-formats" title="Permalink to this heading">#</a></h3>
+<section id="call-the-endpoint-to-get-the-formats">
+<h3>2.3 Call the endpoint to get the formats<a class="headerlink" href="#call-the-endpoint-to-get-the-formats" title="Permalink to this heading">#</a></h3>
 <p><strong>Get</strong> the invoice formats stored in archive by the <strong>Document id</strong> (“OutboundFinancialDocumentId“) using endpoint <em><strong>/api/OutboundFinancialDocument/documentFormats/:documentId</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -658,7 +658,7 @@ UBL: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?to
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-service-to-get-the-formats">2.3 Call the service to get the formats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-formats">2.3 Call the endpoint to get the formats</a></li>
 </ul>
 </li>
 </ul>
