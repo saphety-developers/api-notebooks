@@ -429,6 +429,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-server-base-url">Endpoint Server Base URL</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
@@ -471,6 +472,20 @@ document.write(`
 <span class="w">	</span><span class="s2">&quot;Data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;Service Response Data&gt;&quot;</span><span class="w">   </span><span class="cm">/* the data retuned ex: token, invoice status, dependent on the endpoint called */</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+</section>
+<section id="endpoint-server-base-url">
+<h3>Endpoint Server Base URL<a class="headerlink" href="#endpoint-server-base-url" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SANDBOX - Test Environment</span>
+<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
+
+<span class="c1"># Saphety Invoice Network - Production Environment</span>
+<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -651,6 +666,7 @@ UBL: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?to
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-server-base-url">Endpoint Server Base URL</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>

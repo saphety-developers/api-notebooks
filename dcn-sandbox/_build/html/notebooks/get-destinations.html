@@ -429,6 +429,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-server-base-url">Endpoint Server Base URL</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
@@ -437,7 +438,8 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#searchvalue">searchValue</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-integrated-destination">2.2 Call the endpoint to get the integrated destination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-integrated-destination">2.3 Call the endpoint to get the integrated destination</a></li>
 </ul>
 </li>
 </ul>
@@ -472,6 +474,20 @@ document.write(`
 </pre></div>
 </div>
 </section>
+<section id="endpoint-server-base-url">
+<h3>Endpoint Server Base URL<a class="headerlink" href="#endpoint-server-base-url" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SANDBOX - Test Environment</span>
+<span class="n">server_base_adress</span> <span class="o">=</span> <span class="s2">&quot;dcn-solution.saphety.com/Dcn.Sandbox.WebApi&quot;</span>
+
+<span class="c1"># Saphety Invoice Network - Production Environment</span>
+<span class="c1">#server_base_adress = &quot;dcn-solution.saphety.com/Dcn.Business.WebApi&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this heading">#</a></h2>
@@ -493,6 +509,10 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <li><p><strong>Type</strong>: string</p></li>
 <li><p><strong>Example</strong>: “Company name”</p></li>
 </ul>
+</section>
+</section>
+<section id="request-example">
+<h3>2.2 Request example<a class="headerlink" href="#request-example" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">searchValue</span> <span class="o">=</span> <span class="s2">&quot;TRUSTED&quot;</span>
@@ -510,9 +530,8 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 </div>
 </div>
 </section>
-</section>
 <section id="call-the-endpoint-to-get-the-integrated-destination">
-<h3>2.2 Call the endpoint to get the integrated destination<a class="headerlink" href="#call-the-endpoint-to-get-the-integrated-destination" title="Permalink to this heading">#</a></h3>
+<h3>2.3 Call the endpoint to get the integrated destination<a class="headerlink" href="#call-the-endpoint-to-get-the-integrated-destination" title="Permalink to this heading">#</a></h3>
 <p><strong>Get</strong> the integrated destination companies, filtering with a <strong>search value</strong> using the endpoint <em><strong>/api/OutboundFinancialDocument/documentFormats/:documentId</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -624,6 +643,7 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-steps">Endpoint steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-structure-from-server">Response structure from server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endpoint-server-base-url">Endpoint Server Base URL</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
@@ -632,7 +652,8 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#searchvalue">searchValue</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-integrated-destination">2.2 Call the endpoint to get the integrated destination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#call-the-endpoint-to-get-the-integrated-destination">2.3 Call the endpoint to get the integrated destination</a></li>
 </ul>
 </li>
 </ul>
