@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Store PDF invoices &#8212; API documentation</title>
+    <title>Store PDF invoice &#8212; API documentation</title>
   
   
   
@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l3"><a class="reference internal" href="pdf-async-request.html">Send PDF invoice, <strong>by standard</strong> email notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pdf-async-request-customized-email.html">Send PDF invoice, <strong>by customized</strong> email notification</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Store PDF invoices</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Store PDF invoice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="new-sent-notifications.html">Resend invoice, <strong>by standard</strong> email notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="new-sent-notifications-costumized-email.html">Resend invoice, <strong>by costumized</strong> email notification</a></li>
 </ul>
@@ -185,20 +185,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-document-informations.html">Documents information</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-document-informations.html">Invoice archive</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-document-formats.html">Get invoice formats</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-document-permalinks.html">Get invoice permanent links</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-receiver-entities.html">Receiver entities</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get integrated destinations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get receivers</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company subscription</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get Company Subscriptions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get Company Subscription Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get Company Plan Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-custom-plan.html">Get Company Custom Plan Information</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-interoperability.html">Interoperability</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="get-all-networks.html">Get networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-network-receivers.html">Get network receivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-network-status-connection.html">Get network connection status</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Plan subscription</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get company subscriptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get company subscription features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get company plan information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-custom-plan.html">Get company custom plan information</a></li>
 </ul>
 </li>
 </ul>
@@ -417,7 +423,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Store PDF invoices</h1>
+    <h1>Store PDF invoice</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -467,10 +473,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="store-pdf-invoices">
-<h1>Store PDF invoices<a class="headerlink" href="#store-pdf-invoices" title="Permalink to this heading">#</a></h1>
-<p>This endpoint is used to sign and store PDF invoices. The signd PDF will not be sent to customers/receivers.</p>
-<p>After using this endpoint, a signed PDF invoice will archived in Saphety Invoice Networh repository.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="store-pdf-invoice">
+<h1>Store PDF invoice<a class="headerlink" href="#store-pdf-invoice" title="Permalink to this heading">#</a></h1>
+<p>This endpoint is used to <strong>sign</strong> and <strong>store</strong> PDF invoice. The signed PDF will not be sent to customers/receivers.</p>
+<p>After using this endpoint, a signed PDF invoice will be archived in Saphety Invoice Network repository.</p>
 <section id="endpoint-steps">
 <h2>Endpoint steps<a class="headerlink" href="#endpoint-steps" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -724,11 +730,9 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <h3>3.2 Call endpoint and get back the outbound document id<a class="headerlink" href="#call-endpoint-and-get-back-the-outbound-document-id" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
-    <span class="p">}</span>
-<span class="c1"># POST request to send the invoice</span>
+<span class="p">}</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="c1"># formating the response to json for visualization purposes only</span>
 <span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>

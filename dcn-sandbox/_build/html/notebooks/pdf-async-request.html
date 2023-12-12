@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Send PDF invoice, <strong>by standard</strong> email notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pdf-async-request-customized-email.html">Send PDF invoice, <strong>by customized</strong> email notification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="new-sent-notifications.html">Resend invoice, <strong>by standard</strong> email notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="new-sent-notifications-costumized-email.html">Resend invoice, <strong>by costumized</strong> email notification</a></li>
 </ul>
@@ -185,20 +185,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-document-informations.html">Documents information</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-document-informations.html">Invoice archive</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-document-formats.html">Get invoice formats</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-document-permalinks.html">Get invoice permanent links</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-receiver-entities.html">Receiver entities</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get integrated destinations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get receivers</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company subscription</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get Company Subscriptions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get Company Subscription Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get Company Plan Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-custom-plan.html">Get Company Custom Plan Information</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-interoperability.html">Interoperability</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="get-all-networks.html">Get networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-network-receivers.html">Get network receivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-network-status-connection.html">Get network connection status</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Plan subscription</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get company subscriptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get company subscription features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get company plan information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-custom-plan.html">Get company custom plan information</a></li>
 </ul>
 </li>
 </ul>
@@ -470,7 +476,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="send-pdf-invoice-by-standard-email-notification">
 <h1>Send PDF invoice, <strong>by standard</strong> email notification<a class="headerlink" href="#send-pdf-invoice-by-standard-email-notification" title="Permalink to this heading">#</a></h1>
-<p>This endpoint is used to <strong>sign</strong>, <strong>store</strong> and <strong>send</strong> PDF invoices by email to your costumers/receivers. The email notification sent to your costumers/receivers has a predefined content layout.</p>
+<p>This endpoint is used to <strong>sign</strong>, <strong>store</strong> and <strong>send</strong> PDF invoice by email to your costumers/receivers. The email notification sent to your costumers/receivers has a predefined content layout.</p>
 <section id="endpoint-steps">
 <h2>Endpoint steps<a class="headerlink" href="#endpoint-steps" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -507,68 +513,8 @@ document.write(`
 </section>
 <section id="get-a-token-account-gettoken">
 <h2>1. Get a token (Account/getToken)<a class="headerlink" href="#get-a-token-account-gettoken" title="Permalink to this heading">#</a></h2>
-<p>Credentials have be given to you, according to your registration at <strong>SANDBOX</strong> or <strong>Saphety Invoice Network</strong>:</p>
-<ul class="simple">
-<li><p>For <strong>Test purposes</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>SANDBOX</strong> registration<br>
-or</p></li>
-<li><p>For <strong>Production</strong>, the <strong><em>user</em></strong> and <strong><em>password</em></strong> defined at <strong>Saphety Invoice Network</strong> registration</p></li>
-</ul>
-<p>Use those credentials to get a token at:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">ServerBaseAddress</span><span class="o">&gt;/</span><span class="n">api</span><span class="o">/</span><span class="n">Account</span><span class="o">/</span><span class="n">getToken</span>
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="c1"># SIN account endpoint url</span>
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;</span> <span class="o">+</span> <span class="n">server_base_adress</span> <span class="o">+</span> <span class="s2">&quot;/api/Account/getToken&quot;</span>
-
-<span class="c1"># the username and password you registerd in SIN</span>
-<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;sin_api_documentation_user@saphety.com&#39;</span>
-<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;request_password&#39;</span>
-
-<span class="c1"># auhtentication data goes in payload as json</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s1">&#39;Username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
-      <span class="s1">&#39;Password&#39;</span><span class="p">:</span> <span class="n">password</span>
-<span class="p">}</span>
-<span class="c1"># payload goes in json, serialize the payloal object to json</span>
-<span class="n">request_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
-<span class="c1"># indicate in header that payload is json</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
-    <span class="p">}</span>
-<span class="c1"># POST request to get a token</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><font color=red>* <strong>Note:</strong> the credentials (user and password) in this documentation were created by Saphety and can only be used in the SANDBOX environment. For tests we recommend that you use the credentials you obtained when registering with the SANDBOX.</font></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># formating the response to json for visualization purposes only</span>
-<span class="n">json_response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_response</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
-
-<span class="c1"># your token is at:</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">json_response</span><span class="p">[</span><span class="s2">&quot;Data&quot;</span><span class="p">];</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &quot;CorrelationId&quot;: &quot;8f07e073-b47e-4fb0-a418-5cde450bb3a0&quot;,
-    &quot;IsValid&quot;: true,
-    &quot;Errors&quot;: [],
-    &quot;Data&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJzaW5fYXBpX2RvY3VtZW50YXRpb25fdXNlckBzYXBoZXR5LmNvbSIsInVuaXF1ZV9uYW1lIjoic2luX2FwaV9kb2N1bWVudGF0aW9uX3VzZXJAc2FwaGV0eS5jb20iLCJzeXN0ZW1fYWRtaW4iOiJGYWxzZSIsInNlc3Npb25faWQiOiI2YTZlMjYwZC03OGY3LTQxNjQtOTdjZS1hMzUxMTM0NWZhZjciLCJjcCI6InNpbl9hcGlfZG9jdW1lbnRhdGlvbl91c2VyQHNhcGhldHkuY29tIiwicmwiOiJEZXZlbG9wZXIiLCJuYmYiOjE3MDE0MzgzOTgsImV4cCI6MTcwNzQzODMzOCwiaWF0IjoxNzAxNDM4MzM4LCJpc3MiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS8iLCJhdWQiOiJodHRwczovL3d3dy5zYXBoZXR5LmNvbS9EY25TYW5kYm94In0.66t1577UJX4NMQWUGUwtvXDjLdfpDZBy2Jzwp0bpN14&quot;
-}
-</pre></div>
-</div>
-</div>
-</div>
+<p>Get a token from your account credentials using endpoint api/Account/getToken<br />
+Check <a class="reference internal" href="get-token.html"><span class="doc std std-doc">here</span></a> how to obtain an authentication token.</p>
 </section>
 <section id="send-pdf-invoice-request-pdfasyncrequest-processdocument">
 <h2>2. Send PDF invoice request (PdfAsyncRequest/processDocument)<a class="headerlink" href="#send-pdf-invoice-request-pdfasyncrequest-processdocument" title="Permalink to this heading">#</a></h2>

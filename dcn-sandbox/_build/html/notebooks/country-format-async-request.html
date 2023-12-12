@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l3"><a class="reference internal" href="pdf-async-request.html">Send PDF invoice, <strong>by standard</strong> email notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pdf-async-request-customized-email.html">Send PDF invoice, <strong>by customized</strong> email notification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="new-sent-notifications.html">Resend invoice, <strong>by standard</strong> email notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="new-sent-notifications-costumized-email.html">Resend invoice, <strong>by costumized</strong> email notification</a></li>
 </ul>
@@ -185,20 +185,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-document-informations.html">Documents information</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-document-informations.html">Invoice archive</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="get-document-formats.html">Get invoice formats</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-document-permalinks.html">Get invoice permanent links</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-receiver-entities.html">Receiver entities</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get integrated destinations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get receivers</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company subscription</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get Company Subscriptions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get Company Subscription Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get Company Plan Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-custom-plan.html">Get Company Custom Plan Information</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-interoperability.html">Interoperability</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="get-all-networks.html">Get networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-network-receivers.html">Get network receivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-network-status-connection.html">Get network connection status</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Plan subscription</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get company subscriptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get company subscription features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get company plan information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-custom-plan.html">Get company custom plan information</a></li>
 </ul>
 </li>
 </ul>
@@ -453,7 +459,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid">3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-success-of-your-request-countryformatasyncrequest-requestid">3. Check the success of your request (CountryFormatAsyncRequest/{RequestId})</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-endpoint-url">3.1 Build the endpoint url</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-request-status">3.2 Check your request status</a></li>
 </ul>
@@ -551,7 +557,7 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <ul class="simple">
 <li><p><strong>Description</strong>: Contry code of the contry legal format. It is a fixed value since we sending invoices compliant for legal format of Portuguese legislation.</p></li>
 <li><p><strong>Required</strong>: Yes</p></li>
-<li><p><strong>Type</strong>: XML</p></li>
+<li><p><strong>Example</strong>: “PT”</p></li>
 </ul>
 </section>
 </section>
@@ -564,7 +570,6 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <li><p><strong>Description</strong>: The body of this endpoint it’s the CIUS-PT XML format of the invoice.</p></li>
 <li><p><strong>Required</strong>: Yes</p></li>
 <li><p><strong>Type</strong>: string</p></li>
-<li><p><strong>Example</strong>: “PT”</p></li>
 </ul>
 </section>
 </section>
@@ -769,8 +774,8 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 </section>
 </section>
 </section>
-<section id="check-to-success-of-your-request-countryformatasyncrequest-requestid">
-<h1>3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})<a class="headerlink" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid" title="Permalink to this heading">#</a></h1>
+<section id="check-the-success-of-your-request-countryformatasyncrequest-requestid">
+<h1>3. Check the success of your request (CountryFormatAsyncRequest/{RequestId})<a class="headerlink" href="#check-the-success-of-your-request-countryformatasyncrequest-requestid" title="Permalink to this heading">#</a></h1>
 <p><strong>Get</strong> the request status by the <strong>request id</strong> using the endpoint <em><strong>/api/CountryFormatAsyncRequest/:id</strong></em></p>
 <section id="build-the-endpoint-url">
 <h2>3.1 Build the endpoint url<a class="headerlink" href="#build-the-endpoint-url" title="Permalink to this heading">#</a></h2>
@@ -1024,7 +1029,7 @@ You have created the outbound document id: c720b060-6849-40ee-a2cd-143c3e32486e
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-to-success-of-your-request-countryformatasyncrequest-requestid">3. Check to success of your request (CountryFormatAsyncRequest/{RequestId})</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-success-of-your-request-countryformatasyncrequest-requestid">3. Check the success of your request (CountryFormatAsyncRequest/{RequestId})</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-endpoint-url">3.1 Build the endpoint url</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-request-status">3.2 Check your request status</a></li>
 </ul>

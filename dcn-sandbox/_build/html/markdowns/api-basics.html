@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/pdf-async-request.html">Send PDF invoice, <strong>by standard</strong> email notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/pdf-async-request-customized-email.html">Send PDF invoice, <strong>by customized</strong> email notification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/pdf-async-request-store-only.html">Store PDF invoices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/pdf-async-request-store-only.html">Store PDF invoice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/new-sent-notifications.html">Resend invoice, <strong>by standard</strong> email notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/new-sent-notifications-costumized-email.html">Resend invoice, <strong>by costumized</strong> email notification</a></li>
 </ul>
@@ -185,20 +185,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/get-document-status-transitions.html">Get invoice <strong>status transitions</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api-endpoints-document-informations.html">Documents information</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api-endpoints-document-informations.html">Invoice archive</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/get-document-formats.html">Get invoice formats</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../notebooks/get-document-permalinks.html">Get invoice permanent links</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api-endpoints-receiver-entities.html">Receiver entities</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-destinations.html">Get integrated destinations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-destinations.html">Get receivers</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api-endpoints-company-subcriptions.html">Company subscription</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-subscriptions.html">Get Company Subscriptions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-subscription-features.html">Get Company Subscription Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-plan.html">Get Company Plan Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-custom-plan.html">Get Company Custom Plan Information</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api-endpoints-interoperability.html">Interoperability</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-all-networks.html">Get networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-network-receivers.html">Get network receivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-network-status-connection.html">Get network connection status</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api-endpoints-company-subcriptions.html">Plan subscription</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-subscriptions.html">Get company subscriptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-subscription-features.html">Get company subscription features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-plan.html">Get company plan information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../notebooks/get-custom-plan.html">Get company custom plan information</a></li>
 </ul>
 </li>
 </ul>
@@ -397,13 +403,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-audience">Target audience</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-and-functionality">Key Features and Functionality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Key Features and Functionality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-platforms-and-integration">Supported Platforms and Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-and-functionality">Key features and functionality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-benefits">Advantages and benefits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-platforms-and-integration">Supported platforms and integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-rest-api">What is a REST API?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-principles-of-rest">Key Principles of REST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-principles-of-rest">Key principles of REST</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-rest-apis">Advantages of REST APIs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-use-cases">Common Use Cases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-use-cases">Common use cases</a></li>
 </ul>
 </li>
 </ul>
@@ -424,7 +430,7 @@ document.write(`
 <p>Our API is targeted towards developers, software engineers, and businesses seeking to automate their invoicing processes.</p>
 </section>
 <section id="key-features-and-functionality">
-<h2>Key Features and Functionality<a class="headerlink" href="#key-features-and-functionality" title="Permalink to this heading">#</a></h2>
+<h2>Key features and functionality<a class="headerlink" href="#key-features-and-functionality" title="Permalink to this heading">#</a></h2>
 <p>Our API includes:</p>
 <ul class="simple">
 <li><p><strong>Invoice sending</strong>: send invoice (legal format and PDF).</p></li>
@@ -433,8 +439,8 @@ document.write(`
 <li><p><strong>Compliance and standards</strong>: Ensure adherence to regulatory standards.</p></li>
 </ul>
 </section>
-<section id="id1">
-<h2>Key Features and Functionality<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<section id="advantages-and-benefits">
+<h2>Advantages and benefits<a class="headerlink" href="#advantages-and-benefits" title="Permalink to this heading">#</a></h2>
 <p>By using our API, developers can:</p>
 <ul class="simple">
 <li><p>Reduce manual errors by automating the invoice generation and sending process.</p></li>
@@ -444,7 +450,7 @@ document.write(`
 </ul>
 </section>
 <section id="supported-platforms-and-integration">
-<h2>Supported Platforms and Integration<a class="headerlink" href="#supported-platforms-and-integration" title="Permalink to this heading">#</a></h2>
+<h2>Supported platforms and integration<a class="headerlink" href="#supported-platforms-and-integration" title="Permalink to this heading">#</a></h2>
 <p>The API supports integration across various platforms and programming languages.</p>
 <p>Developers can seamlessly integrate our API by making HTTP requests to our RESTful endpoints, allowing for easy integration into web applications, accounting software, and enterprise systems.</p>
 </section>
@@ -452,30 +458,30 @@ document.write(`
 <h2>What is a REST API?<a class="headerlink" href="#what-is-a-rest-api" title="Permalink to this heading">#</a></h2>
 <p>In today’s interconnected digital landscape, web services play a pivotal role in enabling communication between different applications. REST, which stands for Representational State Transfer, is an architectural style that provides standards and guidelines for creating web services. A RESTful API (Application Programming Interface) adheres to these principles, allowing applications to communicate over the internet by using standard HTTP methods.</p>
 <section id="key-principles-of-rest">
-<h3>Key Principles of REST<a class="headerlink" href="#key-principles-of-rest" title="Permalink to this heading">#</a></h3>
+<h3>Key principles of REST<a class="headerlink" href="#key-principles-of-rest" title="Permalink to this heading">#</a></h3>
 <p><em><strong>Statelessness</strong></em><br />
 One of the fundamental principles of REST is statelessness. Each request from a client to a server must contain all the information necessary to understand and fulfill the request. The server doesn’t store any client state between requests, enhancing scalability and reliability.</p>
-<p><em><strong>Resource-Based Architecture</strong></em><br />
+<p><em><strong>Resource-based architecture</strong></em><br />
 REST revolves around resources, which are entities that can be accessed and manipulated. These resources are identified by unique URIs (Uniform Resource Identifiers), and the interactions with these resources are performed using standard HTTP methods like GET, POST, PUT, DELETE, and others.</p>
-<p><em><strong>Uniform Interface</strong></em><br />
+<p><em><strong>Uniform interface</strong></em><br />
 A uniform interface simplifies the architecture and decouples the client and server components. It includes four constraints: identification of resources, manipulation of resources through representations, self-descriptive messages, and hypermedia as the engine of application state (HATEOAS), which allows the server to guide clients through available actions.</p>
 </section>
 <section id="advantages-of-rest-apis">
 <h3>Advantages of REST APIs<a class="headerlink" href="#advantages-of-rest-apis" title="Permalink to this heading">#</a></h3>
 <p><em><strong>Scalability</strong></em><br />
 The stateless nature of REST APIs allows them to be highly scalable. Servers can handle a large number of client requests as they do not need to maintain session information between requests.</p>
-<p><em><strong>Flexibility and Simplicity</strong></em><br />
+<p><em><strong>Flexibility and simplicity</strong></em><br />
 REST APIs use standard HTTP methods, making them easy to understand and use. They also support various data formats, such as JSON (JavaScript Object Notation) and XML (Extensible Markup Language), providing flexibility in data representation.</p>
-<p><em><strong>Platform Independence and Compatibility</strong></em><br />
+<p><em><strong>Platform independence and compatibility</strong></em><br />
 As long as the client and server understand the HTTP protocol, REST APIs can be implemented in any programming language and can run on any platform. This interoperability promotes compatibility and ease of integration.</p>
 </section>
 <section id="common-use-cases">
-<h3>Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permalink to this heading">#</a></h3>
+<h3>Common use cases<a class="headerlink" href="#common-use-cases" title="Permalink to this heading">#</a></h3>
 <p>REST APIs are widely used in various industries and applications:</p>
 <ul class="simple">
-<li><p><strong>Web Applications</strong>: Many modern web applications use REST APIs to communicate with servers for data exchange.</p></li>
-<li><p><strong>Mobile Applications</strong>: Mobile apps often rely on RESTful services to retrieve data from servers.IoT (Internet of Things): RESTful APIs facilitate communication between IoT devices and servers, enabling seamless data transfer.</p></li>
-<li><p><strong>Integration Between Systems</strong>: REST APIs are crucial for integrating different systems and services, allowing them to work together efficiently.</p></li>
+<li><p><strong>Web applications</strong>: Many modern web applications use REST APIs to communicate with servers for data exchange.</p></li>
+<li><p><strong>Mobile applications</strong>: Mobile apps often rely on RESTful services to retrieve data from servers.IoT (Internet of Things): RESTful APIs facilitate communication between IoT devices and servers, enabling seamless data transfer.</p></li>
+<li><p><strong>Integration between systems</strong>: REST APIs are crucial for integrating different systems and services, allowing them to work together efficiently.</p></li>
 </ul>
 </section>
 </section>
@@ -549,13 +555,13 @@ As long as the client and server understand the HTTP protocol, REST APIs can be 
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#target-audience">Target audience</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-and-functionality">Key Features and Functionality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Key Features and Functionality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-platforms-and-integration">Supported Platforms and Integration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features-and-functionality">Key features and functionality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-benefits">Advantages and benefits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-platforms-and-integration">Supported platforms and integration</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-rest-api">What is a REST API?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-principles-of-rest">Key Principles of REST</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-principles-of-rest">Key principles of REST</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-rest-apis">Advantages of REST APIs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-use-cases">Common Use Cases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-use-cases">Common use cases</a></li>
 </ul>
 </li>
 </ul>

@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Get invoice permanent links" href="get-document-permalinks.html" />
-    <link rel="prev" title="Documents information" href="../markdowns/api-endpoints-document-informations.html" />
+    <link rel="prev" title="Invoice archive" href="../markdowns/api-endpoints-document-informations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l3"><a class="reference internal" href="pdf-async-request.html">Send PDF invoice, <strong>by standard</strong> email notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pdf-async-request-customized-email.html">Send PDF invoice, <strong>by customized</strong> email notification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pdf-async-request-store-only.html">Store PDF invoice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="new-sent-notifications.html">Resend invoice, <strong>by standard</strong> email notification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="new-sent-notifications-costumized-email.html">Resend invoice, <strong>by costumized</strong> email notification</a></li>
 </ul>
@@ -185,20 +185,26 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="get-document-status-transitions.html">Get invoice <strong>status transitions</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../markdowns/api-endpoints-document-informations.html">Documents information</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../markdowns/api-endpoints-document-informations.html">Invoice archive</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Get invoice formats</a></li>
 <li class="toctree-l3"><a class="reference internal" href="get-document-permalinks.html">Get invoice permanent links</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-receiver-entities.html">Receiver entities</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get integrated destinations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-destinations.html">Get receivers</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Company subscription</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get Company Subscriptions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get Company Subscription Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get Company Plan Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="get-custom-plan.html">Get Company Custom Plan Information</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-interoperability.html">Interoperability</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="get-all-networks.html">Get networks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-network-receivers.html">Get network receivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-network-status-connection.html">Get network connection status</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../markdowns/api-endpoints-company-subcriptions.html">Plan subscription</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="get-subscriptions.html">Get company subscriptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-subscription-features.html">Get company subscription features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-plan.html">Get company plan information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-custom-plan.html">Get company custom plan information</a></li>
 </ul>
 </li>
 </ul>
@@ -433,9 +439,9 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid">2. Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-invoice-formats-outboundfinancialdocument-documentformats-documentid">2. Get invoice formats (OutboundFinancialDocument/documentFormats/{documentId})</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-structure">2.1 Request structure</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outboundfinancialdocumentid">OutboundFinancialDocumentId</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentid">documentId</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>
@@ -455,7 +461,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="get-invoice-formats">
 <h1>Get invoice formats<a class="headerlink" href="#get-invoice-formats" title="Permalink to this heading">#</a></h1>
-<p>This endpoint is used to retrieve the invoice formats stored in archive.</p>
+<p>This endpoint is used to <strong>get</strong> invoice formats stored in archive.</p>
 <section id="endpoint-steps">
 <h2>Endpoint steps<a class="headerlink" href="#endpoint-steps" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
@@ -494,14 +500,14 @@ document.write(`
 <p>Get a token from your account credentials using endpoint api/Account/getToken<br />
 Check <a class="reference internal" href="get-token.html"><span class="doc std std-doc">here</span></a> how to obtain an authentication token.</p>
 </section>
-<section id="get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid">
-<h2>2. Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})<a class="headerlink" href="#get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid" title="Permalink to this heading">#</a></h2>
+<section id="get-invoice-formats-outboundfinancialdocument-documentformats-documentid">
+<h2>2. Get invoice formats (OutboundFinancialDocument/documentFormats/{documentId})<a class="headerlink" href="#get-invoice-formats-outboundfinancialdocument-documentformats-documentid" title="Permalink to this heading">#</a></h2>
 <p><font color=orange>* <strong>Note:</strong> The number of formats returned and their type depends on several factors. In the case of this documentation, the formats are fixed, as you can see in the following example.</font></p>
 <section id="request-structure">
 <h3>2.1 Request structure<a class="headerlink" href="#request-structure" title="Permalink to this heading">#</a></h3>
-<p>In the endpoint url you need to supply the outboundfinancialdocumentId received</p>
-<section id="outboundfinancialdocumentid">
-<h4>OutboundFinancialDocumentId<a class="headerlink" href="#outboundfinancialdocumentid" title="Permalink to this heading">#</a></h4>
+<p>In the endpoint url you need to supply the <strong>documentId</strong> received</p>
+<section id="documentid">
+<h4>documentId<a class="headerlink" href="#documentid" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Description</strong>: You need to supply the id of the invoice.</p></li>
 <li><p><strong>Required</strong>: Yes</p></li>
@@ -534,11 +540,9 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <p><strong>Get</strong> the invoice formats stored in archive by the <strong>Document id</strong> (“OutboundFinancialDocumentId“) using endpoint <em><strong>/api/OutboundFinancialDocument/documentFormats/:documentId</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># build the request</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;bearer &#39;</span> <span class="o">+</span> <span class="n">token</span>
-    <span class="p">}</span>
-<span class="c1"># POST request to send the invoice</span>
+<span class="p">}</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">service_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="c1"># formating the response to json for visualization purposes only</span>
@@ -634,7 +638,7 @@ UBL: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?to
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Documents information</p>
+        <p class="prev-next-title">Invoice archive</p>
       </div>
     </a>
     <a class="right-next"
@@ -670,9 +674,9 @@ UBL: https://invoicenetwork.saphety.com/Dcn.Sandbox.WebApi/api/Content/stream?to
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token-account-gettoken">1. Get a token (Account/getToken)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-list-of-document-formats-storage-by-documentid-outboundfinancialdocument-documentformats-documentid">2. Get a List of Document Formats storage by DocumentId (OutboundFinancialDocument/documentFormats/{documentId})</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-invoice-formats-outboundfinancialdocument-documentformats-documentid">2. Get invoice formats (OutboundFinancialDocument/documentFormats/{documentId})</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-structure">2.1 Request structure</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outboundfinancialdocumentid">OutboundFinancialDocumentId</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentid">documentId</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-example">2.2 Request example</a></li>

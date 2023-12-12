@@ -29,6 +29,11 @@ sections:
   - file: markdowns/api-endpoints-receiver-entities
     sections:
     - file: notebooks/get-destinations
+  - file: markdowns/api-endpoints-interoperability
+    sections:
+    - file: notebooks/get-all-networks
+    - file: notebooks/get-network-receivers
+    - file: notebooks/get-network-status-connection
   - file: markdowns/api-endpoints-company-subcriptions
     sections:
     - file: notebooks/get-subscriptions

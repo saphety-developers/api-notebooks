@@ -4,7 +4,7 @@ Be compliant to all legal standards while issuing invoices and guaranteeing time
 
 **Type of invoices**:
 - Send Electronic invoices using Portuguese legal format (**UBL2.1**, **CIUS-PT** and **XML**), to **B2G** & **B2B** customers (receivers).
-- Send PDF invoices with a qualified digital certificate, to B2B & B2C customers (receivers).
+- Send PDF invoices with a qualified digital certificate, to **B2B** & **B2C** customers (receivers).
 
 ## Purpose
 The purpose of our API is to offer a standardized method to send invoices (legal format and PDF) programmatically.  
@@ -22,7 +22,7 @@ In Portugal, the obligation to send electronic invoices for public entities is r
 
 This obligation applies to large companies from **January 1st/2021**, and for small, medium and micro companies from **January 1st/2024**.
 
-Technical specifications for UBL2.1 CIUS-PT XML format was defined by eSPap and they are published here:[eSPap - SPFin - Fatura Eletrónica ](https://www.espap.gov.pt/FrontEnd/Paginas/Areas/SP_Fin/SP_Fin_NormasFEAP_tpl_1.aspx)  
+Technical specifications for UBL2.1 CIUS-PT XML format was defined by eSPap and they are published here: [eSPap - SPFin - Fatura Eletrónica ](https://www.espap.gov.pt/FrontEnd/Paginas/Areas/SP_Fin/SP_Fin_NormasFEAP_tpl_1.aspx)  
 
 **PDF invoices**
 From **January 1st/2024**, sending invoices in PDF format, must be done using the authentication of documents through a **Qualified Digital Certificate**, otherwise, they cease to have legal validity.
