@@ -24,7 +24,9 @@ This obligation applies to large companies from **January 1st/2021**, and for sm
 
 Technical specifications for UBL2.1 CIUS-PT XML format was defined by eSPap and they are published here: [eSPap - SPFin - Fatura Eletrónica ](https://www.espap.gov.pt/FrontEnd/Paginas/Areas/SP_Fin/SP_Fin_NormasFEAP_tpl_1.aspx)  
 
-**PDF invoices**
+Bear in mind that **Saphety Invoice Network API** only processes **valid CIUS-PT**, so before you start testing the **API**, ensure that the **CIUS-PT** extracted from your system are compliant with all the semantic and syntactic rules defined by eSPap. You can use this **Validator tool**, to check if CIUS-PT is valid and compliant with all the syntactic and semantic rules defined: [A CIUS-PT validator is available here](https://svc.feap.gov.pt/Doc.Client/public/CIUSvalidation/PT?language=pt)
+
+**PDF invoices**  
 From **January 1st/2024**, sending invoices in PDF format, must be done using the authentication of documents through a **Qualified Digital Certificate**, otherwise, they cease to have legal validity.
 
 To ensure compliance with this legal obligation (**Law-decree no. 28/2029**), Sovos/Saphety provides electronic signature service with a qualified certificate, which will ensure the authentication of all PDF invoices sent by your company.
