@@ -1,6 +1,6 @@
 # API Environments
 The **Saphety Invoice Network API** is connected to two environments:
-* Test (SANDBOX)
+* Test (Sandbox)
 * Production (Saphety Invoice Network)
 
 ## Sandbox environment
@@ -11,6 +11,7 @@ With these credentials you are able to test the API, simulating the scenarios as
 Through **sandbox**, you can have access to:
 * test API endpoints
 * access to API documentation
+* additional fields mapping guide for UBL CIUS-PT.xml
 
 **Sandbox** is a controlled environment, that allows to test all services, but **does not** persist/archive documents in a database. In this way, it is possible to test all services, without the risk of sending invoices to the test environments of the receiving entities, or sending emails to real addresses of the receiving entities.
 
