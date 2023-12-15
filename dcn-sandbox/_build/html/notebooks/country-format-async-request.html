@@ -484,7 +484,7 @@ document.write(`
                   
   <section id="send-electronic-invoice-using-legal-format">
 <h1>Send electronic invoice, <strong>using legal format</strong><a class="headerlink" href="#send-electronic-invoice-using-legal-format" title="Permalink to this heading">#</a></h1>
-<p>This endpoint is used to send eletronic invoice to your costumer/receiver using the portuguese CIUS-PT legal format.</p>
+<p>This endpoint is used to <strong>send eletronic invoice</strong> to your costumer/receiver using the portuguese CIUS-PT legal format.</p>
 <p>After using this endpoint, a electronic invoice will be sent to your costumer/receiver to be integrated in their system.</p>
 <section id="endpoint-steps">
 <h2>Endpoint steps<a class="headerlink" href="#endpoint-steps" title="Permalink to this heading">#</a></h2>
@@ -556,8 +556,9 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <section id="country">
 <h3>country<a class="headerlink" href="#country" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>Description</strong>: Contry code of the contry legal format. It is a fixed value since we sending invoices compliant for legal format of Portuguese legislation.</p></li>
+<li><p><strong>Description</strong>: Country code of the contry legal format. It is a fixed value since we sending invoices compliant for legal format of Portuguese legislation.</p></li>
 <li><p><strong>Required</strong>: Yes</p></li>
+<li><p><strong>Allowed values</strong>: “PT”</p></li>
 <li><p><strong>Example</strong>: “PT”</p></li>
 </ul>
 </section>
@@ -578,14 +579,17 @@ Check <a class="reference internal" href="get-token.html"><span class="doc std s
 <h2>2.3 Request example<a class="headerlink" href="#request-example" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN endpoint url form sending invoices requires issuer NIF and country and the document type</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># SIN endpoint url for sending invoices requires issuer NIF and country and the document type</span>
 <span class="n">issuer_nif</span> <span class="o">=</span> <span class="s2">&quot;PT507957547&quot;</span>
 <span class="n">document_type</span> <span class="o">=</span> <span class="s2">&quot;INVOICE&quot;</span>
+<span class="c1"># country only accepts PT</span>
+<span class="n">country</span> <span class="o">=</span> <span class="s2">&quot;PT&quot;</span>
 
-<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/CountryFormatAsyncRequest/processDocument/</span><span class="si">{IssuerNIF}</span><span class="s2">/</span><span class="si">{DocumentType}</span><span class="s2">/PT&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="n">service_url</span> <span class="o">=</span> <span class="s2">&quot;https://&quot;&quot;</span><span class="si">{ServerBaseUrl}</span><span class="s2">/api/CountryFormatAsyncRequest/processDocument/</span><span class="si">{IssuerNIF}</span><span class="s2">/</span><span class="si">{DocumentType}</span><span class="s2">/</span><span class="si">{Country}</span><span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
     <span class="n">ServerBaseUrl</span><span class="o">=</span><span class="n">server_base_adress</span><span class="p">,</span>
     <span class="n">IssuerNIF</span><span class="o">=</span><span class="n">issuer_nif</span><span class="p">,</span>
-    <span class="n">DocumentType</span><span class="o">=</span><span class="n">document_type</span>
+    <span class="n">DocumentType</span><span class="o">=</span><span class="n">document_type</span><span class="p">,</span>
+    <span class="n">Country</span><span class="o">=</span><span class="n">country</span>
 <span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">service_url</span><span class="p">)</span>
 
