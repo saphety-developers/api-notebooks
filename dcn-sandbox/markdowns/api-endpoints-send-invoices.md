@@ -15,6 +15,6 @@ This endpoint is used to **sign** and **store** PDF invoice.
 <font size="5">[Resend invoice, <b>by standard</b> email notification](../notebooks/new-sent-notifications.ipynb)</font><br>
 This endpoint is used to **resend** a already processed **"electronic invoice"** or **"PDF invoice"** by email, using a standard email notification.
 
-<font size="5">[Resend invoice, <b>by customized</b>email notification](../notebooks/new-sent-notifications.ipynb)</font><br>
+<font size="5">[Resend invoice, <b>by customized</b> email notification](../notebooks/new-sent-notifications.ipynb)</font><br>
 This endpoint is used to **resend** a already processed **"electronic invoice"** or **"PDF invoice"** by email, using a customized email notification.  
 <font color=red><b>This endpoint requires email domain configuration.</b></font>
