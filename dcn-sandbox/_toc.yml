@@ -5,6 +5,7 @@ sections:
   sections:
   - file: markdowns/api-basics
   - file: markdowns/api-configurations
+  - file: markdowns/api-support
 - file: markdowns/api-endpoints
   sections:
   - file: markdowns/api-endpoints-authentication
